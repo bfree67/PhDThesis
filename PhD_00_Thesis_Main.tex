@@ -1,0 +1,98 @@
+%	ROOT FILE of University of Guelph Ph.D. Thesis                  
+% 	created using a modified version of the University of California thesis style  
+\documentclass[a4paper,12pt,times,numbered,print,index]{guelphthesis} % For 2 sided: use [12pt, twoside]
+\usepackage{latexsym}
+\usepackage{amssymb}
+%\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{alltt}
+\usepackage{amsfonts}
+\usepackage{appendix}
+\usepackage{theorem}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{pdfsync}
+\usepackage{pdfpages}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{color}
+\usepackage{commath}
+
+%\usepackage{natbib}% I added this\
+%\usepackage{biblatex-chicago}
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
+\addbibresource{phdthesis.bib}
+
+\usepackage[hidelinks]{hyperref}
+%\hypersetup{linkcolor = black}
+\usepackage{algorithm2e}
+\usepackage{bm} % for boldface fonts
+\usepackage{listings} % for code verbatim
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{lineno}  %add line numbers for editting - turn off for final
+\usepackage{tabularx}
+\usepackage{enumitem}
+% These packages are all incorporated in the memoir class to one degree or another...
+%%% ToC (table of contents) APPEARANCE
+%\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\def\dsp{\def\baselinestretch{2.0}\large\normalsize}
+\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
+\makeatletter\@addtoreset{chapter}{part}\makeatother%
+\dsp
+\setcounter{secnumdepth}{3}
+
+
+%\include{com}
+
+\begin{document}
+
+\lstset{language=C}
+%*******************  Front Matter  *******************
+
+\begin{frontmatter}
+\begin{linenumbers} %turn off for final edits
+	%\include{PhD_01_TitlePage} % title, approval page, copyright page
+	%\include{PhD_02_Abstract}
+	%\include{PhD_03_Dedication}
+	%\include{PhD_04_Acknowledgements}
+\end{linenumbers} %turn off for final edit
+
+	%\include{PhD_05_TOC} % TOC, LOT, LOF
+\end{frontmatter}
+
+%*******************  Body  *******************
+\begin{linenumbers} %turn off for final edits
+	%\include{airzones}
+	\include{riskcheck}
+	%\include{Chapter1} 	%Chapter 1
+	%\include{Chapter2} 	%Chapter 2
+	%\include{Chapter3}	%Chapter 3
+	%\include{Chapter4}	%Chapter 4
+	%\include{Chapter5}	%Chapter 5
+	%\include{Chapter6} 	%Conclusions and Recommendations
+\end{linenumbers} %turn off for final edit
+\clearpage
+
+%*******************  Appendices  *******************
+\begin{appendices}	
+	\include{App1_Acronyms} 
+	\include{App2_Published}
+\end{appendices}
+\clearpage
+
+%*******************  Bibliography  *******************
+\printbibliography[heading=bibintoc]
+\clearpage
+
+\end{document}
