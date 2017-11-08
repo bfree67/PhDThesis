@@ -1,0 +1,181 @@
+\chapter{Vehicle Density Estimating}
+
+\section{Introduction}
+ 
+Vehicle congestion is a serious problem throughout the world that impacts transport, health and communication infrastructure.  In addition to concentrating ground level hazardous gases, high density, slow moving traffic places additional demands on road maintenance and cellular communication support.  Estimating the number and types of vehicles in a traffic jam can greatly assist planners and modelers interested in specific areas of emission impacts and evaluating secondary congestion outcomes such as lost time/productivity, cellular bandwidth requirements, and emergency response to large accidents. A novel stochastic Monte Carlo approach to estimate the number and type of vehicles on congested road sections was developed.  
+
+This method assumes that each vehicle occupies road space based on its length and inter-vehicle gap (IVG) during congested traffic.  The IVG is subject to variability due to driver behavior and average speed.  By assigning vehicle spaces on a road based on the average speed, each vehicle can be treated as an independent variable using Monte Carlo simulation to identify ranges of possible outcomes.  Under multiple sampling, the most likely number of mixed vehicles in a 1 km (unit road length) can be represented by the mode or median of the distribution of results, which is normal due to the Central Limit Theorem.  Once the modes of different speeds are calculated, vehicle density curves can be estimated for combined traffic and individual vehicle types.
+
+Various models have been used to estimate traffic on roads including statistical models \citep{Schreckenberg1995}, Kalman Filters \citep{Pourmoallem1997, Sun2004} and neural networks \citep{Ghosh-Dastidar2006}.  These models looked at how traffic flowed over time to assess traffic management strategies and required complex computations and historical data to calibrate the necessary equations for a specific stretch of road.  Monte Carlo methods have been used to validate results of traffic flow models \citep{Mihaylova2004} but not to generate results.  These models look at traffic flow under various conditions and not at the extreme condition of grid lock traffic.  Under this state, a simpler model can be used.
+
+\section{Assumptions}
+Vehicles in congested roads move at homogeneous speeds, due to the lack of options available to individual drivers.  Assuming that all vehicles follow an average speed in slow moving, grid locked traffic is fundamental to this model.  Fast moving traffic ($>$ 40 kph) is assumed to be free flowing and not applicable to this model.  
+The model accepts different road sections with different mixes of vehicles.  A highway near residential areas would have more sedans and sport utility vehicles (SUVs) while a road near a port or industrial zone would have more heavy goods vehicles and multi-axle rigs.
+
+\section{Methodology}
+The amount of vehicles on a unit road length depends on the length of the vehicle, $L$ and the ``space cushion” a driver keeps from the car in front, the Inter-Vehicle Gap, $IVG$.  The recommended $IVG$ is around 2-3 seconds ,  at the vehicle speed.  At 120 kph, this represents 67 meters while at 5 kph, it is around 2.8 meters.  The total road space,$RS$, required to operate a vehicle at speed $s$ is given as
+
+\begin{equation}
+\label{eq1:roadspace}
+RS(s)=L +IVG(s)
+\end{equation}
+
+For an SUV with a length of 5 meters traveling at 5 kph, the most likely road space,$RS$, required to operate the vehicle is $L + IVG(s=5) =$ 7.8 meters, as shown in Fig \ref{fig1:roadspace}.  Fig \ref{fig2:2secroadspace} shows the difference between vehicles spacing at different speeds assuming a 2 second $IVG$, at 5 kph and 40 kph.
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense1.png} 
+\caption{Required Road Space for a Vehicle.}
+\label{fig1:roadspace}
+\end{figure}
+%
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense2.png} 
+\caption{Two second road spacing at 5 and 40 kph.}
+\label{fig2:2secroadspace}
+\end{figure}
+%
+
+The total number of vehicles, $n$ on 1 km of road lane moving at the same speed, $s$, can be estimated by summing the number of individual vehicle lengths, $L_{i}$, and individual $IVG$'s, $IVG(s)_{i}$ in a unit stretch of road such as 1,000 m. 
+\begin{equation}
+\label{eq1:roadspace}
+n =  \left ( \sum_{i}\left ({L_{i} + IVG(s)_{i}} \right )\leq 1,000m   \right ) 
+\end{equation}
+
+Both $IVG(s)$ and $L$ are independent variables subject to a wide range of values.  A vehicle’s length may average from 1.8 meters for a sedan, and up to 9.7 meters for a large bus.  IVGs are independent of the vehicle due to driver behavior and changes in speed due to the vehicle in front of the driver.  At 5 kph, IVGs may range from 0.5 to 4 meters.  The range of possible road space used by a 5 meter long SUV, may vary as shown in Fig \ref{fig3:SUVspace}.  This is especially apparent at lower speeds ($<$ 20 kph) due to stop-and-go driving patterns.  
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense3.png} 
+\caption{Possible SUV road spacing at 5 kph.}
+\label{fig3:SUVspace}
+\end{figure}
+%
+
+Specific road use is important when estimating the types of vehicles in a sample population of vehicles.  During model development, four classes of vehicles were used.  Vehicle classes were selected to represent existing traffic based on observations in Kuwait City, as shown in Table \ref{tb1:vehicletypes}.
+
+\begin{table}[]
+\centering
+\caption{Vehicle classes.}
+\label{tb1:vehicletypes}
+\begin{tabular}{@{}ccccccccc@{}}
+\toprule
+\textbf{Vehicle} & \textbf{Vehicle} & \textbf{} & \textbf{} & \textbf{} & \textbf{Bumper to bumper} & \textbf{Gross vehicle} & \textbf{} & \textbf{Frequency} \\ 
+\textbf{Class} & \textbf{Type} & \textbf{Company} & \textbf{Model} & \textbf{Year} & \textbf{length (m)} & \textbf{mass (kg)} & \textbf{Fuel type} & \textbf{(f)} \\ \midrule
+1 & Sedan & Honda & Civic LX & 2013 & 1.79 & 1,650 & Petrol & 0.55 \\
+2 & SUV & Toyota & Prado VX & 2013 & 4.95 & 2,990 & Petrol & 0.33 \\
+3 & Bus, Midsize & Toyota & Coaster & 2013 & 6.25 & 5,180 & Diesel & 0.07 \\
+4 & Bus, Large & Tata & Starbus 54 & 2013 & 9.71 & 14,860 & Diesel & 0.05 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Initial frequencies of occurrence (f) for the different vehicle classes were assigned using a discrete probability distribution, as shown in Fig \ref{fig4:vehobs}, such that the total probability to select a vehicle was 1.  The number and type of vehicle classes can be expanded to account for better classification such as engine size, weight, fuel types, and age.
+ 
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense4.png} 
+\caption{Probability distribution of observed vehicles.}
+\label{fig4:vehobs}
+\end{figure}
+%
+
+A discrete algorithm was set up in a spreadsheet for multiple speeds ranging from 5 kph to 40 kph.  Table \ref{tb2:modelspeeds} shows speed sets and conversion to meters per second.  We modeled speeds less than 5 kph as 5 kph due to the $IVG$ kept by drivers at lower speeds.
+
+\begin{table}[]
+\centering
+\caption{Modeled speeds.}
+\label{tb2:modelspeeds}
+\begin{tabular}{cccccc}
+\textbf{kph} & 5   & 10  & 15  & 20  & 40   \\
+\textbf{m/s} & 1.4 & 2.8 & 4.2 & 5.6 & 11.2
+\end{tabular}
+\end{table}
+
+We assigned vehicle spaces based on a maximum number of 401 vehicles possible on a 1 km road moving at 5 kph.  This maximum value assumes that only sedans are on the road driving at the smallest possible safe distance.  During modeling however, the most vehicles in the same stretch of road never exceeded 170.  Reasonable $IVG$ timing values were assumed to range from 0.5 seconds, 2 seconds, and 4 seconds (maximum) in a continuous triangle distribution shown in Fig \ref{fig5:IVGobs}.
+ 
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense5.png} 
+\caption{Probability distribution of IVG timing.}
+\label{fig5:IVGobs}
+\end{figure}
+%
+
+Each vehicle length was assigned its own probability distribution using a pert distribution and vehicle manufacturer data.  We ran our stochastic model using 5,000 iterations on each variable. 
+During each iteration, a vehicle class was randomly selected from the 4 classes for each space.  The vehicle length was then selected based on the class of vehicle.  The safe distance was added to the vehicle length by randomly selecting a time spacing and multiplying it by the average speed to get the safe distance.  If the cumulative length was less than 1,000 meters, the class was assigned a value of 1 to allow tallying and grouping.  Vehicle classes at the end of the list that exceeded the 1 km length were assigned a zero and not counted.  Table \ref{tb3:selection} shows a portion of an iteration at 5 kph. 
+
+\begin{table}[]
+\centering
+\caption{Sample of an iteration showing vehicle class and road space selection for speed = 5 kph.}
+\label{tb3:selection}
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+\textbf{Vehicle space} & \textbf{Class} & \textbf{Type} & \textbf{Road Space (m)} & \textbf{Sedan} & \textbf{SUV} & \textbf{Bus, Medium} & \textbf{Bus, Large} \\ \midrule
+Vehicle 1 & 1 & Sedan & 4.7 & 1 & 0 & 0 & 0 \\
+Vehicle 2 & 2 & SUV & 6 & 0 & 1 & 0 & 0 \\
+Vehicle 3 & 1 & Sedan & 6 & 1 & 0 & 0 & 0 \\
+Vehicle 4 & 3 & Bus, Medium & 10.5 & 0 & 0 & 1 & 0 \\
+Vehicle 5 & 1 & Sedan & 6.6 & 1 & 0 & 0 & 0 \\
+Vehicle 6 & 2 & SUV & 6.4 & 0 & 1 & 0 & 0 \\
+Vehicle 7 & 1 & Sedan & 6.1 & 1 & 0 & 0 & 0 \\
+Vehicle 8 & 1 & Sedan & 4.9 & 1 & 0 & 0 & 0 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Results}
+Palisade Software’s @RISK Version 6.2 Industrial Edition (www.palisade.com) was used to provide the Monte Carlo analysis (MCA) using a Latin Hypercube sample generator.  A total of 50,000 iterations were run at 5, 10, 15, 20, and 40 kph at the same time.  Our model captures the total number and class of vehicles in one kilometer of road.  Lane changing was not considered.   Fig \ref{fig6:estimatedobs}  shows the results of all vehicles traveling at an average of 5 kph including 90\% Confidence Intervals.
+ 
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense6.png} 
+\caption{Total estimated vehicles on 1,000 meter segment at 5 kph.}
+\label{fig6:estimatedobs}
+\end{figure}
+%
+
+The expected number, and average, of total vehicles is 155 with a $\sigma$ of 4 vehicles.  The calculated mean of different types of vehicles at different speeds are shown in Fig \ref{fig7:estimatedobs}.
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense7.png} 
+\caption{Total estimated vehicles at different speeds.}
+\label{fig7:estimatedobs}
+\end{figure}
+%
+Fig \ref{fig8:estimatedobs} shows the distribution of sedans traveling at 5 kph.
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense8.png} 
+\caption{Estimated umber of sedans on 1 km segment at 5 kph.}
+\label{fig8:estimatedobs}
+\end{figure}
+% 
+
+Graphing the statistical mean for the total number of vehicles over different average speed yields a power curve as shown in Fig \ref{fig9:estimateavemix}.  Fitting the curve with a power series trend line provides very high correlation ($R^{2}$) that can approximate the expected value at each speed.  Similar curves (mean of each speed) for each vehicle class were prepared and summarized in Table \ref{tb4:expectedvehicles}.  A curve for large buses was not included because the expected value at each speed is 1.
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense9.png} 
+\caption{Total estimated vehicles on 1,000 meter segment at average speed (kph).}
+\label{fig9:estimateavemix}
+\end{figure}
+% 
+
+Table \ref{tb4:expectedvehicles} summarizes the expected number for vehicles by class in a 1,000 m segment based on speed , $s$, in kph.
+%
+\begin{table}[]
+\centering
+\caption{ Expected numbers of vehicles in 1,000 m based on average speed (kph).}
+\label{tb4:expectedvehicles}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{Vehicle class} & \textbf{Expected number of vehicles } \\ \midrule
+Sedans & \# of Sedans = $Integer (324.32s^{-0.703})$ \\
+SUV's & \# of SUVs = $Integer (179.11s^{-0.736})$ \\
+Bus, medium & \# of medium buses = $Integer (12.55s^{-0.660})$ \\
+Bus, large & 1 \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+The results in Table \ref{tb4:expectedvehicles} are representative only of that section of road with the traffic profile in Table \ref{tb2:modelspeeds}.  Different traffic profiles will have different densities and results.  Other factors that could affect the traffic profiles include location of road section, type of road, season, time of day, weather conditions and construction activities.  
