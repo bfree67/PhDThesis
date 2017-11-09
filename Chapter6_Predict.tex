@@ -1,0 +1,521 @@
+\noindent \textbf{Transition to Chapter 6}
+
+This chapter...  This paper was submitted for publication in the peer reviewed journal Atmospheric Environment.
+
+\begin{itemize}
+\item \item Freeman, G. Taylor, B., Gharabaghi, J.  Th\'e, (2017). Submitted to Atmospheric Environment.
+\end{itemize}
+
+\chapter{ Forecasting environmental time series using deep learning}
+
+\section{Introduction}
+
+\subsection{Ozone as an Ambient Air Pollutant}
+Tropospheric, or surface ozone (O$_{3}$)is a secondary pollutant formed by complex photo-chemical processes that impacts human health, plants, and structural materials. Over 21,000 premature deaths in Europe are attributed annually to O$_{3}$ exposure \citep{WHO2008} with over 1.1 million deaths worldwide - over 20\% of all deaths attributed to respiratory diseases \citep{Malley2017}. The majority of tropospheric O$_{3}$ is generated through anthropogenic sources \citep{Lelieveld2000, Cooper2006} attributed to the photo-disassociation of NO$_{2}$ as shown below in the simplified reaction \citep{Finlayson1993}:
+
+\begin{equation}
+\label{eq:ozoneformation}
+\begin{gathered}
+NO_{2}+h\nu (\lambda < 430nm) \rightarrow NO+O \\
+O+O_{2}\overset{M}{\rightarrow} O_{3}
+\end{gathered}
+\end{equation}
+
+\noindent
+where $M$ is a stabilization molecule used during the intermediate formation between O and O$_{2}$. Volatile Organic Compounds (VOCs) are not shown in Eq \ref{eq:ozoneformation}, but play a significant role in the oxidation of the primary combustion product NO to NO$_{2}$ \citep{Song2011}. In addition to nitrogen oxides (NOx's), VOCs, chlorine \citep{Thornton2010}, solar radiation (SR), relative humidity (RH) and ambient temperature also impact surface ozone formation \citep{Sadanaga2003}.  Local concentrations of O$_{3}$ are further influenced by weather patterns and terrain that disperse the pollutants, precursors, and byproducts \citep{Beck1998}. At night, O$_{3}$ reacts with NO$_{2}$ to form NO$_{3}$ (nitrate radical) \citep{Finlayson1993}:
+
+\begin{equation}
+\label{eq:nitrateformation}
+O_{3} + NO_{2}\rightarrow NO_{3}+O_{2} 
+\end{equation}
+
+The NO$_{3}$ radicals react with NO$_{2}$ to form dinitrogen pentoxide (N$_{2}$O$_{5}$) which in turn forms nitric acid (HNO$_{3}$) through hydrolysis with water or aqueous particles \citep{Song2011}. The acid is finally neutralized by ammonia (NH$_{3}$) to complete the reaction chain \citep{Brown2012}.
+
+Additional contributions to tropospheric O$_{3}$ concentrations come from the stratosphere-troposphere exchange (STE) of stratospheric ozone \citep{Tarasick2008}. The percentage of O$_{3}$ provided by STE at surface levels range from 13\% \citep{Cooper2006} to over 42\% \citep{Lelieveld2000} depending on area and conditions. With so many chemical and transport phenomena taking place throughout the day and night, modeling O$_{3}$ becomes a very complex task even before local terrain, sources and weather patterns are incorporated. Nonetheless, predicting ambient O$_{3}$ concentrations, and particularly concentrations that may exceed air quality standards, is important for air managers and at-risk populations.  In cases where O$_{3}$ levels will exceed standards for long periods of time, air managers may issue air quality warnings and even limit industrial and vehicular activities \citep{Kuhlbusch2014, Welch2005}. Improving forecast accuracy provides planning and decision options that can impact receptor health and local economies.
+
+\subsection{Forecasting Ozone with Machine Learning}
+
+Due to the formation process of O$_{3}$, the actual concentration a local population is exposed to may have been generated from precursors emitted hundreds or even thousands of kilometers away \citep{Glavas2011}. Populations living in coastal regions may be exposed to pollutants generated locally but transformed and mixed with other precursors in circulating land-sea breezes \citep{Freeman2017a}. Surface O$_{3}$ is therefore a more complex pollutant to estimate than primary pollutants such as sulfur dioxide (SO$_{2}$) or carbon monoxide (CO).
+
+Many studies have used supervised machine learning techniques, such as artificial neural networks (ANNs) to predict O$_{3}$ time series concentrations \citep{Comrie1997, Dorling2003, Ettouney2009a, Kurt2008, Biancofiore2017}. The benefits of using ANNs include not requiring \textit{a priori} assumptions of the data used for training and not requiring weighting of initial inputs \citep{Gardner1998}. In practice, dimensionality reduction is often used to remove inputs to the model that are not independent and identically distributed (IID) or offer little influence to the overall training. Principal Component Analysis (PCA) is often used to reduce the overall inputs to the model by removing transformed components, but provide little variability to the actual raw observations required to train \citep{Singh2013, Wang2015a}.
+
+Because of the complex chemistry of O$_{3}$ formation and local concentration patterns based on weather conditions, ANNs have been shown to provide better predictive results than linear models such as Multiple Linear Regression (MLR) and time series modeling such as Autoregressive Integrated Moving Averages (ARIMA) \citep{Gardner1998, Prybutok2000}. 
+
+Most of the studies that use ANNs apply a single hidden-layer feed forward neural network architecture trained with meteorological and concentration data and generally have limited success for forecasting air quality. The canonical feed forward ANN model (FFNN) consists of an input layer, a hidden layer and an output layer. Each layer is constructed from interlinked nodes that generates a value (usually between -1 and 1 or 0 and 1). The individual node model is shown in Fig \ref{fig:SingleANN}. \\
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/single-ann.png} 
+\caption{Individual node model.}
+\label{fig:SingleANN}
+\end{figure}
+%
+The node sums the weighted inputs of the previous layer, sometimes with a bias, and transforms the combined sum with a non-linear activation function, $\sigma$. The node activation equation is given by
+
+\begin{equation}
+\label{eq:perceptron}
+y= \sigma(wx+b)
+\end{equation}
+
+\noindent
+where $w$ is an array of weights for the connections between the previous layer and the current layer, $x$ is a vector of input values from the previous layer, and $b$ is a bias value. Common activation functions include the sigmoid, tanh, and relu functions. A general property for activation functions is that they normalize the output and have a continuous first order derivative that can be used during the back propagation training process \citep{Goodfellow2016}. The common activation functions mentioned earlier are shown in Table \ref{tb:activations} along with their first order derivative and output range.
+
+\begin{table}[]
+\centering
+\caption{Common activation functions}
+\label{tb:activations}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Name} & \textbf{Equation} & \textbf{Derivative} & \textbf{Output range} \\ \midrule
+sigmoid & $\sigma(x) = \frac{1}{1+e^{-x}}$ & $\sigma'(x)=\sigma(x)(1-\sigma(x))$ & $\in 0,1$ \\
+tanh & $\sigma(x) = \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}$ & $\sigma'(x)= 1-\sigma(x)^{2}$ & $\in -1,1$ \\
+relu & $\sigma(x) = \left\{\begin{matrix}0, x<0\\ x, x \geq 0\end{matrix}\right.$ & $\sigma'(x) = \left\{\begin{matrix}0, x<0\\ 1, x \geq 0\end{matrix}\right.$ & $\in >0,\infty$ \\ \bottomrule
+\end{tabular}
+\end{table}
+ 
+
+More recent studies, however, looked at the limitations of feed forward networks, namely the difficulty in choosing a suitable architecture and the tendency to over-fit the training data, leading to poor generalization, particularly in situations where limited labeled data is available \citep{Lu2005, Papaleonidas2013}.  
+
+The predicted outputs in previous air quality forecast studies \citep{Arhami2013} were based on continuous concentration values measured in parts per million (ppm) or $\mu g/m^{3}$ from single stations. Achar et al. (2011) investigated the intervals between O$_{3}$ exceedances and maxima of daily concentration levels instead of estimating real time values. Their study of inter-occurrence between peaks was used to determine improvements to air quality over time as compared to predicting future conditions \citep{Achcar2011}. 
+
+For out validation case study area in Kuwait, several studies were completed that focused on ambient air quality and modeling using ANNs. Abdul-Wahab (2001) used 5 minute measurements of precursors CH\textsubscript{4}, Non-Methane Hydrocarbons (NMHCs), CO, CO\textsubscript{2}, Dust, NO, NO\textsubscript{2}, and NO\textsubscript{x}) and meteorological (WS, WD, TEMP, RH, and Solar Radiation) inputs from a mobile site in the Khaldiya residential area to estimate ozone and smog produced (SP)  using a single hidden layer FF ANN \citep{Abdul-Wahab2001}. Al-Alawi and Abdul-Wahab later enhanced their model by applying Principal Component Analysis (PCA) to reduce the dimensionality of the input data \citep{Al-Alawi2008}.  Ettouney et al. (2009) used the same inputs as Abdul-Wahab (replacing dust with Methanated Hydrocarbons) and two FF networks to predict monthly O$_{3}$ concentrations from the Jahra and Um Al Hayman stations. They suggested that O$_{3}$ in Kuwait often comes from outside the local area via long range transport \citep{Ettouney2009a}. 
+
+Other machine learning techniques applied to ozone and air quality predictions include the use of support vector machines (SVMs) \citep{Luna2014, Papaleonidas2013, Singh2013} and logistic regression \citep{Zickus2002}. 
+
+\subsection{Deep Learning and Time Series}
+Studies in atmospheric sciences and O$_{3}$ concentration predictions using Deep Learning (DL) have not been as common as single hidden layer ANN. DL refer to the families of ANNs that have more than one hidden layer or use advanced architectures such as recurrent neural networks (RNNs) or convolutional neural networks (CNNs) \citep{Goodfellow2016}. 
+
+RNNs are particularly well suited for air concentration prediction because they incorporate sequential history into the training and processing of input data. Air quality measurements are time series datasets in which the order of data is important. Previous models using ANNs could assume that some historical essence of the data was incorporated into the weights during updating as long as the training data was fed in temporal order and not shuffled as most categorical applications are \citep{Bengio2012}.
+
+Partially recurrent network models such as the Elman Network (EN) has been used  with air station inputs to predict ground level concentrations of O$_{3}$ \citep{Biancofiore2015} and PM2.5 \citep{Biancofiore2017}. The feedback provides memory to the system when a single input set is fed into the system. Different ANN architectures are shown in Figure \ref{fig:ANNmodels}. The simple network in Figure \ref{fig:SingleANN} has been redrawn for comparison.  The arrows between layers represent synaptic weights that interconnect each node.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/ann-models.png} 
+\caption{Different ANN model architectures.}
+\label{fig:ANNmodels}
+\end{figure}
+%
+Figure \ref{fig:ANNmodels} shows that each layer can have different numbers of nodes, however, the number of nodes in the DNN hidden layers are usually kept the same for each layer. 
+
+Another way of handling sequential data is to use a time-delay neural network (TDNN). This type of architecture takes multiple time steps of data and feeds into the network at the input, using extensions of the input to represent previous states and become the system memory. TDNNs, in modern terminology, are called 1-dimensional CNNs \citep{Goodfellow2016}. They were not considered in this study.
+
+Implementations of procedures such as long short-term memory (LSTM) for RNNs allow network training to take place without having long term parameters ``explode" or ``vanish" as a result of multiple learning updates \citep{Pascanu2013}. LSTM was first introduced by Hochreiter and Schmidhuber in 1997 as a means to overcome these training issues \citep{Hochreiter1997}. Gomez (2003) was one of the first researchers to use a single layer RNN to forecast maximum ozone concentrations in Austria \citep{Gomez2003}. His model utilized LSTM to outperform other architectures such as ENs. Noting the gap of years from Gomez et al. in 2003 and the work by Biancofiore et al. as recently as 2017 using ENs show that the complexity of preparing and training RNNs that use LSTM has kept researchers from using DL methods.
+
+DL has recently become popular for many applications due to improvements in training procedures and software libraries in Python such as Theano \citep{Theano2016} and Keras \citep{keras2015}. These libraries have made implementing DL models easier, and therefore more accessible for researchers outside of the Machine Learning fields. A discussion of the theory of RNNs is presented in the next section.
+
+\section{Theoretical Background}
+
+\subsection{Time series data}
+Air quality data are continuous, multi-variate time series where each reading constitutes a set measurement of time and the current reading is in some way related to the previous reading, and therefore dependent \citep{Gheyas2011}. Measured pollutants may be related through photochemical or pre-cursor dependencies, while meteorological conditions are limited by physical properties. 
+
+Time series are often impacted by collinearity and non-stationarity that also violate independence assumptions and can make forecast modeling difficult \citep{Gheyas2011}. Autocorrelation of individual pollutants show different degrees of dependence to past values.  Correlation coefficients were calculated using the equation
+%
+\begin{equation}
+\label{eq:corr}
+Y(\tau)= corr(X(t),X(t - \tau))
+\end{equation}
+%
+\noindent
+where X is the input vector of a time step and $\tau$ is the lag (in hours). The correlogram was plotted based on lags up to 72 hours, as shown in Figure \ref{fig:serialcorr}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/time-o3.png}  %assumes jpg extension
+\caption{Correlogram of O$_{3}$ and NOx for 72 hours.}
+\label{fig:serialcorr}
+\end{figure}
+%
+The parameters of Fig \ref{fig:serialcorr} show clear diurnal cycles, with O$_{3}$ having very strong relational dependence every 24 hours, regardless of the time delay. In contrast, the dependency of NOx falls rapidly over time, despite peaking every 24 hours. 
+
+Non-stationarity, collinearity, correlations, and other linear dependencies within data are easily handled by ANNs if enough training data and hidden nodes are provided \citep{Goodfellow2016}. More important to time series are the near term history associated with the previous time step. Recurrent neural networks (RNNs) incorporate near term time steps by unfolding the inputs over the time sequence and sharing network weights throughout the time sequence. Additionally, the sequence fed to the RNN has fixed order, ensuring that for that individual observation, the sequence follows the order it appeared in, rather than randomly sampled as is the case for feed forward network training \citep{Elangasinghe2014}.
+
+\subsection{Recurrent Neural Networks}
+Recurrent neural networks (RNNs) are well suited for multivariate time series data, with the ability to capture temporal dependencies over variable terms \citep{Che2016}. RNNs have been used in many time series applications including speech recognition \citep{Graves2013}, electricity load forecasting \citep{Walid2017} and air pollution \citep{Gomez2003}. RNNs use the same basic building blocks as FFNNs with the addition of the output fed back into the input. This time delay feedback provides a memory feature when sequential data is fed to the RNN. The RNN share the layer's weights as the input cycles through. In Fig \ref{fig:rnn}, $X$ is the input values, $Y$ is the network output, and $H$ is the hidden layers. A feed forward network is provided to compare the data flow over time. By maintaining sequential integrity, the RNN can identify long-term dependencies associated with the data, even if removed by several time steps. An RNN with one time step, or delay, is called an Elman Network (EN) and has been used successfully to predict air quality in previous studies \citep{Biancofiore2015, Biancofiore2017}. The structure of the EN was shown in Fig \ref{fig:ANNmodels}b.
+
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/rnn.png}  %assumes jpg extension
+\caption{Architecture of an RNN showing layers unfolding in time n times.}
+\label{fig:rnn}
+\end{figure}
+%
+
+RNNs are trained using a modified version of the back propagation algorithm called back propagation through time (BPTT). While allowing the RNN to be trained over many different combinations of time, BPTT is vulnerable to vanishing gradients due to a large number of derivative passes, making an update very small and nearly impossible to learn correlations between remote events \citep{Pascanu2013, Graves2013a}. Different approaches were tried to resolve these training challenges including the use of gated blocks to control network weight updates such as long short term memory (LSTM). LSTMs will be discussed in another section. While RNNs and LSTMs have been around for many years \cite{Hochreiter1997}, their use was limited until recently, in what Goodfellow et al. calls a ``third wave of neural network research". This period began in 2006 and continues to this day \citep{Goodfellow2016}.
+
+Like FFNN's, RNN's are trained on loss functions using optimizers to minimize the error. A brief discussion of these two parameters is provided below.
+
+\subsubsection{Loss Functions}
+
+The loss function, or cost function, is the function that measures the error between the predicted output and the desired output \citep{Goodfellow2016}. In optimization theory, there are many loss functions that can be used including the Mean Square Error (MSE) and cross entropy (CE) functions being the most popular for machine learning applications.  Selection of the loss function is based on the application. However, the CE is often used for classification applications \citep{Kline2005, Wu2017}. Janocha and Czarnecki (2017) suggested that non-log loss functions were more appropriate for DL based on experimental results \citep{Janocha2017}. In our study, the MSE loss function was used instead of the CE function. The MSE equation is given as 
+%
+\begin{equation}
+\label{eq:MSE}
+MSE = \frac{1}{n} \sum_{i=1}^{n} \left( y_{pred} - y_{obs} \right)^{2}
+\end{equation}
+%
+\subsubsection{Optimizers}
+Optimizers provide the method to minimize the loss function. Parameters include a learning rate that determines the amount of incremental change to the network weights as well as learning to support features such as momentum and regularization. The most common optimizer used for the back propagation training algorithm used on most neural networks is stochastic gradient descent (SGD). The basic first order SGD equations with a classic momentum (CM) term is given as
+%
+\begin{equation}
+\label{eq:SGDterm}
+g_{t+1} = \mu g_{t} - \alpha \nabla f (\theta_{t})
+\end{equation}
+%
+\noindent
+where $g$ is the gradient update term, $\mu$ is the momentum factor $(\mu \in (0,1))$, $\alpha$ is the learning rate, and $\nabla f (\theta_{t})$ is the gradient of the loss function for a specific parameter, $\theta_{t}$. The parameter is updated by
+%
+\begin{equation}
+\label{eq:SGDupdate}
+\theta_{t+1} = \theta_{t} + g_{t+1}
+\end{equation}
+%
+A major limitation of SGD for training very deep learning networks is the vanishing gradient problem, where the gradient update term becomes some small that no update takes place and the network parameters do not converge. Hinton et al. (2006) introduced greedy layerwise pre-training in which a network was trained layer by layer and then integrated with SGD when compiled together \citep{Hinton2006}. Since then, other first-order optimizers have been introduced that modify the SGD's basic algorithm by updating the learning rate and momentum terms during the training process \citep{Sutskever2013}.  One such method was to apply a Nesterov accelerated gradient (NAG) \citep{Nesterov1983} term to the SGD gradient update. The NAG update closely resembles the SGD update in Eq \ref{eq:SGDterm} except for the addition of another momentum term in the parameter gradient.
+%
+\begin{equation}
+\label{eq:SGD-NAG}
+g_{t+1} = \mu g_{t} - \alpha \nabla f (\theta_{t} + \mu g_{t})
+\end{equation}
+%
+Other algorithms include the adaptive subgradient descent (AdaGrad) optimzer \citep{Duchi2011}, the root mean square propagation (RMSProp) optimizer \citep{Tieleman2012}, the adaptive momementum (Adam) optimizer \citep{Kingma2014}, and the Nesterov adaptive momentum (Nadam) optimizer \citep{Dozat2016}. A summary of how these optimizers differ is shown in Table \ref{tb-optimizers}.
+%
+\end{linenumbers}
+\begin{table}[]
+\centering
+\caption{Enhanced first order optimizers used for DLNs}
+\label{tb-optimizers}
+\scriptsize
+\begin{tabular}{@{}p{2cm}p{8cm}p{2.5cm}@{}}
+\toprule
+\textbf{Optimizer} & \textbf{Description Summary} & \textbf{Source} \\ \midrule
+AdaGrad & Divides the learning rate, $\alpha$, by the $L_{2}$ norm & Duchi (2011) \\
+RMSProp & Divides gradient by a running average of its reecnt magnitude & Tieleman (2012) \\
+Adam & Combines CM with RMSProp & Kingma (2014) \\
+Nadam & Combines NAG with RMSProp & Dozat (2016) \\ \bottomrule
+\end{tabular}
+\end{table}	
+\begin{linenumbers}
+%
+After experimenting with all four of the optimizers in Table \ref{tb-optimizers} and SGD, the Nadam optimizer proved to work the best with our study as described in the next section.
+
+\subsection{Long Short Term Memory}
+
+In order to preserve the memory of the data in the current state of the model, the RNN feeds parameters of its current state to the next state. This transfer can continue on for multiple time steps and presented significant training challenges as mentioned earlier. The issue of vanishing gradients that took place during the BPTT updates was largely solved with the implementation of gating systems such as long short term memory (LSTM) that allow nodes to forget or pass memory if it is not being used, thus preserving enough error to allow updates \citep{Hochreiter1997}. The LSTM uses a series of gates and feedback loops that are themselves trained on the input data as shown in Fig \ref{fig:lstm}. Each individual node acts like a perceptron, similar to the one in Fig \ref{eq:perceptron}, summing the inputs and applying an activation function at the output. The choice of activation function is another parameter to consider in the LSTM design. Common functions include the $sigmoid$, $tanh$, and $relu$ functions as shown in Table \ref{tb:activations}. The difference to the node input is that in addition to the observation data $X$, additional input from the recurrent output, $Y_{R}$, representing a time delayed element of the network, is included for a composite input of 
+%
+\begin{equation}
+\label{eq:Xr}
+X_{R}(t) = X(t) + Y_{R}(t-1)
+\end{equation}
+%
+The processed recurrent input, $X_{R}$ feeds into several gates that allow the data to pass, represented by $\Phi$ in the circles. The weights that pass $X_{R}$ to the gate summations are trained as well.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/lstm.png} 
+\caption[LSTM architecture]{LSTM architecture showing unit time delays (-1), gates and recurrent activation functions ($\sigma$).}
+\label{fig:lstm}
+\end{figure}
+%
+The use of LSTM in RNN architecture allows long term dependencies in data to be remembered within the model \citep{Graves2013a}, a feature required when working with sequential series,  such as air pollution concentration over time.
+
+\section{Methodology}
+
+\subsection{Study area and data}
+For our validation case study area, we used datasets collected in the State of Kuwait. Kuwait is a small country of approximately 17,818 square km located on the northwest corner of the Persian Gulf, between longitudes $46.56^{o}$ - $48.37^{o}$ East and latitudes $28.51^{o}$ - $30.16^{o}$ North with over 499 km of coastline (CIA 2015).  The country is classified as a desert zone with the highest altitude reaching only 300 meters above sea level. In 2016, approximately 4.1 million people lived in Kuwait \citep{CSB2016} with over 64\% of its annual Gross Domestic Product (GDP) coming from the production of hydrocarbons \citep{KAMCO2013}.  Over 98\% of the population lives within 10 km of the coast and are subject to coastal effect winds, caused by the diurnal differential heating/cooling of the sea and land \citep{Crosman2010, Cuxart2014}.  The land-sea breezes continuously shift direction and speed over the course of the day, recirculating pollution back and forth from land sources creating different zones of concentration mixing \citep{Freeman2017}.
+
+Fixed air monitoring stations are operated throughout the country near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near the Public Authority for Applied Education and Training (PAAET) Al-Ardiya Campus as shown in Fig \ref{fig:Kuwait}. 
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/kuwait.png}  %assumes jpg extension
+\caption{Location of Kuwait and AMS used in the study.}
+\label{fig:Kuwait}
+\end{figure}
+%
+The location is centered between two major highways (5th and 6th Ring Roads) in a concentrated mixed commercial/residential area and north of the Kuwait airport. While not near the heavy refineries and industries in southern Kuwait, the site is impacted by land-sea breezes that recirculate emitted pollutants from throughout the Persian Gulf \citep{Freeman2017}. A data set from 1 Dec 2012 to 30 Sep 2014 (668 days or 16,032 hours) was used for this study. Parameters available are shown in Table \ref{tb:parameters}.
+%
+\end{linenumbers}
+\begin{table}[]
+\centering
+\small
+\caption{Chemical and meteorological parameters captured at the AMS}
+\label{tb:parameters}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{\begin{tabular}[c]{@{}c@{}}Chemical Analytes\end{tabular}} & \textbf{Meteorological}  \\ \midrule
+Nitrous oxide (NO) & Wind direction \\
+Ammonia (NH$_3$)& Wind speed   \\
+Ozone (O$_3$) & Temperature  \\
+Sulfur dioxide (SO$_2$) & \begin{tabular}[c]{@{}c@{}}Atmospheric pressure\end{tabular} \\
+Formaldehyde (CH$_2$O) & \begin{tabular}[c]{@{}c@{}}Solar radiation\end{tabular}\\
+Nitrogen dioxide (NO$_2$) & Relative humidity   \\
+Benzene (C$_6$H$_6$)  &  \\
+Toluene (C$_7$H$_8$) &    \\
+p-Xylene (C$_8$H$_10$) &    \\
+m\_Xylene (C$_8$H$_10$)   &     \\
+1,2,3-trimethylbenzene (C$_{6}$H${3}$(CH$_3$)$_3$)   &   \\
+o-Xylene (C$_8$H$_10$)   &    \\
+\begin{tabular}[c]{@{}c@{}}Ethylene glycol tertiary butyl ether\\   (ETB) (C$_{6}$H$_{14}$O$_{2}$)\end{tabular} &                                                                  \\
+Styrene (C$_8$H$_8$)  &   \\
+Chlorine (Cl$_2$) &    \\
+Carbon dioxide (CO$_2$)  &     \\
+Methane (CH$_4$)    &      \\
+Hydrogen sulfide (H$_2$S)&    \\
+Carbon monoxide (CO) &  \\ \bottomrule
+\end{tabular}
+\end{table}
+\begin{linenumbers}
+%
+The local O$_{3}$ air quality standard is 75 ppb measured against an 8 hour moving average \citep{KEPA2017}. The DOAS station recorded O$_{3}$ concentrations hourly, along with the other measured parameters. Measured units in $\mu g/m^{3}$ were converted to $ppb$ using the conversion formula
+%
+\begin{equation}
+\label{eq:gasequation}
+C(ppb) = \frac{C(\mu g/m^{3})(R) (T)}{(P) (MW)}
+\end{equation}
+%
+The standard for O$_{3}$ in Kuwait is 75 $ppb$ based on an 8 hour average \citep{KEPA2017}.
+\noindent
+where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in Fig \ref{fig:windrose}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/paaet-windrose.png}  %assumes jpg extension
+\caption{Station wind-rose from 2012 to 2014.}
+\label{fig:windrose}
+\end{figure}
+%
+Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}. High O$_{3}$ concentrations occur in the summer months from June to August, but come from the northeast, indicating the transport of pollutants from the coast. Not surprisingly, most of the compliance exceedances take place during this period.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/paaet-o3seasons.png}  %assumes jpg extension
+\caption{Seasonal bivariate polar plots of 1 hour O$_3$.}
+\label{fig:bipolarplots}
+\end{figure}
+%
+Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($r$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($r$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maxima, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/dailyAveO3.png}  %assumes jpg extension
+\caption{Hourly averages of 1 hour O$_{3}$ and NOx.}
+\label{fig:hourlyAveO3}
+\end{figure}
+%
+
+\subsection{Building the RNN}
+The RNN used in this study was prepared in Python 2.7 using the Keras machine learning application programming interface (API) \citep{keras2015} with Theano back-end. Theano is a Python library that allows mathematical expressions to be calculated symbolically and evaluated using datasets in matrices and arrays \citep{Al-Rfou2016}. The architecture used a single RNN layer with LSTM and a single output feed forward node. The output activation functions for both layers was the $sigmoid$ function while the activation function for the recurrent nodes was the $tanh$ function. The final output required a 0 to 1 output in order to be rescaled using the \emph{MinMaxScaler} inversion.
+
+The training algorithm used a Nadam optimizer and MSE loss function. The learning rate, $\alpha$, was left at the default value of 0.002. Other Keras defaults also included weight initialization (using a uniform distribution randomizer). Regulation was not used, although a dropout layer was included between the LSTM and the output layer. 
+
+\subsection{Input Data preparation}
+Each available feature was compared to the maximum possible data range of 16,056 hourly measurements over the observation period. Gaps in data were assumed to be Missing Completely at Random (MCAR) and attributed to maintenance down-time, power failures, and storm related contamination \citep{Le2007}. Additionally, some data were clearly out of range or had negative readings \citep{Junger2015}.
+
+Data recorded as a 0 was assumed to be censored and converted to the smallest recorded value within the data set of the individual parameter \citep{Rana2015}. Negative and missing data were converted to 0 and identified using a filter mask. Two different single imputation (SI) techniques were used based on the number of consecutive gaps in data. For gaps (g)$<$ 8, the first and last measurement within the gap were used a Bayesian estimator based on the previous observation to create a linear estimate of the missing data given by 
+%
+\begin{equation}
+\label{eq:impute1}
+X_{n} = X_{n-1} + n\Delta
+\end{equation}
+%
+\noindent
+where $n$ is the a missing data point in sequence ($0 < n \leq g$), and 
+%
+\begin{equation}
+\label{eq:impute2}
+\Delta = \frac{X_{g+1} - X_{0}}{g+1}
+\end{equation}
+%
+For consecutive gaps $>$ 8, the corresponding hourly measurement from the previous and preceding day was averaged.
+%
+\begin{equation}
+\label{eq:impute3}
+X(t) = \frac{X_{t+24} - X_{t-24}}{2}
+\end{equation}
+%
+The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with imputed data from the different methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Fig \ref{fig:impute-rmse} along with the intersection of the 2nd method.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/impute-rmse.png}  %assumes jpg extension
+\caption{RMSE of O$_{3}$ and NOx from consecutive gaps of data using the first imputation method.}
+\label{fig:impute-rmse}
+\end{figure}
+%
+Features with more than 50\% missing data, like RH and Chlorine (Cl$_{2}$), were discarded. The remaining variables from Table \ref{tb:parameters} had few missing data points, ranging from 41 missing points out of 16,053 (0.3\%) for WS, WD and Temperature, to 137 missing points (0.9\%) for NH$_{3}$. The available data used for this study is larger than data sets used in other studies that had up to 16\% missing data \citep{Taspinar2015}. Missing data adds noise to the training set and is often used to improve generalization and prevent overfitting the network to meet the training dataset. Adding dropouts, or intentional data removal, is often used during network training for this reason \citep{Srivastava2014}.
+
+\subsubsection{Cyclic and Continuous Data}
+WD and time of day were converted into representations that preserved their cyclic nature. Wind direction for this study was converted into sine and cosine components \citep{Arhami2013}. Other parameters were transformed and scaled between values of 0 and 1 \citep{Chatterjee2017} using the \textbf{MinMaxScaler} function in the Python Sci-Kit pre-processor library \citep{scikit2011}. Overall, 25 features were prepared for initial training. These included the parameters measured in Table \ref{tb:parameters} with the addition of sine and cosine components for wind direction. 
+ 
+\subsubsection{Feature selection using Decision Trees}
+Prior to training the RNN, features were reviewed to reduce input dimensionality by training multiple decision trees  on the data sets and prioritizing features using the feature importance metric calculated during classifier training with the \textbf{DecisionTreeClassifier}, also in the Python Sci-kit library \citep{scikit2011}. Decision trees and random forest classifiers have been used to reduce input dimensions for sensors \citep{Cho2011} and data classification competitions, outperforming other methods such as PCA and correlation filters \citep{Silipo2014, Al-Alawi2008}. Decision trees are a supervised learning algorithm that recursively partition inputs into non-overlapping regions based on simple prediction models \citep{Singh2013, Loh2011}.  Decision trees do not require intensive resources to train and evaluate, and keep their features, unlike Principal Component Analysis (PCA) that transform input variables into linear combinations based on the singular value decomposition (SVD)of the total data set's covariance matrix \citep{Wang2016}. 
+
+While PCA is a form of unsupervised learning that allows dimensionality reduction by removing the number of transformed components fed to the input, decision trees identify which raw variables offer little impact so that they can be removed from the data collection stream. This can reduce future efforts required to clean and prepare data sets. 
+
+Using PCA for model input also limits the inclusion of new data that may become available on real time systems. If a model is trained on transformed principal components only, any new data must also be transformed, thus changing the historical data set. Using a linear transformation method that only changes the individual observation and not the entire data set is more practical for time series applications where data is expected to increase. 
+
+Binary classification trees, a type of decision tree used for categorical separation,  were trained to predict exceedances of 8 hr average O$_{3}$ over 1 hour to 12 hour horizons. Individual observations were first scaled using the \textbf{MinMaxScaler} function based on the equation
+%
+\begin{equation}
+\label{eq:MaxMin}
+x_{scaled} = \frac{x_{i} - x_{min}}{x_{max} - x_{min}}
+\end{equation}
+%
+\noindent
+where $x_{max}$ and $x_{min}$ are the maximum and minimum values in the data set respectively. It can be argued that this method also suffers from legacy biasing similar to PCA in that the system retains $x_{max}$ and $x_{min}$ in order to restore transformed data to original scale, similar to a key for encryption decoding. Also, in new data is included that exceeds the $x_{max}$ / $x_{min}$ values, the data needs to be reprocessed using the new points. Since we are already working with an historical data set and not using real time data, there is no need to incorporate this issue. However, even if we were using real time data, we could safely assume that any value measured that exceeded $x_{max}$ in our historical set was also an extreme point and could be accounted for in the model as a value $>1$. 
+
+Eighty percent (80\%) of the scaled data was divided into a training set with 20\% reserved for testing.  Output exceedances were classified as either 0 (less than the exceedance standard of 75 $ppb$) or 1 (exceeds the standard). Overall accuracy of each horizon was measured using the \textbf{accuracy\_ score} function which calculated the standard error of exact matches of the observed output with the predicted \citep{Raschka2016}.  Other classifiers in the Sci-Kit library were evaluated as well, including the Support Vector Machine (SVM) and Random Forest classifiers. The decision tree in classification mode using ``gini" criteria to measure the data split at each decision node proved to be the most accurate.
+
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/sumfactors.png}  %assumes jpg extension
+\caption[Decision tree importance factors]{Sum of importance factors from decision trees predicting 8 hr O$_{3}$ from 1 to 12 hours.}
+\label{fig:importance}
+\end{figure}
+%
+
+\subsection{Output data preparation}
+The RNN output was trained to predict the 8 hour moving average of measured 1 hour O$_{3}$. To predict future values, the calculated values were shifted in time based on the desired horizon so that input observations $X(t=0)$ was trained on $Y(t=12)$ if the prediction horizon was 12 hours. Output data was generated from 8 hour moving averaged O$_{3}$ calculated from measured 1 hr O$_{3}$ concentrations at each station. The first seven hours of both the input and output training data set was then discarded. 
+
+\subsection{Tensor Preparation for RNN input data}
+Data sets provided to the LSTM RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Fig \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n * p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Fig \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/tensor-tables.png}  %assumes jpg extension
+\caption{Process of converting data input columns into a Tensor for training the RNN.}
+\label{fig:tensor-tables}
+\end{figure}
+%
+
+\section{Results}
+\subsection{Final parameter selection}
+The model was trained on 80\% of the processed data and tested against 20\% of the total available data. Because of the Tensor formation for input, the actual number of samples provided for training and testing was based on the look ahead horizon and number of recurrent (look-back) units of the individual run. The farther out the prediction, the fewer samples available because of the time shifting required. The total amount samples could be calculated as total samples = $(16,035 - h)$ where $h$ is the prediction horizon (as an integer value $>$ 1). 
+
+The number of training epochs was limited to 10 after reviewing training error values up to 20 epochs for look-ahead horizons of 24 hrs, 36 hrs, and 48 hrs as seen in Fig \ref{fig:horizon-loss}. An optimum number of 10 epochs was used for later model runs as it minimizes the training error without overfitting which begins to take place after 12 epochs, especially in Fig \ref{fig:horizon-loss}a. 
+%
+\begin{figure}
+\centering
+\includegraphics[width=.5\textwidth]{images/horizon-loss.png}  %assumes jpg extension
+\caption[Loss function errors of training and test data sets]{Loss function errors for training and test data sets for different horizons at a. 24 hrs, b. 36 hrs, and c. 48 hrs.}
+\label{fig:horizon-loss}
+\end{figure}
+%
+
+\subsection{Performance measures}
+
+Final parameter selection and performance were measured by Mean Absolute Error (MAE) given by 
+%
+\begin{equation}
+\label{eq:MAE}
+MAE = \frac{1}{n}\sum^{n}_{i=1} \left | y_{obs_{i}}- y_{pred_{i}} \right |
+\end{equation}
+%
+and Root Mean Square Error given by
+%
+\begin{equation}
+\label{eq:RMSE}
+RMSE = \sqrt{\frac{1}{n}\sum^{n}_{i=1} \left ( y_{obs_{i}}- y_{pred_{i}} \right )^{2}}
+\end{equation}
+%
+MAE and RMSE are widely used measures of continuous variables with RMSE criticized for over-biasing towards large errors \citep{Chai2014, Willmott2005}. Both metrics are presented for comparison.
+
+\subsection{Impact of features and parameters on results}
+
+The network trained very well with all 25 input features from Table \ref{tb:parameters}, however the results of the decision tree analysis in Fig \ref{fig:importance} showed that many features could be removed without impacting network performance. Features were removed based on the order of least importance in groups of 5 until the most prominent feature remained. The results in Fig \ref{fig:features} shows that overall training error improves with fewer inputs.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/features.png}  %assumes jpg extension
+\caption{Training Error associated with feature reduction on network prediction.}
+\label{fig:features}
+\end{figure}
+%
+Based on the training error curves in Fig \ref{fig:features}, the 5 feature data set was used for evaluation because it provided stable error over the prediction horizons of interest. The features used were (in order of importance) 8 hr average O$_{3}$ in $ppb$, 1 hr O$_{3}$ in $ppb$, SR, the cosine of WD, and $CH_{4}$.
+
+Parameter sensitivity analysis was performed on a model with default values shown in Table \ref{tb:default-parameter}.
+%
+\end{linenumbers}
+\begin{table}[]
+\centering
+\caption{Default values for parameter sensitivity analysis.}
+\label{tb:default-parameter}
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Parameter} & \textbf{Default Value} \\ \midrule
+Input features & 26 \\
+Prediction horizon (hours) & 24 \\
+Look back nodes & 26 \\
+Samples/batch & 72 \\
+Dropout factor & 0.2 \\ \bottomrule
+\end{tabular}
+\end{table}
+\begin{linenumbers}
+%
+All other parameters were held constant as an individual parameter was varied. The prediction horizon value of 24 hrs was held constant throughout all runs shown in  Fig \ref{fig:parameters}. In all cases, the error measurements, MAE and RMSE showed similar forms, despite the RMSE having a consistently higher value, as expected. MAE is used to measure model performance except when RMSE is needed to compare with other study results.  
+
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/predictionhrs.png}  %assumes jpg extension
+\caption{Prediction horizons using 5 features and default parameters.}
+\label{fig:predictionhrs}
+\end{figure}
+%
+The prediction horizon of the model using the 5 feature data set is shown in Fig \ref{fig:predictionhrs}.  As the prediction extends further into the future ($>$ 80 hrs), the training error climbs rapidly, while the test error appears to level off. The model has begun to overfit by this point and predictions past that range were considered to be unreliable.
+
+The results in  Fig \ref{fig:parameters}a show training error for different prediction horizons over several parameters. The parameter that influences the model performance the most is the number of look-back nodes in relation to the prediction horizon. A horizon value of + 2 provides the lowest errors, while adding additional nodes increases the model complexity and makes training more challenging. 
+
+Samples/batches in Fig \ref{fig:parameters}b show relatively little error variance until many samples are included ($>$75). While more samples per batch are preferred to reduce training time, too many create bias in the loss function as the overall average of each sample reduces chances for updates.
+
+The number of recurrent, or look back nodes, in relation to the prediction horizon was considered in  Fig \ref{fig:parameters}b. Both training and test results are minimized at 26, the horizon value + 2. This was consistent with other horizon prediction values such as 36 and 48. As more look back nodes are added, the error increases.
+
+Finally, the use of dropout is recommended to improve generalization of the model and reduce overfitting \citep{Gal2016}. For this model, dropout ($\in 0,1$) was applied only between the output of the LSTM layer and the FF output layer. The error shows reasonably good optimization at around 0.2. The errors level out at higher rates at around 0.35. The default values were actually the optimum parameters based on the results are shown in Fig \ref{fig:parameters}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/parameters.png}  %assumes jpg extension
+\caption[Impact of model parameters on training error]{Impact of a. batch samples, b. look back nodes, and c. dropout factor parameters on training errors for a model.}
+\label{fig:parameters}
+\end{figure}
+%
+
+\subsection{Comparison to previous studies}
+Previous studies mentioned in Section 1 used RMSE and other error measurement methods than MAE. The 3 studies that used RMSE were compared to our results with an LSTM network. Luna et al. (2014) used support vector machines (SVMs) and FFNNs \citep{Luna2014}. Feng et al. (2011) used a a multi-layered system that included an SVM and a genetic algorithm stabilized FFNN \citep{Feng2011}. Wang and Lu used an FFNN with a particle swarm optimization \citep{Wang2006}. All studies, except Gomez (2003), used PCA to pre-process the data. Comparing the results of the LSTM RNN to these previous studies gives an initial impression  that the RNN has an order of magnitude improvement over the best FFNN or SVM models as shown in Table \ref{tb:compare}.
+%
+\end{linenumbers}
+\begin{table}[]
+\centering
+\caption{Comparison of LSTM RNN test data results to previously published results.}
+\label{tb:compare}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Source} &  \textbf{Prediction horizon} & \textbf{Results (RMSE)} & \textbf{LSTM (RMSE)} \\ \midrule
+Luna et al. (2014) & 1 hr & 6.3 - 12.3 & 0.8 \\
+Feng et al. (2011) &  12 hr & 5.5 - 86.9 & 1.5 \\
+Wang and Lu (2006) & 24 hrs & 7.9 - 11.2 & 2.5 \\ 
+Gomez et al. (2003)& 24 hrs & 6.9 - 9.9 & \\ \bottomrule
+\end{tabular}
+\end{table}
+\begin{linenumbers}
+%
+The results cannot however be directly compared because they were based on different data sets. While the other studies used complex and hybrid architectures along with complicated pre-processing, the RNN model pre-processing was very simple after the features were prioritized using a decision tree. The RNN and LSTM are themselves complex algorithms with many internal parameters that undergo training and updates.
+ 
+\section{Conclusions and recommendations}
+This is one of the first papers that employ advanced Deep Learning techniques in the prediction of air quality time series events. This new methodology produced very good results using our validation data set. A recurrent neural network with LSTM was trained on time series air pollutant and weather data from an air monitoring station in Kuwait to predict 8 hour average O$_{3}$ over different prediction horizons. Missing data and censored data were replaced using a first-order imputation technique that accounted for sequential influence of previous readings for small gaps ($<$ 8) and seasonal effects for larger gaps. 
+
+A decision tree was used to prioritize the most influential features for training by categorizing pollution exceedances using the input parameters. Prioritizing and removing less important features allows for real-time observations to be fed into the model without transforming large blocks of data as is required when using principal components or wavelets. New observations need only be scaled by normalizing or standardizing with the scaling values calculated from historical data sets. 
+
+A sensitivity analysis of key parameters showed that the network could be tuned for optimal performance. Measurement of the performance, in terms of observed and predicted results, were consistent in form, but the RMSE was always biased higher than the MAE measurement. Either measurement would have produced the same conclusions based on observation of local minima and maxima regardless of the error value. Error increased with the complexity of the network, even with reduced features. This ``Curse of Dimensionality" led to overfitting of the model, reducing the ability to generalize if new data sets were introduced. Slight overfitting is not a problem for time series data that follow predictable cyclic patterns and the main output product of interest is when that pattern goes higher than a set limit.
+
+While the results cannot be directly compared because different data sets were used, the results should not be dismissed either. The complexity of RNN implementation has been dramatically reduced with the use of the developmental Python library Keras, allowing non-computer scientists the ability to use DL without the coding overhead.
+
+The LSTM model provided very good results for this case and can be applied to other environmental time series challenges such as forecasting wide area pollution exceedances from multiple stations and multiple pollutants. LSTMs could also be effective in predicting individual source emissions or modeling source apportionment under different criteria. 
+
+Reducing features and optimizing parameters assisted with lowering error of both training and test sets. Initial runs using local data showed excellent results compared to performance from FFNNs, even with the inclusion of complex pre-processing of input data and architecture of the model. The relative ease of model structure in the programming code is misleading though. The Keras and Theano libraries are some of the most advanced and complex libraries available in the Python community. The model with 25 input features had 16,485 update-able parameters, of which 16,432 were in the LSTM layer alone.  As a comparison, an FFNN with 3 hidden layers (5 layers total), bias on all layers, and the same 25 features input had 2,107 parameters.
+
+The underlying errors within the model implementation may not be resolved or even quantified. However, they are still useful tools for rapid prototyping and architecture validation. Using the data sets of the sources listed in Table \ref{tb:compare} with our RNN LSTM would be a more direct way to prove which method works better.
+
+Further investigations will target multiple station influences on local concentration prediction, as well as how imputation techniques for missing data impacts overall prediction accuracy. 

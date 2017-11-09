@@ -1,0 +1,662 @@
+\noindent\textbf{Transition to Chapter 3}
+
+This study presents novel models for .... This paper was published in the peer-reviewed Journal of the Air and Waste Management Association.
+
+\begin{itemize}
+\item Freeman, E. McBean, B., Gharabaghi, J.  Th\'e, (2017). Evaluation of air quality zone classification methods based on ambient air concentration exposure. Journal of the Air and Waste Management Association, Volume 67, Issue 5, December 2016, Pages 550-564.
+\end{itemize}
+\chapter{Evaluation of air quality zone classification methods based on ambient air concentration exposure}
+
+\chapter{Air Quality Zone Classification Methods Based on Ambient Air Concentration Exposure}
+
+\section{Introduction}
+
+Ambient air quality standards are specified by most countries to protect human health and reduce impacts of hazardous air pollution emissions for the public welfare. The Clean Air Act of 1970 (1970 CAA) was one of the first national legislations that established national-wide concentration levels for ambient air quality.  The original 1970 CAA National Ambient Air Quality Standards (NAAQS) included six criteria air pollutants (CAPs) with both primary (human health) and secondary (public welfare such as visibility, crops, and building material) standards \citep{USEPA1970}. A standard is assumed to include a specific air pollutant, its threshold concentration value, and the averaging time associated with the concentration value. In some cases, pollutants have multiple standards such as nitrogen dioxide (NO$_{2}$) that has a 1 hr average standard (100 parts per billion ($ppb$), 98th percentile of 1-hour daily maximum concentrations, averaged over 3 years) and an annual average standard (53 $ppb $, annual mean). The current NAAQS includes 7 air pollutant categories and 12 different standards. European air standards began with levels for sulfur dioxide and suspended particulates in 1980 \citep{EEC1980}. The World Health Organization (WHO) published recommended air quality guidelines (AGQs) as early as 1987 for Europe with ambient levels and averaging periods for 28 different chemicals and 39 standards \citep{Lubkert1994}. The current European air quality directive was adopted in 2008 and includes 12 different air pollutants with 15 different standards \citep{EU2008}, while a WHO AGQ update was published in 2005 with only five pollutants, but 25 standards \citep{WHO2006}. 
+
+\subsection{Compliance Classification}
+
+The averaging periods of each pollutant are not always clear in regard to when the measurement period begins and ends.  By convention, most air monitoring stations follow the USEPA required hourly average reporting that starts at the beginning of the hour and ends on the 59th minute \citep{CAA2007}.  A similar convention holds for 24 hour averages whereby averaging starts at midnight (00:00 hrs) to 23:59 hrs. Annual averages are based on calendar years, beginning on 1 January at 00:00 hrs and end on 31 December at 23:59 hrs.  In the case of particulate matter, reporting follows set 24 hour periods.  The USEPA’s method for taking three year averages is to average readings taken over individual quarters, average quarterly and then average the quarters over three years \citep{Cohen1999}. International standards do not have this same level of detailed description for averaging and it is the authors’ experience that USEPA methodology is assumed when guidance or interpretation is not available.
+
+What is less clear is how results from multiple monitoring stations in one air quality zone should be aggregated. In the United States, air quality zones are based on designated air quality control regions (AQCRs) that include municipalities and groups of intrastate and interstate counties (40CFR81, 1991). Currently there are 264 designated AQCRs with 121 in some form of non-compliance (or non-attainment) with the NAAQS \citep{USEPA2016b}. 
+
+To determine if an air quality zone is in or out of compliance with the local standards, air monitoring stations (AMSs) are used to measure ambient air and weather conditions. The USEPA uses a ``winner-take-all” approach for some pollutants such as O$_{3}$ and PM2.5 in that if one of the state and local air monitoring stations (SLAMS) within an AQCR registers exceedances that surpass a NAAQS standard, the entire zone is non-compliant \citep{USEPA2005a}.  Recently the USEPA has considered a more tailored approach to O$_{3}$ non-attainment designations by allowing regional offices to work with states and native American tribes to determine non-attainment areas based on local conditions and in some cases, declare only part of an AQCR a non-attainment area \citep{McCabe2015}. We will assume for the time being that the current ``winner takes all” approach is still in effect and used by air managers in order to demonstrate our procedure.
+
+In the California South Coast air basin, there are at least 43 active monitoring stations \citep{CARB2013} to cover 10,743 square miles (27,824 sq km) and protect approximately 17 million people \citep{AQMD2010}.  If only one station measures an exceedance of carbon monoxide (CO) over the standard the entire basin is non-compliant and not just the immediate area.  An air monitor is assumed to uniformly represent the air quality of the area around it.  Murray and Newman (2014) recommend that lowest reading in a network area be used for multiple stations \cite{Murray2014}. This area could be as small as several hundred square meters in a micro-scale range of up to 100 meter radius from the station, to a middle range (up to 0.5 kilometer radius), neighborhood range (4 kilometer radius), urban range (50 kilometer radius) or regional range (several hundred kilometer radius) \citep{Pan2009}.  Siting air monitoring stations is, therefore, a very important process that incorporates many variables to best represent the local area \citep{Bermudez2010}, but may not represent an entire region.
+
+In 2012, the State of Kuwait issued the Kuwait Ambient Air Quality Standards (KAAQS) in order to update their air management program as part of the Kuwait Integrated Environmental Management System (KIEMS) sponsored by the United Nations Development Program (UNDP) with the Kuwait Environment Public Authority (KEPA). The new standards included a ``winner-take-all” approach where an air zone was out of compliance for an air pollutant if any one AMS observed more than 3 observations (``3-strikes”) above the relevant standard’s threshold,  (or Guideline Value (GV),as called in the KAAQS) in a calendar year \citep{KEPA2017}. The KAAQS are shown in \ref{tb:1kaaqs}. The GVs are managed based on hourly measurements from AMSs with different averaging periods, but no daily maximums.
+%
+\begin{table}[!htb]
+\centering
+\caption{Kuwait Ambient Air Quality Standards}
+\label{tb:1kaaqs}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Pollutant} & \textbf{Guideline Value} & \textbf{Averaging Time} \\ \midrule
+Carbon monoxide (CO) & 35 $ppm$ & 1 hour \\
+Nitrogen dioxide (NO$_{2}$) & 100 $ppb$ & 1 hour \\
+ & 21 $ppb$ & Annual \\
+Sulfur dioxide (SO$_{2}$) & 19 $ppb$ & 24 hours \\
+ & 75 $ppb$ & 1 hour \\
+Ozone (O$_{3}$) & 70 $ppb$ & 8 hours \\
+Lead (Pb) & 0.15 $\mu g/m^{3}$ & Quarterly \\
+Particulate Material $<10$ microns (PM$_{10}$) & 350 $\mu g/m^{3}$ & 24 hours \\
+Particulate Material $<2.5$ microns (PM$_{2.5}$) & 75 $\mu g/m^{3}$ & 24 hours \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+The 3-Strike method was immediately considered too conservative and ambitious for a country with a relatively new air management program and a young environmental regulatory agency. While the intent of the program was to protect human health and welfare through robust air quality standards that industry and stakeholders would strive to meet, it was also considered too stringent in that it did not take into account annual impacts of industrial output and complex land-sea breeze (LSB) weather patterns. Another compliance classification method was considered whereby 3 years of air monitoring data was collected to account for industrial output variations and seasonal weather effects. With this method, if 99\% of all hourly observations over the three years was less than or equal to the Guidance Value ($\leq$GV), then the zone was in compliance. If a zone has 2 or more AMSs, the measurements from individual stations would be pooled and the composite measurements evaluated to determine if they were $\leq$GV. This method was called the ``99\% Rule”. Using a percentile approach is similar to existing methods used by the USEPA for 1 hr SO2 and 1 hr NO$_{2}$, except the 99th percentile is used instead of the 98th \citep{USEPA2016a}.
+
+One of the drawbacks of the 99\% Rule method was that if one station consistently measured high readings, it could drive the entire zone into a non-compliant status – just like the 3-Strike method. This was considered an acceptable risk as the method incorporated 3 years of data instead of 1 years’ worth. A more significant issue, however, was what exposure risk would the population living in a zone face if the zone was considered in compliance under a 3-Strike classification versus a 99\% Rule classification? The research presented in the rest of this paper seeks to answer that question.
+
+\section{Materials and Methods}
+
+\subsection{Area of Study}
+Kuwait is a small country of 17,818 km$^{2}$ located on the northwest corner of the Persian Gulf, between longitudes 46.56$^{o}$ – 48.37$^{o}$ East and latitudes 28.51$^{o}$ - 30.16$^{o}$ North with over 499 km of coastline \citep{CIA2015}. It is bordered by Iraq to the north and Saudi Arabia to the south and west. The country is classified as a desert zone with the highest altitude reaching only 300 meters above sea level.   In 2011, approximately 3.1 million people lived in Kuwait \citep{CSB2016} with over 64\% of its annual Gross Domestic Product (GDP) coming from the production of hydrocarbons \citep{KAMCO2013}.  Other industries in Kuwait include power generation and water desalination using heavy oil and natural gas at five sites, steel making using electrical induction furnaces, and food preparation.  The country has over 7,400 km of paved roads and over 1.8 million cars in service \citep{CSB2014}.  Over 98\% of the population lives within 10 km of the coast and are subject to coastal effect winds, caused by the diurnal differential heating/cooling of the sea and land \citep{Crosman2010, Cuxart2014}.  The land-sea breezes (LSB) shift direction and speed over the course of the day, re-circulating pollution back and forth from land sources.
+
+The Kuwait Environment Public Authority (KEPA) is responsible for monitoring environmental conditions and enforcing compliance with national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig1:amskuwait}.  The KEPA stations measure and report 1 hour averaged air pollutants and meteorological conditions. The bulk of the AMSs are located within two air quality zones (Central and Southern Coast) which correspond to areas of high population and industrial centers. The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. Access to monitoring data from additional stations operated by the Kuwait Oil Company (KOC) provides an air monitoring density of approximately 1 monitoring station per 163,150 people. This density is similar to Vancouver, Canada which has approximately 1 per 160,000 people, as compared to around 1 per 440,000 people in the South Coast of California \citep{Marshall2008}.
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk1.png} 
+\caption{Location of air monitoring stations in Kuwait.}
+\label{fig1:amskuwait}
+\end{figure}
+%
+Air quality zones (AQZs) were designated under the UNDP KIEMS project as shown in Fig \ref{fig2:aqzkuwait} (Freeman et al., 2016).
+%
+\begin{table}[!htb]
+\centering
+\caption{Distribution of Fixed Site Air Monitoring Stations in Kuwait}
+\label{tb:2ams}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{Air Quality Zone} & \textbf{Type} & \textbf{KEPA} & \textbf{Other} \\ \midrule
+Northern Coastal & Coastal & 2 &  \\
+Southern Coastal & Coastal & 8 & 1 \\
+Central Coastal & Coastal & 4 & 2 \\
+Bubiyan & Coastal &  &  \\
+Southern Inland & Inland &  & 2 \\
+Jahra Inland & Inland & 1 & 1 \\
+Wafra & Production &  &  \\
+West Kuwait & Production &  &  \\
+North Kuwait 1 & Production &  &  \\
+North Kuwait 2 & Production &  &  \\
+Burgan & Production &  &  \\
+ & Total & 15 & 6 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk2.png} 
+\caption{Kuwait Air Quality Zones (Freeman et al., 2016).}
+\label{fig2:aqzkuwait}
+\end{figure}
+
+As mentioned above, the use of the 99\% Rule method raises the concern as to whether residents within air zones that meet KAAQS standards are protected from high air pollutant concentration exposure to the same extent as residents within an air zone that meets standards under the ``3-Strike” method. Determining an effective classification method is important given the many sub-population groups (SPGs) in Kuwait due to the large concentration of ex-patriate workers and family members. Li et al (2008) recognized the uncertainties associated with setting fixed ambient air standards and used a fuzzy-Monte Carlo Analysis method to evaluate different variables to establish optimum ranges for specific SPGs \citep{Li2008}. While this method recognizes individual sensitivities, it is impractical to implement from a national air management perspective. For our method, the ambient standard is assumed to be a static limit.
+
+\subsection{Exposure Estimation and Monte Carlo Methodology}
+
+Health impacts caused by hazardous air pollutants, both cancerous and non-cancerous, are due in part to the exposure of a receptor to the pollutants. Estimating the exposure, however, is not sufficient to measure risk alone. Estimating the actual dose a receptor is subject to over a given time and concentration provides a more complete evaluation of risk even though it does not include the toxicity of the chemicals involved. By comparing the different air quality classification methods against a pollutant that already has an ambient air quality standard, we can assume the toxicity impacts have already been accounted for and remove this element from our evaluation. Our approach in evaluating relative risk based on dosage from different classification methods can also be applied to the many HAPs that do not have ambient air quality standards or clinical trial results.
+
+Estimating individual exposures based on ambient monitoring is prone to risk and uncertainty \citep{Pernigotti2013, Thunis2013}.  The ambient monitoring station is assumed to measure air concentrations for the same population.  Variations in wind speed and direction have a tremendous impact on who gets exposed, and who does not \citep{Pratt2012}. Additionally, lifestyle of the population, construction of houses and work spaces, and exposure duration have major impacts on overall exposure \citep{Bell2006}.
+
+Uncertainty in exposure estimates based on air dispersion models have long been recognized and accepted by regulatory agencies \citep{Colvile2002, Fox1984}.  When exposure concentrations are calculated, the results are usually given as a time-weighted average (hourly, daily, or annual) that is then multiplied by the appropriate time period to get the duration exposure amount \citep{Zhang2013}. Using a Monte Carlo Analysis (MCA) based on the air concentration probability distribution, each hour can be randomly sampled over the course of the duration period and summed to create a range of possible exposures.  MCA has been used for several exposure studies to account for the wide variability of exposures \citep{Gerharz2013, Tan2014}.
+
+The US EPA Human Health Risk Assessment (HHRA) method defines the Chronic Daily Intake (CDI) (or Average Daily Dose) of chemicals through inhalation in vapor phase using the following equation
+%
+\begin{equation}
+\label{eq1:cdi_gas}
+CDI_{gas} = \frac{C*IR*EF*ED}{BW*AT}
+\end{equation}
+%
+\noindent
+where $C$ is the concentration of the air pollutant ($\mu g/m^{3}$), $IR$ is the inhalation rate (given as 20 $m^{3}/day$ for adults), $EF$ is the Exposure Frequency ($days/year$), $ED$ is the Exposure Duration ($years$), $BW$ is Body Weight ($kg$), and $AT$ is Averaging Time (usually 365 days/year) (USEPA 2005).  The CDI calculates a value measured in $\mu g/kgBW-day$, where $kgBW$ is body weight in kilograms. CDI is normally multiplied by the Cancer Slope Factor (CSF) of a carcinogenic chemical for a target organ in order to calculate the Incremental Excess Lifetime Cancer Risk (IELCR) or divided by a Reference Dose (RfD) of a non-carcinogenic chemical to get the Hazard Quotient. Dosage was used for comparison in this study instead of mortality because Kuwait has a highly mobile population and large \textit{ex patriate} community that does not live in the country for more than 3 years. 
+Other studies that looked as mortality assumed a highly stable population \citep{Sanhueza2010}. Also, as mentioned previously, not incorporating the toxicological values of chemicals (CSF or RfD) allows our method to be used for the many chemicals that do not have accepted studies.
+
+Pollutant concentrations can be calculated with different methods. These include city wide averaging (CWA) which takes the average of all monitor readings within a region or zone; nearest monitoring (NM) which assigns the concentration measured at the closest station to a receptor; inverse distance weighting (IDW) which calculates a concentration by assigning a weighting factor to readings from all monitors based on the inverse of the distance of that station to the receptor; and ordinary kriging (OK) which assigns a more complex weighting factor to all monitors in a region or zone based on the assumption that the unknown concentration between two stations is a random variable \citep{Rivera2015}. The NM method is used in this paper, whereby we assume that all populations near the monitoring station are exposed to the same concentration of the pollutant at the same time. Previous studies showed that indoor/outdoor air concentration ratios were $\geq 1$ showing that higher pollutant concentrations occur indoors \citep{Schembari2013} or in vehicles \citep{Abi-Esber2013}. For our method, we assumed individuals are exposed to the same hourly concentration value throughout the analysis period whether they are indoors or outdoors.
+
+In order to facilitate the Monte Carlo analysis, a new concentration duration factor ($CDF$) is defined where $CDF = C*EF*ED$, allowing eq \ref{eq1:cdi_gas} to be re-written as
+%
+\begin{equation}
+\label{eq2:cdf_gas}
+CDI_{gas} = \frac{CDF*IR}{BW*AT}
+\end{equation}
+%
+The value of the $CDF$ factor is measured in $\mu g-hr/m^{3}$. The actual concentration ($C$) of a pollutant in the air, the duration of exposure ($ED$) to that concentration, and then number of times the concentration exceeds standards ($EF$) are each independent variables  that can be fitted with a probability distribution to allow predictive analysis \citep{Lonati2011}. Georgoupolos and Seinfeld (1982) used histograms to determine frequency of concentrations assuming ergodic samples taken from independent and identical distributions \citep{Georgopoulos1982}. This concept was used by Sharma et al. (2013) to fit Probability Distribution Functions (PDFs) to measured air monitoring data using goodness-of-fit statistics to select appropriate distributions \citep{Sharma2013}. 
+
+Hourly concentration data from air monitoring stations were used to calculate the CDF using the assumption that an air monitoring station measures the exposure of the local population.  In order to create a model to compare the different classification methods, actual monitoring station data for different pollutants from 2008 to 2010 were collected and plotted as frequency distributions to create composite distributions to represent a typical year. PDFs were fitted to the distribution curves using @RISK 7.0.0 Industrial Edition (Palisades Software). The same software was used to later run the MCA based on the calculated PDFs. Distributions for annual concentrations for O$_{3}$, NO$_{2}$ and SO$_{2}$ ranged in terms of Weibull, log-normal, and Beta distributions. These results were consistent with similar distributions found in literature \citep{Lu2003, Morel1999, Noor2011}.
+
+To compare possible CDI exposures to a pollutant, the overall ambient air quality was assumed to be in compliance with the KAAQS based on the individual classification method. The exposure duration was set to three years which required three individual 3-Strike classifications but only one 99\% Rule classification. For the 3-Strike method, a maximum number of 3 exceedances per year was enforced, while for the 99\% Rule, there were no fixed number of exceedances per year other than the maximum number for three years.
+
+Two different comparisons cases were are made in this study. In the first case, only one monitoring station was evaluated in order to compare the two methods at the simplest level. In the second case, three monitoring stations in the same zone were evaluated.  Hourly concentration measurements from 2008 to 2010 of O$_{3}$ and NO$_{2}$ were selected as test pollutants due to the availability of reliable data from the three stations. 
+
+\subsection{Single station case}
+
+Each pollutant data set was divided into compliance and exceedance measurements by creating two PDFs – one for concentration readings under the standard (Compliance) and one for readings that exceed the standard (Exceedances) as shown in Fig \ref{fig3:distributions}.  PDFs of the measured data were selected based the Akaike Information Criteria (AIK), Bayesian Information Criteria (BIC), and Anderson-Darling (A-D) statistics generated during the fitting \citep{Palisades2016}.  The PDF having the best agreement among each the two statistics was chosen to represent the component data.  
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk3.png} 
+\caption{Break down of 8 hr O$_{3}$ concentrations into compliance and exceedance distributions.}
+\label{fig3:distributions}
+\end{figure}
+%
+The individual PDFs were then used in a Monte Carlo Analysis based on the individual hours of each method over three years of monitoring data (26,280 hours total).  The individual hours for each method in the single station run are shown in Table \ref{tb3:exphrs}. 
+%
+\begin{table}[!htb]
+\centering
+\caption{Single station run exposure hours for compliance and exceedance concentrations}
+\label{tb3:exphrs}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Classification Method}} \\ 
+ & \textbf{3-Strike} & \textbf{99\%} \\ \midrule
+Compliance hours & 26,271 & 26,017 \\
+Exceedance hours & 9 & 263 \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+Total pollutant concentration exposure was calculated by summing the randomly drawn values from each method over the number of individual hours as shown below
+%
+\begin{equation}
+\label{eq3:cdfsum}
+CDF=\sum^{N}A_{hr} + \sum^{M}X_{hr}
+\end{equation}
+%
+\noindent
+where 	$CDF$ = the total concentration exposure over 3 years for a particular classification method in $\mu g-hr/m^{3}$, $N$ = total number of Compliance hours for a particular classification method,$M$ = total number of Exceedance hours allowed for a particular classification method (Note that $N + M$ = 26,280 hours), $A_{hr}$ = independent variable sampled from the Compliance PDF for 1hr concentration in $\mu g-hr/m^{3}$, and $X_{hr}$ = independent variable sampled from the Exceedance PDF for 1hr concentration in $\mu g-hr/m^{3}$.
+
+Other assumptions were made for the remaining variables of eq 1. The body weight variable (BW) is normally evaluated at 70 kg for adults (USEPA, 2005b), however, the average body mass for Kuwait has increased over the years and is on par with the United States and other western nations. Using 2014 census data from the Kuwait Central Statistics Bureau and assuming non-Kuwaiti residents from different national groups have the same average weights described by other researchers \citep{Walpole2012}, Kuwait has a composite average body of mass 66.4 kg as shown in Table \ref{tb:4compositewght}. Age and gender is not considered.
+%
+\begin{table}[!htb]
+\centering
+\caption{Composite Weight of Adults in Kuwait}
+\label{tb:4compositewght}
+\begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Nationality} & \textbf{Average body mass (kg)} & \textbf{Population} & \textbf{\%} & \textbf{Average body mass} \\ 
+\textbf{Groups} & \textbf{(Walpole et al., 2012)} & \textbf{(CSB, 2014)} & \textbf{Population} & \textbf{component (kg)} \\ \midrule
+Kuwait & 80.7 & 1,191,234 & 32.6\% & 26.3 \\
+Asia & 57.7 & 1,525,083 & 41.7\% & 24 \\
+Africa & 60.7 & 73,300 & 2.0\% & 1.2 \\
+North America & 80.7 & 18,297 & 0.5\% & 0.4 \\
+Europe(*) & 70.8 & 13,966 & 0.4\% & 0.3 \\
+World(**) & 62 & 837,372 & 22.9\% & 14.2 \\
+ & \textbf{Total} & 3,659,252 & 100.0\% & \textbf{66.4} \\ \bottomrule
+\multicolumn{5}{l}{* - Includes residents from South American, Central American, Australia and European countries} \\
+\multicolumn{5}{l}{** - Includes residents from Arab and non-specified countries}
+\end{tabular}
+\end{adjustbox}
+\end{table}
+%
+The final variable, inhalation rate ($IR$) is given an average value of 15.2 $m^{3}/day$ for adults by the USEPA \citep{USEPA2005b}. Other studies have used lower average values such as 13.1 $m^{3}/day$ to account for reduced rates during sleeping and sedentary activities \citep{Marshall2006}. The higher, more conservative average rate of 15.2 $m^{3}/day$ was used for this study. 
+
+\subsection{Applying the Central Limit Theorem}
+
+Because the samples are taken randomly and independently from the PDFs, the Central Limit Theorem (CLT) was used to simplify the calculation process resulting in Normal distributions ($N$) for the total exposure where
+%
+\begin{equation}
+\label{eq4:cdfN}
+CDF=N(\mu_{A},\sigma_{A})+N(\mu_{X},\sigma_{X}
+\end{equation}
+%
+\noindent
+and
+%
+\begin{equation}
+\label{eq5:cdfmu}
+\left\{\begin{matrix}
+\mu_{A} = \mu_{1}N
+\\ 
+\mu_{X} = \mu_{2}M
+\end{matrix}\right.
+\end{equation}
+%
+\begin{equation}
+\label{eq6:cdfsigma}
+\left\{\begin{matrix}
+\sigma_{A} = \frac{\sigma_{1}}{\sqrt{N}}N = \sigma_{1}\sqrt{N}
+\\ 
+\sigma_{X} = \frac{\sigma_{2}}{\sqrt{N}}N = \sigma_{2}\sqrt{N}
+\end{matrix}\right.
+\end{equation}
+%
+Given $\mu_{1}$ and $\mu_{2}$ are the arithmetic means of the Compliance and Exceedance PDFs respectively and $\sigma_{1}$ and $\sigma_{2}$ are the standard deviations of the PDFs \citep{Ott1981}. 
+
+\subsection{Calculations}
+
+A Monte Carlo Analysis was run for 10,000 iterations for the composite CDI values based on Normal distribution-based Compliance and Exceedance PDFs.  Fig \ref{fig4:composite} shows the CDI distributions of 8 hr O$_{3}$ for both the 3-Strike and 99\% Method models. 
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk4.png} 
+\caption{Composite model distributions of 8 hr O$_{3}$ CDIs for the (a) 3-Strike Method and (b) 99\% Rule Method.}
+\label{fig4:composite}
+\end{figure}
+%
+
+\subsection{Statistical tests}
+
+To compare the results of the run, a Null Hypothesis ($H_{o}$) assumed that there was no significant statistical difference ($p<0.05$) between the mean and variance of the CDI for both methods. Accepting the Null means that either method could be used without concern that exposure was overly high in method. Rejecting the Null would show that there were statistically significant differences ($p<0.05$) between the mean and variance of the two methods and that one method had higher exposure risk. 
+
+Since the CLT is used, distributions are assumed to be normal, however a coefficient of variation (COV) test will be used to confirm normality, where COV = $\sigma/\mu$. If the COV is less than unity, then the PDF can be considered Normal \citep{Abdi2010}.  If the COV $>$ 1 and the PDF is a non-normal distribution, data transformation can be performed to convert the data to a Normal distribution such as using a log transformation or Box-Cox transformation \citep{Osborne2010}.
+
+Variance testing can then use the one-sided F-test where the F-statistic is defined as
+%
+\begin{equation}
+\label{eq6:ftest}
+F_{*} = \frac{(\sigma_{3-Strike})^{2}}{(\sigma_{99\%})^{2}}
+\end{equation}
+%
+Where $\sigma_{3-Strike}$ is the standard deviation of the 3-Strike method CDI MCA and $\sigma_{99\%}$ is the standard deviation of the 99\% rule method MCA. In each case, the degrees of freedom (df) are n-1, or 26,279, giving a critical value of F, F$_{c}$(.05, 26,729) = 1.02. If the F test passes and variances are assumed to be equal, the means can be tested with a standard t-test in which test statistic, t$_{*}$ is defined as
+%
+\begin{equation}
+\label{eq7:t-test}
+t_{*} = \frac{\left | \mu_{3-Strike}-\mu_{99\%} \right |}{SE_{diff}}
+\end{equation}
+%
+\noindent
+where $\mu_{3-Strike}$ is the mean of the 3-Strike method CDI MCA, $\mu_{99\%}$ is the mean of the 99\% rule method MCA, and $SE_{diff}$ is the standard error of the difference is defined as
+%
+\begin{equation}
+\label{eq8:SEdiff}
+SE_{diff} = \sqrt{\frac{(\sigma_{3-Strike})^{2}+(\sigma_{99\%})^{2}}{2n}}
+\end{equation}
+%
+\noindent
+where the sample size n is equal for both groups. The df is again 26,729, making the t critical, t$_{c}$(0.05, 26729) = 1.645.
+
+With such a large sample size however, the low critical value of the F statistic may cause the variance test to fail. For unequal variances, a modified t-test for unequal variances (Satterthwaite t-test) is used \citep{Ruxton2006}.  The Satterthwaite t-test is similar to eq \ref{eq7:t-test} and \ref{eq8:SEdiff} except an approximate degree of freedom value is calculated to calibrate the Satterthwaite t statistic with normal t statistic values. The new Satterthwaite degrees of freedom (df$_{S}$) is calculated by
+%
+\begin{equation}
+\label{eq9:sath_dfs}
+df_{S} = \frac{\left(\frac{(\sigma_{3-Strike})^{2}}{n}+\frac{(\sigma_{99\%})^{2}}{n}\right)^{2}}{ \frac{\left(\frac{(\sigma_{3-Strike})^{2}}{n}\right )^{2}}{n-1}+\frac{\left(\frac{(\sigma_{99\%})^{2}}{n}\right )^{2}}{n-1}}
+\end{equation}
+%
+\noindent
+which reduces to
+%
+\begin{equation}
+\label{eq10:sath_dfs_reduce}
+df_{S} = \frac{(n-1)\left ((\sigma_{3-Strike})^{2}+(\sigma_{99\%})^{2}\right )^{2}}{(\sigma_{3-Strike})^{4}+(\sigma_{99\%})^{4}}
+\end{equation}
+%
+If the means test fails, then the Null hypothesis is rejected.  A summary of the hypothesis testing procedure is show in Fig \ref{eq5:cdfmu}.
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk5.png} 
+\caption{Flow chart of hypothesis testing procedures for single station case.}
+\label{fig5:flowchart}
+\end{figure}
+%
+\subsection{Multiple station case}
+For multiple stations, a similar process is followed for the single station case with some modifications. An assumption is made that each station is independent from each other and therefore does not observe the same concentration. Based on this assumption, the probability of one station having a non-compliant (NC) observation is therefore independent at the time of the observation. Because we are assuming the zone is in compliance, we know that the maximum allowable NC observation to stay in compliance is a constant for each classification method. We can initially assume that each station has an equal number of NC observations required to meet the classification limit. For the 3-Strike method, each station is assumed to have 3 NC observations, and for the 99\% Rule method, each station has 268 NC observations. However, because we are looking at exposure potential, we have to assume that some stations will have more NC observations than others. In a worst case scenario for the 99\% Rule, one station could have all NC observations while the other stations have no exceedances and the zone could still be in compliance. A more likely scenario is that some stations will have more NC observations than others. To account for local exposure at individual stations, additional NC hours are added to each station based on the estimated percentage of NC observations over the three years (\%NC). For each NC hour added, a compliant hour is removed in order to keep the total number of observation hours constant. A binomial distribution is used to model the number of additional NC hours with the number of trials. Input values for a binomial distribution include the number of trials, $n$, and the continuous success probability, $p$ \citep{Palisades2016}.  If $m$ = the number of years of observation (in our case, 3 years), then for the 3-strike method, $n = 3*(m{-}1)$, and for the 99\% Rule method, $n = 268*(m{-}1)$. The continuous success probability for each station, p$_{i}$, is calculated for each station using the following method:
+
+Step 1. Determine \%NC over the three years for each station. 
+%
+\begin{equation}
+\label{eq11:step1}
+\%NC_{i}=\frac{\#\, of\, NC\, observations\, at\, Station\, i}{\#\, of\, Total\, observations\, at\, Station\, i}
+\end{equation}
+
+Step 2. Sum the individual \%NC’s and normalize each station’s pi. 
+%
+\begin{equation}
+\label{eq12:step2}
+p_{i}=\frac{\%NC_{i}}{\sum_{i=1}^{m}\%NC_{i}}
+\end{equation}
+%
+Step 3. Estimate the number of NC hours and residual compliance (RC) hours at each station for each method.
+%
+\begin{equation}
+\label{eq13:step3a}
+3-Strike \, Method:\left\{\begin{matrix}
+NC_{i} \,hours=binomial(n_{3-Strike}, p_{i})+3\\ 
+RC_{i} \,hours=9-NC_{i} \,hours
+\end{matrix}\right.
+\end{equation}
+%
+%
+\begin{equation}
+\label{eq14:step3b}
+99\% Method \, Method:\left\{\begin{matrix}
+NC_{i} \,hours=binomial(n_{99\%}, p_{i})+268\\ 
+RC_{i} \,hours=804-NC_{i} \,hours
+\end{matrix}\right.
+\end{equation}
+%
+Step 4. Run the MCA with CFD’s for each method and for each station similar to eq \ref{eq4:cdfN}.
+%
+\begin{equation}
+\label{eq15:cfdstep}
+Method\, CFD_{i} = N(\mu_{A_{i}},\sigma_{A_{i}}) + [N(\mu_{X_{i}},\sigma_{X_{i}}) + N(\mu_{AR_{i}},\sigma_{AR_{i}})]
+\end{equation}
+%
+\noindent
+where $\mu_{A_{i}}$ is the mean of the compliance observations PDF at station $i$ multiplied by the number of compliance hours for the method being evaluated, $\sigma_{A_{i}}$ is the standard deviation of the compliance observations PDF at station $i$ multiplied by the square root of the number of compliance hours for the method being evaluated, $\mu_{X_{i}}$ is the mean of the non-compliant observations PDF multiplied by NC$_{i}$ hours for the method being evaluated, $\sigma_{X_{i}}$ is the standard deviation of the non-compliant observations PDF multiplied by the square root of the NC$_{i}$ hours for the method being evaluated, $\mu_{AR_{i}}$ is the mean of the compliance observations PDF at station $i$ multiplied by the RC$_{i}$ hours for the method being evaluated, $\sigma_{AR_{i}}$ is the standard deviation of the compliance observations PDF at stationi multiplied by the square root of the RC$_{i}$ hours for the method being evaluated.
+
+The CDI is then calculated for each station and each method using the same process as the single station case.  The multiple station case uses the same statistical tests as the single station case.
+% 
+\section{Results}
+
+\subsection{Single station case}
+Models were prepared to compute the CDI values for 1 hour NO$_{2}$ and 8 hour O$_{3}$ from an air monitoring station located in a coastal urban area and used data collected between 2008 and 2010.  The particular station was located in a dense residential area on a government building approximately 300 m away from a major highway. The resulting PDFs estimated from the data sets and related air quality standards are shown in Table \ref{tb5:singlePDF}.
+%
+\begin{table}[!htb]
+\centering
+\caption{Representative PDFs for single station case}
+\label{tb5:singlePDF}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{Pollutant} & \textbf{Air Quality Standard}  & \textbf{Compliance} & \textbf{Exceedance} \\ 
+ &($\mu g/m^{3}$) &\textbf{PDF distribution} & \textbf{PDF distribution} \\ \midrule
+1 hr NO$_{2}$ & 200 & Gamma & Pareto \\
+8 hr O$_{3}$ & 100 & Kumaraswamy & Pareto \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+The PDF means and standard deviations (SD) were then used as input parameters for Normal distributions after applying sample modifications per eq \ref{eq5:cdfmu}.  A summary of the inputs (means and standard deviations) for each model are shown in Table \ref{tb6:singleInputs}.
+%
+\begin{table}[!htb]
+\centering
+\caption{Summary of Normal Distribution input parameters used to calculate CDFs for the single station case.} 
+\label{tb6:singleInputs}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\textbf{} & \textbf{} & \multicolumn{2}{c}{\textbf{Compliance PDF}} & \multicolumn{2}{c}{\textbf{Exceedance PDF}} \\ \midrule
+\textbf{Pollutant} & \textbf{Method} & \textbf{Mean} & \textbf{SD} & \textbf{Mean} & \textbf{SD} \\
+1 hr NO$_{2}$ & 3 Strike & 1,838,596.79 & 5,991.89 & 2,427.80 & 299.6 \\
+ & 99\% & 1,820,820.40 & 5,962.85 & 70,945.80 & 1,619.50 \\
+8 hr O$_{3}$ & 3 Strike & 849,524.12 & 3,750.43 & 1,106.10 & 86.7 \\
+ & 99\% & 841,310.53 & 3,732.25 & 32,323.80 & 468.5 \\ \bottomrule
+ &  & \multicolumn{4}{c}{(in $\mu g-hr/m^{3}$)} \\ 
+\end{tabular}
+\end{table}
+
+%
+The CDIs computed through the MCA of each pollutant using samples drawn from Compliance and Exceedance distributions in Table \ref{tb6:singleInputs} are shown in Table \ref{tb7:singleCDI}.
+%
+\begin{table}[!htb]
+\centering
+\caption{Single station CDIs (in $\mu g/kgBW-day$)}
+\label{tb7:singleCDI}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Pollutant} & \textbf{Method} & \textbf{Mean} & \textbf{SD} \\ \midrule
+1 hr NO$_{2}$ & 3 Strike & 16.04 & 0.05 \\
+ & 99\% & 16.48 & 0.05 \\
+ & Difference & 2.7\% &  \\
+8 hr O$_{3}$ & 3 Strike & 7.41 & 0.03 \\
+ & 99\% & 7.61 & 0.03 \\
+ & Difference & 2.7\% &  \\ \bottomrule
+\end{tabular}
+\end{table} 
+%
+Statistical testing of the single station case for 1 hr NO$_{2}$ is shown in Table \ref{tb8:test1hrNO2}.
+%
+\begin{table}[!htb]
+\centering
+\caption{Statistical testing for single station CDI case for 1 hr NO$_{2}$}
+\label{tb8:test1hrNO2}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Method} & \textbf{3 Strikes} & \textbf{99\%} \\ \midrule
+COV & 0.003 & 0.003 \\
+F-test & \multicolumn{2}{c}{1.059} \\
+df & 26,279 & 26,279 \\
+F$_{critical}$ ($p<0.05$) & \multicolumn{2}{c}{1.02} \\
+Result ($F_{test} < F_{critical}$) & \multicolumn{2}{c}{FALSE} \\
+t-test & \multicolumn{2}{c}{955.73} \\
+dfs & \multicolumn{2}{c}{52,514} \\
+t$_{critical}$ ($p<0.05$) & \multicolumn{2}{c}{1.664} \\
+Result (t$_{test} < $t$_{criticial}$) & \multicolumn{2}{c}{FALSE} \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+For the 1 hr NO$_{2}$, the COVs of both methods are much less than 1 indicating the samples most likely came from normal distributions. As predicted in the Methods section, the large number of samples caused the variance test to fail. Using a modified t-test with unequal variances and a computed degrees of freedom approximation, the test for means also fails, requiring us to reject the null hypothesis and accept that there are significant statistical differences between the two method for 1 hr NO$_{2}$ classification. Critical values for the F and t tests were calculated using the F-distribution and t-distribution quantile functions.
+
+Statistical testing results for the single station case of 8 hr O$_{3}$ is shown in Table \ref{tb9:test1hrO3}.
+%
+\begin{table}[!htb]
+\centering
+\caption{Statistical testing for single station CDI case for 8 hr O$_{3}$}
+\label{tb9:test1hrO3}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Method} & \textbf{3 Strikes} & \textbf{99\%} \\ \midrule
+COV & 0.004 & 0.004 \\
+F-test & \multicolumn{2}{c}{1.005} \\
+df & 26,279 & 26,279 \\
+F$_{critical}$ ($p<0.05$) & \multicolumn{2}{c}{1.02} \\
+Result ($F_{test} < F_{critical}$) & \multicolumn{2}{c}{TRUE} \\
+t-test & \multicolumn{2}{c}{701.7} \\
+dfs & \multicolumn{2}{c}{52,560} \\
+t$_{critical}$ ($p<0.05$) & \multicolumn{2}{c}{1.664} \\
+Result (t$_{test} < $t$_{criticial}$) & \multicolumn{2}{c}{FALSE} \\ \bottomrule
+\end{tabular} \\
+\end{table}
+%
+As with the 1 hr NO$_{2}$, the 8 hr O$_{3}$ shows that the null hypothesis must be rejected, despite the passing of the variance test and being 2.7\% different. For single stations, the 3 Strike method offers less exposure over the same duration than the 99\% Rule method. A more graphical representation of the two CDIs is shown in Fig \ref{fig6:CDIdistributions} where the different CDI distributions for 8 hr O$_{3}$ are plotted together, showing the difference in means. This assumes that BW and IR are constant.
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk6.png} 
+\caption{Comparison of CDI distributions for 8 hr O$_{3}$.}
+\label{fig6:CDIdistributions}
+\end{figure}
+%
+
+\subsection{Multiple station cases}
+\subsubsection{Results for Multiple station case: 1 hr NO$_{2}$}
+
+Three stations within a coastal zone of Kuwait were selected for comparison with three years of data from 2008-2010. In addition to the station used for the single case, two stations located in nearby residential areas were also used. In each case the stations were mounted on the roofs of government buildings. The steps described above in eq \ref{eq11:step1} through \ref{eq14:step3b} were used to determine the weighted \%NC probability of continuous success, p, for the binomial distributions used to estimate additional non-compliant days. A summary of initial station parameters is shown in Table \ref{tb10:multiParaNO2}, including number of compliant and NC hours, the binomial probability and the base PDF distribution forms used for the MCA.
+% 
+\begin{table}[!htb]
+\centering
+\caption{Parameters for multiple station case of 1 hr NO$_{2}$.}
+\label{tb10:multiParaNO2}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Parameters} & \textbf{AMS 1} & \textbf{AMS 2} & \textbf{AMS 3} & \textbf{Total} \\ \midrule
+Compliant hrs & 25,780 & 26,230 & 25,684 & 77,694 \\
+NC hrs & 524 & 74 & 620 & 1,218 \\
+\%NC & 1.99\% & 0.28\% & 2.36\% & 4.63\% \\
+p (from eq 12) & 43.0\% & 6.1\% & 50.9\% & 100\% \\
+Compliant PDF distribution & Gamma & Weibull & Triangle &  \\
+NC PDF distribution & Pareto & Kumaraswamy & Lognormal &  \\ \bottomrule
+\end{tabular}
+\end{table} 
+
+The parameters of Table \ref{tb10:multiParaNO2} were used to define the normal distributions used in the MCA for each method as summarized in Table \ref{tb11:multiNO2}.
+% 
+\begin{table}[!htb]
+\centering
+\caption{Normal distribution inputs for multiple station case CDF’s of 1 hr NO$_{2}$.}
+\label{tb11:multiNO2}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & \multicolumn{3}{c}{\textbf{3 Strike Method ($\mu g-hr/m^{3}$)}} \\ \midrule
+ & AMS 1 & AMS 2 & AMS 3 \\
+ & \multicolumn{3}{c}{Compliant Normal Distributions} \\
+Mean & 1,838,597 & 1,001,779 & 1,751,400 \\
+SD & 5,991.90 & 4,907.70 & 7640.7 \\
+ & \multicolumn{3}{c}{NC Normal Distributions} \\
+Mean & 2,427.80 & 2,024.86 & 2,447.45 \\
+SD & 299.58 & 77.37 & 444.99 \\
+ & \multicolumn{3}{c}{\textbf{99\% Rule Method ($\mu g-hr/m^{3}$)}} \\
+ & AMS 1 & AMS 2 & AMS 3 \\
+ & \multicolumn{3}{c}{Compliant Normal Distributions} \\
+Mean & 1,802,162 & 974,065 & 1,705,873 \\
+SD & 6,133.60 & 4,880.30 & 7,557.30 \\
+ & \multicolumn{3}{c}{NC Normal Distributions} \\
+Mean & 216,883.59 & 180,887.22 & 218,638.96 \\
+SD & 2,831.51 & 731.23 & 4,205.88 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The resulting descriptive statistics for the CDIs of each station after 10,000 iterations during the MCA are shown in Table \ref{tb12:CDIstatsNO2}. 
+%
+\begin{table}[!htb]
+\centering
+\caption{CDI statistics for multiple stations of 1 hr NO$_{2}$.}
+\label{tb12:CDIstatsNO2}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+ & \textbf{AMS 1} & \textbf{AMS 2} & \textbf{AMS 3} \\ \midrule
+ & \multicolumn{3}{c}{\textbf{Mean ($\mu g/kgBW-day$)}} \\
+3 Strike Method & 16.03 & 8.73 & 15.27 \\
+99\% Rule Method & 17.06 & 9.24 & 16.29 \\
+Difference & 6.4\% & 5.8\% & 6.7\% \\
+ & \multicolumn{3}{c}{\textbf{SD ($\mu g/kgBW-day$)}} \\
+3 Strike Method & 0.05 & 0.04 & 0.07 \\
+99\% Rule Method & 0.06 & 0.04 & 0.08 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The statistical tests for the methods at each station are shown in Table \ref{tb13:stat-testsNO2} for 1 hr NO$_{2}$. As with the single station, the multiple stations pass the Normality and variance tests, but fails the mean tests. The Null hypothesis is thus rejected for the multiple stations case for 1 hr NO$_{2}$.
+% 
+\begin{table}[!htb]
+\centering
+\caption{Statistical tests for multiple stations of 1 hr NO$_{2}$.}
+\label{tb13:stat-testsNO2}
+\begin{tabular}{@{}rccc@{}}
+\toprule
+\multicolumn{1}{l}{} & \textbf{AMS 1} & \textbf{AMS 2} & \textbf{AMS 3} \\ \midrule
+\multicolumn{1}{l}{Normality testing} &  &  &  \\
+3 Strike Method COV & 0.003 & 0.005 & 0.004 \\
+99\% Rule Method COV & 0.004 & 0.005 & 0.005 \\
+\multicolumn{1}{l}{Variance testing} &  &  &  \\
+$F-test$ & 0.75 & 0.947 & 0.769 \\
+df & 26,279 & 26,279 & 26,279 \\
+$Fcritical$ ($p<0.05$) & 1.02 & 1.02 & 1.02 \\
+Result ($F_{test} < F_{critical}$) & TRUE & TRUE & TRUE \\
+\multicolumn{1}{l}{Means testing} &  &  &  \\
+$t-test$ & 3175 & 1919.3 & 2484.4 \\
+df & 52,560 & 52,560 & 52,560 \\
+$t_{critical}$ ($p<0.05$) & 1.644 & 1.644 & 1.644 \\
+\multicolumn{1}{l}{Result $(t_{test} < t_{critical})$} & FALSE & FALSE & FALSE \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Results for Multiple station case: 8 hr O$_{3}$}
+
+The multiple station case for 8 hr O$_{3}$ follows the same procedure as the 1 hr NO$_{2}$. Table \ref{tb14:multiParamO3} shows the input parameters. Table \ref{tb15:normalinputs03} shows the Normal distribution inputs used for CDF in the MCA. Table \ref{tb16:CDI-O3} summarizes the input statistics of the computed CDIs and Table \ref{tb17:statmultiO3} shows the statistical test results.
+
+% 
+\begin{table}[!htb]
+\centering
+\caption{Parameters for multiple station case of 8 hr O$_{3}$}
+\label{tb14:multiParamO3}
+\begin{tabular}{@{}rcccc@{}}
+\toprule
+\textbf{Parameters} & \textbf{AMS 1} & \textbf{AMS 2} & \textbf{AMS 3} & \textbf{Total} \\ \midrule
+Compliant hrs & 25,048 & 24,653 & 25,151 & 74,852 \\
+NC hrs & 699 & 566 & 72 & 1,337 \\
+\%NC & 2.71\% & 2.24\% & 0.29\% & 5.24\% \\
+p (from eq \ref{eq12:step2}) & 51.8\% & 42.8\% & 5.4\% &  \\
+Compliant PDF distribution & Kumaraswamy & Kumaraswamy & Kumaraswamy &  \\
+Exceedance PDF distribution & Pareto & Exponential & Pareto &  \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+\begin{table}[!htb]
+\centering
+\caption{Normal distribution inputs for multiple station case CDF’s of 8 hr O$_{3}$.}
+\label{tb15:normalinputs03}
+\begin{tabular}{@{}rccc@{}}
+\toprule
+ & \multicolumn{3}{c}{\textbf{3 Strike Method ($\mu g-hr/m^{3}$)}} \\ \midrule
+ & AMS 1 & AMS 2 & AMS 3 \\
+ & \multicolumn{3}{c}{Compliant Normal Distributions} \\
+Mean & 849,524.10 & 964,430.50 & 597,880.30 \\
+SD & 3,750.40 & 3,529.20 & 2,465.70 \\
+ & \multicolumn{3}{c}{NC Normal Distributions} \\
+Mean & 844.1 & 775.1 & 483.5 \\
+SD & 138 & 112.4 & 60.4 \\
+ & \multicolumn{3}{c}{\textbf{99\% Rule Method ($\mu g-hr/m^{3}$)}} \\
+ & AMS 1 & AMS 2 & AMS 3 \\
+ & \multicolumn{3}{c}{Compliant Normal Distributions} \\
+Mean & 825,548.10 & 988,490.08 & 722,209.16 \\
+SD & 3,707.63 & 3,682.44 & 3,025.70 \\
+ & \multicolumn{3}{c}{NC Normal Distributions} \\
+Mean & 75,399.30 & 69,252.40 & 40,748.60 \\
+SD & 1,299.10 & 1,058.30 & 368.3 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+% 
+\begin{table}[!htb]
+\centering
+\caption{CDI statistics for multiple stations of 8 hr O$_{3}$.}
+\label{tb16:CDI-O3}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & \textbf{AMS 1} & \textbf{AMS 2} & \textbf{AMS 3} \\ \midrule
+ & \multicolumn{3}{c}{Mean ($\mu g/kgBW-day$)} \\
+3 Strike Method & 7.4 & 8.4 & 5.21 \\
+99\% Rule Method & 7.85 & 9.21 & 6.65 \\
+Difference & 6.1\% & 9.6\% & 27.6\% \\
+ & \multicolumn{3}{c}{SD ($\mu g/kgBW-day$)} \\
+3 Strike Method & 0.033 & 0.031 & 0.021 \\
+99\% Rule Method & 0.034 & 0.033 & 0.027 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+% 
+\begin{table}[!htb]
+\centering
+\caption{Statistical tests for multiple stations of 8 hr O$_{3}$.}
+\label{tb17:statmultiO3}
+\begin{tabular}{@{}rccc@{}}
+\toprule
+ & \textbf{AMS 1} & \textbf{AMS 2} & \textbf{AMS 3} \\ \midrule
+\textbf{Normality test} &  &  &  \\
+3 Strike COV & 0.004 & 0.004 & 0.004 \\
+99\% Rule COV & 0.004 & 0.004 & 0.004 \\
+\textbf{Variance test} &  &  &  \\
+$F-test$ & 0.905 & 0.844 & 0.655 \\
+df & 26,279 & 26,279 & 26,279 \\
+F$_{critical}$ ($p<0.05$) & 1.02 & 1.02 & 1.02 \\
+Result ($F_{test} < F_{critical}$) & TRUE & TRUE & TRUE \\
+\textbf{Means test} &  &  &  \\
+$t-test$ & 1532.48 & 2900.33 & 6829.69 \\
+df & 52,560 & 52,560 & 52,560 \\
+$t_{critical}$ ($p<0.05$) & 1.664 & 1.664 & 1.664 \\
+Result $(t_{test} < t_{critical})$ & FALSE & FALSE & FALSE \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The 8 hr O$_{3}$ passes the test for normality and variance, but fails the test for equal means. Again, the Null hypothesis is rejected, showing that there is a statistically significant difference between the CDI of the two methods.
+%
+\section{Conclusions}
+
+This study presents a new approach for evaluating air quality zone classification methods by breaking the distribution of historical pollution concentration into compliance and exceedance concentration PDFs. This approach allows the distribution of historical data from an air monitoring station to create ambient air quality profiles to test different compliance scenarios. Two different cases were used to test the methods – a single station case where the data of only one station was used, and a multiple station case where two or more stations’ data are used. In the multiple station case example, three stations were used. Statistical methods were defined to determine normality of the distributions used for the CDI, and whether the different methods had statistically similar variances and means.
+
+A Null hypothesis was proposed that stated the variance and means of both methods were not significantly different and could therefore be used based on non-statistically based preferences. Rejecting the Null showed that the methods did indeed have enough statistically significant differences that to choose one method over another would result in higher local exposure over the duration period. 
+
+Using a Monte Carlos Analysis, it was shown that the two methods do indeed have statistically significant differences in their variances and means for the pollutants tested (NO$_{2}$ and O$_{3}$). While the Null hypothesis is rejected, the individual methods are not. The large sample size and degrees of freedom can reject Null hypothesizes due to extreme sensitivity in variances. Using a different approach based on Effect Size, in which the population size does not affect the statistic, the methods can be compared with better merit. Because the COV tests showed that the distributions were strongly Normal in nature, making the mean and SD strong descriptive statistics that cannot be discounted. The choice of statistic used to compare the classification methods, the CDI, represents a relative risk of exposure, and not a risk of disease, injury or damage. 
+
+Choosing to use one classification method over the other may involve other non-health related factors besides comparing CDI of chemicals. Other factors may include availability of air monitoring data, economic impacts of declaring a zone non-compliant and the ability of the local air management authority to enforce an improvement program. Other reasons may be that the zone is sparsely populated such as a hydrocarbon production field or an inland desert that may not need the same level of exposure protection. Also areas experiencing rapid growth would constantly be in non-compliance under a strict 3-strike method based classification whereas a 99\% Rule method would average some of the emission increases over time and look at the overall trend. Recommendations for using both methods are shown in Table \ref{tb18:recommmends}.
+
+% 
+\begin{table}[!htb]
+\centering
+\caption{Recommended uses for classification methods.}
+\label{tb18:recommmends}
+\begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{3-Strike Method} & \textbf{99\% Rule Method} \\ \midrule
+One station in zone & Multiple stations in zone \\
+Zone is primarily residential & Zone is primarily industrial or sparsely populated \\
+Incomplete or data sets less than 12 months & Several years of data available \\
+Static development & Changes in development and land uses \\ \bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+The fact that one method of classification may cause higher exposure than another is not a reason to reject its use, but to use it with discretion. 
+
+
+
+
+
+

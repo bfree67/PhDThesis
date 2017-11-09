@@ -1,0 +1,141 @@
+\chapter{Introduction}
+
+\section{Research Motivation}
+
+\section{Research Needs}
+
+The purpose of this research is to advance the state of understanding for key areas in air management programs. Gaps and incomplete knowledge areas identified in the previous section show that specific areas should be explored. In addition to identifying knowledge gaps within literature and open access sources, practical understanding of practical needs were identified during the development of an air management program for Kuwait under the UNDP Kuwait Integrated Environmental Management System (KIEMS) project but are relevant to other regulatory agencies in the region. 
+
+The main challenges identified during the KIEMS project can be decomposed into four main tasks that are tangentially related and build off each other. The first task, identification of air quality zone through discrimination of coastal and inland wind patterns led to assignment of zones. The second task of establishing classification criteria for the zones allows for long term management of the zones. The third task supports the completion of an emissions inventory by estimating traffic densities as inputs to vehicle emission models. The last task, predicting air quality exceedances, allows for short term forecasts of bad air quality conditions within the zones. The relationship of each task, shown in borders, to the overall framework of air quality management is shown in Figure \ref{fig:tasks}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/tasks}  %assumes jpg extension
+\caption{Relationship of tasks in the air quality management framework.}
+\label{fig:tasks}
+\end{figure}
+%
+The remainder of this section describes the individual tasks and scope of research required.
+
+\subsection{Identifying air quality zones in coastal areas}
+ 
+AQZs are based on pre-existing land borders. The boundaries do not account for air patterns and may include areas that are not representative of the area being monitored, such as farmlands outside of a city. Initial investigations were completed using the $S$ and $K$ statistics generated from a CALPUFF air dispersion model using virtual sources. 
+
+\subsection{Exposure Risk from Zone Classification}
+
+Once AQzs are agreed upon, determining when they are in compliance or out of compliance with local air quality standards is required. Health impacts caused by hazardous air pollutants, both cancerous and non-cancerous, are due in part to the exposure of a receptor to the pollutants. Estimating the exposure, however, is not sufficient to measure risk alone. Estimating the actual dose a receptor is subject to over a given time and concentration provides a more complete evaluation of risk even though it does not include the toxicity of the chemicals involved. By comparing the different air quality classification methods against a pollutant that already has an ambient air quality standard, we can assume the toxicity impacts have already been accounted for and remove this element from our evaluation. 
+
+Estimating individual exposures based on ambient monitoring is prone to risk and uncertainty \cite{Pernigotti2013}, \cite{Thunis2013}.  The ambient monitoring station is assumed to measure air concentrations for the same population.  Variations in wind speed and direction have a tremendous impact on who gets exposed, and who does not \cite{Pratt2012}. Additionally, lifestyle of the population, construction of houses and work spaces, and exposure duration have major impacts on overall exposure \cite{Bell2006}.
+
+Uncertainty in exposure estimates based on air dispersion models have long been recognized and accepted by regulatory agencies \cite{Colvile2002}, \cite{Fox1984}.  When exposure concentrations are calculated, the results are usually given as a time-weighted average (hourly, daily, or annual) that is then multiplied by the appropriate time period to get the duration exposure amount \cite{Zhang2013}. Using a Monte Carlo Analysis (MCA) based on the air concentration probability distribution, each hour can be randomly sampled over the course of the duration period and summed to create a range of possible exposures.  MCA has been used for several exposure studies to account for the wide variability of exposures \cite{Gerharz2013}, \cite{Tan2014}.
+
+The USEPA Human Health Risk Assessment (HHRA) method defines the Chronic Daily Intake (CDI) (or Average Daily Dose) of chemicals through inhalation in vapor phase using the equation
+%
+\begin{equation}
+\label{eq:CDI-gas}
+CDI_{gas} = (C*IR*EF*ED) / (BW*AT)
+\end{equation}
+%
+Where C is the concentration of the air pollutant ($\mu$g/m\textsuperscript{3}), IR is the inhalation rate (given as 20 m\textsuperscript{3}/day for adults), EF is the Exposure Frequency (days/year), ED is the Exposure Duration (years), BW is Body Weight (in kg), and AT is Averaging Time (usually 365 days/year) \cite{USEPA2005}.  The CDI calculates a value measured in $\mu$g/kg\textsubscript{BW}-day, where kg\textsubscript{BW} is body weight in kilograms. CDI is normally multiplied by the Cancer Slope Factor (CSF) of a carcinogenic chemical for a target organ in order to calculate the Incremental Excess Lifetime Cancer Risk (IELCR) or divided by a Reference Dose (RfD) of a non-carcinogenic chemical to get the Hazard Quotient (HQ). Dosage was used for comparison in this study instead of mortality because Kuwait has a highly mobile population and large expatriate community that does not live in the country for more than 3 years. Other studies that looked as mortality assumed a highly stable population \cite{Sanhueza2010}. Also, as mentioned previously, not incorporating the toxicological values of chemicals (CSF or RfD) allows our method to be used for the many chemicals that do not have accepted studies.
+
+Pollutant concentrations can be calculated with different methods. These include city wide averaging (CWA) which takes the average of all monitor readings within a region or zone; nearest monitoring (NM) which assigns the concentration measured at the closest station to a receptor; inverse distance weighting (IDW) which calculates a concentration by assigning a weighting factor to readings from all monitors based on the inverse of the distance of that station to the receptor; and ordinary Kriging (OK) which assigns a more complex weighting factor to all monitors in a region or zone based on the assumption that the unknown concentration between two stations is a random variable \cite{Rivera-Gonzalez2015}. Previous studies showed that Indoor/Outdoor air concentration ratios were $\geq1$, showing that higher pollutant concentrations occur indoors \citep{Schembari2013} or in vehicles \citep{Abi-Esber2013}. For this research, it is assumed individuals are exposed to the same hourly concentration value throughout the analysis period whether they are indoors or outdoors.
+
+\subsection{Vehicle Density Estimation}
+
+Vehicle emissions are a significant contributor to regional air quality but one of the hardest to estimate due to the number of time dependent variables associated with the calculations. While emission inventory models exist, the input parameters are often very difficult to get. Traffic studies require large groups of observers to count and classify vehicles at different locations and at different times of day. Being able to estimate the number of vehicles on the road is an essential step to quantifying the overall emissions for a region.
+
+Road network conditions are already available in most countries on as an overlay on Google Maps. The different colored segments represent ranges of speed that can be converted to vehicle density for either a lane or, more appropriately, an area of road. These speeds ranges can be converted to density estimations. Initial estimates using a Monte Carlo Analysis was proposed by Freeman et all (2015) but was not verified \cite{Freeman2015a}. Verification of this method requires measurement of the inter-vehicle gap (IVG) at different congested speeds in order to define the descriptive PDF. 
+
+Calculating the IVG requires either active sensors to measure the timing the between cars or cameras mounted above vehicles to capture the instantaneous gaps. These methods both have limitations - the chief among them is that they rely on a stationary position and requires the vehicle flow to come to them. 
+
+Using a small Unmanned Aircraft System (sUAS)\footnote{UAS is the acronym adopted by the US Federal Aviation Administration (FAA) under the Small Unmanned Aircraft Rule Part 107} with a high resolution camera allows dynamic capture of traffic patterns by flying to areas of interest instead of waiting for  traffic to pass a static point. Because of safety requirements, flying directly over traffic is not allowed, however, flying at a suitable altitude on the shoulder, individual vehicle gaps can be easily identified and measured via pixel counting. 
+
+Using sUAS's for traffic analysis is not new. Prior work using fixed wing UASs provided wide area surveillance and analysis of traffic \cite{Coifman2006}. Operating with this type of aircraft requires air traffic control (ATC) approval and expensive operating equipment. A less regulated and lower cost solution using a commercial quadcopter, such as the DJI Phantom 3 Professional shown in Figure \ref{fig:p3p}, can be used to capture the necessary imagery at altitudes under 100m. This solution does not require ATC approvals unless operating near airports.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/p3p.jpg}  %assumes jpg extension
+\caption[Small unmanned aircraft system in flight]{DJI Phantom 3 series sUAS in flight.}
+\label{fig:p3p}
+\end{figure}
+%
+\subsection{Predicting periods of non-compliant air quality} \label{ss:2Forecast}
+
+Air quality predictions and forecasts can be made using time series data from existing AMSs as shown in \ref{ssec:1forecast}. Improving the accuracy and resiliency of the forecasts by predicting durations of exceedances is a critical improvement to current capabilities. 
+
+\subsection{Background Information}
+Kuwait is a small country of approximately 17,818 km$^{2}$  located on the northwest corner of the Persian Gulf, between longitudes 46.56$^{o}$ – 48.37$^{o}$ East and latitudes 28.51$^{o}$ - 30.16$^{o}$ North with over 499 km of coastline \citep{CIA2015}.  The country is classified as a desert zone with the highest altitude reaching only 300 meters above sea level.  In 2011, approximately 3.1 million people lived in Kuwait \citep{CSB2016} with over 64\% of its annual gross domestic product (GDP) coming from the production of hydrocarbons\citep{KAMCO2013}.  Other industries in Kuwait includes power generation and water desalination using heavy oil and natural gas at five sites, steel making using electrical induction furnaces, and food preparation.  The country has over 6,600 km of paved roads and over 1.8 million cars in service \citep{OICA2014}.  Kuwait has 6 governorates divided into 81 districts.  Figure \ref{fig:kuwait} shows the map of Kuwait and its location in the Gulf region.  Recent studies demonstrate that air quality has deteriorated along the Kuwaiti coastline, where most of the population is clustered\citep{Al-Awadhi2014, Al-Yakoob2012}.  The resulting concern from local citizens has led to protests and negative press coverage\citep{Carlisle2010}.
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz3.png} 
+\caption{Location of Kuwait.}
+\label{fig:kuwait}
+\end{figure}
+%
+
+\subsection{Data generation tools}
+
+\section{Research Objectives}
+
+The main goal of this research was to gain a better understanding of flow and sediment load statistics at ungauged basins. This research will add to the existing state of knowledge by allowing a more comprehensive analysis for water quantity and quality prediction models at ungauged basins.  This is made possible through developing novel methods for prediction of flow and sediment parameters at ungauged remote basins and determining the most influential physio-climatic characteristics that alter flow and sediment parameters. The specific objectives of this research were therefore set forth as:
+
+\begin{enumerate}
+\item Develop a novel, simple, and reliable method for predicting flow duration curve parameters (mean and variance) separately at ungauged basins using artificial neural networks and incorporating apportionment entropy disorder index. This includes determining the key processes and characteristics that best describe the basin response. Further, a case study is used to present the simplicity and reliability of this new model for the development of micro-hydropower generators in ungauged headwater streams.
+\item Improve the previously developed flow duration curve models through adopting different techniques within artificial neural networks that deal with data scarcity and developing gene expression programming (GEP) models. It addresses the impact of regulation on the parameters of the flow duration curve and uses a more extensive range of input parameters for regulated and unregulated watersheds across North America.
+\item Develop integrated artificial neural networks models for prediction of sediment rating curve parameters (rating curve coefficient and exponent) separately  for ungauged basins. The models integrate a comprehensive list of input parameters representing watershed characteristics and assess the sensitivity of each input on sediment rating curve parameters. 
+\item Investigate and characterize the spatial and temporal variability of precipitation using an entropy based approach. This parameter was expected to improve the accuracy of flow and sediment prediction models.
+\end{enumerate}
+
+\section{Organization}
+This thesis is organized in a \textit{manuscript} format according to the University of Guelph 2013-2014 Graduate Calendar ``Thesis Format'' section.  Chapters 2 through 6 are separate articles. The chapters are outlined as follows:
+
+\noindent \textbf{Chapter 1 - Introduction}
+
+This chapter serves as an overview to the research covered by the thesis. It best describes the connections made between the different chapters of this thesis.
+
+\noindent \textbf{Chapter 2 - Identifying air quality zones}
+
+This chapter .... This paper was published in the peer-reviewed Journal of the Air and Waste Management Association.
+
+\begin{itemize}
+\item Freeman, B., Gharabaghi, J.  Th\'e, S. Faisal, M. Abdullah, and A. Al-Aseed (2017). Mapping air quality zones for coastal urban centers. Journal of the Air and Waste Management Association, Volume 67, Issue 5, December 2016, Pages 565-581.
+\end{itemize}
+
+\noindent \textbf{Chapter 3 - Evaluation of air quality zone classification methods based on ambient air concentration exposure}
+
+This chapter.... This paper was published in the peer-reviewed Journal of the Air and Waste Management Association.
+
+\begin{itemize}
+\item Freeman, E. McBean, B., Gharabaghi, J.  Th\'e, (2017). Evaluation of air quality zone classification methods based on ambient air concentration exposure. Journal of the Air and Waste Management Association, Volume 67, Issue 5, December 2016, Pages 550-564.
+\end{itemize}
+
+\noindent \textbf{Chapter 4 - Estimating annual emissions of distributed area sources}
+
+This chapter ... This paper has been accepted in the peer-reviewed International Journal of Environmental Science and Technology.
+
+\begin{itemize}
+\item Freeman, B., Gharabaghi, J.  Th\'e, (2017). International Journal of Environmental Science and Technology. Accepted 16 Oct 2017.
+\end{itemize}
+
+\noindent \textbf{Chapter 5 - Estimating traffic density using cloud data}
+
+This chapter ... A paper based on this chapter was published in the peer reviewed journal EM.
+
+\begin{itemize}
+\item Freeman, B., Gharabaghi, J.  Th\'e, (2015). Estimation of Mixed Traffic Densities in Congested Roads using Monte Carlo Analysis. EM, April 2015, pages 8-13. 
+\end{itemize}
+
+\noindent \textbf{Chapter 6 - Forecasting environmental time series using deep learning}
+
+This chapter...  This paper was submitted for publication in the peer reviewed journal Atmospheric Environment.
+
+\begin{itemize}
+\item \item Freeman, G. Taylor, B., Gharabaghi, J.  Th\'e, (2017). Submitted to Atmospheric Environment.
+\end{itemize}
+
+\noindent \textbf{Chapter 7 - Conclusion}
+
+This final chapter emphasizes the overall contributions made by this research and provides recommendations for future work.
+
+
+
