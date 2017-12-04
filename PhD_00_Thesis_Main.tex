@@ -1,6 +1,14 @@
 %	ROOT FILE of University of Guelph Ph.D. Thesis                  
 % 	created using a modified version of the University of California thesis style  
-\documentclass[a4paper,12pt,times,numbered,print,index]{guelphthesis} % For 2 sided: use [12pt, twoside]
+\documentclass[12pt,
+times,
+numbered,
+print,
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+chapterinoneline,
+index]{guelphthesis} % For 2 sided: use [12pt, twoside]
+
 \usepackage{latexsym}
 \usepackage{amssymb}
 %\usepackage{cite}
@@ -52,47 +60,44 @@
 \dsp
 \setcounter{secnumdepth}{3}
 
-
 %\include{com}
 
 \begin{document}
 
-\lstset{language=C}
+\lstset{language=Python}  %%% set code language
 %*******************  Front Matter  *******************
 
 \begin{frontmatter}
 \begin{linenumbers} %turn off for final edits
-	%\include{PhD_01_TitlePage} % title, approval page, copyright page
+	\include{PhD_01_TitlePage} % title, approval page, copyright page
 	%\include{PhD_02_Abstract}
 	%\include{PhD_03_Dedication}
 	%\include{PhD_04_Acknowledgements}
 \end{linenumbers} %turn off for final edit
 
-	%\include{PhD_05_TOC} % TOC, LOT, LOF
+	\include{PhD_05_TOC} % TOC, LOT, LOF
+	\include{Acronyms}
 \end{frontmatter}
 
 %*******************  Body  *******************
 \begin{linenumbers} %turn off for final edits
-	%\include{airzones}
-	\include{riskcheck}
-	%\include{Chapter1} 	%Chapter 1
-	%\include{Chapter2} 	%Chapter 2
-	%\include{Chapter3}	%Chapter 3
-	%\include{Chapter4}	%Chapter 4
-	%\include{Chapter5}	%Chapter 5
-	%\include{Chapter6} 	%Conclusions and Recommendations
+	\include{Chapter1_Intro}
+	\include{Chapter2_ProblemDescription}
+	\include{Chapter3_Methodology}
+	\include{Chapter4_Results}
+	\include{Chapter5_Conclusions}
 \end{linenumbers} %turn off for final edit
-\clearpage
-
-%*******************  Appendices  *******************
-\begin{appendices}	
-	\include{App1_Acronyms} 
-	\include{App2_Published}
-\end{appendices}
 \clearpage
 
 %*******************  Bibliography  *******************
 \printbibliography[heading=bibintoc]
+\clearpage
+
+%*******************  Appendices  *******************
+\begin{appendices}	
+	\include{Published}
+	\include{RNN_Python_code}
+\end{appendices}
 \clearpage
 
 \end{document}

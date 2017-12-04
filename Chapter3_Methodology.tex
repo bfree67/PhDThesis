@@ -1,0 +1,804 @@
+\chapter{Methodology}
+This chapter develops the methods used to address the problem statements defined in Chapter 2.
+
+\section{Air zone mapping}
+
+A simple method to estimate LSB extent is a key component to proposing defined air quality zones suitable for compliance enforcement for countries that have a significant industrial and population presence on or near coastlines.  This study presents a novel approach that incorporates LSB into the zone designation process, employing air dispersion modeling results from virtual sources placed in high-risk receptor areas.  A virtual source with the same emission parameters was placed at several designated areas of concern and modeled using a dispersion model over several individual years.  The resulting dispersion patterns over a 20 km x 20 km grid with the virtual source at the center was converted to a histogram and descriptive statistics calculated.  The $S$ and $K$ statistics were used to classify individual areas as inland wind effect impacted or coastal wind effect impacted.
+
+The methodology is summarized below:
+\begin{itemize}
+\item Scope the overall area, accounting for coast, terrain, and land use.
+\item Identify high risk receptor areas.
+\item Model dispersion of by a common virtual sources at selected risk areas over 1 year (8,760 hours) for multiple years.
+\item Compute $S-K$ statistics for individual years.
+\item Determine Coastal/Inland classification based on majority of runs at each site.
+\end{itemize}
+
+The following subsections illustrate the new approach as applied by the United Nations Development Program (UNDP) Kuwait Integrated Environmental Management System Project to support the definition of AQZs in Kuwait \citep{Freeman2013}.  
+
+\subsection{Modeling Land-Sea Breeze patterns}
+
+LSBs are the primary dispersal agent of generated emissions for sources located near the sea \citep{Cuxart2014}.  Coastal areas often contain large concentrations of people and industries, thus making them sensitive receptor areas.  In Kuwait, the overwhelming majority of people and industry are located in coastal areas.  The first step of the process is to determine how far LSB patterns encroach inland.  The diurnal nature of LSB is particularly strong for countries in the study area \citep{Zhu2004}.  Effects also vary seasonally with the sea breezes lasting longer in the summer months than the winter months.  Zhu reported maximum penetration along the Gulf coast countries of sea breezes in excess of 250 km.  Of the multiple variables reported by Conklin, Zhu suggests that the main factors affecting LSB are the land-sea heat flux, ambient wind patterns, and local topography.  Figure \ref{fig:LSBwinds} displays examples of coastal wind distributions for southern Kuwait captured at ground level by an air monitoring station.  Similar patterns showing wind directions distributed around the compass with a prevailing component are common for coastal areas \citep{Lozano2013}.
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz2.png} 
+\caption[Typical LSB winds for Kuwait]{(a) Typical day time and (b) night time ground level LSB winds in southern Kuwait for the year 2011.}
+\label{fig:LSBwinds}
+\end{figure}
+% 
+\subsection{Puff Modeling of Virtual Urban Air Pollution Sources}
+
+This new AQZ delineation methodology requires investigation to assess how far inland coastal effect winds travel, by evaluating wind patterns throughout the area.  Virtual emission sources were placed in areas considered to have high receptor and source risks.  These may included dense residential areas, industrial zones, and concentrated urban environments.  The same virtual source is inserted at each site in order to compare the dispersion patterns over the same time frames. Source parameters were selected to represent typical industrial operations and published sources \citep{Chusai2012}. Table \ref{tb:puffmodel} contains parameters used for each virtual source configuration.  The source was designed to represent a typical boiler burning high sulfur diesel fuel.
+
+\begin{table}[]
+\centering
+\caption{Puff model virtual source properties.}
+\label{tb:puffmodel}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{Parameter}      & \textbf{Value}           \\ \midrule
+Modeling period         & 1 Jan 2009 – 31 Dec 2011 \\
+Averaging Period        & 8,760 hours              \\
+Emission rate           & SO$_{2}$ 200 kg/hr       \\
+Stack height            & 20 m                     \\
+Stack internal diameter & 1 m                      \\
+Gas exit velocity       & 30 m/s                   \\
+Gas exit temperature    & 1000 K                   \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Air dispersion patterns were modeled using CALPUFF 5.8.4 and CALMET 5.8.4  (USEPA, 2014) set to 1 km x 1 km receptor grids in a 20 km x 20 km area at ground level for a total of 400 points per run.  CALMET can accommodate the complex wind fields associated with coastal environments and has been used for modeling land sea breezes for other similar flat terrain \citep{Mangia2010}. Lakes Environmental generated the mesoscale numerical weather prediction (NWP) model (MM5) data to compute wind fields for three individual years (2009 to 2011).  The model calculated the annual average (8,760 hours) for each year at each virtual source location. 
+
+CALPUFF was chosen because it is a non-steady puff model that calculates complex wind fields typically found in coastal zones \citep{Ghannam2013a, Indumati2009, USEPA2014, Weiss2014}.  Digitized local terrain and geophysical data were incorporated into the process during the development of the CALMET model using the Terrain Elevation Data Processing (TERREL), and other preprocessors \citep{Scire2000}.  Digital terrain files were downloaded from the Shuttle Radar Topography Mission (SRTM3) Global Coverage (~90 m) Version 2 database \citep{USGS2000}.  The Global Land Cover Characteristics (GLCC) database maintained by the US Geological Survey (USGS) provided land use data \citep{USGS2008}.  Coast line features were further processed using shoreline data from the Global Self-consistent, Hierarchical, High-resolution Shoreline Database (GSHHS) provided by NOAA's National Centers for Environmental Information \citep{NOAA2015}.  Default values were used for other settings.
+
+Sulfur Dioxide (SO$_{2}$) was use as a pollutant for the virtual sources due to the extensive data already collected by local air monitoring stations and heavy use of sulfur rich fuels in local combustion processes \citep{Al-Awadhi2014, Al-Rashidi2005}.  SO$_{2}$ was also used for other studies involving air control zones \citep{Hao2000, Henschel2013, Pereira2007}.  While photochemistry is an important process in secondary formation of pollutants, it is not important to the evaluation of dispersion and recirculation of pollutants in the AQZ.  Therefore, this study did not consider it as part of the modeling. 
+
+\subsection{Prognostic Weather Set-up}
+
+MM5 is a limited-area, non-hydrostatic, terrain-following sigma-coordinate model designed to simulate or predict mesoscale atmospheric circulation developed by Pennsylvania State University (PSU) and National Center for Atmospheric Research (NCAR) \citep{Grell1994}.  It is used widely to generate local wind fields and weather data for air dispersion models \citep{Ghannam2013a, Lee2009, Tsai2011, Zhu2004}.  Zhu and Atkins evaluated observed and modeled weather conditions at Kuwait International Airport and reported good results for daily and monthly observations using MM5 data.  100 x 100 km data for the study years were prepared in 4 km cells. Vertical layers for the wind fields were calculated at 0, 20, 40, 80, 160, 320, 640, 1200, 2000, 3000 and 4000 m. Concentration results from the air dispersion modeling were analyzed using StatTools and @RISK 7.1.3.1 Industrial Edition (www.palisades.com) to generate histograms and comparative statistics. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Attainment classification modeling}
+
+The Kuwait Environment Public Authority (KEPA) is responsible for monitoring environmental conditions and enforcing compliance with national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig:kuwait}.  The KEPA stations measure and report 1 hour averaged air pollutants and meteorological conditions. The bulk of the AMSs are located within two air quality zones (Central and Southern Coast) which correspond to areas of high population and industrial centers. The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. Access to monitoring data from additional stations operated by the Kuwait Oil Company (KOC) provides an air monitoring density of approximately 1 monitoring station per 163,150 people. This density is similar to Vancouver, Canada which has approximately 1 per 160,000 people, as compared to around 1 per 440,000 people in the South Coast of California \citep{Marshall2008}.
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk1.png} 
+\caption{Location of air monitoring stations in Kuwait.}
+\label{fig1:amskuwait}
+\end{figure}
+%
+Air quality zones (AQZs) were designated under the UNDP KIEMS project as shown in Fig \ref{fig2:aqzkuwait} (Freeman et al., 2016).
+%
+\begin{table}[!htb]
+\centering
+\caption{Distribution of Fixed Site Air Monitoring Stations in Kuwait}
+\label{tb:2ams}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{Air Quality Zone} & \textbf{Type} & \textbf{KEPA} & \textbf{Other} \\ \midrule
+Northern Coastal & Coastal & 2 &  \\
+Southern Coastal & Coastal & 8 & 1 \\
+Central Coastal & Coastal & 4 & 2 \\
+Bubiyan & Coastal &  &  \\
+Southern Inland & Inland &  & 2 \\
+Jahra Inland & Inland & 1 & 1 \\
+Wafra & Production &  &  \\
+West Kuwait & Production &  &  \\
+North Kuwait 1 & Production &  &  \\
+North Kuwait 2 & Production &  &  \\
+Burgan & Production &  &  \\
+ & Total & 15 & 6 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk2.png} 
+\caption[Kuwait Air Quality Zones]{Kuwait Air Quality Zones (Freeman et al., 2016).}
+\label{fig2:aqzkuwait}
+\end{figure}
+
+As mentioned above, the use of the 99\% Rule method raises the concern as to whether residents within air zones that meet KAAQS standards are protected from high air pollutant concentration exposure to the same extent as residents within an air zone that meets standards under the ``3-Strike” method. Determining an effective classification method is important given the many sub-population groups (SPGs) in Kuwait due to the large concentration of ex-patriate workers and family members. Li et al (2008) recognized the uncertainties associated with setting fixed ambient air standards and used a fuzzy-Monte Carlo Analysis method to evaluate different variables to establish optimum ranges for specific SPGs \citep{Li2008}. While this method recognizes individual sensitivities, it is impractical to implement from a national air management perspective. For our method, the ambient standard is assumed to be a static limit.
+
+\subsection{Exposure Estimation and Monte Carlo Methodology}
+
+Health impacts caused by hazardous air pollutants, both cancerous and non-cancerous, are due in part to the exposure of a receptor to the pollutants. Estimating the exposure, however, is not sufficient to measure risk alone. Estimating the actual dose a receptor is subject to over a given time and concentration provides a more complete evaluation of risk even though it does not include the toxicity of the chemicals involved. By comparing the different air quality classification methods against a pollutant that already has an ambient air quality standard, we can assume the toxicity impacts have already been accounted for and remove this element from our evaluation. Our approach in evaluating relative risk based on dosage from different classification methods can also be applied to the many HAPs that do not have ambient air quality standards or clinical trial results.
+
+Estimating individual exposures based on ambient monitoring is prone to risk and uncertainty \citep{Pernigotti2013, Thunis2013}.  The ambient monitoring station is assumed to measure air concentrations for the same population.  Variations in wind speed and direction have a tremendous impact on who gets exposed, and who does not \citep{Pratt2012}. Additionally, lifestyle of the population, construction of houses and work spaces, and exposure duration have major impacts on overall exposure \citep{Bell2006}.
+
+Uncertainty in exposure estimates based on air dispersion models have long been recognized and accepted by regulatory agencies \citep{Colvile2002, Fox1984}.  When exposure concentrations are calculated, the results are usually given as a time-weighted average (hourly, daily, or annual) that is then multiplied by the appropriate time period to get the duration exposure amount \citep{Zhang2013}. Using a Monte Carlo Analysis (MCA) based on the air concentration probability distribution, each hour can be randomly sampled over the course of the duration period and summed to create a range of possible exposures.  MCA has been used for several exposure studies to account for the wide variability of exposures \citep{Gerharz2013, Tan2014}.
+
+The US EPA Human Health Risk Assessment (HHRA) method defines the Chronic Daily Intake (CDI) (or Average Daily Dose) of chemicals through inhalation in vapor phase using the following equation
+%
+\begin{equation}
+\label{eq1:cdi_gas}
+CDI_{gas} = \frac{C*IR*EF*ED}{BW*AT}
+\end{equation}
+%
+\noindent
+where $C$ is the concentration of the air pollutant ($\mu g/m^{3}$), $IR$ is the inhalation rate (given as 20 $m^{3}/day$ for adults), $EF$ is the Exposure Frequency ($days/year$), $ED$ is the Exposure Duration ($years$), $BW$ is Body Weight ($kg$), and $AT$ is Averaging Time (usually 365 days/year) (USEPA 2005).  The CDI calculates a value measured in $\mu g/kgBW-day$, where $kgBW$ is body weight in kilograms. CDI is normally multiplied by the Cancer Slope Factor (CSF) of a carcinogenic chemical for a target organ in order to calculate the Incremental Excess Lifetime Cancer Risk (IELCR) or divided by a Reference Dose (RfD) of a non-carcinogenic chemical to get the Hazard Quotient. Dosage was used for comparison in this study instead of mortality because Kuwait has a highly mobile population and large \textit{ex patriate} community that does not live in the country for more than 3 years. 
+Other studies that looked as mortality assumed a highly stable population \citep{Sanhueza2010}. Also, as mentioned previously, not incorporating the toxicological values of chemicals (CSF or RfD) allows our method to be used for the many chemicals that do not have accepted studies.
+
+Pollutant concentrations can be calculated with different methods. These include city wide averaging (CWA) which takes the average of all monitor readings within a region or zone; nearest monitoring (NM) which assigns the concentration measured at the closest station to a receptor; inverse distance weighting (IDW) which calculates a concentration by assigning a weighting factor to readings from all monitors based on the inverse of the distance of that station to the receptor; and ordinary kriging (OK) which assigns a more complex weighting factor to all monitors in a region or zone based on the assumption that the unknown concentration between two stations is a random variable \citep{Rivera2015}. The NM method is used in this paper, whereby we assume that all populations near the monitoring station are exposed to the same concentration of the pollutant at the same time. Previous studies showed that indoor/outdoor air concentration ratios were $\geq 1$ showing that higher pollutant concentrations occur indoors \citep{Schembari2013} or in vehicles \citep{Abi-Esber2013}. For our method, we assumed individuals are exposed to the same hourly concentration value throughout the analysis period whether they are indoors or outdoors.
+
+In order to facilitate the Monte Carlo analysis, a new concentration duration factor ($CDF$) is defined where $CDF = C*EF*ED$, allowing eq \ref{eq1:cdi_gas} to be re-written as
+%
+\begin{equation}
+\label{eq2:cdf_gas}
+CDI_{gas} = \frac{CDF*IR}{BW*AT}
+\end{equation}
+%
+The value of the $CDF$ factor is measured in $\mu g-hr/m^{3}$. The actual concentration ($C$) of a pollutant in the air, the duration of exposure ($ED$) to that concentration, and then number of times the concentration exceeds standards ($EF$) are each independent variables  that can be fitted with a probability distribution to allow predictive analysis \citep{Lonati2011}. Georgoupolos and Seinfeld (1982) used histograms to determine frequency of concentrations assuming ergodic samples taken from independent and identical distributions \citep{Georgopoulos1982}. This concept was used by Sharma et al. (2013) to fit Probability Distribution Functions (PDFs) to measured air monitoring data using goodness-of-fit statistics to select appropriate distributions \citep{Sharma2013}. 
+
+Hourly concentration data from air monitoring stations were used to calculate the CDF using the assumption that an air monitoring station measures the exposure of the local population.  In order to create a model to compare the different classification methods, actual monitoring station data for different pollutants from 2008 to 2010 were collected and plotted as frequency distributions to create composite distributions to represent a typical year. PDFs were fitted to the distribution curves using @RISK 7.0.0 Industrial Edition (Palisades Software). The same software was used to later run the MCA based on the calculated PDFs. Distributions for annual concentrations for O$_{3}$, NO$_{2}$ and SO$_{2}$ ranged in terms of Weibull, log-normal, and Beta distributions. These results were consistent with similar distributions found in literature \citep{Lu2003, Morel1999, Noor2011}.
+
+To compare possible CDI exposures to a pollutant, the overall ambient air quality was assumed to be in compliance with the KAAQS based on the individual classification method. The exposure duration was set to three years which required three individual 3-Strike classifications but only one 99\% Rule classification. For the 3-Strike method, a maximum number of 3 exceedances per year was enforced, while for the 99\% Rule, there were no fixed number of exceedances per year other than the maximum number for three years.
+
+Two different comparisons cases were are made in this study. In the first case, only one monitoring station was evaluated in order to compare the two methods at the simplest level. In the second case, three monitoring stations in the same zone were evaluated.  Hourly concentration measurements from 2008 to 2010 of O$_{3}$ and NO$_{2}$ were selected as test pollutants due to the availability of reliable data from the three stations. 
+
+\subsection{Single station case}
+
+Each pollutant data set was divided into compliance and exceedance measurements by creating two PDFs – one for concentration readings under the standard (Compliance) and one for readings that exceed the standard (Exceedances) as shown in Fig \ref{fig3:distributions}.  PDFs of the measured data were selected based the Akaike Information Criteria (AIK), Bayesian Information Criteria (BIC), and Anderson-Darling (A-D) statistics generated during the fitting \citep{Palisades2016}.  The PDF having the best agreement among each the two statistics was chosen to represent the component data.  
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk3.png} 
+\caption{Break down of 8 hr O$_{3}$ concentrations into compliance and exceedance distributions.}
+\label{fig3:distributions}
+\end{figure}
+%
+The individual PDFs were then used in a Monte Carlo Analysis based on the individual hours of each method over three years of monitoring data (26,280 hours total).  The individual hours for each method in the single station run are shown in Table \ref{tb3:exphrs}. 
+%
+\begin{table}[!htb]
+\centering
+\caption{Single station run exposure hours for compliance and exceedance concentrations}
+\label{tb3:exphrs}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Classification Method}} \\ 
+ & \textbf{3-Strike} & \textbf{99\%} \\ \midrule
+Compliance hours & 26,271 & 26,017 \\
+Exceedance hours & 9 & 263 \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+Total pollutant concentration exposure was calculated by summing the randomly drawn values from each method over the number of individual hours as shown below
+%
+\begin{equation}
+\label{eq3:cdfsum}
+CDF=\sum^{N}A_{hr} + \sum^{M}X_{hr}
+\end{equation}
+%
+\noindent
+where 	$CDF$ = the total concentration exposure over 3 years for a particular classification method in $\mu g-hr/m^{3}$, $N$ = total number of Compliance hours for a particular classification method,$M$ = total number of Exceedance hours allowed for a particular classification method (Note that $N + M$ = 26,280 hours), $A_{hr}$ = independent variable sampled from the Compliance PDF for 1hr concentration in $\mu g-hr/m^{3}$, and $X_{hr}$ = independent variable sampled from the Exceedance PDF for 1hr concentration in $\mu g-hr/m^{3}$.
+
+Other assumptions were made for the remaining variables of eq 1. The body weight variable (BW) is normally evaluated at 70 kg for adults (USEPA, 2005b), however, the average body mass for Kuwait has increased over the years and is on par with the United States and other western nations. Using 2014 census data from the Kuwait Central Statistics Bureau and assuming non-Kuwaiti residents from different national groups have the same average weights described by other researchers \citep{Walpole2012}, Kuwait has a composite average body of mass 66.4 kg as shown in Table \ref{tb:4compositewght}. Age and gender is not considered.
+%
+\begin{table}[!htb]
+\centering
+\caption{Composite Weight of Adults in Kuwait}
+\label{tb:4compositewght}
+%\begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Nationality} & \textbf{Average body mass (kg)} & \textbf{Population} & \textbf{\%} & \textbf{Average body mass} \\ 
+\textbf{Groups} & \textbf{(Walpole et al., 2012)} & \textbf{(CSB, 2014)} & \textbf{Population} & \textbf{component (kg)} \\ \midrule
+Kuwait & 80.7 & 1,191,234 & 32.6\% & 26.3 \\
+Asia & 57.7 & 1,525,083 & 41.7\% & 24 \\
+Africa & 60.7 & 73,300 & 2.0\% & 1.2 \\
+North America & 80.7 & 18,297 & 0.5\% & 0.4 \\
+Europe(*) & 70.8 & 13,966 & 0.4\% & 0.3 \\
+World(**) & 62 & 837,372 & 22.9\% & 14.2 \\
+ & \textbf{Total} & 3,659,252 & 100.0\% & \textbf{66.4} \\ \bottomrule
+\multicolumn{5}{l}{* - Includes residents from South American, Central American, Australia and European countries} \\
+\multicolumn{5}{l}{** - Includes residents from Arab and non-specified countries}
+\end{tabular}
+%\end{adjustbox}
+\end{table}
+%
+The final variable, inhalation rate ($IR$) is given an average value of 15.2 $m^{3}/day$ for adults by the USEPA \citep{USEPA2005a}. Other studies have used lower average values such as 13.1 $m^{3}/day$ to account for reduced rates during sleeping and sedentary activities \citep{Marshall2006}. The higher, more conservative average rate of 15.2 $m^{3}/day$ was used for this study. 
+
+\subsubsection{Applying the Central Limit Theorem}
+
+Because the samples are taken randomly and independently from the PDFs, the Central Limit Theorem (CLT) was used to simplify the calculation process resulting in Normal distributions ($N$) for the total exposure where
+%
+\begin{equation}
+\label{eq4:cdfN}
+CDF=N(\mu_{A},\sigma_{A})+N(\mu_{X},\sigma_{X}
+\end{equation}
+%
+\noindent
+and
+%
+\begin{equation}
+\label{eq5:cdfmu}
+\left\{\begin{matrix}
+\mu_{A} = \mu_{1}N
+\\ 
+\mu_{X} = \mu_{2}M
+\end{matrix}\right.
+\end{equation}
+%
+\begin{equation}
+\label{eq6:cdfsigma}
+\left\{\begin{matrix}
+\sigma_{A} = \frac{\sigma_{1}}{\sqrt{N}}N = \sigma_{1}\sqrt{N}
+\\ 
+\sigma_{X} = \frac{\sigma_{2}}{\sqrt{N}}N = \sigma_{2}\sqrt{N}
+\end{matrix}\right.
+\end{equation}
+%
+Given $\mu_{1}$ and $\mu_{2}$ are the arithmetic means of the Compliance and Exceedance PDFs respectively and $\sigma_{1}$ and $\sigma_{2}$ are the standard deviations of the PDFs \citep{Ott1981}. 
+
+\subsubsection{Calculations for the single station case}
+
+A Monte Carlo Analysis was run for 10,000 iterations for the composite CDI values based on Normal distribution-based Compliance and Exceedance PDFs.  Fig \ref{fig4:composite} shows the CDI distributions of 8 hr O$_{3}$ for both the 3-Strike and 99\% Method models. 
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk4.png} 
+\caption[Composite model distributions of 8 hr O$_{3}$ CDIs]{Composite model distributions of 8 hr O$_{3}$ CDIs for the (a) 3-Strike Method and (b) 99\% Rule Method.}
+\label{fig4:composite}
+\end{figure}
+%
+
+\subsubsection{Statistical tests}
+
+To compare the results of the run, a Null Hypothesis ($H_{o}$) assumed that there was no significant statistical difference ($p<0.05$) between the mean and variance of the CDI for both methods. Accepting the Null means that either method could be used without concern that exposure was overly high in method. Rejecting the Null would show that there were statistically significant differences ($p<0.05$) between the mean and variance of the two methods and that one method had higher exposure risk. 
+
+Since the CLT is used, distributions are assumed to be normal, however a coefficient of variation (COV) test will be used to confirm normality, where COV = $\sigma/\mu$. If the COV is less than unity, then the PDF can be considered Normal \citep{Abdi2010}.  If the COV $>$ 1 and the PDF is a non-normal distribution, data transformation can be performed to convert the data to a Normal distribution such as using a log transformation or Box-Cox transformation \citep{Osborne2010}.
+
+Variance testing can then use the one-sided F-test where the F-statistic is defined as
+%
+\begin{equation}
+\label{eq6:ftest}
+F_{*} = \frac{(\sigma_{3-Strike})^{2}}{(\sigma_{99\%})^{2}}
+\end{equation}
+%
+Where $\sigma_{3-Strike}$ is the standard deviation of the 3-Strike method CDI MCA and $\sigma_{99\%}$ is the standard deviation of the 99\% rule method MCA. In each case, the degrees of freedom (df) are n-1, or 26,279, giving a critical value of F, F$_{c}$(.05, 26,729) = 1.02. If the F test passes and variances are assumed to be equal, the means can be tested with a standard t-test in which test statistic, t$_{*}$ is defined as
+%
+\begin{equation}
+\label{eq7:t-test}
+t_{*} = \frac{\left | \mu_{3-Strike}-\mu_{99\%} \right |}{SE_{diff}}
+\end{equation}
+%
+\noindent
+where $\mu_{3-Strike}$ is the mean of the 3-Strike method CDI MCA, $\mu_{99\%}$ is the mean of the 99\% rule method MCA, and $SE_{diff}$ is the standard error of the difference is defined as
+%
+\begin{equation}
+\label{eq8:SEdiff}
+SE_{diff} = \sqrt{\frac{(\sigma_{3-Strike})^{2}+(\sigma_{99\%})^{2}}{2n}}
+\end{equation}
+%
+\noindent
+where the sample size n is equal for both groups. The df is again 26,729, making the t critical, t$_{c}$(0.05, 26729) = 1.645.
+
+With such a large sample size however, the low critical value of the F statistic may cause the variance test to fail. For unequal variances, a modified t-test for unequal variances (Satterthwaite t-test) is used \citep{Ruxton2006}.  The Satterthwaite t-test is similar to eq \ref{eq7:t-test} and \ref{eq8:SEdiff} except an approximate degree of freedom value is calculated to calibrate the Satterthwaite t statistic with normal t statistic values. The new Satterthwaite degrees of freedom (df$_{S}$) is calculated by
+%
+\begin{equation}
+\label{eq9:sath_dfs}
+df_{S} = \frac{\left(\frac{(\sigma_{3-Strike})^{2}}{n}+\frac{(\sigma_{99\%})^{2}}{n}\right)^{2}}{ \frac{\left(\frac{(\sigma_{3-Strike})^{2}}{n}\right )^{2}}{n-1}+\frac{\left(\frac{(\sigma_{99\%})^{2}}{n}\right )^{2}}{n-1}}
+\end{equation}
+%
+\noindent
+which reduces to
+%
+\begin{equation}
+\label{eq10:sath_dfs_reduce}
+df_{S} = \frac{(n-1)\left ((\sigma_{3-Strike})^{2}+(\sigma_{99\%})^{2}\right )^{2}}{(\sigma_{3-Strike})^{4}+(\sigma_{99\%})^{4}}
+\end{equation}
+%
+If the means test fails, then the Null hypothesis is rejected.  A summary of the hypothesis testing procedure is show in Fig \ref{eq5:cdfmu}.
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk5.png} 
+\caption{Flow chart of hypothesis testing procedures for single station case.}
+\label{fig5:flowchart}
+\end{figure}
+%
+\subsection{Multiple station case}
+For multiple stations, a similar process is followed for the single station case with some modifications. An assumption is made that each station is independent from each other and therefore does not observe the same concentration. Based on this assumption, the probability of one station having a non-compliant (NC) observation is therefore independent at the time of the observation. Because we are assuming the zone is in compliance, we know that the maximum allowable NC observation to stay in compliance is a constant for each classification method. We can initially assume that each station has an equal number of NC observations required to meet the classification limit. For the 3-Strike method, each station is assumed to have 3 NC observations, and for the 99\% Rule method, each station has 268 NC observations. However, because we are looking at exposure potential, we have to assume that some stations will have more NC observations than others. In a worst case scenario for the 99\% Rule, one station could have all NC observations while the other stations have no exceedances and the zone could still be in compliance. A more likely scenario is that some stations will have more NC observations than others. To account for local exposure at individual stations, additional NC hours are added to each station based on the estimated percentage of NC observations over the three years (\%NC). For each NC hour added, a compliant hour is removed in order to keep the total number of observation hours constant. A binomial distribution is used to model the number of additional NC hours with the number of trials. Input values for a binomial distribution include the number of trials, $n$, and the continuous success probability, $p$ \citep{Palisades2016}.  If $m$ = the number of years of observation (in our case, 3 years), then for the 3-strike method, $n = 3*(m{-}1)$, and for the 99\% Rule method, $n = 268*(m{-}1)$. The continuous success probability for each station, p$_{i}$, is calculated for each station using the following method:
+
+Step 1. Determine \%NC over the three years for each station. 
+%
+\begin{equation}
+\label{eq11:step1}
+\%NC_{i}=\frac{\#\, of\, NC\, observations\, at\, Station\, i}{\#\, of\, Total\, observations\, at\, Station\, i}
+\end{equation}
+
+Step 2. Sum the individual \%NC’s and normalize each station’s pi. 
+%
+\begin{equation}
+\label{eq12:step2}
+p_{i}=\frac{\%NC_{i}}{\sum_{i=1}^{m}\%NC_{i}}
+\end{equation}
+%
+Step 3. Estimate the number of NC hours and residual compliance (RC) hours at each station for each method.
+%
+\begin{equation}
+\label{eq13:step3a}
+3-Strike \, Method:\left\{\begin{matrix}
+NC_{i} \,hours=binomial(n_{3-Strike}, p_{i})+3\\ 
+RC_{i} \,hours=9-NC_{i} \,hours
+\end{matrix}\right.
+\end{equation}
+%
+%
+\begin{equation}
+\label{eq14:step3b}
+99\% Method \, Method:\left\{\begin{matrix}
+NC_{i} \,hours=binomial(n_{99\%}, p_{i})+268\\ 
+RC_{i} \,hours=804-NC_{i} \,hours
+\end{matrix}\right.
+\end{equation}
+%
+Step 4. Run the MCA with CFD’s for each method and for each station similar to eq \ref{eq4:cdfN}.
+%
+\begin{equation}
+\label{eq15:cfdstep}
+Method\, CFD_{i} = N(\mu_{A_{i}},\sigma_{A_{i}}) + [N(\mu_{X_{i}},\sigma_{X_{i}}) + N(\mu_{AR_{i}},\sigma_{AR_{i}})]
+\end{equation}
+%
+\noindent
+where $\mu_{A_{i}}$ is the mean of the compliance observations PDF at station $i$ multiplied by the number of compliance hours for the method being evaluated, $\sigma_{A_{i}}$ is the standard deviation of the compliance observations PDF at station $i$ multiplied by the square root of the number of compliance hours for the method being evaluated, $\mu_{X_{i}}$ is the mean of the non-compliant observations PDF multiplied by NC$_{i}$ hours for the method being evaluated, $\sigma_{X_{i}}$ is the standard deviation of the non-compliant observations PDF multiplied by the square root of the NC$_{i}$ hours for the method being evaluated, $\mu_{AR_{i}}$ is the mean of the compliance observations PDF at station $i$ multiplied by the RC$_{i}$ hours for the method being evaluated, $\sigma_{AR_{i}}$ is the standard deviation of the compliance observations PDF at stationi multiplied by the square root of the RC$_{i}$ hours for the method being evaluated.
+
+The CDI is then calculated for each station and each method using the same process as the single station case.  The multiple station case uses the same statistical tests as the single station case.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Area source modeling}
+To determine the annual emissions, both GHGs and HAPs for $nargyla$ pipes, three components were required: 
+\begin{itemize}
+	\item The amount and type of emissions generated from the charcoal per mass consumed
+	\item The amount and type of emissions from the singed $sheesha$ generated per mass consumed
+	\item The estimated annual raw consumption of $sheesha$ tobacco and charcoal by commercial cafes and restaurants 
+\end{itemize}
+\noindent
+that serve $nargyla$. 
+
+To estimate emission types and rates for $sheesha$ and charcoal combustion, values from the related published research were used \citep{Akagi2011, Bhattacharya2002, Paciornik2006, Sepetdjian2010, USEPA1995}.  Smoking session parameters, such as sitting durations and puff lengths, were also taken from published works \citep{Eissenberg2009, Fromme2009, Mulla2015}.  Estimating the amount of $sheesha$ and charcoal used per year in each café and restaurant was based on interviews with managers, with the estimated quantities assumed for all venues. Using this approach, we can apply the Central Limit Theorem (CLT) and assume a Normal distribution for analysis.  
+
+Each variable mentioned represents an independent parameter that can vary based on the type of $sheesha$ tobacco, charcoal, and user habits.  This investigation employed the Monte Carlo Analysis (MCA) as an efficient and accepted way to evaluate variance created from multivariate air quality conditions \citep{Freeman2017a, McVoy1979, Tan2014}.  
+
+\subsection{Emissions from $nargyla$ Pipes}
+
+Sheesha tobacco is a mix of cut tobacco and syrups such as molasses, honey or glycerol with fruit and spice flavors \citep{Chaouachi2009}.  Unlike other tobacco products, $sheesha$ is not directly burned. Hot air from the burning charcoal provides a heat source that singes the tobacco but does not directly burn it, creating a smoke composed of particulates and gases \citep{Daher2010} that is filtered by bubbling through water.  The water removes approximately 50\% of the particulates but does not remove the gaseous components \citep{Becquemin2008}. There is a variety of $sheesha$ smoking called saloom in which the charcoal is placed directly on the tobacco. This tobacco is different from most $sheesha$ in that it is drier and does not have added flavors or syrups. The effects of $saloom$ are not considered in this study as relatively few users opt for this method of smoking.
+
+Emissions measured in some $nargyla$ emission exposure studies used chemically processed, fast lighting coals that are not used in the Persian Gulf countries \citep{Daher2010, Shihadeh2005}.  These types of coals have accelerants mixed with the charcoal such as potassium chlorate (CAS Number 3811-04-9) \citep{MIC2012} to allow easier lighting as compared to the traditional lump charcoal that requires an external heat source to initiate combustion.  The presence of accelerants provides an additional chemical source for emissions but also reduces the overall amount of charcoal used by a caf\'e or restaurant in that a supply of charcoal must otherwise be started and re-supplied when older coals are consumed. Studies looking at different types of $nargyla$ charcoal showed that lump charcoal had more than 6 times less PAH emissions than charcoals with accelerants \citep{Sepetdjian2010}.  Only lump charcoal is used in Kuwait and therefore is the focus of this study.
+
+Charcoal is manufactured through the pyrolysis of wood until all water, and volatile compounds are removed.  The remaining mass is often 70\% pure carbon, allowing a consistent burn rate with very little smoke. Charcoal is an ideal heat source that is often used for cooking indoors and industrial heating.  Charcoal for $nargyla$ used in the Middle East is made from lemon and orange wood or grape vines in eastern Africa.  Charcoal made from coconut husks is also common for residential use.  Manufacturing charcoal is an emissions intensive process that generates significant amounts of both HAPs and GHGs \citep{Lacaux1994}.  However, these emissions are not considered in this study.
+
+Charcoal, once heated and glowing, burns with a surface temperature of approximately 800$^{o}$ C without additional air blowing on it \citep{Evans1977}.  Ash is formed on the surface as the combustion works its way into the fuel source. Major components of the charcoal combustion are CO$_{2}$, CO, and CH$_{4}$.  Emission factors collected from various sources are summarized in Table \ref{tb1:initialfactors}.  The factors were converted from published units (such as pounds of pollutant/ton of feedstock) to grams of pollutant/kg of feedstock (g/kg).
+
+Only gaseous phase pollutants are quantified. Particulate matter is not considered in this study because of the assumption that the particulates stay in the room or are filtered by the ventilation system. In either case, they are assumed to not contribute to the local ambient air quality.
+%
+\begin{table}[]
+\centering
+\caption{ Emission factors in $g/kg$}
+\label{tb1:initialfactors}
+\begin{tabular}{@{}rcccccccccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{\textbf{IPCC}} & \multicolumn{5}{c}{\textbf{Literature}} & \multicolumn{4}{c}{\textbf{AP-42  (USEPA, 1995)}} \\ 
+ & \multicolumn{3}{c}{\textbf{Paciornik (2006)}} & \multicolumn{2}{l}{\textbf{Akagi (2011)}} & \multicolumn{2}{l}{\textbf{Bhattacharya (2002)}} & \multicolumn{1}{l}{\textbf{Sepetdijan (2010)}} & \multicolumn{1}{l}{\textbf{Mixed}} & \multicolumn{1}{l}{\textbf{Leaves}} & \multicolumn{1}{l}{\textbf{Weeds}} & \multicolumn{1}{l}{\textbf{Cigarettes}} \\
+\textbf{Compound} & \textbf{Expected} & \textbf{Lower} & \textbf{Upper} & \textbf{Expected} & \textbf{variation} & \textbf{Low} & \textbf{High} & \textbf{Expected} & \textbf{Expected} & \textbf{Expected} & \textbf{Expected} & \textbf{Expected} \\ \midrule
+Carbon Dioxide (CO$_{2}$) & 3304 & 1415.5 & 7656 & 2385 &  & 2155 & 2567 &  &  &  &  &  \\
+Carbon Monoxide (CO) &  &  &  & 189 & 36 & 35 & 198 &  &  & 56 & 42.5 &  \\
+Methane (CH$_{4}$) & 5.9 & 1.043 & 34.8 & 5.29 & 2.42 & 6.7 & 7.8 &  &  & 6 & 1.5 &  \\
+Acetylene (C$_{2}$H$_{2}$) &  &  &  & 0.42 &  &  &  &  &  &  &  &  \\
+Ethylene (C$_{2}$H$_{4}$) &  &  &  & 0.44 & 0.23 &  &  &  &  &  &  &  \\
+Ethane (C$_{2}$H$_{6}$) &  &  &  & 0.41 & 0.13 &  &  &  &  &  &  &  \\
+Methanol (CH$_{3}$OH) &  &  &  & 1.01 &  &  &  &  &  &  &  &  \\
+Formaldehyde (HCHO) &  &  &  & 0.6 &  &  &  &  &  &  &  &  \\
+Acetic Acid (CH$_{3}$COOH) &  &  &  & 2.62 &  &  &  &  &  &  &  &  \\
+Formic Acid (HCOOH) &  &  &  & 0.063 &  &  &  &  &  &  &  &  \\
+Ammonia (NH$_{3}$) &  &  &  & 0.79 &  &  &  &  &  &  &  & 0.0009 \\
+Nitrogen Oxides (NOx) &  &  &  & 1.41 &  &  &  &  & 2 &  &  &  \\
+Nitrous Oxide (N$_{2}$O) & 0.118 & 0.02235 & 0.87 & 0.24 &  &  &  &  &  &  &  &  \\
+NMOC &  &  &  & 11.1 &  & 6 & 10 &  &  &  &  &  \\
+Total PAH &  &  &  &  &  &  &  & 0.000455 & 0.0065 &  &  &  \\
+Acetaldehyde &  &  &  &  &  &  &  &  & 0.545 &  &  &  \\
+VOC &  &  &  &  &  &  &  &  &  & 14 & 4.5 &  \\ \bottomrule
+\end{tabular}
+\end{table}5	 
+
+It is interesting to note that the IPCC factors for CO$_{2}$ are physically impossible to achieve as the maximum amount of CO$_{2}$ that could be produced from 1 kg of pure carbon is only 3,667g, but most charcoal only has a maximum total organic carbon content of 70\%, making a realistic limit of 2,567 as shown in the Bhattacharya (2002) column.  This project discovered this issue, which was acknowledged by the IPCC in communication to the authors. 
+
+Factors from burning mixed biomass, leaves, and weeds from AP-42 were included because they represent analogous processes of burning tobacco.  Their factors for CO and CH$_{4}$ are within reported ranges from other sources.  The AP-42 factor of NH$_{3}$ from cigarettes is several orders of magnitude smaller than the value reported by Akagi (2011). A compilation of factors based on Table \ref{tb1:initialfactors} is shown in Table \ref{tb2:emissionfactors}. The factors are divided into minimum, maximum and expected values that are used to define Triangle distributions. Triangle distributions are recommended forms when the underlying distribution is not known, no or little data is available to calculate parameters, and the Central Limit Theorem cannot by invoked \citep{Firestone1997, Lipton1995, Salling2008}. 
+
+\begin{table}[]
+\centering
+\caption{Emission factors for $nargyla$ pipe emissions in $g/kg$}
+\label{tb2:emissionfactors}
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+\textbf{Pollutant} & \textbf{Min} & \textbf{Expected} & \textbf{Max} & \textbf{Source} \\ \midrule
+CO$_{2}$ & 2,155 & 2,385 & 2,567 & Bhattacharya (2002) \\
+CO & 35 & 189 & 198 & Bhattacharya (2002) \\
+CH$_{4}$ & 5.29 & 6.7 & 7.8 & Bhattacharya (2002) \\
+N$_{2}$O & 0.118 & 0.24 & 0.87 & Paciornick(2006) \\
+NMOC & 6 & 10 & 11 & Bhattacharya (2002) \\
+PAH & 0.0001 & 0.00045 & 0.0065 & Bhattacharya (2002)/USEPA (1995) \\
+NOx & 0.5 & 1.41 & 2 & Paciornick(2006) \\
+NH$_{3}$ & 0.0009 & 0.395 & 0.79 & Bhattacharya (2002)/USEPA (1995) \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Calculating annual emissions}
+
+The variation of results associated with estimating annual emissions of a source given the multiple independent variables that go into calculating the output can be handled using Monte Carlo Analysis (MCA).  By randomly drawing values for each variable from an underlying distribution within the expected range of possible results, the MCA generates results that represent a range of possible outcomes given the input set \citep{Johnson2011}.  For annual emissions, the primary equation for individual emissions for a source is given as
+%
+\begin{equation}
+\label{eq1}
+Q_{i} = EF_{i} * AC_{X}
+\end{equation}
+%
+\noindent
+where $Q$ is the emissions of pollutant $i$, $EF$ is the individual emission factor for the pollutant resulting from process $X$, and $AC$ is the amount of input feedstock used by process $X$ over the reporting period.  In this case, there is only one process and the reporting period is one year.  With the $EF$’s for each chemical in Table \ref{tb2:emissionfactors} given in grams of emissions per kilogram of material consumed, the value for AC in this process is measured in total kilograms of material consumed in combustion and calculated as
+%
+\begin{equation}
+\label{eq2}
+AC = AC_{charcoal} + ( \lambda * AC_{sheesha} )
+\end{equation}
+%
+\noindent
+where $AC_{charcoal}$ is the total mass of charcoal consumed during combustion and $AC_{sheesha}$ is the total mass of $sheesha$ consumed during combustion.  Because the $sheesha$ is not fully burned during the smoking process, only a fraction of the total amount is assumed to contribute to the total generated emissions.  A scaling term, lambda, $\lambda$, is introduced to account for this fractional portion. 
+
+Annual consumption of charcoal and $sheesha$ was estimated by sampling individual restaurants and cafes that serve $nargyla$ pipes to clients.  Our work requested from  managers to determine how much charcoal and tobacco were used daily, weekly, or monthly.  Response ranged from 15-35 kg of charcoal per day (100-140 kg/week) and 1-10 kg of $sheesha$ tobacco (all flavors) per day (7-70 kg/week).  Because the number of smokers at each café can be assumed to be randomly and independently drawn from their underlying PDFs, the CLT can be used to simplify the calculation process resulting in Normal distributions that represent the sum of all charcoal and $sheesha$ used on any given day.  The normal distribution has mean ($\mu$) and standard deviation ($\sigma$) input parameters defined as
+%
+\begin{equation}
+\label{eq3}
+\mu_{CLT}= \mu*N
+\end{equation}
+%
+\noindent
+and 
+%
+\begin{equation}
+\label{eq4}
+\sigma_{CLT}= \sigma*\sqrt{N}
+\end{equation}
+%
+\noindent
+where $N$ is the number of samples (in this case the number of cafes and restaurants), $\mu$ is the sample mean, $\sigma$ is the sample standard deviation, $\mu_{CLT}$ is the CLT mean, and $\sigma_{CLT}$ is the CLT standard deviation \citep{Ott1981}. 
+
+The number of establishments serving $nargyla$ can be assumed to be constant with few new shops opening or old shops closing.  This work sampled cafes and restaurants and included well-known shops to assure a better representation of the total population of $sheesha$ establishments.   Most of the cafes and restaurants that serve $nargyla$ in Kuwait are located in the Salmiya and Hawalli areas, with other concentrations in Jeleeb Al Shuyoukh, Abu Fatira, Fahaheel, and Jahra.  Most hotels also have a caf\'e that serves $nargyla$, as well as food malls such as the Arbilla in Al-Bidda.  Fig \ref{figng2:cafes} shows clusters of cafes in general geographic areas.  For this study, 86 establishments are included that are assumed to use the same average amount on an annual basis.  Table \ref{tb3:feedstock} shows the calculated annual averages and standard deviations of charcoal and $sheesha$ utilization as well as the total consumed amount per Equation \ref{eq2} for an individual establishment.  For modeling purposes, mean annual consumption and standard deviation were calculated by multiplying the weekly averages by 52 weeks and applying the CLT factors from Equations \ref{eq3} and \ref{eq4} as shown in Equations \ref{eq5} and \ref{eq6} respectively.  The values of $N$ in Equations \ref{eq5} and \ref{eq6}4 represent the active establishments used in the study.  In this case, $N$ = 86.
+%
+\begin{equation}
+\label{eq5}
+\mu_{Annual}= \mu*52*N
+\end{equation}
+%
+\noindent
+and 
+%
+\begin{equation}
+\label{eq6}
+\sigma_{Annual}= \sigma*52*\sqrt{N}
+\end{equation}
+%
+\noindent
+
+%
+\begin{table}[]
+\centering
+\caption{Feedstock inputs (in kgs) for individual establishments and total annual consumption}
+\label{tb3:feedstock}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{4}{c}{\textbf{Individual establishment consumption}} & \multicolumn{2}{c}{\textbf{Total Consumption}} \\ 
+\textbf & \textbf{Weekly} & \textbf{Weekly} & \textbf{Weekly} & \textbf{Weekly} & \textbf{Annual} & \textbf{Annual total} \\ 
+\textbf{Feedstock} & \textbf{Min} & \textbf{Max} & \textbf{Mean} & \textbf{Std Dev} & \textbf{total mean} & \textbf{Std Dev} \\ \midrule
+Charcoal & 100 & 140 & 120 & 20 & 536,640 & 9,644 \\
+$sheesha$ & 7 & 70 & 38.5 & 31.5 & 172,172 & 15,190 \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+
+A $\lambda = 0.2$ was assumed to account for the $sheesha$ tobacco burned during the smoking process based on study evaluations.  Lambda was held constant for this paper but could vary based on smoking habits and pipe preparation.  The annual total material consumed (AC) mean ($\mu$) and standard deviation ($\sigma$) for charcoal and $sheesha$ were calculated using MCA.  The variables in Equation \ref{eq2} were replaced with Normal distributions, $N(\mu,\sigma)$,  using the means and standard deviations of the total annual consumptions from Table \ref{tb3:feedstock}.  The evaluated equation			
+%
+\begin{equation}
+\label{eq7}
+AC = N(536640.0,  9644.0) + \lambda*N(172172.0, 15190.0)
+\end{equation}
+%
+\noindent
+provided a total average annual consumption mean of 571,071 kg and a standard deviation of 10,110 kg after 50,000 iterations using @Risk 7.5.1 with Latin Hypercube sampling (www.palisades.com).  The annual mass consumption was represented using a Normal distribution with the parameters $N(571071, 10110)$.
+
+This study did not include $nargyla$ usage at home nor did it include charcoal consumption used by restaurants strictly for grilling foods.  Additional emissions are generated during grilling due to the combustion of animal fats \citep{McDonald2003}.  Grilling emissions should be incorporated in an emissions inventory but were not considered suitable for this study.
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/ng2.png} 
+\caption{Location clusters of cafes with $nargyla$.}
+\label{figng2:cafes}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Traffic estimate modeling}
+The amount of vehicles on a unit road length depends on the length of the vehicle, $L$ and the ``space cushion” a driver keeps from the car in front, the Inter-Vehicle Gap, $IVG$.  The recommended $IVG$ is around 2-3 seconds ,  at the vehicle speed.  At 120 kph, this represents 67 meters while at 5 kph, it is around 2.8 meters.  The total road space,$RS$, required to operate a vehicle at speed $s$ is given as
+
+\begin{equation}
+\label{eq1:roadspace}
+RS(s)=L +IVG(s)
+\end{equation}
+
+For an SUV with a length of 5 meters traveling at 5 kph, the most likely road space,$RS$, required to operate the vehicle is $L + IVG(s=5) =$ 7.8 meters, as shown in Fig \ref{fig1:roadspace}.  Fig \ref{fig2:2secroadspace} shows the difference between vehicles spacing at different speeds assuming a 2 second $IVG$, at 5 kph and 40 kph.
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense1.png} 
+\caption{Required Road Space for a Vehicle.}
+\label{fig1:roadspace}
+\end{figure}
+%
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense2.png} 
+\caption{Two second road spacing at 5 and 40 kph.}
+\label{fig2:2secroadspace}
+\end{figure}
+%
+
+The total number of vehicles, $n$ on 1 km of road lane moving at the same speed, $s$, can be estimated by summing the number of individual vehicle lengths, $L_{i}$, and individual $IVG$'s, $IVG(s)_{i}$ in a unit stretch of road such as 1,000 m. 
+\begin{equation}
+\label{eq1:roadspace}
+n =  \left ( \sum_{i}\left ({L_{i} + IVG(s)_{i}} \right )\leq 1,000m   \right ) 
+\end{equation}
+
+Both $IVG(s)$ and $L$ are independent variables subject to a wide range of values.  A vehicle’s length may average from 1.8 meters for a sedan, and up to 9.7 meters for a large bus.  IVGs are independent of the vehicle due to driver behavior and changes in speed due to the vehicle in front of the driver.  At 5 kph, IVGs may range from 0.5 to 4 meters.  The range of possible road space used by a 5 meter long SUV, may vary as shown in Fig \ref{fig3:SUVspace}.  This is especially apparent at lower speeds ($<$ 20 kph) due to stop-and-go driving patterns.  
+
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense3.png} 
+\caption{Possible SUV road spacing at 5 kph.}
+\label{fig3:SUVspace}
+\end{figure}
+%
+\subsection{Road use types}
+Specific road use is important when estimating the types of vehicles in a sample population of vehicles.  During model development, four classes of vehicles were used.  Vehicle classes were selected to represent existing traffic based on observations in Kuwait City, as shown in Table \ref{tb1:vehicletypes}.
+
+\begin{table}[]
+\centering
+\caption{Vehicle classes.}
+\label{tb1:vehicletypes}
+\begin{tabular}{@{}ccccccccc@{}}
+\toprule
+\textbf{Vehicle} & \textbf{Vehicle} & \textbf{} & \textbf{} & \textbf{} & \textbf{Bumper to bumper} & \textbf{Gross vehicle} & \textbf{} & \textbf{Frequency} \\ 
+\textbf{Class} & \textbf{Type} & \textbf{Company} & \textbf{Model} & \textbf{Year} & \textbf{length (m)} & \textbf{mass (kg)} & \textbf{Fuel type} & \textbf{(f)} \\ \midrule
+1 & Sedan & Honda & Civic LX & 2013 & 1.79 & 1,650 & Petrol & 0.55 \\
+2 & SUV & Toyota & Prado VX & 2013 & 4.95 & 2,990 & Petrol & 0.33 \\
+3 & Bus, Midsize & Toyota & Coaster & 2013 & 6.25 & 5,180 & Diesel & 0.07 \\
+4 & Bus, Large & Tata & Starbus 54 & 2013 & 9.71 & 14,860 & Diesel & 0.05 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Initial frequencies of occurrence (f) for the different vehicle classes were assigned using a discrete probability distribution, as shown in Fig \ref{fig4:vehobs}, such that the total probability to select a vehicle was 1.  The number and type of vehicle classes can be expanded to account for better classification such as engine size, weight, fuel types, and age.
+ 
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense4.png} 
+\caption{Probability distribution of observed vehicles.}
+\label{fig4:vehobs}
+\end{figure}
+%
+
+A discrete algorithm was set up in a spreadsheet for multiple speeds ranging from 5 kph to 40 kph.  Table \ref{tb2:modelspeeds} shows speed sets and conversion to meters per second.  We modeled speeds less than 5 kph as 5 kph due to the $IVG$ kept by drivers at lower speeds.
+
+\begin{table}[]
+\centering
+\caption{Modeled speeds.}
+\label{tb2:modelspeeds}
+\begin{tabular}{cccccc}
+\textbf{kph} & 5   & 10  & 15  & 20  & 40   \\
+\textbf{m/s} & 1.4 & 2.8 & 4.2 & 5.6 & 11.2
+\end{tabular}
+\end{table}
+
+We assigned vehicle spaces based on a maximum number of 401 vehicles possible on a 1 km road moving at 5 kph.  This maximum value assumes that only sedans are on the road driving at the smallest possible safe distance.  During modeling however, the most vehicles in the same stretch of road never exceeded 170.  Reasonable $IVG$ timing values were assumed to range from 0.5 seconds, 2 seconds, and 4 seconds (maximum) (Treiber et al (2000). used a value of 1.6 s for their IDM analysis \citep{Treiber2000}) in a continuous triangle distribution shown in Fig \ref{fig5:IVGobs}.
+ 
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense5.png} 
+\caption{Probability distribution of IVG timing.}
+\label{fig5:IVGobs}
+\end{figure}
+%
+
+Each vehicle length was assigned its own probability distribution using a pert distribution and vehicle manufacturer data.  We ran our stochastic model using 5,000 iterations on each variable. 
+During each iteration, a vehicle class was randomly selected from the 4 classes for each space.  The vehicle length was then selected based on the class of vehicle.  The safe distance was added to the vehicle length by randomly selecting a time spacing and multiplying it by the average speed to get the safe distance.  If the cumulative length was less than 1,000 meters, the class was assigned a value of 1 to allow tallying and grouping.  Vehicle classes at the end of the list that exceeded the 1 km length were assigned a zero and not counted.  Table \ref{tb3:selection} shows a portion of an iteration at 5 kph. 
+
+\begin{table}[]
+\centering
+\caption{Sample of an iteration showing vehicle class and road space selection for speed = 5 kph.}
+\label{tb3:selection}
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+\textbf{Vehicle space} & \textbf{Class} & \textbf{Type} & \textbf{Road Space (m)} & \textbf{Sedan} & \textbf{SUV} & \textbf{Bus, Medium} & \textbf{Bus, Large} \\ \midrule
+Vehicle 1 & 1 & Sedan & 4.7 & 1 & 0 & 0 & 0 \\
+Vehicle 2 & 2 & SUV & 6 & 0 & 1 & 0 & 0 \\
+Vehicle 3 & 1 & Sedan & 6 & 1 & 0 & 0 & 0 \\
+Vehicle 4 & 3 & Bus, Medium & 10.5 & 0 & 0 & 1 & 0 \\
+Vehicle 5 & 1 & Sedan & 6.6 & 1 & 0 & 0 & 0 \\
+Vehicle 6 & 2 & SUV & 6.4 & 0 & 1 & 0 & 0 \\
+Vehicle 7 & 1 & Sedan & 6.1 & 1 & 0 & 0 & 0 \\
+Vehicle 8 & 1 & Sedan & 4.9 & 1 & 0 & 0 & 0 \\ \bottomrule
+\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Time series forecasting}
+
+Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near the Public Authority for Applied Education and Training (PAAET) Al-Ardiya Campus as shown in Fig \ref{fig:Kuwait}. 
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/kuwait.png}  %assumes jpg extension
+\caption{Location of Kuwait and AMS used in the study.}
+\label{fig:Kuwait}
+\end{figure}
+%
+The location is centered between two major highways (5th and 6th Ring Roads) in a concentrated mixed commercial/residential area and north of the Kuwait airport. While not near the heavy refineries and industries in southern Kuwait, the site is impacted by land-sea breezes that recirculate emitted pollutants from throughout the Persian Gulf \citep{Freeman2017}. A data set from 1 Dec 2012 to 30 Sep 2014 (668 days or 16,032 hours) was used for this study. Parameters available are shown in Table \ref{tb:parameters}.
+%
+\end{linenumbers}
+\begin{table}[]
+\centering
+\small
+\caption{Chemical and meteorological parameters captured at the AMS}
+\label{tb:parameters}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{\begin{tabular}[c]{@{}c@{}}Chemical Analytes\end{tabular}} & \textbf{Meteorological}  \\ \midrule
+Nitrous oxide (NO) & Wind direction \\
+Ammonia (NH$_3$)& Wind speed   \\
+Ozone (O$_3$) & Temperature  \\
+Sulfur dioxide (SO$_2$) & \begin{tabular}[c]{@{}c@{}}Atmospheric pressure\end{tabular} \\
+Formaldehyde (CH$_2$O) & \begin{tabular}[c]{@{}c@{}}Solar radiation\end{tabular}\\
+Nitrogen dioxide (NO$_2$) & Relative humidity   \\
+Benzene (C$_6$H$_6$)  &  \\
+Toluene (C$_7$H$_8$) &    \\
+p-Xylene (C$_8$H$_10$) &    \\
+m\_Xylene (C$_8$H$_10$)   &     \\
+1,2,3-trimethylbenzene (C$_{6}$H${3}$(CH$_3$)$_3$)   &   \\
+o-Xylene (C$_8$H$_10$)   &    \\
+\begin{tabular}[c]{@{}c@{}}Ethylene glycol tertiary butyl ether\\   (ETB) (C$_{6}$H$_{14}$O$_{2}$)\end{tabular} &                                                                  \\
+Styrene (C$_8$H$_8$)  &   \\
+Chlorine (Cl$_2$) &    \\
+Carbon dioxide (CO$_2$)  &     \\
+Methane (CH$_4$)    &      \\
+Hydrogen sulfide (H$_2$S)&    \\
+Carbon monoxide (CO) &  \\ \bottomrule
+\end{tabular}
+\end{table}
+\begin{linenumbers}
+%
+The local O$_{3}$ air quality standard is 75 ppb measured against an 8 hour moving average \citep{KEPA2017}. The DOAS station recorded O$_{3}$ concentrations hourly, along with the other measured parameters. Measured units in $\mu g/m^{3}$ were converted to $ppb$ using the conversion formula
+%
+\begin{equation}
+\label{eq:gasequation}
+C(ppb) = \frac{C(\mu g/m^{3})(R) (T)}{(P) (MW)}
+\end{equation}
+%
+The standard for O$_{3}$ in Kuwait is 75 $ppb$ based on an 8 hour average \citep{KEPA2017}.
+\noindent
+where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in Fig \ref{fig:windrose}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/paaet-windrose.png}  %assumes jpg extension
+\caption{Station wind-rose from 2012 to 2014.}
+\label{fig:windrose}
+\end{figure}
+%
+Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}. High O$_{3}$ concentrations occur in the summer months from June to August, but come from the northeast, indicating the transport of pollutants from the coast. Not surprisingly, most of the compliance exceedances take place during this period.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/paaet-o3seasons.png}  %assumes jpg extension
+\caption{Seasonal bivariate polar plots of 1 hour O$_3$.}
+\label{fig:bipolarplots}
+\end{figure}
+%
+Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($r$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($r$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maxima, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/dailyAveO3.png}  %assumes jpg extension
+\caption{Hourly averages of 1 hour O$_{3}$ and NOx.}
+\label{fig:hourlyAveO3}
+\end{figure}
+%
+
+\subsection{Building the RNN}
+The RNN used in this study was prepared in Python 2.7 using the Keras machine learning application programming interface (API) \citep{keras2015} with Theano back-end. Theano is a Python library that allows mathematical expressions to be calculated symbolically and evaluated using datasets in matrices and arrays \citep{Al-Rfou2016}. The architecture used a single RNN layer with LSTM and a single output feed forward node. The output activation functions for both layers was the $sigmoid$ function while the activation function for the recurrent nodes was the $tanh$ function. The final output required a 0 to 1 output in order to be rescaled using the \emph{MinMaxScaler} inversion.
+
+The training algorithm used a Nadam optimizer and MSE loss function. The learning rate, $\alpha$, was left at the default value of 0.002. Other Keras defaults also included weight initialization (using a uniform distribution randomizer). Regulation was not used, although a dropout layer was included between the LSTM and the output layer. 
+
+\subsection{Input Data preparation}
+Each available feature was compared to the maximum possible data range of 16,056 hourly measurements over the observation period. Gaps in data were assumed to be Missing Completely at Random (MCAR) and attributed to maintenance down-time, power failures, and storm related contamination \citep{Le2007}. Additionally, some data were clearly out of range or had negative readings \citep{Junger2015}.
+
+Data recorded as a 0 was assumed to be censored and converted to the smallest recorded value within the data set of the individual parameter \citep{Rana2015}. Negative and missing data were converted to 0 and identified using a filter mask. Two different single imputation (SI) techniques were used based on the number of consecutive gaps in data. For gaps (g)$<$ 8, the first and last measurement within the gap were used a Bayesian estimator based on the previous observation to create a linear estimate of the missing data given by 
+%
+\begin{equation}
+\label{eq:impute1}
+X_{n} = X_{n-1} + n\Delta
+\end{equation}
+%
+\noindent
+where $n$ is the a missing data point in sequence ($0 < n \leq g$), and 
+%
+\begin{equation}
+\label{eq:impute2}
+\Delta = \frac{X_{g+1} - X_{0}}{g+1}
+\end{equation}
+%
+For consecutive gaps $>$ 8, the corresponding hourly measurement from the previous and preceding day was averaged.
+%
+\begin{equation}
+\label{eq:impute3}
+X(t) = \frac{X_{t+24} - X_{t-24}}{2}
+\end{equation}
+%
+The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with imputed data from the different methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Fig \ref{fig:impute-rmse} along with the intersection of the 2nd method.
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/impute-rmse.png}  %assumes jpg extension
+\caption{RMSE of O$_{3}$ and NOx from consecutive gaps of data using the first imputation method.}
+\label{fig:impute-rmse}
+\end{figure}
+%
+Features with more than 50\% missing data, like RH and Chlorine (Cl$_{2}$), were discarded. The remaining variables from Table \ref{tb:parameters} had few missing data points, ranging from 41 missing points out of 16,053 (0.3\%) for WS, WD and Temperature, to 137 missing points (0.9\%) for NH$_{3}$. The available data used for this study is larger than data sets used in other studies that had up to 16\% missing data \citep{Taspinar2015}. Missing data adds noise to the training set and is often used to improve generalization and prevent overfitting the network to meet the training dataset. Adding dropouts, or intentional data removal, is often used during network training for this reason \citep{Srivastava2014}.
+
+\subsubsection{Cyclic and Continuous Data}
+WD and time of day were converted into representations that preserved their cyclic nature. Wind direction for this study was converted into sine and cosine components \citep{Arhami2013}. Other parameters were transformed and scaled between values of 0 and 1 \citep{Chatterjee2017} using the \textbf{MinMaxScaler} function in the Python Sci-Kit pre-processor library \citep{scikit2011}. Overall, 25 features were prepared for initial training. These included the parameters measured in Table \ref{tb:parameters} with the addition of sine and cosine components for wind direction. 
+ 
+\subsubsection{Feature selection using Decision Trees}
+Prior to training the RNN, features were reviewed to reduce input dimensionality by training multiple decision trees  on the data sets and prioritizing features using the feature importance metric calculated during classifier training with the \textbf{DecisionTreeClassifier}, also in the Python Sci-kit library \citep{scikit2011}. Decision trees and random forest classifiers have been used to reduce input dimensions for sensors \citep{Cho2011} and data classification competitions, outperforming other methods such as PCA and correlation filters \citep{Silipo2014, Al-Alawi2008}. Decision trees are a supervised learning algorithm that recursively partition inputs into non-overlapping regions based on simple prediction models \citep{Singh2013, Loh2011}.  Decision trees do not require intensive resources to train and evaluate, and keep their features, unlike Principal Component Analysis (PCA) that transform input variables into linear combinations based on the singular value decomposition (SVD)of the total data set's covariance matrix \citep{Wang2016}. 
+
+While PCA is a form of unsupervised learning that allows dimensionality reduction by removing the number of transformed components fed to the input, decision trees identify which raw variables offer little impact so that they can be removed from the data collection stream. This can reduce future efforts required to clean and prepare data sets. 
+
+Using PCA for model input also limits the inclusion of new data that may become available on real time systems. If a model is trained on transformed principal components only, any new data must also be transformed, thus changing the historical data set. Using a linear transformation method that only changes the individual observation and not the entire data set is more practical for time series applications where data is expected to increase. 
+
+Binary classification trees, a type of decision tree used for categorical separation,  were trained to predict exceedances of 8 hr average O$_{3}$ over 1 hour to 12 hour horizons. Individual observations were first scaled using the \textbf{MinMaxScaler} function based on the equation
+%
+\begin{equation}
+\label{eq:MaxMin}
+x_{scaled} = \frac{x_{i} - x_{min}}{x_{max} - x_{min}}
+\end{equation}
+%
+\noindent
+where $x_{max}$ and $x_{min}$ are the maximum and minimum values in the data set respectively. It can be argued that this method also suffers from legacy biasing similar to PCA in that the system retains $x_{max}$ and $x_{min}$ in order to restore transformed data to original scale, similar to a key for encryption decoding. Also, in new data is included that exceeds the $x_{max}$ / $x_{min}$ values, the data needs to be reprocessed using the new points. Since we are already working with an historical data set and not using real time data, there is no need to incorporate this issue. However, even if we were using real time data, we could safely assume that any value measured that exceeded $x_{max}$ in our historical set was also an extreme point and could be accounted for in the model as a value $>1$. 
+
+Eighty percent (80\%) of the scaled data was divided into a training set with 20\% reserved for testing.  Output exceedances were classified as either 0 (less than the exceedance standard of 75 $ppb$) or 1 (exceeds the standard). Overall accuracy of each horizon was measured using the \textbf{accuracy\_ score} function which calculated the standard error of exact matches of the observed output with the predicted \citep{Raschka2016}.  Other classifiers in the Sci-Kit library were evaluated as well, including the Support Vector Machine (SVM) and Random Forest classifiers. The decision tree in classification mode using ``gini" criteria to measure the data split at each decision node proved to be the most accurate.
+
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/sumfactors.png}  %assumes jpg extension
+\caption[Decision tree importance factors]{Sum of importance factors from decision trees predicting 8 hr O$_{3}$ from 1 to 12 hours.}
+\label{fig:importance}
+\end{figure}
+%
+\subsection{Output data preparation}
+The RNN output was trained to predict the 8 hour moving average of measured 1 hour O$_{3}$. To predict future values, the calculated values were shifted in time based on the desired horizon so that input observations $X(t=0)$ was trained on $Y(t=12)$ if the prediction horizon was 12 hours. Output data was generated from 8 hour moving averaged O$_{3}$ calculated from measured 1 hr O$_{3}$ concentrations at each station. The first seven hours of both the input and output training data set was then discarded. 
+
+\subsection{Tensor Preparation for RNN input data}
+Data sets provided to the LSTM RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Fig \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n * p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Fig \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
+%
+\begin{figure}
+\centering
+\includegraphics[width=.75\textwidth]{images/tensor-tables.png}  %assumes jpg extension
+\caption{Process of converting data input columns into a Tensor for training the RNN.}
+\label{fig:tensor-tables}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

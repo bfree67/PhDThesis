@@ -1,0 +1,92 @@
+\chapter{Conclusions and Recommendations}
+
+\section{Summary}
+
+This research is one of the first studies that ...The major novel academic contributions of this thesis are as follows:
+
+\begin{itemize}
+\item 
+\item 
+\end{itemize}
+
+This thesis tackled these contributions throughout its different sections. This chapter provides a summary of the research findings and recommendations for future work.
+
+
+\subsection{Identifying air quality zones in coastal areas}
+
+Over 1.4 billion people live in coastal communities where air quality is impacted by complex land-sea breezes.  Mapping air quality zones (AQZs) for air quality management in the coastal communities is still done using crude methods based on zones drawn strictly on existing political boundaries. This paper presents a novel statistical risk-based method to identify air quality zones for coastal urban centers that evaluates the effects of local coastal wind patterns and spatial distribution of key urban air pollution sources on air pollutant concentration statistics.  This method uses modeled air dispersion results to calculate the $S-K$ statistics of air pollutant concentrations by placing virtual air pollution receptors within high risk population centers of the study area.  When graphed against each other, the air quality statistics accurately classify the extent of coastal wind effect within a given zone.
+ 
+This methodology supported the identification of three distinct air quality zones in Kuwait.  These AQZs are tools to classify areas in order to meet local air management strategy.  Inland zones were classified to represent primarily desert area with little to no residential populations.  Hydrocarbon production zones were included to account for petroleum industry operations taking place in large sections of the study area and managed directly by national oil company assets but supervised by the local regulatory authority.  Coastal zones were established that included the majority of residential and industrial areas (roughly 3.4 million people).  Once the extent of coastal effect mixing was estimated using the $S-K$ method, geophysical boundaries were approximated to facilitate air quality management. 
+
+The model was validated by comparing the concentration and wind data generated using prognostic data with a send weather set. The MM5 and WRF models provided comparable results, especially given the computational differences. Selecting MM5 for the meteorological input to the air dispersion model was validated. The graphical classification approach was tested against a machine learning model. While the SVM provided similar and even better results when additional input features were included, the graphical method is a less complicated procedure.
+
+The selection of individual zones was finally validated by comparing satellite data to exposure risk areas.  The $S-K$ zone classification method and satellite based risk evaluation method can be employed by other developing nations with limited air monitoring resources and budgets to identify and establish air quality zones of similar air mixing characteristics.
+
+\subsection{Exposure Risk from Zone Classification}
+
+This study presents a new approach for evaluating air quality zone classification methods by breaking the distribution of historical pollution concentration into compliance and exceedance concentration PDFs. This approach allows the distribution of historical data from an air monitoring station to create ambient air quality profiles to test different compliance scenarios. Two different cases were used to test the methods – a single station case where the data of only one station was used, and a multiple station case where two or more stations’ data are used. In the multiple station case example, three stations were used. Statistical methods were defined to determine normality of the distributions used for the CDI, and whether the different methods had statistically similar variances and means.
+
+A Null hypothesis was proposed that stated the variance and means of both methods were not significantly different and could therefore be used based on non-statistically based preferences. Rejecting the Null showed that the methods did indeed have enough statistically significant differences that to choose one method over another would result in higher local exposure over the duration period. 
+
+Using a Monte Carlos Analysis, it was shown that the two methods do indeed have statistically significant differences in their variances and means for the pollutants tested (NO$_{2}$ and O$_{3}$). While the Null hypothesis is rejected, the individual methods are not. The large sample size and degrees of freedom can reject Null hypothesizes due to extreme sensitivity in variances. Using a different approach based on Effect Size, in which the population size does not affect the statistic, the methods can be compared with better merit. Because the COV tests showed that the distributions were strongly Normal in nature, making the mean and SD strong descriptive statistics that cannot be discounted. The choice of statistic used to compare the classification methods, the CDI, represents a relative risk of exposure, and not a risk of disease, injury or damage. 
+
+Choosing to use one classification method over the other may involve other non-health related factors besides comparing CDI of chemicals. Other factors may include availability of air monitoring data, economic impacts of declaring a zone non-compliant and the ability of the local air management authority to enforce an improvement program. Other reasons may be that the zone is sparsely populated such as a hydrocarbon production field or an inland desert that may not need the same level of exposure protection. Also areas experiencing rapid growth would constantly be in non-compliance under a strict 3-strike method based classification whereas a 99\% Rule method would average some of the emission increases over time and look at the overall trend. Recommendations for using both methods are shown in Table \ref{tb18:recommmends}.
+
+% 
+\begin{table}[!htb]
+\centering
+\caption{Recommended uses for classification methods.}
+\label{tb18:recommmends}
+%\begin{adjustbox}{width=1\textwidth}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\textbf{3-Strike Method} & \textbf{99\% Rule Method} \\ \midrule
+One station in zone & Multiple stations in zone \\
+Zone is primarily residential & Zone is primarily industrial or sparsely populated \\
+Incomplete or data sets less than 12 months & Several years of data available \\
+Static development & Changes in development and land uses \\ \bottomrule
+\end{tabular}
+%\end{adjustbox}
+\end{table}
+
+The fact that one method of classification may cause higher exposure than another is not a reason to reject its use, but to use it with discretion. 
+
+\subsection{Estimating annual emissions of distributed area sources}
+Recreational smoking using $nargyla$ pipes is a popular pastime for many people in the Middle East and is growing in other parts of the world.  The major emissions are generated from the combustion of charcoal with a fractional contribution from the flavored $sheesha$ tobacco.  This study looked at the gaseous emissions associated with smoking $nargyla$ pipes that could contribute to the overall air pollution emissions inventory.  Emission rates of different gases were collected from previous research and published emission factors.  The emission factors were converted into triangle PDFs to account for variable rates.  Assuming that the many restaurants and cafes are serving $nargyla$ use the similar annual average amounts of charcoal and $sheesha$ tobacco, the Central Limit Theorem could be used to calculate annual feedstock consumption for the entire country.  A Monte Carlo Analysis was used to calculate the total emissions of individual pollutants.  Resulting values showed that GHG emissions were large, while carcinogenic PAH emissions were low overall.  Evaluating the risk associated with exposure to the individual emissions was not part of the study, but is covered in other research \citep{Fromme2009, Moon2015, Mulla2015}.
+
+This investigation demonstrated that selecting the underlying distribution for the emissions factors was important and that Triangle and Pert distributions provide more conservative results and can, therefore, be used when the data set is unknown or limited.  The final $nargyla$ emissions results were significant when compared to the reported total emissions of 1996 reported in Kuwait’s initial correspondence report for the UNFCCC.  Even when the results were adjusted to the reduced population of 1996 (38\% of the current population in 2016), the results are still large compared to the total reported amount. While a conservative estimation was used for the emission factors during the IPCC report preparation, the actual amount of $nargyla$ smoked was not accounted for. Gaps in the inventory include emissions from home use and cafes that might not have been accounted for.
+
+A more realistic assumption is that the 1996 baseline did not capture all the emissions. Using a relatively easy emission source such as $nargyla$ smoking can provide a rapid check of inventory totals to confirm whether estimation processes make sense and are generating expected results. It also highlights where the attention of different pollutants is placed.  Calculations of N$_{2}$O in the 1996 baseline need additional review, especially if $nargyla$ smoking represents 20\% of all reported N$_{2}$O emissions.  The Greenhouse Warming Potential (GWP) of N$_{2}$O is 289 times greater than CO$_{2}$ over 100 years (compared to 24 times for CH$_{4}$)  and is, therefore, an important GHG \citep{IPCC2007}.
+
+While the main purpose of this study was to show how limited data can still be used to generate macro-scale results for purposed of national inventories, the study was nonetheless limited to the accuracies of the emission factors employed.  The published values may not have been accurate representations of the materials used, either over estimating or underestimating the emission rates. Our final figures, therefore, can only represent a range of possible solutions, rather than a definitive answer.  What the results of the study provide is an order of magnitude to compare other results and a basis to prepare more accurate studies.
+
+\subsection{Estimating traffic density using cloud data}
+
+\subsection{Forecasting environmental time series using deep learning}
+This is one of the first research that employs advanced Deep Learning techniques in the prediction of air quality time series events. This new methodology produced very good results using our validation data set. A recurrent neural network with LSTM was trained on time series air pollutant and weather data from an air monitoring station in Kuwait to predict 8 hour average O$_{3}$ over different prediction horizons. Missing data and censored data were replaced using a first-order imputation technique that accounted for sequential influence of previous readings for small gaps ($<$ 8) and seasonal effects for larger gaps. 
+
+A decision tree was used to prioritize the most influential features for training by categorizing pollution exceedances using the input parameters. Prioritizing and removing less important features allows for real-time observations to be fed into the model without transforming large blocks of data as is required when using principal components or wavelets. New observations need only be scaled by normalizing or standardizing with the scaling values calculated from historical data sets. 
+
+A sensitivity analysis of key parameters showed that the network could be tuned for optimal performance. Measurement of the performance, in terms of observed and predicted results, were consistent in form, but the RMSE was always biased higher than the MAE measurement. Either measurement would have produced the same conclusions based on observation of local minima and maxima regardless of the error value. Error increased with the complexity of the network, even with reduced features. This ``Curse of Dimensionality" led to overfitting of the model, reducing the ability to generalize if new data sets were introduced. Slight overfitting is not a problem for time series data that follow predictable cyclic patterns and the main output product of interest is when that pattern goes higher than a set limit.
+
+While the results cannot be directly compared because different data sets were used, the results should not be dismissed either. The complexity of RNN implementation has been dramatically reduced with the use of the developmental Python library Keras, allowing non-computer scientists the ability to use DL without the coding overhead.
+
+The LSTM model provided very good results for this case and can be applied to other environmental time series challenges such as forecasting wide area pollution exceedances from multiple stations and multiple pollutants. LSTMs could also be effective in predicting individual source emissions or modeling source apportionment under different criteria. 
+
+Reducing features and optimizing parameters assisted with lowering error of both training and test sets. Initial runs using local data showed excellent results compared to performance from FFNNs, even with the inclusion of complex pre-processing of input data and architecture of the model. The relative ease of model structure in the programming code is misleading though. The Keras and Theano libraries are some of the most advanced and complex libraries available in the Python community. The model with 25 input features had 16,485 update-able parameters, of which 16,432 were in the LSTM layer alone.  As a comparison, an FFNN with 3 hidden layers (5 layers total), bias on all layers, and the same 25 features input had 2,107 parameters.
+
+The underlying errors within the model implementation may not be resolved or even quantified. However, they are still useful tools for rapid prototyping and architecture validation. Using the data sets of the sources listed in Table \ref{tb:compare} with our RNN LSTM would be a more direct way to prove which method works better.
+
+\section{Recommendations}
+
+\begin{enumerate}
+
+\item Additional research is recommended to confirm the application of the air zone mapping method to other areas.  Kuwait has relatively homogeneous topography, a very hot climate and is located by a shallow body of water.  This method may directly lend itself to other countries in the Gulf region, as shown with sites in Qatar, but should be studied further to evaluate its ability to predict coastal effect mixing for regions with more rugged terrain and more temperate weather.
+
+\item Contribution to total emissions from distributed sources, such as $nargyla$ should be evaluated using a more comprehensive survey of facilities and evaluation of the mass consumption factor, lambda, under different conditions. 
+
+\item Further investigations should target multiple station influences on local concentration prediction, as well as how imputation techniques for missing data impacts overall prediction accuracy. 
+
+\end{enumerate}
+
+
