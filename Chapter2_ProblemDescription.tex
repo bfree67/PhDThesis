@@ -24,7 +24,18 @@ If the average measured concentration is below the standard, the air quality is 
 
 Just as one sample cannot adequately represent a complex population in statistics, one air monitoring station cannot adequately represent a country with complex topographies, urban centers, industrial activities, transportation networks, weather patterns, and proximity to neighbors with their own complex environments.  In short, the air quality in one part of the country will most likely be different from the other parts. For regulatory agencies with limited staff and budget, prioritizing areas with poor air quality is a more efficient use of resources than applying the same enforcement standards uniformly. Identifying areas for enforcement jurisdiction is therefore an important basis of an air management program. As shown in the previous chapter, initial zones were usually established using existing political boundaries without consideration of micro-climate effects based on geography and land use.  
 
-\section{Establishing the program}
+\subsection{Area of Study}
+Most of the data used in this research was collected in the State of Kuwait over the period of 2012 - 2017. Kuwait is a small country of 17,818 km$^{2}$ located on the northwest corner of the Persian Gulf, between longitudes 46.56$^{o}$ – 48.37$^{o}$ East and latitudes 28.51$^{o}$ - 30.16$^{o}$ North with over 499 km of coastline \citep{CIA2015}. It is bordered by Iraq to the north and Saudi Arabia to the south and west. The country is classified as a desert zone with the highest altitude reaching only 300 meters above sea level.   In 2011, approximately 3.1 million people lived in Kuwait \citep{CSB2016} with over 64\% of its annual Gross Domestic Product (GDP) coming from the production of hydrocarbons \citep{KAMCO2013}.  Other industries in Kuwait include power generation and water desalination using heavy oil and natural gas at five sites, steel making using electrical induction furnaces, and food preparation.  The country has over 7,400 km of paved roads and over 1.8 million cars in service \citep{CSB2014}.  Over 98\% of the population lives within 10 km of the coast and are subject to coastal effect winds, caused by the diurnal differential heating/cooling of the sea and land \citep{Crosman2010, Cuxart2014}.  The land-sea breezes (LSB) shift direction and speed over the course of the day, re-circulating pollution back and forth from land sources.
+
+The Kuwait Environment Public Authority (KEPA) is responsible for monitoring environmental conditions and enforcing compliance with national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig1:amskuwait}.  The KEPA stations measure and report 1 hour averaged air pollutants and meteorological conditions. The bulk of the AMSs are located within two air quality zones (Central and Southern Coast) which correspond to areas of high population and industrial centers. Access to monitoring data from additional stations operated by the Kuwait Oil Company (KOC) provides an air monitoring density of approximately 1 monitoring station per 163,150 people. This density is similar to Vancouver, Canada which has approximately 1 per 160,000 people, as compared to around 1 per 440,000 people in the South Coast of California \citep{Marshall2008}.
+%  
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk1.png} 
+\caption{Location of air monitoring stations in Kuwait.}
+\label{fig1:amskuwait}
+\end{figure}
+
+\section{Establishing an air management program}
 \subsection{Air zone mapping}
 
 In this research, we develop a novel procedure to identify common dispersion areas using the assumption that land-sea breezes (LSBs) provide different circulatory wind patterns than inland wind. As part of the methodology, we only consider dispersion patterns at ground level, and not at different altitudes.
@@ -44,8 +55,18 @@ While most EFs were developed to characterize stationary sources, many EFs also 
 
 In this research, we look at the impact of emission contributions by $nargyla$ water pipes in restaurants and caf\'es. We assume that there are a set number of establishments and only consider non-personal uses.  Monte Carlo Analysis is used to represent ranges of uncertainty and variations within data sets. Emission factors were selected from published literature.
 
-\subsection{Traffic estimating}
-In order to inventory mobile source emission contributions, we need to quantify the amount and type of vehicles on the road and their driving patterns. In this research, we present a two step approach that uses the near-real time traffic status updates on the Google Maps Traffic Overlay (GMTO) combined with a Monte Carlo analysis of vehicle types expected to be on the road. We assume that the GMTO is a fair representation of actual traffic conditions, and that the vehicle distributions are also accurate. For the inventory of vehicles using the GMTO, we only looked a t major highways, freeways, arterial, feeders and roundabouts. Smaller surface streets were not evaluated but can easily play a large part in local air quality.
+\subsection{On-road vehicle emission estimating}
+Mobile sources include a wide range of pollution emitting generators operating in different environments such as cars and trucks on paved or improved roads, heavy equipment operating in off road conditions, trains, aircraft, and ships. In this research we evaluated vehicles operating on paved roads. We assumed the vehicles used hydrocarbon-derived fuels such as unleaded gasoline or diesel fuel. 
+
+In order to estimate emissions from vehicles, most models multiply the number of vehicle kilometers (or miles) traveled, VKT, with an emission factor for the parameter of interest relative to the type and age of the vehicle. Correction factors may also be applied to account for road conditions, weather conditions, urban/rural driving, and fuel type \citep{IVE2008}. The various vehicle emission factors are provided by manufacturers or research agencies and will be assumed to accurately represent the type and class of vehicles for this research.
+
+In this research, the estimation of the VKT is broken down into road segments that uses the near-real time traffic status updates on the Google Maps Traffic Overlay (GMTO) combined with a Monte Carlo analysis of vehicle types expected to be on the road. 
+
+We assume that the GMTO is a fair representation of actual traffic conditions, and that the vehicle distributions are also accurate. For the inventory of vehicles using the GMTO, we only consider major highways, freeways, arterial, feeders and roundabouts. Smaller surface streets were not evaluated but can easily play a large part in local air quality. Once traffic conditions are determined for the individual road segment an average speed can be determined. This speed, along with characteristics of the road segment (\# of lanes, maximum speed limit, and type of road), can be used to estimate the number of individual vehicles in that segment. In order to simplify the calculations, an average speed is assumed for the road segment speed as compared to an oscillating speed that typically takes place in congested traffic flow.
+
+A discrete distribution of vehicle types based on registration data can then be used to synthetically determine the types of vehicles and fleet composition within each segment and for each time period.
+
+
 
 \section{Forecasting conditions}
 
@@ -55,7 +76,7 @@ Predicting air pollution concentrations is important to reduce exposure from at 
 
 The goal of this research was to provide tools for air quality managers to strengthen the effectiveness of their program given limited budget and staff. Aside from the air monitoring stations, their maintenance and operation, and computing resource that any modern office should have, the outputs of these tools require very little capital cost. One necessary expense is prognostic weather data (WRF or MM5) required to identify air zone micro climates. This may cost around \$1,895 US Dollars for five years of data for a 100 km x 100 km set with 4km grids. The MM5 data used in this research was originally purchased by the Integrated Environmental Solutions Company, who graciously allowed its use. Another expense is a Geographic Information System (GIS) license such as ESRI's ArcGIS Desktop Advanced which can cost over \$4,200 USD (depending on which country it's purchased in).
 
-Other software costs can be considered if full licenses are included. Palisade's @Risk software used for the Monte Carlo analysis work costs around \$800 US Dollars per license and Lakes Environmental CALPUFF View costs \$2,575 US Dollars. If a department did not want to make these purchases, they could either use the free 30 day trials, or use a no-cost option. CalPuff is a free download but requires a significant investment in training to use. Random number generators are available in Microsoft Excel or Python's Numpy library. A breakdown of major software and products used in this research is shown in Table \ref{tb:projcosts}.
+Other software costs can be considered if full licenses are included. Palisade's @Risk software used for the Monte Carlo analysis work costs around \$800 US Dollars per license and Lakes Environmental CALPUFF View costs \$2,575 US Dollars. If a department did not want to make these purchases, they could either use the free trials, or use a no-cost option. CALPUFF is a free download but requires a significant investment in training to use. Random number generators are available in Microsoft Excel or Python's Numpy library. A breakdown of major software and products used in this research is shown in Table \ref{tb:projcosts}.
 
 \begin{table}[]
 \centering

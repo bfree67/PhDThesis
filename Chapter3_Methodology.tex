@@ -60,17 +60,11 @@ MM5 is a limited-area, non-hydrostatic, terrain-following sigma-coordinate model
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\clearpage
 \section{Attainment classification modeling}
 
-The Kuwait Environment Public Authority (KEPA) is responsible for monitoring environmental conditions and enforcing compliance with national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig:kuwait}.  The KEPA stations measure and report 1 hour averaged air pollutants and meteorological conditions. The bulk of the AMSs are located within two air quality zones (Central and Southern Coast) which correspond to areas of high population and industrial centers. The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. Access to monitoring data from additional stations operated by the Kuwait Oil Company (KOC) provides an air monitoring density of approximately 1 monitoring station per 163,150 people. This density is similar to Vancouver, Canada which has approximately 1 per 160,000 people, as compared to around 1 per 440,000 people in the South Coast of California \citep{Marshall2008}.
-%  
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk1.png} 
-\caption{Location of air monitoring stations in Kuwait.}
-\label{fig1:amskuwait}
-\end{figure}
-%
+As mentioned in Chapter 2, KEPA is responsible for monitoring environmental conditions and enforcing compliance with Kuwait's national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig:kuwait}.  The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. 
+
 Air quality zones (AQZs) were designated under the UNDP KIEMS project as shown in Fig \ref{fig2:aqzkuwait} (Freeman et al., 2016).
 %
 \begin{table}[!htb]
@@ -102,7 +96,7 @@ Burgan & Production &  &  \\
 \label{fig2:aqzkuwait}
 \end{figure}
 
-As mentioned above, the use of the 99\% Rule method raises the concern as to whether residents within air zones that meet KAAQS standards are protected from high air pollutant concentration exposure to the same extent as residents within an air zone that meets standards under the ``3-Strike” method. Determining an effective classification method is important given the many sub-population groups (SPGs) in Kuwait due to the large concentration of ex-patriate workers and family members. Li et al (2008) recognized the uncertainties associated with setting fixed ambient air standards and used a fuzzy-Monte Carlo Analysis method to evaluate different variables to establish optimum ranges for specific SPGs \citep{Li2008}. While this method recognizes individual sensitivities, it is impractical to implement from a national air management perspective. For our method, the ambient standard is assumed to be a static limit.
+As mentioned in Chapter 1, two different classification rules were proposed in the 2012 update to air quality statndards. The use of the 99\% Rule method raised the concern as to whether residents within air zones that meet KAAQS standards are protected from high air pollutant concentration exposure to the same extent as residents within an air zone that meets standards under the ``3-Strike” method. Determining an effective classification method is important given the many sub-population groups (SPGs) in Kuwait due to the large concentration of ex-patriate workers and family members. Li et al (2008) recognized the uncertainties associated with setting fixed ambient air standards and used a fuzzy-Monte Carlo Analysis method to evaluate different variables to establish optimum ranges for specific SPGs \citep{Li2008}. While this method recognizes individual sensitivities, it is impractical to implement from a national air management perspective. For our method, the ambient standard is assumed to be a static limit.
 
 \subsection{Exposure Estimation and Monte Carlo Methodology}
 
@@ -348,6 +342,7 @@ The CDI is then calculated for each station and each method using the same proce
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
 
 \section{Area source modeling}
 To determine the annual emissions, both GHGs and HAPs for $nargyla$ pipes, three components were required: 
@@ -520,23 +515,61 @@ This study did not include $nargyla$ usage at home nor did it include charcoal c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Traffic estimate modeling}
-The amount of vehicles on a unit road length depends on the length of the vehicle, $L$ and the ``space cushion” a driver keeps from the car in front, the Inter-Vehicle Gap, $IVG$.  The recommended $IVG$ is around 2-3 seconds ,  at the vehicle speed.  At 120 kph, this represents 67 meters while at 5 kph, it is around 2.8 meters.  The total road space,$RS$, required to operate a vehicle at speed $s$ is given as
+\clearpage
+\section{Vehicle emissions modeling}
+
+Unlike other vehicle emission models that use vehicle kilometers travelled (VKT) as an input for calculations, this model break the road up into $i$ discreet road segments (RS), that acts as a box for individual emission calculations based on the number and types of vehicle within $RS_{i}$ over an averaging time period, $\tau$.  The total emissions $Q$ of a particular pollution parameter for $j$ reporting periods is calculated as
+%
+\begin{equation}
+\label{eq:totQ}
+Q = \sum_{i} \sum_{j}Q_{i}(\tau_{j}) 
+\end{equation}
+%
+\noindent
+with $Q_{i}(\tau_{j}$ defined as
+%
+\begin{equation}
+\label{eq:roadsegQ}
+Q_{i}(\tau_{j}) = d\sum_{k=1}^{n_{i}(s(\tau_{j}))} EF_{k}(s(\tau_{j}))
+\end{equation}
+%
+\noindent
+where $EF_{k}(s(\tau_j))$ is the emission factor for the $k^{th}$ vehicle at average speed, $s$ for reporting period $\tau_{j}$ measured in kg/km.  The number of vehicles in any period $\tau$ varies based on the road segment, reporting period and average speed. This number is given by $n_{i}(s(\tau_{j}))$, the number of vehicles in the $i^{th}$ road segment based on the average speed, $s(\tau_{j})$. The variable $d$ is the distance of the road segment. While the length of $d$ may be unique for each $RS_{i}$, an assumption is made in this research that $d$ is a constant for all segments.
+
+Estimating the speed in each road segment at reporting period $\tau_{j}$ is the subject of the next subsection. Using that speed value to calculate the most likely number and types of vehicles within that road segment during that reporting period is the topic of the subsection afterward.
+
+\subsection{Evaluating traffic conditions using GMTO}
+
+
+
+\subsection{Vehicle density and fleet composition estimates}
+The amount of vehicles on a unit road length depends on the length of the vehicle, $L$ in meters and the ``space cushion” a driver keeps from the car in front, the Inter-Vehicle Gap, $IVG$.  The recommended $IVG$ gap is based on a spacing of 2-3 seconds \citep{NYDMV2015} behind the lead vehicle, relative to the lag vehicle's speed, $s$.  At 120 kph, this represents 67 meters while at 5 kph, it is around 2.8 meters.  The total road space,$TRS$, required to operate a vehicle at speed $s$ is given as
 
 \begin{equation}
-\label{eq1:roadspace}
-RS(s)=L +IVG(s)
+\label{eq:roadspace}
+TRS(s)=L + IVG(s)
 \end{equation}
 
-For an SUV with a length of 5 meters traveling at 5 kph, the most likely road space,$RS$, required to operate the vehicle is $L + IVG(s=5) =$ 7.8 meters, as shown in Fig \ref{fig1:roadspace}.  Fig \ref{fig2:2secroadspace} shows the difference between vehicles spacing at different speeds assuming a 2 second $IVG$, at 5 kph and 40 kph.
+\noindent
+with $IVG(s)$ given as
 %
+\begin{equation}
+\label{eq:ivg}
+IVG(s) = s * SC
+\end{equation}
+%
+\noindent
+where $SC$ is the space cushion in seconds and $s$ in m/s (1 kph = 0.28 m/s). 
+
+For an SUV with a length, $L$, of 5 meters traveling at 5 kph (1.4 m/s), the most likely road space,$RS$, required to operate the vehicle is $L + IVG(s=5) =$ 7.8 meters, as shown in Fig \ref{fig1:roadspace}.  
 \begin{figure}
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense1.png} 
 \caption{Required Road Space for a Vehicle.}
 \label{fig1:roadspace}
 \end{figure}
 %
-
+Fig \ref{fig2:2secroadspace} shows the spacing between vehicles at different speeds assuming a 2 second cushion, at 5 kph and 40 kph.
+%
 %
 \begin{figure}
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense2.png} 
@@ -545,13 +578,14 @@ For an SUV with a length of 5 meters traveling at 5 kph, the most likely road sp
 \end{figure}
 %
 
-The total number of vehicles, $n$ on 1 km of road lane moving at the same speed, $s$, can be estimated by summing the number of individual vehicle lengths, $L_{i}$, and individual $IVG$'s, $IVG(s)_{i}$ in a unit stretch of road such as 1,000 m. 
+The total number of vehicles, $n$ on 1 km of road lane moving at the same speed, $s$, can be estimated by summing the number of individual vehicle lengths, $L_{i}$, and individual $IVG$'s, $IVG(s)_{i}$ as shown:
+% 
 \begin{equation}
 \label{eq1:roadspace}
 n =  \left ( \sum_{i}\left ({L_{i} + IVG(s)_{i}} \right )\leq 1,000m   \right ) 
 \end{equation}
-
-Both $IVG(s)$ and $L$ are independent variables subject to a wide range of values.  A vehicle’s length may average from 1.8 meters for a sedan, and up to 9.7 meters for a large bus.  IVGs are independent of the vehicle due to driver behavior and changes in speed due to the vehicle in front of the driver.  At 5 kph, IVGs may range from 0.5 to 4 meters.  The range of possible road space used by a 5 meter long SUV, may vary as shown in Fig \ref{fig3:SUVspace}.  This is especially apparent at lower speeds ($<$ 20 kph) due to stop-and-go driving patterns.  
+%
+Both $IVG(s)$ and $L$ are independent variables subject to a wide range of values.  A vehicle’s length may average from 1.8 meters for a sedan, and up to 9.7 meters for a large bus.  $IVG$s can be assumed to be independent of the vehicle due to driver behavior and changes in speed due to the vehicle in front of the driver.  At 5 kph, $IVG$s may range from 0.5 to 4 meters.  The range of possible road space used by a 5 meter long SUV, may vary as shown in Fig \ref{fig3:SUVspace}.  This is especially apparent at lower speeds ($<$ 20 kph) due to stop-and-go driving patterns.  
 
 %
 \begin{figure}
@@ -633,7 +667,7 @@ Vehicle 8 & 1 & Sedan & 4.9 & 1 & 0 & 0 & 0 \\ \bottomrule
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\clearpage
 \section{Time series forecasting}
 
 Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near the Public Authority for Applied Education and Training (PAAET) Al-Ardiya Campus as shown in Fig \ref{fig:Kuwait}. 
