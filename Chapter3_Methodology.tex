@@ -511,7 +511,7 @@ This study did not include $nargyla$ usage at home nor did it include charcoal c
 \caption{Location clusters of cafes with $nargyla$.}
 \label{figng2:cafes}
 \end{figure}
-
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -539,8 +539,83 @@ where $EF_{k}(s(\tau_j))$ is the emission factor for the $k^{th}$ vehicle at ave
 Estimating the speed in each road segment at reporting period $\tau_{j}$ is the subject of the next subsection. Using that speed value to calculate the most likely number and types of vehicles within that road segment during that reporting period is the topic of the subsection afterward.
 
 \subsection{Evaluating traffic conditions using GMTO}
+The GMTO can be accessed on any web browser at www.google.com/maps with a secure hyper text transfer protocol address in the form of 
 
+\url{https://www.google.com/maps/@29.302437,47.9573917,20z/data=!5m1!1e1}
 
+\noindent
+where @29.302437,47.9573917 is the latitude and longitude in decimal degrees for the center of the map, 20z is a zoom factor, and data=!5m1!1e1 is the GMTO parameter that activates the traffic layer. The map dimensions for different zoom factors, z, are shown in \ref{tb:zoomfactors}.
+
+\begin{table}[]
+\centering
+\caption[Zoom factor map dimensions]{Zoom factor (z) map dimensions in km}
+\label{tb:zoomfactors}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{z} & \textbf{Height} & \textbf{Width} \\ \midrule
+12 & 24.3 & 51 \\
+15 & 3 & 6.4 \\
+18 & 0.38 & 0.8 \\
+20 & 0.095 & 0.2 \\
+21 & 0.027 & 0.099 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+A screen shot of the road network can be used to assign traffic flow and speed to individual segments.
+
+The main colors that indicate traffic flow behavior, green, orange, red and dark red, were presented in Table \ref{tb:speedcolor}. The representative colors in 8-bit RGB format are shown in Table \ref{tb:RGBcolor}. 
+%
+\begin{table}
+\centering
+\caption{GMTO traffic flow colors.}
+\label{tb:RGBcolor}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{Color} & \textbf{R} & \textbf{G} & \textbf{B} \\ \midrule
+Green & 132 & 202 & 80  \\
+Yellow/Orange & 240 & 125 & 2 \\
+Red & 230 & 0 & 0 \\
+Dark Red/Black & 158 & 19 &19 \\ \bottomrule
+\end{tabular}
+\end{table}
+%
+Major roadways were mapped on a GIS with attributes that included the number of lanes, speed limit, and type of road within an area of interest.  The roads were then segmented into 50m x 50m grids as shown in Figure \ref{fig:gridtraffic}.
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/road_fishnet_traffic.png} 
+\caption[Traffic network and flow in Kuwait]{Traffic network and flow in Kuwait on 31 October 2017 at 1338 hrs.}
+\label{fig:gridtraffic}
+\end{figure}
+%
+
+For the network shown in Figure \ref{fig:kwtraffic}, the number of different features is shown in Table \ref{tb:roadsegments}.
+%
+\begin{figure}
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/kw1.png} 
+\caption[Traffic network and flow in Kuwait]{Traffic network and flow in Kuwait on 31 October 2017 at 1338 hrs.}
+\label{fig:kwtraffic}
+\end{figure}
+%
+Evaluating 29,000 features is not feasible in this research due to the computational resources required, so evaluation of this method was limited to Major Hwys only.
+%
+\begin{table}[]
+\centering
+\caption{Number and types of road segment.}
+\label{tb:roadsegments}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+\textbf{Road Type} & \textbf{Speed Limit (kph)} & \textbf{Segments} \\ \midrule
+Principal Hwy & 80 & 7,783 \\
+Major Hwy & 120 & 4,394 \\
+Arterial & 60 & 12,510 \\
+Roundabout & 60 & 816 \\
+High speed ramp & 60 & 2,835 \\
+Other Hwy & 80 & 1,061 \\
+Low speed ramp & 60 & 47 \\
+\multicolumn{1}{r}{Total} &  & 29,446 \\ \bottomrule
+\end{tabular}
+\end{table}
+%
 
 \subsection{Vehicle density and fleet composition estimates}
 The amount of vehicles on a unit road length depends on the length of the vehicle, $L$ in meters and the ``space cushion” a driver keeps from the car in front, the Inter-Vehicle Gap, $IVG$.  The recommended $IVG$ gap is based on a spacing of 2-3 seconds \citep{NYDMV2015} behind the lead vehicle, relative to the lag vehicle's speed, $s$.  At 120 kph, this represents 67 meters while at 5 kph, it is around 2.8 meters.  The total road space,$TRS$, required to operate a vehicle at speed $s$ is given as
