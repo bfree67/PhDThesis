@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 
 \usepackage{latexsym}
@@ -20,6 +20,7 @@
 \usepackage{rotating}
 \usepackage{color}
 \usepackage{commath}
+\usepackage{xr}  %stores references from different files
 
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
 \addbibresource{phdthesis.bib}
@@ -49,12 +50,12 @@
 \begin{document}
 %*******************  Front Matter  *******************
 \pagenumbering{roman}
-\begin{linenumbers} %turn off for final edits
+%\begin{linenumbers} %turn off for final edits
 	\include{1_titlepage} % title, approval page, copyright page
 	%\include{PhD_02_Abstract}
 	%\include{PhD_03_Dedication}
 	%\include{PhD_04_Acknowledgements}
-\end{linenumbers} %turn off for final edit
+%\end{linenumbers} %turn off for final edit
 
 	\include{PhD_05_TOC} % TOC, LOT, LOF
 
@@ -66,16 +67,13 @@
 %\lhead{Guides and tutorials}
 \rfoot{Page \thepage}
 \begin{linenumbers} %turn off for final edits
-	\include{airzones}
-	\include{riskcheck}
-	\include{VehicleDensity}
-	\include{nargylaemissions}
-	%\include{Chapter1} 	%Chapter 1
-	%\include{Chapter2} 	%Chapter 2
-	%\include{Chapter3}		%Chapter 3
-	%\include{Chapter4}		%Chapter 4
-	%\include{Chapter5}		%Chapter 5
-	%\include{Chapter6} 	%Conclusions and Recommendations
+
+	\include{Chapter1_Intro}
+	\include{Chapter2_ProblemDescription}
+	\include{Chapter3_Methodology}
+	\include{Chapter4_Results}
+	\include{Chapter5_Conclusions}
+
 \end{linenumbers} %turn off for final edit
 \clearpage
 

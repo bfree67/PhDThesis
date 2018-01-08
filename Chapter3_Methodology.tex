@@ -21,7 +21,7 @@ The following subsections illustrate the new approach as applied by the United N
 LSBs are the primary dispersal agent of generated emissions for sources located near the sea \citep{Cuxart2014}.  Coastal areas often contain large concentrations of people and industries, thus making them sensitive receptor areas.  In Kuwait, the overwhelming majority of people and industry are located in coastal areas.  The first step of the process is to determine how far LSB patterns encroach inland.  The diurnal nature of LSB is particularly strong for countries in the study area \citep{Zhu2004}.  Effects also vary seasonally with the sea breezes lasting longer in the summer months than the winter months.  Zhu reported maximum penetration along the Gulf coast countries of sea breezes in excess of 250 km.  Of the multiple variables reported by Conklin, Zhu suggests that the main factors affecting LSB are the land-sea heat flux, ambient wind patterns, and local topography.  Figure \ref{fig:LSBwinds} displays examples of coastal wind distributions for southern Kuwait captured at ground level by an air monitoring station.  Similar patterns showing wind directions distributed around the compass with a prevailing component are common for coastal areas \citep{Lozano2013}.
 
 %
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz2.png} 
 \caption[Typical LSB winds for Kuwait]{(a) Typical day time and (b) night time ground level LSB winds in southern Kuwait for the year 2011.}
 \label{fig:LSBwinds}
@@ -31,7 +31,7 @@ LSBs are the primary dispersal agent of generated emissions for sources located 
 
 This new AQZ delineation methodology requires investigation to assess how far inland coastal effect winds travel, by evaluating wind patterns throughout the area.  Virtual emission sources were placed in areas considered to have high receptor and source risks.  These may included dense residential areas, industrial zones, and concentrated urban environments.  The same virtual source is inserted at each site in order to compare the dispersion patterns over the same time frames. Source parameters were selected to represent typical industrial operations and published sources \citep{Chusai2012}. Table \ref{tb:puffmodel} contains parameters used for each virtual source configuration.  The source was designed to represent a typical boiler burning high sulfur diesel fuel.
 
-\begin{table}[]
+\begin{table}[!htb]
 \centering
 \caption{Puff model virtual source properties.}
 \label{tb:puffmodel}
@@ -90,7 +90,7 @@ Burgan & Production &  &  \\
 \end{table}
 
 %  
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk2.png} 
 \caption[Kuwait Air Quality Zones]{Kuwait Air Quality Zones (Freeman et al., 2016).}
 \label{fig2:aqzkuwait}
@@ -138,7 +138,7 @@ Two different comparisons cases were are made in this study. In the first case, 
 
 Each pollutant data set was divided into compliance and exceedance measurements by creating two PDFs – one for concentration readings under the standard (Compliance) and one for readings that exceed the standard (Exceedances) as shown in Fig \ref{fig3:distributions}.  PDFs of the measured data were selected based the Akaike Information Criteria (AIK), Bayesian Information Criteria (BIC), and Anderson-Darling (A-D) statistics generated during the fitting \citep{Palisades2016}.  The PDF having the best agreement among each the two statistics was chosen to represent the component data.  
 %  
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk3.png} 
 \caption{Break down of 8 hr O$_{3}$ concentrations into compliance and exceedance distributions.}
 \label{fig3:distributions}
@@ -175,7 +175,7 @@ Other assumptions were made for the remaining variables of eq 1. The body weight
 \centering
 \caption{Composite Weight of Adults in Kuwait}
 \label{tb:4compositewght}
-%\begin{adjustbox}{width=1\textwidth}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{ccccc}
 \toprule
 \textbf{Nationality} & \textbf{Average body mass (kg)} & \textbf{Population} & \textbf{\%} & \textbf{Average body mass} \\ 
@@ -190,10 +190,10 @@ World(**) & 62 & 837,372 & 22.9\% & 14.2 \\
 \multicolumn{5}{l}{* - Includes residents from South American, Central American, Australia and European countries} \\
 \multicolumn{5}{l}{** - Includes residents from Arab and non-specified countries}
 \end{tabular}
-%\end{adjustbox}
+} %end resizebox
 \end{table}
 %
-The final variable, inhalation rate ($IR$) is given an average value of 15.2 $m^{3}/day$ for adults by the USEPA \citep{USEPA2005a}. Other studies have used lower average values such as 13.1 $m^{3}/day$ to account for reduced rates during sleeping and sedentary activities \citep{Marshall2006}. The higher, more conservative average rate of 15.2 $m^{3}/day$ was used for this study. 
+The final variable, inhalation rate ($IR$), is given an average value of 15.2 $m^{3}/day$ for adults by the USEPA \citep{USEPA2005a}. Other studies have used lower average values such as 13.1 $m^{3}/day$ to account for reduced rates during sleeping and sedentary activities \citep{Marshall2006}. The higher, more conservative average rate of 15.2 $m^{3}/day$ was used for this study. 
 
 \subsubsection{Applying the Central Limit Theorem}
 
@@ -231,7 +231,7 @@ Given $\mu_{1}$ and $\mu_{2}$ are the arithmetic means of the Compliance and Exc
 
 A Monte Carlo Analysis was run for 10,000 iterations for the composite CDI values based on Normal distribution-based Compliance and Exceedance PDFs.  Fig \ref{fig4:composite} shows the CDI distributions of 8 hr O$_{3}$ for both the 3-Strike and 99\% Method models. 
 %  
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk4.png} 
 \caption[Composite model distributions of 8 hr O$_{3}$ CDIs]{Composite model distributions of 8 hr O$_{3}$ CDIs for the (a) 3-Strike Method and (b) 99\% Rule Method.}
 \label{fig4:composite}
@@ -286,7 +286,7 @@ df_{S} = \frac{(n-1)\left ((\sigma_{3-Strike})^{2}+(\sigma_{99\%})^{2}\right )^{
 %
 If the means test fails, then the Null hypothesis is rejected.  A summary of the hypothesis testing procedure is show in Fig \ref{eq5:cdfmu}.
 %  
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk5.png} 
 \caption{Flow chart of hypothesis testing procedures for single station case.}
 \label{fig5:flowchart}
@@ -374,6 +374,7 @@ Only gaseous phase pollutants are quantified. Particulate matter is not consider
 \centering
 \caption{ Emission factors in $g/kg$}
 \label{tb1:initialfactors}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}rcccccccccccc@{}}
 \toprule
  & \multicolumn{3}{c}{\textbf{IPCC}} & \multicolumn{5}{c}{\textbf{Literature}} & \multicolumn{4}{c}{\textbf{AP-42  (USEPA, 1995)}} \\ 
@@ -397,7 +398,8 @@ Total PAH &  &  &  &  &  &  &  & 0.000455 & 0.0065 &  &  &  \\
 Acetaldehyde &  &  &  &  &  &  &  &  & 0.545 &  &  &  \\
 VOC &  &  &  &  &  &  &  &  &  & 14 & 4.5 &  \\ \bottomrule
 \end{tabular}
-\end{table}5	 
+} %end resize
+\end{table}	 
 
 It is interesting to note that the IPCC factors for CO$_{2}$ are physically impossible to achieve as the maximum amount of CO$_{2}$ that could be produced from 1 kg of pure carbon is only 3,667g, but most charcoal only has a maximum total organic carbon content of 70\%, making a realistic limit of 2,567 as shown in the Bhattacharya (2002) column.  This project discovered this issue, which was acknowledged by the IPCC in communication to the authors. 
 
@@ -407,7 +409,7 @@ Factors from burning mixed biomass, leaves, and weeds from AP-42 were included b
 \centering
 \caption{Emission factors for $nargyla$ pipe emissions in $g/kg$}
 \label{tb2:emissionfactors}
-\begin{tabular}{@{}lcccl@{}}
+\begin{tabular}{@{}lcccc@{}}
 \toprule
 \textbf{Pollutant} & \textbf{Min} & \textbf{Expected} & \textbf{Max} & \textbf{Source} \\ \midrule
 CO$_{2}$ & 2,155 & 2,385 & 2,567 & Bhattacharya (2002) \\
@@ -506,7 +508,7 @@ provided a total average annual consumption mean of 571,071 kg and a standard de
 This study did not include $nargyla$ usage at home nor did it include charcoal consumption used by restaurants strictly for grilling foods.  Additional emissions are generated during grilling due to the combustion of animal fats \citep{McDonald2003}.  Grilling emissions should be incorporated in an emissions inventory but were not considered suitable for this study.
 
 %
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/ng2.png} 
 \caption{Location clusters of cafes with $nargyla$.}
 \label{figng2:cafes}
@@ -516,9 +518,9 @@ This study did not include $nargyla$ usage at home nor did it include charcoal c
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\section{Vehicle emissions modeling}
+\section{Estimating vehicle density using unmanned aerial systems}
 
-Unlike other vehicle emission models that use vehicle kilometers travelled (VKT) as an input for calculations, this model break the road up into $i$ discreet road segments (RS), that acts as a box for individual emission calculations based on the number and types of vehicle within $RS_{i}$ over an averaging time period, $\tau$.  The total emissions $Q$ of a particular pollution parameter for $j$ reporting periods is calculated as
+Unlike other vehicle emission models that use vehicle kilometers traveled (VKT) as an input for calculations, this model break the road up into $i$ discreet road segments (RS), that acts as a box for individual emission calculations based on the number and types of vehicle within $RS_{i}$ over an averaging time period, $\tau$.  The total emissions $Q$ of a particular pollution parameter for $j$ reporting periods is calculated as
 %
 \begin{equation}
 \label{eq:totQ}
@@ -536,89 +538,10 @@ Q_{i}(\tau_{j}) = d\sum_{k=1}^{n_{i}(s(\tau_{j}))} EF_{k}(s(\tau_{j}))
 \noindent
 where $EF_{k}(s(\tau_j))$ is the emission factor for the $k^{th}$ vehicle at average speed, $s$ for reporting period $\tau_{j}$ measured in kg/km.  The number of vehicles in any period $\tau$ varies based on the road segment, reporting period and average speed. This number is given by $n_{i}(s(\tau_{j}))$, the number of vehicles in the $i^{th}$ road segment based on the average speed, $s(\tau_{j})$. The variable $d$ is the distance of the road segment. While the length of $d$ may be unique for each $RS_{i}$, an assumption is made in this research that $d$ is a constant for all segments.
 
-Estimating the speed in each road segment at reporting period $\tau_{j}$ is the subject of the next subsection. Using that speed value to calculate the most likely number and types of vehicles within that road segment during that reporting period is the topic of the subsection afterward.
-
-\subsection{Evaluating traffic conditions using GMTO}
-The GMTO can be accessed on any web browser at www.google.com/maps with a secure hyper text transfer protocol address in the form of 
-
-\url{https://www.google.com/maps/@29.302437,47.9573917,20z/data=!5m1!1e1}
-
-\noindent
-where @29.302437,47.9573917 is the latitude and longitude in decimal degrees for the center of the map, 20z is a zoom factor, and data=!5m1!1e1 is the GMTO parameter that activates the traffic layer. The map dimensions for different zoom factors, z, are shown in \ref{tb:zoomfactors}.
-
-\begin{table}[]
-\centering
-\caption[Zoom factor map dimensions]{Zoom factor (z) map dimensions in km}
-\label{tb:zoomfactors}
-\begin{tabular}{@{}ccc@{}}
-\toprule
-\textbf{z} & \textbf{Height} & \textbf{Width} \\ \midrule
-12 & 24.3 & 51 \\
-15 & 3 & 6.4 \\
-18 & 0.38 & 0.8 \\
-20 & 0.095 & 0.2 \\
-21 & 0.027 & 0.099 \\ \bottomrule
-\end{tabular}
-\end{table}
-
-A screen shot of the road network can be used to assign traffic flow and speed to individual segments.
-
-The main colors that indicate traffic flow behavior, green, orange, red and dark red, were presented in Table \ref{tb:speedcolor}. The representative colors in 8-bit RGB format are shown in Table \ref{tb:RGBcolor}. 
-%
-\begin{table}
-\centering
-\caption{GMTO traffic flow colors.}
-\label{tb:RGBcolor}
-\begin{tabular}{@{}ccccc@{}}
-\toprule
-\textbf{Color} & \textbf{R} & \textbf{G} & \textbf{B} \\ \midrule
-Green & 132 & 202 & 80  \\
-Yellow/Orange & 240 & 125 & 2 \\
-Red & 230 & 0 & 0 \\
-Dark Red/Black & 158 & 19 &19 \\ \bottomrule
-\end{tabular}
-\end{table}
-%
-Major roadways were mapped on a GIS with attributes that included the number of lanes, speed limit, and type of road within an area of interest.  The roads were then segmented into 50m x 50m grids as shown in Figure \ref{fig:gridtraffic}.
-%
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/road_fishnet_traffic.png} 
-\caption[Traffic network and flow in Kuwait]{Traffic network and flow in Kuwait on 31 October 2017 at 1338 hrs.}
-\label{fig:gridtraffic}
-\end{figure}
-%
-
-For the network shown in Figure \ref{fig:kwtraffic}, the number of different features is shown in Table \ref{tb:roadsegments}.
-%
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/kw1.png} 
-\caption[Traffic network and flow in Kuwait]{Traffic network and flow in Kuwait on 31 October 2017 at 1338 hrs.}
-\label{fig:kwtraffic}
-\end{figure}
-%
-Evaluating 29,000 features is not feasible in this research due to the computational resources required, so evaluation of this method was limited to Major Hwys only.
-%
-\begin{table}[]
-\centering
-\caption{Number and types of road segment.}
-\label{tb:roadsegments}
-\begin{tabular}{@{}ccc@{}}
-\toprule
-\textbf{Road Type} & \textbf{Speed Limit (kph)} & \textbf{Segments} \\ \midrule
-Principal Hwy & 80 & 7,783 \\
-Major Hwy & 120 & 4,394 \\
-Arterial & 60 & 12,510 \\
-Roundabout & 60 & 816 \\
-High speed ramp & 60 & 2,835 \\
-Other Hwy & 80 & 1,061 \\
-Low speed ramp & 60 & 47 \\
-\multicolumn{1}{r}{Total} &  & 29,446 \\ \bottomrule
-\end{tabular}
-\end{table}
-%
+Estimating the number of vehicles in each road segment at individual reporting period is the subject of the next subsection. 
 
 \subsection{Vehicle density and fleet composition estimates}
-The amount of vehicles on a unit road length depends on the length of the vehicle, $L$ in meters and the ``space cushion” a driver keeps from the car in front, the Inter-Vehicle Gap, $IVG$.  The recommended $IVG$ gap is based on a spacing of 2-3 seconds \citep{NYDMV2015} behind the lead vehicle, relative to the lag vehicle's speed, $s$.  At 120 kph, this represents 67 meters while at 5 kph, it is around 2.8 meters.  The total road space,$TRS$, required to operate a vehicle at speed $s$ is given as
+The amount of vehicles on a unit road length depends on the length of the vehicle, $L$ in meters and the ``space cushion” a driver keeps from the car in front, the Inter-Vehicle Gap ( $IVG$).  The recommended $IVG$ gap is based on a spacing of 2-3 seconds \citep{NYDMV2015} behind the lead vehicle, relative to the lag vehicle's speed, $s$.  At 120 kph, this represents 67 meters while at 5 kph, it is around 2.8 meters.  The total road space,$TRS$, required to operate a vehicle at speed $s$ is given as
 
 \begin{equation}
 \label{eq:roadspace}
@@ -634,10 +557,11 @@ IVG(s) = s * SC
 \end{equation}
 %
 \noindent
-where $SC$ is the space cushion in seconds and $s$ in m/s (1 kph = 0.28 m/s). 
+where $SC$ is the space cushion in seconds and $s$ in m/s (1 kph = 0.28 m/s). For vehicles at rest, such as at an intersection or in heavy congestion, an assumption is made that the individual $IVG$ is the same for speeds $<$5kph.
 
-For an SUV with a length, $L$, of 5 meters traveling at 5 kph (1.4 m/s), the most likely road space,$RS$, required to operate the vehicle is $L + IVG(s=5) =$ 7.8 meters, as shown in Fig \ref{fig1:roadspace}.  
-\begin{figure}
+For an SUV with a length, $L$, of 5 meters traveling at 5 kph (1.4 m/s), the most likely road space,$RS$, required to operate the vehicle is $L + IVG_{(s=5)}$ = 7.8 meters, as shown in Fig \ref{fig1:roadspace}. 
+
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense1.png} 
 \caption{Required Road Space for a Vehicle.}
 \label{fig1:roadspace}
@@ -646,7 +570,7 @@ For an SUV with a length, $L$, of 5 meters traveling at 5 kph (1.4 m/s), the mos
 Fig \ref{fig2:2secroadspace} shows the spacing between vehicles at different speeds assuming a 2 second cushion, at 5 kph and 40 kph.
 %
 %
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense2.png} 
 \caption{Two second road spacing at 5 and 40 kph.}
 \label{fig2:2secroadspace}
@@ -663,69 +587,84 @@ n =  \left ( \sum_{i}\left ({L_{i} + IVG(s)_{i}} \right )\leq 1,000m   \right )
 Both $IVG(s)$ and $L$ are independent variables subject to a wide range of values.  A vehicle’s length may average from 1.8 meters for a sedan, and up to 9.7 meters for a large bus.  $IVG$s can be assumed to be independent of the vehicle due to driver behavior and changes in speed due to the vehicle in front of the driver.  At 5 kph, $IVG$s may range from 0.5 to 4 meters.  The range of possible road space used by a 5 meter long SUV, may vary as shown in Fig \ref{fig3:SUVspace}.  This is especially apparent at lower speeds ($<$ 20 kph) due to stop-and-go driving patterns.  
 
 %
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense3.png} 
 \caption{Possible SUV road spacing at 5 kph.}
 \label{fig3:SUVspace}
 \end{figure}
 %
-\subsection{Road use types}
-Specific road use is important when estimating the types of vehicles in a sample population of vehicles.  During model development, four classes of vehicles were used.  Vehicle classes were selected to represent existing traffic based on observations in Kuwait City, as shown in Table \ref{tb1:vehicletypes}.
+\subsubsection{Estimating fleet composition.}
+Specific road use is important when estimating the types of vehicles in a sample population of vehicles.  The distribution of vehicle types in a residential areas is assumed to be different than in an industrial area or highway. More lorries and heavy goods vehicles (HGVs) would be expected to be seen during early morning hours as compared to SUVs and sedans during rush hours. Vehicle classes were selected to represent existing traffic based on observations in Kuwait, as shown in Table \ref{tb1:vehicletypes}. The frequency shown is from total registered vehicles in Kuwait in 2014 provided by the Ministry of Interior. Pick-ups, minivans, and vans were grouped with SUVs. HGVs were grouped with large buses. The number and type of vehicles can be expanded to provide better classification, such as make, model, engine size, weight, fuel types, and age.
 
-\begin{table}[]
+\begin{table}[!htb]
 \centering
 \caption{Vehicle classes.}
 \label{tb1:vehicletypes}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}ccccccccc@{}}
 \toprule
-\textbf{Vehicle} & \textbf{Vehicle} & \textbf{} & \textbf{} & \textbf{} & \textbf{Bumper to bumper} & \textbf{Gross vehicle} & \textbf{} & \textbf{Frequency} \\ 
+\textbf{Vehicle} & \textbf{Vehicle} & \textbf{} & \textbf{} & \textbf{} & \textbf{Bumper to bumper} & \textbf{Gross vehicle} & \textbf{} & \textbf{2014 MOI Frequency} \\ 
 \textbf{Class} & \textbf{Type} & \textbf{Company} & \textbf{Model} & \textbf{Year} & \textbf{length (m)} & \textbf{mass (kg)} & \textbf{Fuel type} & \textbf{(f)} \\ \midrule
 1 & Sedan & Honda & Civic LX & 2013 & 1.79 & 1,650 & Petrol & 0.55 \\
 2 & SUV & Toyota & Prado VX & 2013 & 4.95 & 2,990 & Petrol & 0.33 \\
 3 & Bus, Midsize & Toyota & Coaster & 2013 & 6.25 & 5,180 & Diesel & 0.07 \\
 4 & Bus, Large & Tata & Starbus 54 & 2013 & 9.71 & 14,860 & Diesel & 0.05 \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 
-Initial frequencies of occurrence (f) for the different vehicle classes were assigned using a discrete probability distribution, as shown in Fig \ref{fig4:vehobs}, such that the total probability to select a vehicle was 1.  The number and type of vehicle classes can be expanded to account for better classification such as engine size, weight, fuel types, and age.
- 
+To collect actual fleet composition data, actual vehicle counts at intersections will be made using imagery captured during UAS flights at operational altitude at or near 40m above ground level (AGL). To test the statistical significance of different fleet compositions and IVGs against different locations and times, the following null and alternative hypothesizes, $H_{o}$ and $H_{a}$ respectively, were defined in Table \ref{tab:vehhyp}. 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense4.png} 
-\caption{Probability distribution of observed vehicles.}
-\label{fig4:vehobs}
-\end{figure}
-%
-
-A discrete algorithm was set up in a spreadsheet for multiple speeds ranging from 5 kph to 40 kph.  Table \ref{tb2:modelspeeds} shows speed sets and conversion to meters per second.  We modeled speeds less than 5 kph as 5 kph due to the $IVG$ kept by drivers at lower speeds.
-
-\begin{table}[]
+\begin{table}[!htb]
 \centering
-\caption{Modeled speeds.}
-\label{tb2:modelspeeds}
-\begin{tabular}{cccccc}
-\textbf{kph} & 5   & 10  & 15  & 20  & 40   \\
-\textbf{m/s} & 1.4 & 2.8 & 4.2 & 5.6 & 11.2
+\caption{Hypothesis definitions for fleet composition and IVG testing.}
+\label{tab:vehhyp}
+\begin{tabular}{@{}cc@{}}
+\toprule
+\multicolumn{2}{c}{\textbf{Fleet composition hypothesis}} \\ \midrule
+$H_{o}$ & $p_{1} - p_{2} = 0$ \\
+$H_{a}$ & $p_{1} - p_{2} \ne 0$\\ \midrule
+\multicolumn{2}{c}{\textbf{IVG hypothesis}} \\ \midrule
+$H_{o}$ & $\bar{X}_{1} - \bar{X}_{2} = 0$, $s_{1} - s_{2} = 0$ \\
+$H_{a}$ & $\bar{X}_{1} - \bar{X}_{2} \ne 0$, $s_{1} - s_{2} \ne 0$ \\ \bottomrule
 \end{tabular}
 \end{table}
+%
+The two proportion z-test can be used to compare the statistical significance between vehicle type probabilities \citep{Presnell2008}. The Z statistic is calculated using the probabilities of both groups and their associated degrees of freedom as given by
+% 
+\begin{equation}
+\label{eq:2zteststat}
+Z_{statistic} = \frac{p_{1}-p_{2}}{\sqrt{p_{tot}(1-p_{tot})\left ( \frac{1}{n_{1}}+\frac{1}{n_{2}} \right )}}
+\end{equation}
+%
+\noindent
+where $p_{1}$ and $p_{2}$ are the probabilities of a vehicle class at different locations/times, $n_{1}$ and $n_{2}$ are the degrees of freedom, and $p_{tot}$ is the composite probability from the combined runs given by
+% 
+\begin{equation}
+\label{eq:2ztesttot}
+p_{tot}=\frac{n_{1}p_{1} + n_{2}p_{2}}{n_{1}+n_{2}}
+\end{equation}
+%
+At the 95\% confidence level, the critical Z score for a two-tail test is 1.96. If the calculated $Z_{statistic} < Z_score$ then the null hypothesis is not rejected. 
 
-We assigned vehicle spaces based on a maximum number of 401 vehicles possible on a 1 km road moving at 5 kph.  This maximum value assumes that only sedans are on the road driving at the smallest possible safe distance.  During modeling however, the most vehicles in the same stretch of road never exceeded 170.  Reasonable $IVG$ timing values were assumed to range from 0.5 seconds, 2 seconds, and 4 seconds (maximum) (Treiber et al (2000). used a value of 1.6 s for their IDM analysis \citep{Treiber2000}) in a continuous triangle distribution shown in Fig \ref{fig5:IVGobs}.
+Once the frequency of vehicles types within the local fleet is estimated, a Monte Carlo Analysis (MCA) can be used to estimate the most likely range of vehicle types and numbers on a road segment. Vehicle spaces in the road segment were assigned based on a maximum number of 401 vehicles possible on a 1 km road moving at 5 kph (or less).  This maximum value assumes that only sedans are on the road driving at a reasonable IVG safe distance of 2s.  During modeling however, the most vehicles in the same stretch of road never exceeded 170.  Reasonable $IVG$ timing values were initially assumed to range from 0.5s to 4s. Treiber et al (2000) used a value of 1.6s for their analysis \citep{Treiber2000}. An initial distribution of IVGs was assumed to be a continuous triangle distribution as shown in Fig \ref{fig5:IVGobs}.
  
 %
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense5.png} 
-\caption{Probability distribution of IVG timing.}
+\caption{Initial probability distribution assumption of IVG timing.}
 \label{fig5:IVGobs}
 \end{figure}
 %
+Each vehicle length was assigned its own probability distribution using a pert distribution based on its class and manufacturer data.  If no data was available, length variation was assumed to be $\pm5\%$. A vehicle class was randomly selected from the different classes of Table \ref{tb1:vehicletypes} for each space.  The vehicle length was then selected based on the class of vehicle.  The IVG was added to the vehicle length by randomly selecting a time spacing and multiplying it by the average speed to get the safe distance. In the case of speeds less than 5 kph and at rest, 5 kph was used.  
 
-Each vehicle length was assigned its own probability distribution using a pert distribution and vehicle manufacturer data.  We ran our stochastic model using 5,000 iterations on each variable. 
-During each iteration, a vehicle class was randomly selected from the 4 classes for each space.  The vehicle length was then selected based on the class of vehicle.  The safe distance was added to the vehicle length by randomly selecting a time spacing and multiplying it by the average speed to get the safe distance.  If the cumulative length was less than 1,000 meters, the class was assigned a value of 1 to allow tallying and grouping.  Vehicle classes at the end of the list that exceeded the 1 km length were assigned a zero and not counted.  Table \ref{tb3:selection} shows a portion of an iteration at 5 kph. 
+If the cumulative length was less than 1,000 meters, one-hot encoding was used to identify the class for later aggregation and grouping.  Vehicle classes at the end of the list that exceeded the 1 km length were assigned a zero and not counted.  Table \ref{tb3:selection} shows a portion of an iteration at 5 kph. 
 
 \begin{table}[]
 \centering
-\caption{Sample of an iteration showing vehicle class and road space selection for speed = 5 kph.}
+\caption[Vehicle density sample]{Sample of an iteration showing vehicle class and road space selection for speed = 5 kph.}
 \label{tb3:selection}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}cccccccc@{}}
 \toprule
 \textbf{Vehicle space} & \textbf{Class} & \textbf{Type} & \textbf{Road Space (m)} & \textbf{Sedan} & \textbf{SUV} & \textbf{Bus, Medium} & \textbf{Bus, Large} \\ \midrule
@@ -738,16 +677,85 @@ Vehicle 6 & 2 & SUV & 6.4 & 0 & 1 & 0 & 0 \\
 Vehicle 7 & 1 & Sedan & 6.1 & 1 & 0 & 0 & 0 \\
 Vehicle 8 & 1 & Sedan & 4.9 & 1 & 0 & 0 & 0 \\ \bottomrule
 \end{tabular}
+} %end resizebox
 \end{table}
+
+\subsection{Validating gaps and vehicle types using UASs}
+In order to measure actual IVGs at intersections and slow speeds, as well as quantify fleet compositions operating at specific locations and times, imagery acquired by a UAS was converted into a DEM and 3D model. A commercial, multi-rotor UAS (DJI Phantom 3 Professional) was used to acquire the imagery, which was processed using Pix4Dmapper Pro version 4.0.25 (www.pix4d.com).
+
+The UAS was flown at 40 m AGL in order to avoid obstacles such as streetlights and trees. Intersections were chosen that represented high traffic densities and long signal cycles in order to capture the scene from multiple angles. No direct overflight of vehicles took place due to safety concerns and a representative from the Kuwait Ministry of Interior was present during all missions. As a result, only oblique imagery was collected. 
+
+The Pix4D software generated the 3D DEM using SfM photogrammetry. Each point used multiple images as shown in Figure \ref{fig:pix4Drays}. In this case, 12 images contribute to the generation of the individual point. The blue spheres at the top of the figure represent the initial camera position and the green sphere represents the optimized position after accounting for GPS location error and camera lens aberration. The camera used in the Phantom 3 Professional has relatively low distortion, therefore requiring minimal orthorectification.
+%
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/pix4Drays.png} 
+\caption{Generation of point cloud in DEM using oblique imagery.}
+\label{fig:pix4Drays}
+\end{figure}
+%
+
+Distances between vehicle were extracted by measuring polylines between vehicles as shown in Figure \ref{fig:pix4Dgaps}.
+%
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/pix4dgaps.png} 
+\caption{Measuring IVGs using polylines in a DEM.}
+\label{fig:pix4Dgaps}
+\end{figure}
+%
+Measurements are referenced to World Geodetic System (WGS) 84 coordinates (latitude/longitude) with the distance between individual points computed within the program using the Law of Cosines for spherical trigonometry \citep{Sinnott1984}
+%
+\begin{equation}
+\label{eq:distTrig}
+dist = R * cos^{-1}(sin(Lat_{a})sin(Lat_{b}) + cos(Lat_{a})cos(Lat_{b})cos(\lambda))
+\end{equation}
+
+\noindent
+where $R$ is the WGS 84 radius of the Earth at the equator given as 637,8137 m, $Lat_{a}$ and $Lat_{b}$ are the latitudes of points a and b, respectively, in radians, and $\lambda$ is the difference of longitudes for points a and b, in radians.  Both Pix4D and ESRI's ArcGIS use this formula to compute 2D distances between coordinates. This is an unreliable method as the inverse cosine produces rounding errors, especially for coordinate differences less than 1 minute of arc (0.01667 degrees - or about 31 meters) \citep{Sinnott1984}. A more precise formula uses the Haversine method given as 
+
+\begin{equation}
+\label{eq:distHaversine}
+d = 2Rsin^{-1}\left (\sqrt{ sin^{2}\left ( \frac{Lat_{a}-Lat_{b}}{2} \right ) + cos(Long_{a})cos(Long_{b})sin^{2} \left ( \frac{Long_{a}-Long_{b}}{2} \right ) } \right )
+\end{equation}
+
+To determine if the software was accurately capturing the distances, a test pattern was prepared using different shaped items that could be measured safely on the ground as shown in Figure \ref{fig:uascalibration}. Imagery was captured at different altitudes (30m, 40m and 50m) to represent operational altitudes that would be flown during actual data collection missions.
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/uascalibrate.png} 
+\caption{Calibration items for photogrammetry modeling verification.}
+\label{fig:uascalibration}
+\end{figure}
+
+The results of the distance measurements from models generated at different altitudes is shown in Table \ref{tab:uascalibrate}. The results show that even at a high altitude of operation, the MAE was only 4.1 cm, or for the smallest measurement (Item 5), a possible error of 8.5\%. This was considered to be a worst case error. As a result of this test, no correction to the distance measured using the Pix4D software was applied.
+
+%
+\begin{table}[!htb]
+\centering
+\caption[Comparison of distance measurement at different altitudes]{Comparison of distance measurement at different altitudes (all units in cm)}
+\label{tab:uascalibrate}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{Item} & \textbf{Actual} & \textbf{30m} & \textbf{40m} & \textbf{50m} \\ \midrule
+1 & 100 & 100 & 102 & 100 \\
+2 & 140 & 137 & 142 & 137 \\
+3 & 120 & 118 & 128 & 130 \\
+4 & 125 & 123 & 124 & 126 \\
+5 & 48 & 43 & 52 & 49 \\
+6 & 162 & 155 & 164 & 167 \\
+7 & 69 & 68 & 73 & 78 \\
+MAE &  & 2.9 & 3.3 & 4.1 \\ \bottomrule
+\end{tabular}
+\end{table}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
+
 \section{Time series forecasting}
 
 Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near the Public Authority for Applied Education and Training (PAAET) Al-Ardiya Campus as shown in Fig \ref{fig:Kuwait}. 
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/kuwait.png}  %assumes jpg extension
 \caption{Location of Kuwait and AMS used in the study.}
@@ -799,7 +807,7 @@ The standard for O$_{3}$ in Kuwait is 75 $ppb$ based on an 8 hour average \citep
 \noindent
 where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in Fig \ref{fig:windrose}.
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/paaet-windrose.png}  %assumes jpg extension
 \caption{Station wind-rose from 2012 to 2014.}
@@ -808,7 +816,7 @@ where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concen
 %
 Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}. High O$_{3}$ concentrations occur in the summer months from June to August, but come from the northeast, indicating the transport of pollutants from the coast. Not surprisingly, most of the compliance exceedances take place during this period.
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/paaet-o3seasons.png}  %assumes jpg extension
 \caption{Seasonal bivariate polar plots of 1 hour O$_3$.}
@@ -817,7 +825,7 @@ Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}
 %
 Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($r$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($r$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maxima, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/dailyAveO3.png}  %assumes jpg extension
 \caption{Hourly averages of 1 hour O$_{3}$ and NOx.}
@@ -857,7 +865,7 @@ X(t) = \frac{X_{t+24} - X_{t-24}}{2}
 %
 The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with imputed data from the different methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Fig \ref{fig:impute-rmse} along with the intersection of the 2nd method.
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/impute-rmse.png}  %assumes jpg extension
 \caption{RMSE of O$_{3}$ and NOx from consecutive gaps of data using the first imputation method.}
@@ -889,7 +897,7 @@ where $x_{max}$ and $x_{min}$ are the maximum and minimum values in the data set
 Eighty percent (80\%) of the scaled data was divided into a training set with 20\% reserved for testing.  Output exceedances were classified as either 0 (less than the exceedance standard of 75 $ppb$) or 1 (exceeds the standard). Overall accuracy of each horizon was measured using the \textbf{accuracy\_ score} function which calculated the standard error of exact matches of the observed output with the predicted \citep{Raschka2016}.  Other classifiers in the Sci-Kit library were evaluated as well, including the Support Vector Machine (SVM) and Random Forest classifiers. The decision tree in classification mode using ``gini" criteria to measure the data split at each decision node proved to be the most accurate.
 
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/sumfactors.png}  %assumes jpg extension
 \caption[Decision tree importance factors]{Sum of importance factors from decision trees predicting 8 hr O$_{3}$ from 1 to 12 hours.}
@@ -902,7 +910,7 @@ The RNN output was trained to predict the 8 hour moving average of measured 1 ho
 \subsection{Tensor Preparation for RNN input data}
 Data sets provided to the LSTM RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Fig \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n * p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Fig \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/tensor-tables.png}  %assumes jpg extension
 \caption{Process of converting data input columns into a Tensor for training the RNN.}

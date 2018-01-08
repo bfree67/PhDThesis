@@ -19,8 +19,8 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \usepackage{theorem}
 \usepackage{graphicx}
 \usepackage{url}
-\usepackage{pdfsync}
-\usepackage{pdfpages}
+%\usepackage{pdfsync}
+%\usepackage{pdfpages}
 \usepackage{tabu}
 \usepackage{longtable}
 \usepackage{mathrsfs}
@@ -28,6 +28,7 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \usepackage{rotating}
 \usepackage{color}
 \usepackage{commath}
+\usepackage{graphics} %used to resize tables to fit column
 
 %\usepackage{natbib}% I added this\
 %\usepackage{biblatex-chicago}
@@ -57,7 +58,7 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \def\dsp{\def\baselinestretch{2.0}\large\normalsize}
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
 \makeatletter\@addtoreset{chapter}{part}\makeatother%
-\dsp
+\ssp %\dsp  % ssp - single space/ dsp - double space
 \setcounter{secnumdepth}{3}
 
 %\include{com}
@@ -68,13 +69,10 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 %*******************  Front Matter  *******************
 
 \begin{frontmatter}
-\begin{linenumbers} %turn off for final edits
 	\include{PhD_01_TitlePage} % title, approval page, copyright page
 	%\include{PhD_02_Abstract}
 	%\include{PhD_03_Dedication}
 	%\include{PhD_04_Acknowledgements}
-\end{linenumbers} %turn off for final edit
-
 	\include{PhD_05_TOC} % TOC, LOT, LOF
 	\include{Acronyms}
 \end{frontmatter}
@@ -96,7 +94,7 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 %*******************  Appendices  *******************
 \begin{appendices}	
 	\include{Published}
-	\include{RNN_Python_code}
+	%\include{RNN_Python_code}
 \end{appendices}
 \clearpage
 

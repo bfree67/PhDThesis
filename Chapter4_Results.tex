@@ -11,6 +11,7 @@ Virtual sources were placed at key areas to represent different risk areas withi
 \centering
 \caption{Virtual Site locations.}
 \label{tb:virtualsites}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lccl@{}}
 \toprule
 \textbf{Location}        & \textbf{Longitude} & \textbf{Latitude} & \multicolumn{1}{c}{\textbf{Comments}} \\ \midrule
@@ -26,11 +27,12 @@ Salmiya                  & 48.069$^{o}$       & 29.3180$^{o}$     & Dense reside
 Shuaibah Industrial Zone & 48.1428$^{o}$      & 28.9944$^{o}$     & Dense heavy industrial area           \\
 Subhan                   & 48.0064$^{o}$      & 29.2113$^{o}$     & Dense heavy industrial area           \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 %
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz4.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz4.png} 
 \caption[Location of virtual sources]{Location of virtual sources for air dispersion analysis shown with partial 10 km buffer and main perimeter roads.}
 \label{fig:virtual-locations}
 \end{figure}
@@ -38,15 +40,15 @@ Subhan                   & 48.0064$^{o}$      & 29.2113$^{o}$     & Dense heavy 
 
 Figure \ref{fig:virtual-dispersions} displays examples of individual ground level concentration outputs from the virtual SO$_{2}$ sources described in Table \ref{tb:puffmodel}, while Figure \ref{fig:virtual-histogram} shows histograms of the SO$_{2}$ concentrations calculated by the model to show the distribution of concentrations within the model area.  Concentration color gradients were plotted on the same scale for comparison purposes.  The model is based only on runs accomplished with SO$_{2}$ over an annual average of 8,760 hours.  
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz5.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz5.png} 
 \caption[Ground level air dispersion patterns]{Ground level air dispersion patterns from Inland and Coastal virtual SO$_{2}$ sources averaged over 8,760 hours (annual); (a) Jahra Inland dispersion (Inland) - Year 2010; (b) Kuwait City dispersion (Coastal) - Year 2009}
 \label{fig:virtual-dispersions}
 \end{figure}
 %
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz6.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz6.png} 
 \caption[Histograms of ground level concentrations]{Histograms of ground level concentrations from Inland and Coastal virtual SO$_{2}$ sources averaged over 8,760 hours (annual); (a) Jahra Inland histogram (Inland) - Year 2010; (b) Kuwait City histogram (Coastal) - Year 2009.}
 \label{fig:virtual-histogram}
 \end{figure}
@@ -60,6 +62,7 @@ Zones were identified visually at first in order to establish baseline results. 
 \centering
 \caption{Skewness, Kurtosis and distance to shore statistics for virtual sites.}
 \label{tb:skewdist}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lccccc@{}}
 \toprule
 \textbf{Site} & \textbf{Zone} & \textbf{Year} & \textbf{Skewness} & \textbf{Kurtosis} & \textbf{Distance (km)} \\ \midrule
@@ -97,11 +100,12 @@ Subhan & Coastal & 2009 & 2.8 & 12.06 & 9.3 \\
  &  & 2010 & 3.02 & 13.07 &  \\
  &  & 2011 & 3.68 & 26.72 &  \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 %
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz7.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz7.png} 
 \caption{$S-K$ plot of virtual sources in Kuwait.}
 \label{fig:SKplotKuwait}
 \end{figure}
@@ -112,8 +116,8 @@ Regions are highlighted showing inland classification areas (orange) and coastal
 To confirm the procedure, random points were modeled in the nearby State of Qatar. An inland point was taken at Abu Naklah Air Base (ANAB - Lat 25.1208$^{o}$ East/Long 51.3177$^{o}$ North) and a coastal point taken at Masaeed Industrial City (MIC - Lat 24.9911$^{o}$ East/Long 51.5506$^{o}$ North) for the same years (2009-2011) using the same virtual source parameters as shown in Table \ref{fig:virtual-locations}. The points are approximately 570 km from Kuwait International Airport as shown in Figure \ref{fig:qatarlocs}. 
 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz8.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz8.png} 
 \caption{Location of Qatar virtual sites in relation to Kuwait.}
 \label{fig:qatarlocs}
 \end{figure}
@@ -124,8 +128,8 @@ The methodology properly classified each location as inland and coastal.  The $S
  
 Fig 9. $S-K$ plot of virtual sources in Qatar.
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz9.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz9.png} 
 \caption{$S-K$ plot of virtual sources in Qatar.}
 \label{fig:SKplotQatar}
 \end{figure}
@@ -135,8 +139,8 @@ Figure \ref{fig:flowchart} shows a flowchart which summarizes the process to dev
 
 Fig 10. Coastal/Inland Determination Process Flow Chart.
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz10.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz10.png} 
 \caption{Coastal/Inland determination process flow chart.}
 \label{fig:flowchart}
 \end{figure}
@@ -149,8 +153,8 @@ Fig 10. Coastal/Inland Determination Process Flow Chart.
 After coastal effect limits were estimated using the $S-K$ method, zones were further defined by incorporating existing roads and expressways.  Where practical, these physical features were taken into account to allow for easier management.  As a result, the Coastal / Inland boundaries follow a main Kuwaiti ring road up to the northeast end of Kuwait Bay.  Municipal district boundaries were also used to promote familiarity when transitional areas were close to estimated boundaries.  The final AQZs are shown in Figure \ref{fig:kuwaitzones}.
 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz11.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz11.png} 
 \caption{Kuwait Air Quality Zones.}
 \label{fig:kuwaitzones}
 \end{figure}
@@ -162,6 +166,7 @@ The pink area in Figure \ref{fig:kuwaitzones} shows the buffer area from Figure 
 \centering
 \caption{Air Quality Zone Statistics.}
 \label{tb:aqzstats}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}clccccc@{}}
 \toprule
 \textbf{Item} & \textbf{Zone} & \textbf{Zone Type} & \textbf{Area (km$^{2}$)} & \textbf{\% of Total Land} & \textbf{Population} & \textbf{\% of Total Population} \\ \midrule
@@ -178,6 +183,7 @@ The pink area in Figure \ref{fig:kuwaitzones} shows the buffer area from Figure 
 11 & Burgan & Production & 592 & 3.40\% & NA &  \\
  & TOTAL &  & 17,298 & 100\% & 3,420,573 & 100\% \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 
 The Kuwaiti coastal air zones include 14.1\% of the land area and 99.8\% of the population.  The inland zones include 76.6\% of the land area and the production zones represent 9.3\%.  Descriptions of the individual zone types are provided below:
@@ -197,8 +203,8 @@ In addition to applying the method to a secondary area in Qatar, three different
 Another common option for prognostic weather data is the Weather research and forecasting (WRF) model also developed by NCAR \citep{Skamarock2008}. WRF has been used in the region for different climatology studies looking at wind forecasts for different applications \citep{Amjad2015}. Direct comparisons of the two models, MM5 and WRF show that the results are statistically similar, with topography playing a large role in predictive accuracy \citep{Gsella2014, Henmi2004}. Comparing ground level wind patterns generated by both the MM5 and WRF models over a common 100 x 100 km area using 4 km grid cells, we found that wind directions were very similar, with wind fields approximately 10\% higher for the MM5 results. When applied to the CALPUFF model, the lower WRF wind speeds provided higher ground level concentrations, however, the final results support our method using MM5. Wind roses for three locations are shown in Figure \ref{fig:12windcompare}.
  	 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz12.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz12.png} 
 \caption[Comparison of wind patterns using prognostic data]{Comparison of wind patterns using MM5 and WRF prognostic data.}
 \label{fig:12windcompare}
 \end{figure}
@@ -209,8 +215,8 @@ Another common option for prognostic weather data is the Weather research and fo
 SVMs are a class of supervised learning based models that classify input data sets by mapping into high-dimensional feature spaces. While SVMs have been used since 1995 \citep{Cortes1995}, they have only relatively recently been applied to air pollution concentration predictions \citep{Lu2005, Luna2014, Moazami2016}. A full description of the SVM is beyond the scope of this paper but several excellent references and online tutorials are available. A linear SVM was trained with the data set in Table \ref{tb:skewdist} using the Classification Learner module in Matlab 2015a (www.mathworks.com) with a linear kernel function \citep{Yang2011}. The input data was standardized by the software prior to training. Inland classification was converted to a -1 while coastal classification was designated with a 1. The SVM was initially trained only with $S$ and $K$ results. The resulting confusion matrix could achieve an overall accuracy of 87.9\% - comparable to the results of graphing the $S$ and $K$ values.  
 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz13.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz13.png} 
 \caption{Confusion matrix of trained SVM with $S$ and $K$ inputs.}
 \label{fig:13confusionSK}
 \end{figure}
@@ -219,8 +225,8 @@ SVMs are a class of supervised learning based models that classify input data se
 The use of the SVM allows additional features to be included so that multiple inputs can be used to improve accuracy. Adding the coastal distance improved overall accuracy to 97\% as shown in Figure \ref{fig:14confusionSKdist}. The trained SVM was tested using the Qatar data set and achieved 100\% accuracy. 
 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz14.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz14.png} 
 \caption{Confusion matrix of trained SVM with S, K and distance to coast inputs.}
 \label{fig:14confusionSKdist}
 \end{figure}
@@ -235,15 +241,15 @@ Data was downloaded from the Giovanni web based system \citep{Acker2007} and con
 Annual mean and standard deviations for NO$_{2}$ (measured in 1015 molecule/cm$^{2}$) for the Kuwait area were plotted as shown in Figure \ref{fig:15meanNO2} and Figure \ref{fig:16stdNO2} respectively.  Highest concentrations are located on the Central and Southern coasts corresponding to heavy urban development and industrial activities. The pattern roughly follows the central and southern coastal zones.
 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz15.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz15.png} 
 \caption{Annual mean concentration of NO$_{2}$ in Kuwait for 2011.}
 \label{fig:15meanNO2}
 \end{figure}
 %
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz16.png} 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/aqz16.png} 
 \caption[Annual Standard Deviation of NO$_{2}$ Concentration]{Annual Standard Deviation of NO$_{2}$ Concentration as percentage of annual concentration in Kuwait for 2011.}
 \label{fig:16stdNO2}
 \end{figure}
@@ -369,7 +375,7 @@ The CDIs computed through the MCA of each pollutant using samples drawn from Com
 %
 \begin{table}[!htb]
 \centering
-\caption{Single station CDIs (in $\mu g/kgBW-day$)}
+\caption[Single station CDIs]{Single station CDIs (in $\mu g/kgBW-day$)}
 \label{tb7:singleCDI}
 \begin{tabular}{@{}lccc@{}}
 \toprule
@@ -629,7 +635,7 @@ Using the general form of annual emissions in Equation \ref{eq1}, the Emissions 
 Results were divided by 106 to get units of metric tonnes, or 103 to get kilograms if the total was less than 1 tonne per year.  The average annual emissions for individual pollutants are shown in Table \ref{tb4:results} with Triangle distributions of the EFs and results shown in Fig \ref{figng3:pdfs}. 
 
 %
-\begin{table}[]
+\begin{table}[!htb]
 \centering
 \caption{MCA Results for Annual Emissions for $nargyla$ smoking in Kuwait.}
 \label{tb4:results}
@@ -667,7 +673,7 @@ While the annual mass consumption could assume a Normal distribution due to the 
 %
 The parameters used for the different EF distributions are shown in Table \ref{tb5:sensitivity}.
 %
-\begin{table}[]
+\begin{table}[!htb]
 \centering
 \caption{Sensitivity Analysis Parameters for EF Distributions g/kg}
 \label{tb5:sensitivity}
@@ -712,6 +718,7 @@ A similar review of the standard deviations of the different distributions shows
 \centering
 \caption{Comparison of annual total emission standard deviations.}
 \label{tb7:stndev}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}cccccccccc@{}}
 \toprule
  & \multicolumn{5}{c}{\textbf{Distributions}} & \multicolumn{4}{c}{\textbf{Statistics}} \\ \midrule
@@ -725,6 +732,7 @@ A similar review of the standard deviations of the different distributions shows
  & NH$_{3}$ & 92.1 & 130.2 & 75.5 & 85.3 & 95.8 & 23.9 & 48.9 & 142.7 \\
  & PAH & 0.840 & 1.055 & 0.572 & 0.556 & 0.8 & 0.2 & 0.3 & 1.2 \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 
 While annual emission distributions are influenced by the form of the EF distribution, the influence is not significant. Ninety five percent (95\%) Confidence Intervals (CI) of the distribution means are shown in Tables \ref{tb6:compare}, with similar CI’s for the sample standard deviations in Table \ref{tb7:stndev}. In all case, the distribution statistics are within the bounds and therefore can accept a null hypothesis that distribution means are not significantly different and that distribution variances are not statistically significant ($p<0.05$).  Tables \ref{tb6:compare} and \ref{tb7:stndev} show that using a Triangular distribution provides a conservative value if the underlying distribution is not known and few data points are available to describe the sample population.  
@@ -773,38 +781,247 @@ N$_{2}$O & 0.09 & 0.44 & 20.2\% \\ \bottomrule
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \section{Traffic density estimations}
-Palisade Software’s @RISK Version 6.2 Industrial Edition (www.palisade.com) was used to provide the Monte Carlo analysis (MCA) using a Latin Hypercube sample generator.  A total of 50,000 iterations were run at 5, 10, 15, 20, and 40 kph at the same time.  Our model captures the total number and class of vehicles in one kilometer of road.  Lane changing was not considered.   Fig \ref{fig6:estimatedobs}  shows the results of all vehicles traveling at an average of 5 kph including 90\% Confidence Intervals.
+
+
+\subsection{UAS collected traffic data}
+Data was collected at the west-bound intersection on the 7th Ring and 40 Highway known for heavy congestion during the periods of 0700 and 0800 on Wednesday, 20 December 2017 and the south-bound intersection of the 55 Airport Road and 4th Ring on Thursday, 4 January 2018 between 1300 and 1400 hrs as shown in \ref{fig:flights}. The flights were processed using the Pix4Dmapper Pro software as shown in Table \ref{tab:flightdata}. A total of two flights were processed on 20 Dec mission and three flights on the 4 Jan mission. All flights were flown at 40m AGL.
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/flights.png} 
+\caption[Flight locations]{Flight locations in north and south Kuwait.}
+\label{fig:flights}
+\end{figure}
+
+
+\begin{table}[!htb]
+\centering
+\caption{Summary of data collection flights and processed imagery}
+\label{tb:flightdata}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+\textbf{Flight} & \textbf{Flight start} & \textbf{\# of pictures} & \textbf{\# of cloud points} \\ \midrule
+20Dec17-1 & 0704 & 39 & 3,819,568 \\
+20Dec17-2 & 0725 & 68 & 6,610,918 \\
+4Jan18-1 & 1317 & 40 & 3,037,660 \\
+4Jan18-2 & 1329 & 38 & 3,313,626 \\
+4Jan18-3 & 1345 & 50 & 3,840,476 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Classifying vehicles types from UAS data}
+Vehicles such as pick-ups, mini-vans, and vans were classified as SUVs while diesel fueled lorries were classified as large buses and gasoline lorries as medium buses. HGVs included all vehicles with a tractor cab and attached trailer. The different vehicles observed on each flight is shown in Table \ref{tab:fleetcount}.
+
+\begin{table}[!htb]
+\centering
+\caption{Fleet composition from each flight.}
+\label{tab:fleetcount}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}cccccccccc@{}}
+\toprule
+\multicolumn{4}{c}{\textbf{20 Dec 2017 counts}} & \textbf{} & \multicolumn{5}{c}{\textbf{4 Jan 2018 counts}} \\ 
+Flight & 20Dec17-1 & 20Dec17-2 & Total &  & Flight & 4Jan18-1 & 4Jan18-2 & 4Jan18-3 & Total \\ \midrule
+Car & 45 & 75 & 120 &  & Car & 60 & 56 & 49 & 165 \\
+SUV & 55 & 93 & 148 &  & SUV & 40 & 61 & 59 & 160 \\
+Bus, Med & 2 & 1 & 3 &  & Bus, med & 0 & 0 & 2 & 2 \\
+Bus, Large & 9 & 5 & 14 &  & Bus, Large & 5 & 5 & 6 & 16 \\
+ & 111 & 174 & 285 &  & Subtotal & 105 & 122 & 116 & 343 \\ \midrule
+\multicolumn{4}{c}{\textbf{20 Dec 2017 percentages}} & \textbf{} & \multicolumn{5}{c}{\textbf{4 Jan 2018 percentages}} \\
+Flight & 20Dec17-1 & 20Dec17-2 & Total &  & Flight & 4Jan18-1 & 4Jan18-2 & 4Jan18-3 & Total \\ \midrule
+Car & 40.5\% & 43.1\% & 42.1\% &  & Car & 57.1\% & 45.9\% & 42.2\% & 48.1\% \\
+SUV & 49.5\% & 53.4\% & 51.9\% &  & SUV & 38.1\% & 50.0\% & 50.9\% & 46.6\% \\
+Bus, Med & 1.8\% & 0.6\% & 1.1\% &  & Bus, med & 0.0\% & 0.0\% & 1.7\% & 0.6\% \\
+Bus, Large & 8.1\% & 2.9\% & 4.9\% &  & Bus, Large & 4.8\% & 4.1\% & 5.2\% & 4.7\% \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+To test the null hypothesis, $H_{o}$ established in Table \ref{tab:vehhyp} for fleet compositions whereby the composite probabilities of each vehicle class from each flight group was $p_{1} - p_{2} = 0$, the Z statistic was calculated according to Equation \ref{eq:2zteststat} and compared to the two-tailed critical value for 95\% confidence of 1.96. If the Z statistic was less than the critical value, the null hypothesis could not be rejected and the probabilities of each vehicle class could be considered equivalent for those flight groups. Table \ref{tab:fleettest} showed that all classes failed to reject the null hypothesis, strengthening the assumption that fleet composition is similar at most intersections and at all times of congestion.
+
+\begin{table}[!htb]
+\centering
+\caption{Statistical significance test results for fleet composition between sites.}
+\label{tab:fleettest}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{} & \textbf{Car} & \textbf{SUV} & \textbf{Bus, Med} & \textbf{Bus, Large} \\ \midrule
+Z-statistic & 1.004 & 0.927 & 0.058 & 0.032 \\
+Z-statistic \textless 1.96? & TRUE & TRUE & TRUE & TRUE \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The results of the pooled data for each vehicle type in the fleet composition is shown in Table \ref{tab:pooledfleet}.
+
+\begin{table}[!htb]
+\centering
+\caption{Fleet composition based on pooled observation data.}
+\label{tab:pooledfleet}
+\begin{tabular}{cccc}
+\textbf{Car} & \textbf{SUV} & \textbf{Bus, Med} & \textbf{Bus, Large} \\
+45.4\% & 49.0\% & 0.8\% & 4.8\%
+\end{tabular}
+\end{table}
+
+\subsection{Evaluating traffic density from UAS data}
+
+IVG measurements were taken from models processed using Pix4D DesktopPro software with  imagery collected from the flights in Table \ref{tb:flightdata}.  Results from each lane were assumed to be part of the same population and pooled as one data set. The first test of similarity to confirm the null hypothesis established in Table \ref{tab:vehhyp} for IVG's of equal means and variances between samples, required flights from the same day show equal means and variances. Accepting this null hypothesis also implied that the underlying distribution of the data was Normal.  Descriptive statistics from each flight were calculated and shown in Table \ref{tab:normaltest} along with results from one-way ANOVA tests for each flight groups (20Dec2017 and 4Jan2018). Skewness values for normally distributed data is close to zero, while kurtosis values should be 3 \citep{NIST2013}.
+The one-way ANOVA results for the 20Dec2017 flights shows a p-Value greater than the significance level of p=0.05, allowing the Null hypothesis to not be rejected and assuming the means of both flights are not statistically different. However, the p-Value for the 4Jan2018 flights is less than the significance level, requiring the Null to be rejected and assuming that the means for each flight vary significantly.
+
+\begin{table}[!htb]
+\centering
+\caption{Statistic and One-way ANOVA tests for flights.}
+\label{tab:normaltest}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{Statistic} & \textbf{20Dec17-1} & \textbf{20Dec17-2} & \textbf{4Jan18-1} & \textbf{4Jan18-2} & \multicolumn{1}{l}{\textbf{4Jan18-3}} \\ \midrule
+Mean & 2.227 & 2.0546 & 2.0230 & 2.393 & 2.2201 \\
+Std. Dev. & 1.132 & 0.9297 & 0.8507 & 1.272 & 0.9348 \\
+Skewness & 1.9369 & 1.6885 & 1.3285 & 2.0740 & 1.1618 \\
+Kurtosis & 9.8617 & 6.8944 & 5.0260 & 9.7338 & 4.5501 \\
+Count & 108 & 171 & 102 & 119 & 113 \\
+ &  &  &  &  & \multicolumn{1}{l}{} \\ \midrule
+\textbf{20Dec17 Flights} & \textbf{Sum of Squares} & \textbf{Deg of Freedom} & \textbf{Mean squares} & \textbf{F-Ratio} & \multicolumn{1}{l}{\textbf{p-Value}} \\ \midrule
+Between Variation & 1.969 & 1 & 1.969 & 1.920 & 0.167 \\
+Within Variation & 284.125 & 277 & 1.026 &  &  \\
+Total Variation & 286.095 & 278 &  &  &  \\
+\multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \midrule
+\multicolumn{1}{l}{\textbf{4Jan18 Flights}} & \multicolumn{1}{l}{\textbf{Sum of Squares}} & \multicolumn{1}{l}{\textbf{Deg of Freedom}} & \multicolumn{1}{l}{\textbf{Mean squares}} & \multicolumn{1}{l}{\textbf{F-Ratio}} & \multicolumn{1}{l}{\textbf{p-Value}} \\ \midrule
+Between Variation & 7.513 & 1 & 7.513 & 6.231 & 0.013 \\
+Within Variation & 264.073 & 219 & 1.206 &  &  \\
+Total Variation & 271.586 & 220 &  &  &  \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+By transforming the IVG data using the common logarithmic function (base 10), the data shows more Normal features as well as allowing the Null hypothesis to stand for both groups as shown in the skewness and kurtosis statistics and one-way ANOVA results in Table \ref{tab:logtest}. Flight 20Dec17-1 has a high kurtosis value, despite the transformation.
+
+\begin{table}[!htb]
+\centering
+\caption{Statistic and One-way ANOVA tests for transformed flights.}
+\label{tab:logtest}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{Statistic} & \textbf{20Dec17-1} & \textbf{20Dec17-2} & \textbf{4Jan18-1} & \textbf{4Jan18-2} & \textbf{4Jan18-3} \\ \midrule
+Mean & 0.297 & 0.275 & 0.272 & 0.331 & 0.311 \\
+Variance & 0.048 & 0.032 & 0.028 & 0.040 & 0.031 \\
+Std. Dev. & 0.220 & 0.178 & 0.168 & 0.200 & 0.177 \\
+Skewness & -0.737 & 0.229 & 0.323 & 0.415 & -0.003 \\
+Kurtosis & 6.044 & 3.364 & 2.796 & 3.157 & 2.983 \\
+Count & 108 & 171 & 102 & 119 & 113 \\
+ &  &  &  &  &  \\ \midrule
+\textbf{20Dec17 Flights} & \textbf{Sum of Squares} & \textbf{Deg of Freedom} & \textbf{Mean squares} & \textbf{F-Ratio} & \textbf{p-Value} \\ \midrule
+Between Variation & 0.031 & 1 & 0.031 & 0.800 & 0.372 \\
+Within Variation & 10.563 & 277 & 0.038 &  &  \\
+Total Variation & 10.594 & 278 &  &  &  \\
+ &  &  &  &  &  \\ \midrule
+\textbf{4Jan18 Flights} & \textbf{Sum of Squares} & \textbf{Deg of Freedom} & \textbf{Mean squares} & \textbf{F-Ratio} & \textbf{p-Value} \\ \midrule
+Between Variation & 0.189 & 2 & 0.095 & 2.830 & 0.060 \\
+Within Variation & 11.057 & 331 & 0.033 &  &  \\
+Total Variation & 11.246 & 333 &  &  &  \\ \bottomrule
+\end{tabular}
+} % end resize
+\end{table}
+
+In both groups, the p-Values are greater than the significance value of p = 0.05 and thus the means within each group can be assumed to be not significantly different. The individual flights within each group can be pooled if transformed in order to compare group means. The results of a One-way ANOVA test between combined flight groups in Table \ref{tab:grouptest} shows that the p-Value is greater than the significance value, allowing the Null to stand and providing stronger evidence that the means for different IVG locations and time are equal if transformed.
+%
+\begin{table}[!htb]
+\centering
+\caption{Statistics and One-way ANOVA test for transformed groups.}
+\label{tab:grouptest}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{Statistic} & \textbf{20-Dec-17} & \textbf{4-Jan-18} &  &  &  \\ \midrule
+Mean & 0.284 & 0.306 &  &  &  \\
+Variance & 0.038 & 0.034 &  &  &  \\
+Std. Dev. & 0.195 & 0.184 &  &  &  \\
+Skewness & -0.261 & 0.309 &  &  &  \\
+Kurtosis & 4.957 & 3.100 &  &  &  \\
+Count & 279 & 334 &  &  &  \\
+ &  &  &  &  &  \\ \midrule
+\textbf{OneWay ANOVA Table} & \textbf{Sum of Squares} & \textbf{Deg of Freedom} & \textbf{Mean squares} & \textbf{F-Ratio} & \textbf{p-Value} \\ \midrule
+Between Variation & 0.078 & 1 & 0.078 & 2.180 & 0.140 \\
+Within Variation & 21.840 & 611 & 0.036 &  &  \\
+Total Variation & 21.917 & 612 &  &  &  \\ \bottomrule
+\end{tabular}
+} %end resize
+\end{table}
+
+The IVG variable in an MCA model can be represented by taking the exponent of a Normal distribution with the parameters of the mean, $\mu$, and standard deviation, $\sigma$, given in Table \ref{tab:gapnormal}.
+
+\begin{table}[!htb]
+\centering
+\caption{Parameters for IVG transformed distribution}
+\label{tab:gapnormal}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+ \textbf{$\mu$} & \textbf{$\sigma$} \\ \midrule
+ 0.2958 & 0.1892 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+A distribution of the transformed pooled groups is shown in Figure \ref{fig:ivgloggroup}a along with a Normal distribution, $N(\mu,\sigma)$, fitted from the transformed data. In Figure \ref{fig:ivgloggroup}b, the distribution from Figure \ref{fig:ivgloggroup}a is inverted back to real space using the equation
+
+\begin{equation}
+\label{inverse-10}
+X = 10^{N(\mu,\sigma)}
+\end{equation}
+
+along with an MCA using 50,000 iterations. The resulting fitted distribution is lognormal with a mean of 2.196 meters and variance of 1.007 meters$^{2}$. 
+ 
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/ivg-group-log.png} 
+\caption[Distributions of combined groups of IVG data.]{Distributions of combined groups of IVG data showing a. transformed data with fitted Normal distribution and b. MCA re-transformed data using the parameters from Table \ref{tab:gapnormal}.}
+\label{fig:ivgloggroup}
+\end{figure}
+
+The fitted lognormal distribution provides a good fit as shown in the Q-Q plot in Figure \ref{fig:qlognormal}, especially at values less than 5 meters (representing approximately 97.5\% of the possible results). Additionally, the MAE between the MCA generated data and calculated  results is 0.0126 meters, compared to the 0.041 meters MAE measurement error. The composite error can be considered $\pm 0.054$ meters.
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth,keepaspectratio]{images/qlognormal.png} 
+\caption{Q-Q plot of Figure \ref{fig:ivgloggroup}b.}
+\label{fig:qlognormal}
+\end{figure}
+
+
+\clearpage
+\subsection{Monte Carlo Analysis using field data}
+Using the fleet composition and IVG model parameters developed from the pooled data collected from the UAS flights, a vehicle density model was prepared for MCA. Palisade Software’s @RISK Version 7.5 Industrial Edition (www.palisade.com) was used to provide the Monte Carlo analysis (MCA) using a Latin Hypercube sample generator.  A total of 50,000 iterations were run at 5, 10, 15, 20, and 40 kph. It was assumed that fleet composition at different speeds will not vary within an observed road segment. The IVG calculated based on the parameters of Table \ref{tab:gapnormal} can be assumed for speeds less than and equal to 5 kph. For speeds greater than 5 kph, the lognormal distribution is kept and parameters linearly extrapolated by multiplying the mean by factor of the speed relative to 5 kph.  
+
+The model captures the total number and class of vehicles in one kilometer of road.  Lane changing was not considered. The average (mean) of the total vehicles in one road lane over a 1 km segment at different speeds are summarized in Table \ref{tab:meanvehdensity}.
+
+\begin{table}[]
+\centering
+\caption{Average estimated total vehicles in a 1 km single lane.}
+\label{tab:meanvehdensity}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+ & \multicolumn{5}{c}{\textbf{kph}} \\ \midrule
+ & \textbf{5} & \textbf{10} & \textbf{15} & \textbf{20} & \textbf{40} \\
+Total & 160 & 118 & 94 & 78 & 46 \\
+Sedans & 73 & 54 & 43 & 35 & 21 \\
+SUV's & 78 & 58 & 46 & 38 & 22 \\
+Bus, Medium & 1 & 1 & 1 & 1 & 1 \\
+Bus, Large & 8 & 6 & 4 & 4 & 2 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Figure \ref{fig6:estimatedobs} shows the results of all vehicles traveling at an average of 5 kph.
  
 %
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense6.png} 
 \caption{Total estimated vehicles on 1,000 meter segment at 5 kph.}
 \label{fig6:estimatedobs}
 \end{figure}
 %
 
-The expected number, and average, of total vehicles is 155 with a $\sigma$ of 4 vehicles.  The calculated mean of different types of vehicles at different speeds are shown in Fig \ref{fig7:estimatedobs}.
+Graphing the statistical mean for the total number of vehicles over different average speed yields a power curve as shown in Fig \ref{fig9:estimateavemix}.  Fitting the curve with a logarithmic trend line provides very high correlation ($R^{2} = .9952$) that can approximate the expected value at each speed.  Similar curves (mean of each speed) for each vehicle class were prepared and summarized in Table \ref{tb4:expectedvehicles}.  A curve for large buses was not included because the expected value at each speed is 1.
 
 %
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense7.png} 
-\caption{Total estimated vehicles at different speeds.}
-\label{fig7:estimatedobs}
-\end{figure}
-%
-Fig \ref{fig8:estimatedobs} shows the distribution of sedans traveling at 5 kph.
-%
-\begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense8.png} 
-\caption{Estimated umber of sedans on 1 km segment at 5 kph.}
-\label{fig8:estimatedobs}
-\end{figure}
-% 
-
-Graphing the statistical mean for the total number of vehicles over different average speed yields a power curve as shown in Fig \ref{fig9:estimateavemix}.  Fitting the curve with a power series trend line provides very high correlation ($R^{2}$) that can approximate the expected value at each speed.  Similar curves (mean of each speed) for each vehicle class were prepared and summarized in Table \ref{tb4:expectedvehicles}.  A curve for large buses was not included because the expected value at each speed is 1.
-
-%
-\begin{figure}
+\begin{figure}[!htb]
 \includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense9.png} 
 \caption{Total estimated vehicles on 1,000 meter segment at average speed (kph).}
 \label{fig9:estimateavemix}
@@ -813,21 +1030,22 @@ Graphing the statistical mean for the total number of vehicles over different av
 
 Table \ref{tb4:expectedvehicles} summarizes the expected number for vehicles by class in a 1,000 m segment based on speed , $s$, in kph.
 %
-\begin{table}[]
+\begin{table}[!htb]
 \centering
 \caption{ Expected numbers of vehicles in 1,000 m based on average speed (kph).}
 \label{tb4:expectedvehicles}
 \begin{tabular}{@{}cc@{}}
 \toprule
 \textbf{Vehicle class} & \textbf{Expected number of vehicles } \\ \midrule
-Sedans & \# of Sedans = $Integer (324.32s^{-0.703})$ \\
-SUV's & \# of SUVs = $Integer (179.11s^{-0.736})$ \\
-Bus, medium & \# of medium buses = $Integer (12.55s^{-0.660})$ \\
-Bus, large & 1 \\ \bottomrule
+Total & \# of Vehicles = $Integer(-55.17ln(s) + 246.02)$ \\
+Sedans & \# of Sedans = $Integer (-25.27ln(s) + 112.45)$ \\
+SUV's & \# of SUVs = $Integer (-27.15ln(s) + 120.64)$ \\
+Bus, medium & \ 1 \\
+Bus, large & \# of large buses = $Integer (-2.902ln(s) + 12.521)$ \\ \bottomrule
 \end{tabular}
 \end{table}
 %
-The results in Table \ref{tb4:expectedvehicles} are representative only of that section of road with the traffic profile in Table \ref{tb2:modelspeeds}.  Different traffic profiles will have different densities and results.  Other factors that could affect the traffic profiles include location of road section, type of road, season, time of day, weather conditions and construction activities. 
+The results in Table \ref{tb4:expectedvehicles} are representative only of that section of road with the fleet composition in Table \ref{tab:pooledfleet}.  Different traffic profiles will have different densities and results.  Other factors that could affect the traffic profiles include location of road section, type of road, season, time of day, weather conditions and construction activities. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -840,7 +1058,7 @@ The model was trained on 80\% of the processed data and tested against 20\% of t
 
 The number of training epochs was limited to 10 after reviewing training error values up to 20 epochs for look-ahead horizons of 24 hrs, 36 hrs, and 48 hrs as seen in Fig \ref{fig:horizon-loss}. An optimum number of 10 epochs was used for later model runs as it minimizes the training error without overfitting which begins to take place after 12 epochs, especially in Fig \ref{fig:horizon-loss}a. 
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.5\textwidth]{images/horizon-loss.png}  %assumes jpg extension
 \caption[Loss function errors of training and test data sets]{Loss function errors for training and test data sets for different horizons at a. 24 hrs, b. 36 hrs, and c. 48 hrs.}
@@ -870,7 +1088,7 @@ MAE and RMSE are widely used measures of continuous variables with RMSE criticiz
 
 The network trained very well with all 25 input features from Table \ref{tb:parameters}, however the results of the decision tree analysis in Fig \ref{fig:importance} showed that many features could be removed without impacting network performance. Features were removed based on the order of least importance in groups of 5 until the most prominent feature remained. The results in Fig \ref{fig:features} shows that overall training error improves with fewer inputs.
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/features.png}  %assumes jpg extension
 \caption{Training Error associated with feature reduction on network prediction.}
@@ -882,7 +1100,7 @@ Based on the training error curves in Fig \ref{fig:features}, the 5 feature data
 Parameter sensitivity analysis was performed on a model with default values shown in Table \ref{tb:default-parameter}.
 %
 \end{linenumbers}
-\begin{table}[]
+\begin{table}[!htb]
 \centering
 \caption{Default values for parameter sensitivity analysis.}
 \label{tb:default-parameter}
@@ -901,7 +1119,7 @@ Dropout factor & 0.2 \\ \bottomrule
 All other parameters were held constant as an individual parameter was varied. The prediction horizon value of 24 hrs was held constant throughout all runs shown in  Fig \ref{fig:parameters}. In all cases, the error measurements, MAE and RMSE showed similar forms, despite the RMSE having a consistently higher value, as expected. MAE is used to measure model performance except when RMSE is needed to compare with other study results.  
 
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/predictionhrs.png}  %assumes jpg extension
 \caption{Prediction horizons using 5 features and default parameters.}
@@ -918,7 +1136,7 @@ The number of recurrent, or look back nodes, in relation to the prediction horiz
 
 Finally, the use of dropout is recommended to improve generalization of the model and reduce overfitting \citep{Gal2016}. For this model, dropout ($\in 0,1$) was applied only between the output of the LSTM layer and the FF output layer. The error shows reasonably good optimization at around 0.2. The errors level out at higher rates at around 0.35. The default values were actually the optimum parameters based on the results are shown in Fig \ref{fig:parameters}.
 %
-\begin{figure}
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=.75\textwidth]{images/parameters.png}  %assumes jpg extension
 \caption[Impact of model parameters on training error]{Impact of a. batch samples, b. look back nodes, and c. dropout factor parameters on training errors for a model.}
@@ -930,7 +1148,7 @@ Finally, the use of dropout is recommended to improve generalization of the mode
 Previous studies mentioned in Section 1 used RMSE and other error measurement methods than MAE. The 3 studies that used RMSE were compared to our results with an LSTM network. Luna et al. (2014) used support vector machines (SVMs) and FFNNs \citep{Luna2014}. Feng et al. (2011) used a a multi-layered system that included an SVM and a genetic algorithm stabilized FFNN \citep{Feng2011}. Wang and Lu used an FFNN with a particle swarm optimization \citep{Wang2006}. All studies, except Gomez (2003), used PCA to pre-process the data. Comparing the results of the LSTM RNN to these previous studies gives an initial impression  that the RNN has an order of magnitude improvement over the best FFNN or SVM models as shown in Table \ref{tb:compare}.
 %
 \end{linenumbers}
-\begin{table}[]
+\begin{table}[][!htb]
 \centering
 \caption{Comparison of LSTM RNN test data results to previously published results.}
 \label{tb:compare}
