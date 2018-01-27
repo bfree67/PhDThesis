@@ -48,7 +48,7 @@ Gas exit temperature    & 1000 K                   \\ \bottomrule
 \end{tabular}
 \end{table}
 
-Air dispersion patterns were modeled using CALPUFF 5.8.4 and CALMET 5.8.4  (USEPA, 2014) set to 1 km x 1 km receptor grids in a 20 km x 20 km area at ground level for a total of 400 points per run.  CALMET can accommodate the complex wind fields associated with coastal environments and has been used for modeling land sea breezes for other similar flat terrain \citep{Mangia2010}. Lakes Environmental generated the mesoscale numerical weather prediction (NWP) model (MM5) data to compute wind fields for three individual years (2009 to 2011).  The model calculated the annual average (8,760 hours) for each year at each virtual source location. 
+Air dispersion patterns were modeled using CALPUFF 5.8.4 and CALMET 5.8.4  (USEPA, 2014) set to 1 km x 1 km receptor grids in a 20 km x 20 km area at ground level for a total of 400 points per run.  CALMET can accommodate the complex wind fields associated with coastal environments and has been used for modeling land sea breezes for other similar flat terrain \citep{Mangia2010}. Lakes Environmental (\url{https://weblakes.com}) generated the mesoscale numerical weather prediction (NWP) model (MM5) data to compute wind fields for three individual years (2009 to 2011).  The model calculated the annual average (8,760 hours) for each year at each virtual source location. 
 
 CALPUFF was chosen because it is a non-steady puff model that calculates complex wind fields typically found in coastal zones \citep{Ghannam2013a, Indumati2009, USEPA2014, Weiss2014}.  Digitized local terrain and geophysical data were incorporated into the process during the development of the CALMET model using the Terrain Elevation Data Processing (TERREL), and other preprocessors \citep{Scire2000}.  Digital terrain files were downloaded from the Shuttle Radar Topography Mission (SRTM3) Global Coverage (~90 m) Version 2 database \citep{USGS2000}.  The Global Land Cover Characteristics (GLCC) database maintained by the US Geological Survey (USGS) provided land use data \citep{USGS2008}.  Coast line features were further processed using shoreline data from the Global Self-consistent, Hierarchical, High-resolution Shoreline Database (GSHHS) provided by NOAA's National Centers for Environmental Information \citep{NOAA2015}.  Default values were used for other settings.
 
@@ -63,7 +63,7 @@ MM5 is a limited-area, non-hydrostatic, terrain-following sigma-coordinate model
 \clearpage
 \section{Attainment classification modeling}
 
-As mentioned in Chapter 2, KEPA is responsible for monitoring environmental conditions and enforcing compliance with Kuwait's national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig:kuwait}.  The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. 
+As mentioned in Chapter 2, KEPA is responsible for monitoring environmental conditions and enforcing compliance with Kuwait's national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig:Kuwait}.  The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. 
 
 Air quality zones (AQZs) were designated under the UNDP KIEMS project as shown in Fig \ref{fig2:aqzkuwait} (Freeman et al., 2016).
 %
@@ -484,6 +484,7 @@ and
 \centering
 \caption{Feedstock inputs (in kgs) for individual establishments and total annual consumption}
 \label{tb3:feedstock}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lcccccc@{}}
 \toprule
  & \multicolumn{4}{c}{\textbf{Individual establishment consumption}} & \multicolumn{2}{c}{\textbf{Total Consumption}} \\ 
@@ -492,6 +493,7 @@ and
 Charcoal & 100 & 140 & 120 & 20 & 536,640 & 9,644 \\
 $sheesha$ & 7 & 70 & 38.5 & 31.5 & 172,172 & 15,190 \\ \bottomrule
 \end{tabular}
+}%end resize
 \end{table}
 %
 
@@ -681,7 +683,7 @@ Vehicle 8 & 1 & Sedan & 4.9 & 1 & 0 & 0 & 0 \\ \bottomrule
 \end{table}
 
 \subsection{Validating gaps and vehicle types using UASs}
-In order to measure actual IVGs at intersections and slow speeds, as well as quantify fleet compositions operating at specific locations and times, imagery acquired by a UAS was converted into a DEM and 3D model. A commercial, multi-rotor UAS (DJI Phantom 3 Professional) was used to acquire the imagery, which was processed using Pix4Dmapper Pro version 4.0.25 (www.pix4d.com).
+In order to measure actual IVGs at intersections and slow speeds, as well as quantify fleet compositions operating at specific locations and times, imagery acquired by a UAS was converted into a DEM and 3D model. A commercial, multi-rotor UAS (DJI Phantom 3 Professional) was used to acquire the imagery, which was processed using Pix4Dmapper Pro ver 4.0.25 (\url{https://pix4d.com}).
 
 The UAS was flown at 40 m AGL in order to avoid obstacles such as streetlights and trees. Intersections were chosen that represented high traffic densities and long signal cycles in order to capture the scene from multiple angles. No direct overflight of vehicles took place due to safety concerns and a representative from the Kuwait Ministry of Interior was present during all missions. As a result, only oblique imagery was collected. 
 
@@ -753,16 +755,17 @@ MAE &  & 2.9 & 3.3 & 4.1 \\ \bottomrule
 
 \section{Time series forecasting}
 
-Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near the Public Authority for Applied Education and Training (PAAET) Al-Ardiya Campus as shown in Fig \ref{fig:Kuwait}. 
+Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near a local college as shown in Fig \ref{fig:Kuwait}. 
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/kuwait.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/kuwait.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/kuwait.png}
 \caption{Location of Kuwait and AMS used in the study.}
 \label{fig:Kuwait}
 \end{figure}
 %
-The location is centered between two major highways (5th and 6th Ring Roads) in a concentrated mixed commercial/residential area and north of the Kuwait airport. While not near the heavy refineries and industries in southern Kuwait, the site is impacted by land-sea breezes that recirculate emitted pollutants from throughout the Persian Gulf \citep{Freeman2017}. A data set from 1 Dec 2012 to 30 Sep 2014 (668 days or 16,032 hours) was used for this study. Parameters available are shown in Table \ref{tb:parameters}.
+The location is centered between two major highways (5th and 6th Ring Roads) in a concentrated mixed commercial/residential area and north of the Kuwait International Airport. While not near the heavy refineries and industries in southern Kuwait, the site is impacted by land-sea breezes that recirculate emitted pollutants from throughout the Persian Gulf \citep{Freeman2017}. A data set from 1 Dec 2012 to 30 Sep 2014 was used for this study. Parameters available are shown in Table \ref{tb:parameters}.
 %
 \end{linenumbers}
 \begin{table}[]
@@ -803,13 +806,15 @@ The local O$_{3}$ air quality standard is 75 ppb measured against an 8 hour movi
 C(ppb) = \frac{C(\mu g/m^{3})(R) (T)}{(P) (MW)}
 \end{equation}
 %
-The standard for O$_{3}$ in Kuwait is 75 $ppb$ based on an 8 hour average \citep{KEPA2017}.
+
 \noindent
-where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in Fig \ref{fig:windrose}.
+where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in the windrose in Fig \ref{fig:windrose} generated using WRPLT from Lakes Environmental (\url{https://weblakes.com/products/wrplot/index.html}).
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/paaet-windrose.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/paaet-windrose.png}  %assumes jpg
+ extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/rnn-windrose.png} 
 \caption{Station wind-rose from 2012 to 2014.}
 \label{fig:windrose}
 \end{figure}
@@ -818,30 +823,33 @@ Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/paaet-o3seasons.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/paaet-o3seasons.png}  %assumes jpg
+%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/paaet-o3seasons.png} 
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/rnn-o3seasons.png} 
 \caption{Seasonal bivariate polar plots of 1 hour O$_3$.}
 \label{fig:bipolarplots}
 \end{figure}
 %
-Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($r$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($r$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maxima, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
+Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($R^{2}$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($R^{2}$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maximum, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/dailyAveO3.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/dailyAveO3.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/dailyAveO3.png}
 \caption{Hourly averages of 1 hour O$_{3}$ and NOx.}
 \label{fig:hourlyAveO3}
 \end{figure}
 %
 
 \subsection{Building the RNN}
-The RNN used in this study was prepared in Python 2.7 using the Keras machine learning application programming interface (API) \citep{keras2015} with Theano back-end. Theano is a Python library that allows mathematical expressions to be calculated symbolically and evaluated using datasets in matrices and arrays \citep{Al-Rfou2016}. The architecture used a single RNN layer with LSTM and a single output feed forward node. The output activation functions for both layers was the $sigmoid$ function while the activation function for the recurrent nodes was the $tanh$ function. The final output required a 0 to 1 output in order to be rescaled using the \emph{MinMaxScaler} inversion.
+The RNN used in this study was prepared using the Keras machine learning application programming interface (ver 2.0.9) \citep{keras2015} with Theano back-end. Theano is a C\+\+ library that allows mathematical expressions to be calculated symbolically and evaluated using datasets in matrices and arrays \citep{Theano2016}. The architecture used a single RNN layer with LSTM and a single output feed forward node. The output activation functions for both layers was the $sigmoid$ function while the activation function for the recurrent nodes was the $tanh$ function. 
 
-The training algorithm used a Nadam optimizer and MSE loss function. The learning rate, $\alpha$, was left at the default value of 0.002. Other Keras defaults also included weight initialization (using a uniform distribution randomizer). Regulation was not used, although a dropout layer was included between the LSTM and the output layer. 
+The learning rate, $\alpha$, was left at the default value of 0.002 \citep{keras2015}. Other Keras defaults included weight initialization (using a uniform distribution randomizer). Regulation was not used, although a dropout layer was included between the LSTM and the output layer. 
 
 \subsection{Input Data preparation}
 Each available feature was compared to the maximum possible data range of 16,056 hourly measurements over the observation period. Gaps in data were assumed to be Missing Completely at Random (MCAR) and attributed to maintenance down-time, power failures, and storm related contamination \citep{Le2007}. Additionally, some data were clearly out of range or had negative readings \citep{Junger2015}.
 
-Data recorded as a 0 was assumed to be censored and converted to the smallest recorded value within the data set of the individual parameter \citep{Rana2015}. Negative and missing data were converted to 0 and identified using a filter mask. Two different single imputation (SI) techniques were used based on the number of consecutive gaps in data. For gaps (g)$<$ 8, the first and last measurement within the gap were used a Bayesian estimator based on the previous observation to create a linear estimate of the missing data given by 
+Data recorded as a 0 was assumed to be censored and converted to the smallest recorded value within the data set of the individual parameter \citep{Rana2015}. Negative and missing data were converted to 0 and identified using a filter mask. Two different single imputation (SI) techniques were used based on the number of consecutive gaps in data. For gaps (g)$<$ 8, the first and last measurement within the gap were used as a Bayesian estimator based on the previous observation to create a linear estimate of the missing data given by 
 %
 \begin{equation}
 \label{eq:impute1}
@@ -863,11 +871,12 @@ For consecutive gaps $>$ 8, the corresponding hourly measurement from the previo
 X(t) = \frac{X_{t+24} - X_{t-24}}{2}
 \end{equation}
 %
-The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with imputed data from the different methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Fig \ref{fig:impute-rmse} along with the intersection of the 2nd method.
+The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with data generated from the different statistical (imputed data) methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Fig \ref{fig:impute-rmse} along with the intersection of the 2nd method.
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/impute-rmse.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/impute-rmse.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/impute-rmse.png}
 \caption{RMSE of O$_{3}$ and NOx from consecutive gaps of data using the first imputation method.}
 \label{fig:impute-rmse}
 \end{figure}
@@ -875,16 +884,16 @@ The value of 8 consecutive gaps was determined by comparing the root mean square
 Features with more than 50\% missing data, like RH and Chlorine (Cl$_{2}$), were discarded. The remaining variables from Table \ref{tb:parameters} had few missing data points, ranging from 41 missing points out of 16,053 (0.3\%) for WS, WD and Temperature, to 137 missing points (0.9\%) for NH$_{3}$. The available data used for this study is larger than data sets used in other studies that had up to 16\% missing data \citep{Taspinar2015}. Missing data adds noise to the training set and is often used to improve generalization and prevent overfitting the network to meet the training dataset. Adding dropouts, or intentional data removal, is often used during network training for this reason \citep{Srivastava2014}.
 
 \subsubsection{Cyclic and Continuous Data}
-WD and time of day were converted into representations that preserved their cyclic nature. Wind direction for this study was converted into sine and cosine components \citep{Arhami2013}. Other parameters were transformed and scaled between values of 0 and 1 \citep{Chatterjee2017} using the \textbf{MinMaxScaler} function in the Python Sci-Kit pre-processor library \citep{scikit2011}. Overall, 25 features were prepared for initial training. These included the parameters measured in Table \ref{tb:parameters} with the addition of sine and cosine components for wind direction. 
+WD and time of day were converted into representations that preserved their cyclic nature. Wind direction was converted into sine and cosine components \citep{Arhami2013}. Other parameters were transformed and scaled between values of 0 and 1 \citep{Chatterjee2017} using the \textbf{MinMaxScaler} function in the Python Sci-Kit pre-processor library \citep{scikit2011}. Overall, 25 features were prepared for initial training. These included the parameters measured in Table \ref{tb:parameters} with the addition of sine and cosine components for wind direction. 
  
 \subsubsection{Feature selection using Decision Trees}
-Prior to training the RNN, features were reviewed to reduce input dimensionality by training multiple decision trees  on the data sets and prioritizing features using the feature importance metric calculated during classifier training with the \textbf{DecisionTreeClassifier}, also in the Python Sci-kit library \citep{scikit2011}. Decision trees and random forest classifiers have been used to reduce input dimensions for sensors \citep{Cho2011} and data classification competitions, outperforming other methods such as PCA and correlation filters \citep{Silipo2014, Al-Alawi2008}. Decision trees are a supervised learning algorithm that recursively partition inputs into non-overlapping regions based on simple prediction models \citep{Singh2013, Loh2011}.  Decision trees do not require intensive resources to train and evaluate, and keep their features, unlike Principal Component Analysis (PCA) that transform input variables into linear combinations based on the singular value decomposition (SVD)of the total data set's covariance matrix \citep{Wang2016}. 
+Prior to training the RNN, features were reviewed to reduce input dimensionality by training multiple decision trees  on the data sets and prioritizing features using the feature importance metric calculated during classifier training with the \textbf{DecisionTreeClassifier}, also in the Sci-kit library \citep{scikit2011}. Decision trees and random forest classifiers have been used to reduce input dimensions for sensors \citep{Cho2011} and data classification competitions, outperforming other methods such as PCA and correlation filters \citep{Silipo2014, Al-Alawi2008}. Decision trees are a supervised learning algorithm that recursively partition inputs into non-overlapping regions based on simple prediction models \citep{Singh2013, Loh2011}.  Decision trees do not require intensive resources to train and evaluate, and keep their features, unlike PCA that transforms input variables into linear combinations based on the singular value decomposition (SVD)of the total data set's covariance matrix \citep{Wang2016}. 
 
-While PCA is a form of unsupervised learning that allows dimensionality reduction by removing the number of transformed components fed to the input, decision trees identify which raw variables offer little impact so that they can be removed from the data collection stream. This can reduce future efforts required to clean and prepare data sets. 
+While PCA is a form of unsupervised learning that allows dimensionality reduction by removing the number of transformed components fed to the input, decision trees identify which raw variables offer less impact so that they can be removed from the data collection stream. This can reduce future efforts required to collect, clean and prepare data sets. 
 
-Using PCA for model input also limits the inclusion of new data that may become available on real time systems. If a model is trained on transformed principal components only, any new data must also be transformed, thus changing the historical data set. Using a linear transformation method that only changes the individual observation and not the entire data set is more practical for time series applications where data is expected to increase. 
+Using PCA for model input also limits the inclusion of new data that may become available on real time systems. If a model is trained on transformed principal components only, any new data must also be transformed, thus changing the historical data set. Using a linear transformation method that only changes the individual observation and not the entire data set is more practical for time series applications where new data is expected to increase. 
 
-Binary classification trees, a type of decision tree used for categorical separation,  were trained to predict exceedances of 8 hr average O$_{3}$ over 1 hour to 12 hour horizons. Individual observations were first scaled using the \textbf{MinMaxScaler} function based on the equation
+Binary classification trees, a type of decision tree used for categorical separation,  were trained to predict exceedances of 8 hr ave O$_{3}$ over 1 hr to 12 hr horizons. Individual observations were first scaled using the \textbf{MinMaxScaler} function based on the equation
 %
 \begin{equation}
 \label{eq:MaxMin}
@@ -892,27 +901,31 @@ x_{scaled} = \frac{x_{i} - x_{min}}{x_{max} - x_{min}}
 \end{equation}
 %
 \noindent
-where $x_{max}$ and $x_{min}$ are the maximum and minimum values in the data set respectively. It can be argued that this method also suffers from legacy biasing similar to PCA in that the system retains $x_{max}$ and $x_{min}$ in order to restore transformed data to original scale, similar to a key for encryption decoding. Also, in new data is included that exceeds the $x_{max}$ / $x_{min}$ values, the data needs to be reprocessed using the new points. Since we are already working with an historical data set and not using real time data, there is no need to incorporate this issue. However, even if we were using real time data, we could safely assume that any value measured that exceeded $x_{max}$ in our historical set was also an extreme point and could be accounted for in the model as a value $>1$. 
+where $x_{max}$ and $x_{min}$ are the maximum and minimum values in the data set respectively. It can be argued that this method also suffers from legacy biasing like PCA in that the system retains $x_{max}$ and $x_{min}$ in order to restore transformed data to original scale, similar to a key for encryption decoding. If new data is included that exceeds the $x_{max}$ / $x_{min}$ values, the data needs to be reprocessed using the new points. Since we are already working with an historical data set and not using real time data, there is no need to incorporate this issue. However, even if we were using real time data, we could safely assume that any value measured that exceeded $x_{max}$ in our historical set was also an extreme point and could be accounted for in the model as a value $>1$. 
 
-Eighty percent (80\%) of the scaled data was divided into a training set with 20\% reserved for testing.  Output exceedances were classified as either 0 (less than the exceedance standard of 75 $ppb$) or 1 (exceeds the standard). Overall accuracy of each horizon was measured using the \textbf{accuracy\_ score} function which calculated the standard error of exact matches of the observed output with the predicted \citep{Raschka2016}.  Other classifiers in the Sci-Kit library were evaluated as well, including the Support Vector Machine (SVM) and Random Forest classifiers. The decision tree in classification mode using ``gini" criteria to measure the data split at each decision node proved to be the most accurate.
+Eighty percent (80\%) of the scaled data was divided into a training set with 20\% reserved for testing.  In larger data sets, a percentage of the total data is often reserved to allow parameter optimization prior to training in order to reduce time and system resources. Additionally, for FFNNs, training often take hundreds or thousands of epochs, where an epoch is a complete training cycle that uses all training sets. With our relatively small data set and fast training using the LSTM, reviewing system performance using the full training set did not take much time and therefore did not requiring reserving a subset.
+
+Output exceedances were classified by the decision tree as either 0 (less than the exceedance standard of 75 $ppb$) or 1 (exceeds the standard). Overall accuracy of each horizon was measured using the \textbf{accuracy\_ score} function in Sci-kit which calculated the standard error of exact matches of the observed output with the predicted \citep{Raschka2016}.  Other classifiers were evaluated as well, including the Support Vector Machine (SVM) and Random Forest classifiers. The decision tree in classification mode using ``gini" criteria to measure the data split at each decision node proved to be the most accurate. The importance of each feature was computed using the Sci-kit \textbf{feature\_ importances\_ function} that normalizes the total reduction of the criterion brought by individual features. Results of individual feature importance from classifying O$_{3}$ exceedances at different horizons is shown in Figure \ref{fig:importance}. The computed values are unitless and displayed in relative importance to each other.
 
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/sumfactors.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/sumfactors.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/sumfactors.png}
 \caption[Decision tree importance factors]{Sum of importance factors from decision trees predicting 8 hr O$_{3}$ from 1 to 12 hours.}
 \label{fig:importance}
 \end{figure}
 %
 \subsection{Output data preparation}
-The RNN output was trained to predict the 8 hour moving average of measured 1 hour O$_{3}$. To predict future values, the calculated values were shifted in time based on the desired horizon so that input observations $X(t=0)$ was trained on $Y(t=12)$ if the prediction horizon was 12 hours. Output data was generated from 8 hour moving averaged O$_{3}$ calculated from measured 1 hr O$_{3}$ concentrations at each station. The first seven hours of both the input and output training data set was then discarded. 
+The RNN output was trained to predict the 8 hr moving average of measured 1 hr O$_{3}$. To predict future values, the calculated values were shifted in time based on the desired horizon so that input observations $X(t=0)$ was trained on $Y(t=12)$ if the prediction horizon was 12 hours. Output data was generated from 8 hr moving averaged O$_{3}$ calculated from measured 1 hr O$_{3}$ concentrations at each station. The first seven hours of both the input and output training data set was then discarded. 
 
 \subsection{Tensor Preparation for RNN input data}
-Data sets provided to the LSTM RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Fig \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n * p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Fig \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
+Data sets provided to the RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Fig \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n$ and $p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Fig \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/tensor-tables.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/tensor-tables.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/tensor-tables.png}
 \caption{Process of converting data input columns into a Tensor for training the RNN.}
 \label{fig:tensor-tables}
 \end{figure}

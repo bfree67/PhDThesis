@@ -5,7 +5,7 @@ This chapter presents results generated using the methodologies in Chapter 3 and
 
 \subsection{Air dispersion model results and histograms}
 
-Virtual sources were placed at key areas to represent different risk areas within Kuwait (see Fig \ref{fig:kuwait}).  The selected sites include industrial and urban areas as well as oil production and remote desert areas. These sites are distributed among the main industrial and living areas to reflect the main land uses in Kuwait- mainly industrial, residential, oil production and open desert.  The sites are listed in Table \ref{tb:virtualsites} and shown in Figure \ref{fig:virtual-locations}. A partial 10 km coastal buffer is also shown in Figure \ref{fig:virtual-locations} that incorporates two major roads running north/south (40 Highway) and east/west (6th Ring Road).
+Virtual sources were placed at key areas to represent different risk areas within Kuwait (see Fig \ref{fig:Kuwait}).  The selected sites include industrial and urban areas as well as oil production and remote desert areas. These sites are distributed among the main industrial and living areas to reflect the main land uses in Kuwait- mainly industrial, residential, oil production and open desert.  The sites are listed in Table \ref{tb:virtualsites} and shown in Figure \ref{fig:virtual-locations}. A partial 10 km coastal buffer is also shown in Figure \ref{fig:virtual-locations} that incorporates two major roads running north/south (40 Highway) and east/west (6th Ring Road).
 %
 \begin{table}[!htb]
 \centering
@@ -323,7 +323,8 @@ Risk scores are shown in Table \ref{tb:expriskscores} and Figure 17.  High and m
 
 %
 \begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz17.png} 
+%\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz17.png} 
+\includegraphics[width=\textwidth,keepaspectratio]{images/aqz17.png} 
 \caption[NO$_{2}$ Exposure risk areas]{NO$_{2}$ Exposure risk based on annual average concentration and standard deviation. Areas of high population are shown as blue dots.}
 \label{fig:176riskNO2}
 \end{figure}
@@ -436,7 +437,8 @@ Result (t$_{test} < $t$_{criticial}$) & \multicolumn{2}{c}{FALSE} \\ \bottomrule
 As with the 1 hr NO$_{2}$, the 8 hr O$_{3}$ shows that the null hypothesis must be rejected, despite the passing of the variance test and being 2.7\% different. For single stations, the 3 Strike method offers less exposure over the same duration than the 99\% Rule method. A more graphical representation of the two CDIs is shown in Fig \ref{fig6:CDIdistributions} where the different CDI distributions for 8 hr O$_{3}$ are plotted together, showing the difference in means. This assumes that BW and IR are constant.
 %  
 \begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk6.png} 
+%\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk6.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/risk6.png}  
 \caption{Comparison of CDI distributions for 8 hr O$_{3}$.}
 \label{fig6:CDIdistributions}
 \end{figure}
@@ -543,6 +545,7 @@ The multiple station case for 8 hr O$_{3}$ follows the same procedure as the 1 h
 \centering
 \caption{Parameters for multiple station case of 8 hr O$_{3}$}
 \label{tb14:multiParamO3}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}rcccc@{}}
 \toprule
 \textbf{Parameters} & \textbf{AMS 1} & \textbf{AMS 2} & \textbf{AMS 3} & \textbf{Total} \\ \midrule
@@ -553,6 +556,7 @@ p (from eq \ref{eq12:step2}) & 51.8\% & 42.8\% & 5.4\% &  \\
 Compliant PDF distribution & Kumaraswamy & Kumaraswamy & Kumaraswamy &  \\
 Exceedance PDF distribution & Pareto & Exponential & Pareto &  \\ \bottomrule
 \end{tabular}
+}% end resize
 \end{table}
 %
 \begin{table}[!htb]
@@ -657,7 +661,8 @@ Results were divided by 106 to get units of metric tonnes, or 103 to get kilogra
  	
 %
 \begin{figure}
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/ng3.png} 
+%\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/ng3.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ng3.png}  
 \caption[Results of Emission Factor PDFs and Annual Emissions]{Results of Emission Factor PDFs and Annual Emissions based on Triangle distributions of Emission Factors.}
 \label{figng3:pdfs}
 \end{figure}
@@ -697,6 +702,7 @@ Comparing the means of each distribution shows that changes in the average vary 
 \centering
 \caption{Comparison of annual total emission means}
 \label{tb6:compare}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}cccccccccc@{}}
 \toprule
  & \multicolumn{5}{c}{\textbf{Distributions}} & \multicolumn{4}{c}{\textbf{Statistics}} \\ \midrule
@@ -710,6 +716,7 @@ Comparing the means of each distribution shows that changes in the average vary 
  & NH$_{3}$ & 225.7 & 225.8 & 225.8 & 225.7 & 225.8 & 0.1 & 225.6 & 225.9 \\
  & PAH & 1.3 & 1.9 & 1.9 & 0.8 & 1.5 & 0.5 & 0.5 & 2.5 \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 %
 A similar review of the standard deviations of the different distributions shows that the NOx, N$_{2}$O, and NH$_{3}$ have large variances relative to their means as seen in Table \ref{tb7:stndev}.  In terms of distributions, the Uniform distribution offers the most variance with the Triangle distribution coming next. In cases like this where ranges of values have finite limits, using a Normal distribution or any of the t-distribution families is not recommended as possible MCA values could be out of physical range.
@@ -980,7 +987,8 @@ along with an MCA using 50,000 iterations. The resulting fitted distribution is 
 The fitted lognormal distribution provides a good fit as shown in the Q-Q plot in Figure \ref{fig:qlognormal}, especially at values less than 5 meters (representing approximately 97.5\% of the possible results). Additionally, the MAE between the MCA generated data and calculated  results is 0.0126 meters, compared to the 0.041 meters MAE measurement error. The composite error can be considered $\pm 0.054$ meters.
 
 \begin{figure}[!htb]
-\includegraphics[width=\linewidth,keepaspectratio]{images/qlognormal.png} 
+%\includegraphics[width=\linewidth,keepaspectratio]{images/qlognormal.png} 
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/qlognormal.png} 
 \caption{Q-Q plot of Figure \ref{fig:ivgloggroup}b.}
 \label{fig:qlognormal}
 \end{figure}
@@ -1012,7 +1020,8 @@ Figure \ref{fig6:estimatedobs} shows the results of all vehicles traveling at an
  
 %
 \begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense6.png} 
+%\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense6.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense6.png} 
 \caption{Total estimated vehicles on 1,000 meter segment at 5 kph.}
 \label{fig6:estimatedobs}
 \end{figure}
@@ -1022,7 +1031,8 @@ Graphing the statistical mean for the total number of vehicles over different av
 
 %
 \begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense9.png} 
+%\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense9.png} 
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense9.png}
 \caption{Total estimated vehicles on 1,000 meter segment at average speed (kph).}
 \label{fig9:estimateavemix}
 \end{figure}
@@ -1051,17 +1061,18 @@ The results in Table \ref{tb4:expectedvehicles} are representative only of that 
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-\section{8-hour average ozone forecasting}
+\section{Air pollution time series forecasting}
 
 \subsection{Final parameter selection}
-The model was trained on 80\% of the processed data and tested against 20\% of the total available data. Because of the Tensor formation for input, the actual number of samples provided for training and testing was based on the look ahead horizon and number of recurrent (look-back) units of the individual run. The farther out the prediction, the fewer samples available because of the time shifting required. The total amount samples could be calculated as total samples = $(16,035 - h)$ where $h$ is the prediction horizon (as an integer value $>$ 1). 
+The model was trained on 80\% of the processed data and tested against 20\% of the total available data. Because of the Tensor formation for input, the actual number of samples provided for training and testing was based on the look ahead horizon and number of recurrent (look-back) units of the individual run. The farther out the prediction, the fewer samples were available because of the time shifting required. The total amount of samples available for training and testsing could be calculated as total samples = $(16,035 - h)$ where $h$ is the prediction horizon (as an integer value $>$ 1). 
 
-The number of training epochs was limited to 10 after reviewing training error values up to 20 epochs for look-ahead horizons of 24 hrs, 36 hrs, and 48 hrs as seen in Fig \ref{fig:horizon-loss}. An optimum number of 10 epochs was used for later model runs as it minimizes the training error without overfitting which begins to take place after 12 epochs, especially in Fig \ref{fig:horizon-loss}a. 
+The number of training epochs was limited after reviewing training error values up to 20 epochs for look-ahead horizons of 24 hrs, 36 hrs, and 48 hrs as seen in Fig \ref{fig:horizon-loss}. An optimum number of 10 epochs was used for later model runs as it minimizes the training error without overfitting which begins to take place after 12 epochs, especially in Fig \ref{fig:horizon-loss}a. 
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.5\textwidth]{images/horizon-loss.png}  %assumes jpg extension
-\caption[Loss function errors of training and test data sets]{Loss function errors for training and test data sets for different horizons at a. 24 hrs, b. 36 hrs, and c. 48 hrs.}
+%\includegraphics[width=.5\textwidth]{images/horizon-loss.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/horizon-loss.png}
+\caption[Loss function errors of training and test data sets]{Loss function errors for training and test data sets for different horizons at (a) 24 hr, (b) 36 hr, and (c) 48 hr.}
 \label{fig:horizon-loss}
 \end{figure}
 %
@@ -1082,20 +1093,41 @@ and Root Mean Square Error given by
 RMSE = \sqrt{\frac{1}{n}\sum^{n}_{i=1} \left ( y_{obs_{i}}- y_{pred_{i}} \right )^{2}}
 \end{equation}
 %
-MAE and RMSE are widely used measures of continuous variables with RMSE criticized for over-biasing towards large errors \citep{Chai2014, Willmott2005}. Both metrics are presented for comparison.
+MAE and RMSE are widely used measures of continuous variables with RMSE criticized for over-biasing towards large errors \citep{Chai2014, Willmott2005}. Both metrics were calculated for comparison, however MAE is used more often for descriptive analytics.
 
 \subsection{Impact of features and parameters on results}
 
-The network trained very well with all 25 input features from Table \ref{tb:parameters}, however the results of the decision tree analysis in Fig \ref{fig:importance} showed that many features could be removed without impacting network performance. Features were removed based on the order of least importance in groups of 5 until the most prominent feature remained. The results in Fig \ref{fig:features} shows that overall training error improves with fewer inputs.
+The network trained very well with all 25 input features from Table \ref{tb:parameters}. An example of the predicted results compared with the observed measurements (8 hr ave O$_{3}$) over a 24 hr horizon is shown in Figure \ref{fig:example24}.
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/features.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/example24.png}
+\caption{Results of training an RNN with a 24 hr horizon.}
+\label{fig:example24}
+\end{figure}
+%
+The MAE for this scenario is 0.41 ppb during training, and 0.37 ppb during testing. The residuals of this scenario are shown in Figure \ref{fig:normalresiduals} where they show a Normal distribution tendency (skewness = 0.411, kurtosis = 3.94, where Normal is 0 and 3, respectively) with a positive bias given by the distribution mean of 1.632 ppb. This is consistent with \ref{fig:example24} that shows the model slightly under-predicting.
+
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/normalresiduals.png}
+\caption{Distribution of residual test errors for a 24 hr horizon network.}
+\label{fig:normalresiduals}
+\end{figure}
+%
+
+The results of the decision tree analysis in Fig \ref{fig:importance} showed that many features could be removed without impacting network performance. Features were removed based on the order of least importance in groups of 5 until the most prominent feature remained. The results in Fig \ref{fig:features} show that overall training error improves with fewer inputs.
+%
+\begin{figure}[!htb]
+\centering
+%\includegraphics[width=.75\textwidth]{images/features.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/features.png}
 \caption{Training Error associated with feature reduction on network prediction.}
 \label{fig:features}
 \end{figure}
 %
-Based on the training error curves in Fig \ref{fig:features}, the 5 feature data set was used for evaluation because it provided stable error over the prediction horizons of interest. The features used were (in order of importance) 8 hr average O$_{3}$ in $ppb$, 1 hr O$_{3}$ in $ppb$, SR, the cosine of WD, and $CH_{4}$.
+Based on the training error curves in Fig \ref{fig:features}, the 5 feature data set was used for evaluation because it provided stable error over the prediction horizons of interest. The features used were (in order of importance) 8 hr ave O$_{3}$ in $ppb$, 1 hr O$_{3}$ in $ppb$, SR, the cosine of WD, and $CH_{4}$.
 
 Parameter sensitivity analysis was performed on a model with default values shown in Table \ref{tb:default-parameter}.
 %
@@ -1116,17 +1148,18 @@ Dropout factor & 0.2 \\ \bottomrule
 \end{table}
 \begin{linenumbers}
 %
-All other parameters were held constant as an individual parameter was varied. The prediction horizon value of 24 hrs was held constant throughout all runs shown in  Fig \ref{fig:parameters}. In all cases, the error measurements, MAE and RMSE showed similar forms, despite the RMSE having a consistently higher value, as expected. MAE is used to measure model performance except when RMSE is needed to compare with other study results.  
+All other parameters were held constant as an individual parameter was varied. The prediction horizon value of 24 hrs was held constant throughout all runs shown in  Fig \ref{fig:parameters}. In all cases, the error measurements, MAE and RMSE showed similar forms, despite the RMSE having a consistently higher value, as expected. The prediction horizon of the model using the 5 feature data set is shown in Figure \ref{fig:predictionhrs}.
 
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/predictionhrs.png}  %assumes jpg extension
+%\includegraphics[width=.75\textwidth]{images/predictionhrs.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/predictionhrs.png}
 \caption{Prediction horizons using 5 features and default parameters.}
 \label{fig:predictionhrs}
 \end{figure}
 %
-The prediction horizon of the model using the 5 feature data set is shown in Fig \ref{fig:predictionhrs}.  As the prediction extends further into the future ($>$ 80 hrs), the training error climbs rapidly, while the test error appears to level off. The model has begun to overfit by this point and predictions past that range were considered to be unreliable.
+As the prediction extends further into the future ($>$ 80 hrs), the training error climbs rapidly, while the test error appears to level off. The model began to overfit by this point and predictions past that range were considered to be unreliable.
 
 The results in  Fig \ref{fig:parameters}a show training error for different prediction horizons over several parameters. The parameter that influences the model performance the most is the number of look-back nodes in relation to the prediction horizon. A horizon value of + 2 provides the lowest errors, while adding additional nodes increases the model complexity and makes training more challenging. 
 
@@ -1134,24 +1167,28 @@ Samples/batches in Fig \ref{fig:parameters}b show relatively little error varian
 
 The number of recurrent, or look back nodes, in relation to the prediction horizon was considered in  Fig \ref{fig:parameters}b. Both training and test results are minimized at 26, the horizon value + 2. This was consistent with other horizon prediction values such as 36 and 48. As more look back nodes are added, the error increases.
 
-Finally, the use of dropout is recommended to improve generalization of the model and reduce overfitting \citep{Gal2016}. For this model, dropout ($\in 0,1$) was applied only between the output of the LSTM layer and the FF output layer. The error shows reasonably good optimization at around 0.2. The errors level out at higher rates at around 0.35. The default values were actually the optimum parameters based on the results are shown in Fig \ref{fig:parameters}.
+Finally, the use of dropout is recommended to improve generalization of the model and reduce overfitting \citep{Gal2016}. For this model, dropout was applied only between the output of the LSTM layer and the FF output layer. The error shows reasonably good optimization at around 0.2. The errors level out at higher rates at around 0.35. The default values were the optimum parameters based on the results shown in Fig \ref{fig:parameters}.
 %
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.75\textwidth]{images/parameters.png}  %assumes jpg extension
-\caption[Impact of model parameters on training error]{Impact of a. batch samples, b. look back nodes, and c. dropout factor parameters on training errors for a model.}
+%\includegraphics[width=.75\textwidth]{images/parameters.png}  %assumes jpg extension
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/parameters.png}
+\caption[Impact of model parameters on training error]{Impact of (a) batch samples, (b) Look back nodes, and (c) dropout factor parameters on training errors in the model.}
 \label{fig:parameters}
 \end{figure}
 %
 
+An LSTM model has many more variables that can be optimized compared to other models. The RNN used in this study with 25 input features had 16,485 update-able parameters, of which 16,432 were in the LSTM layer alone. As a comparison, an FFNN with 3 hidden layers (5 layers total), bias on all layers, and the same 25 feature inputs, had only 2,107 parameters. Nonlinearities are further introduced during the training phase in which the derivative of the activation function for each layer is used to influence the weight updates. It is therefore difficult to fully explain the mechanisms driving the output results of complex DL models. In order to insure the model is working, the output must be compared with known results and parameters adjusted to optimize performance.
+
 \subsection{Comparison to previous studies}
-Previous studies mentioned in Section 1 used RMSE and other error measurement methods than MAE. The 3 studies that used RMSE were compared to our results with an LSTM network. Luna et al. (2014) used support vector machines (SVMs) and FFNNs \citep{Luna2014}. Feng et al. (2011) used a a multi-layered system that included an SVM and a genetic algorithm stabilized FFNN \citep{Feng2011}. Wang and Lu used an FFNN with a particle swarm optimization \citep{Wang2006}. All studies, except Gomez (2003), used PCA to pre-process the data. Comparing the results of the LSTM RNN to these previous studies gives an initial impression  that the RNN has an order of magnitude improvement over the best FFNN or SVM models as shown in Table \ref{tb:compare}.
+Previous studies mentioned in Section 1 used RMSE and other error measurement methods than MAE. The 3 studies that used RMSE were compared to our results with an LSTM network. Luna et al. (2014) used SVMs and FFNNs \citep{Luna2014}. Feng et al. (2011) used a a multi-layered system that included an SVM and a genetic algorithm stabilized FFNN \citep{Feng2011}. Wang and Lu used an FFNN with a particle swarm optimization \citep{Wang2006}. All studies, except Gomez (2003), used PCA to pre-process the data. Comparing the results of the RNN to these previous studies gives an initial impression  that the RNN has an order of magnitude improvement over the best FFNN or SVM models as shown in Table \ref{tb:compare}.
 %
 \end{linenumbers}
-\begin{table}[][!htb]
+\begin{table}[!htb]
 \centering
 \caption{Comparison of LSTM RNN test data results to previously published results.}
 \label{tb:compare}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lcccc@{}}
 \toprule
 \textbf{Source} &  \textbf{Prediction horizon} & \textbf{Results (RMSE)} & \textbf{LSTM (RMSE)} \\ \midrule
@@ -1160,10 +1197,25 @@ Feng et al. (2011) &  12 hr & 5.5 - 86.9 & 1.5 \\
 Wang and Lu (2006) & 24 hrs & 7.9 - 11.2 & 2.5 \\ 
 Gomez et al. (2003)& 24 hrs & 6.9 - 9.9 & \\ \bottomrule
 \end{tabular}
+} %end resize
 \end{table}
 \begin{linenumbers}
 %
 The results cannot however be directly compared because they were based on different data sets. While the other studies used complex and hybrid architectures along with complicated pre-processing, the RNN model pre-processing was very simple after the features were prioritized using a decision tree. The RNN and LSTM are themselves complex algorithms with many internal parameters that undergo training and updates.
+
+\subsection{Comparison to different models}
+
+In order to evaluate how the RNN model compared to other forecasting models using the same data set, a comparison was made for a 24 hr prediction using a FFNN with three hidden layers, and an ARIMA model. The FFNN was built with the Keras library using $relu$ activation functions in the hidden layers and a $sigmoid$ function for the output. The inputs included all the parameters from Table 3 and the model was allowed to train for 1,000 epochs. The number of nodes in the hidden layer was based on the estimate \# of hidden nodes = ($SF$ * \# of input nodes) + \# of output nodes where $SF$ is a scaling factor between 0.5 and 1 \citep{Papaleonidas2013}. For an $SF$ of 0.75, the number of nodes is 20 nodes in each hidden layer. An MSE loss function and Nadam optimizer were also used to build the model. The ARIMA model was built using the \textbf{auto.arima} function in R (ver 3.4.3) \citep{Hyndman2013} and fitted on the 8 hr ave O$_{3}$ only. The formatting parameters, $p$, $d$, and $q$ were calculated as 3, 0, and 0, respectively. The results are shown in Figure \ref{fig:diffmodels}.
+
+%
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/modelcompare.png}
+\caption{Comparison of different model forecasts over a 24 hr period}
+\label{fig:diffmodels}
+\end{figure}
+%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
