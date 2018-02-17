@@ -21,8 +21,8 @@ The following subsections illustrate the new approach as applied by the United N
 LSBs are the primary dispersal agent of generated emissions for sources located near the sea \citep{Cuxart2014}.  Coastal areas often contain large concentrations of people and industries, thus making them sensitive receptor areas.  In Kuwait, the overwhelming majority of people and industry are located in coastal areas.  The first step of the process is to determine how far LSB patterns encroach inland.  The diurnal nature of LSB is particularly strong for countries in the study area \citep{Zhu2004}.  Effects also vary seasonally with the sea breezes lasting longer in the summer months than the winter months.  Zhu reported maximum penetration along the Gulf coast countries of sea breezes in excess of 250 km.  Of the multiple variables reported by Conklin, Zhu suggests that the main factors affecting LSB are the land-sea heat flux, ambient wind patterns, and local topography.  Figure \ref{fig:LSBwinds} displays examples of coastal wind distributions for southern Kuwait captured at ground level by an air monitoring station.  Similar patterns showing wind directions distributed around the compass with a prevailing component are common for coastal areas \citep{Lozano2013}.
 
 %
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/aqz2.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/aqz2.png} 
 \caption[Typical LSB winds for Kuwait]{(a) Typical day time and (b) night time ground level LSB winds in southern Kuwait for the year 2011.}
 \label{fig:LSBwinds}
 \end{figure}
@@ -31,7 +31,7 @@ LSBs are the primary dispersal agent of generated emissions for sources located 
 
 This new AQZ delineation methodology requires investigation to assess how far inland coastal effect winds travel, by evaluating wind patterns throughout the area.  Virtual emission sources were placed in areas considered to have high receptor and source risks.  These may included dense residential areas, industrial zones, and concentrated urban environments.  The same virtual source is inserted at each site in order to compare the dispersion patterns over the same time frames. Source parameters were selected to represent typical industrial operations and published sources \citep{Chusai2012}. Table \ref{tb:puffmodel} contains parameters used for each virtual source configuration.  The source was designed to represent a typical boiler burning high sulfur diesel fuel.
 
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption{Puff model virtual source properties.}
 \label{tb:puffmodel}
@@ -67,7 +67,7 @@ As mentioned in Chapter 2, KEPA is responsible for monitoring environmental cond
 
 Air quality zones (AQZs) were designated under the UNDP KIEMS project as shown in Fig \ref{fig2:aqzkuwait} (Freeman et al., 2016).
 %
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption{Distribution of Fixed Site Air Monitoring Stations in Kuwait}
 \label{tb:2ams}
@@ -90,8 +90,8 @@ Burgan & Production &  &  \\
 \end{table}
 
 %  
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk2.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/risk2.png} 
 \caption[Kuwait Air Quality Zones]{Kuwait Air Quality Zones (Freeman et al., 2016).}
 \label{fig2:aqzkuwait}
 \end{figure}
@@ -138,15 +138,15 @@ Two different comparisons cases were are made in this study. In the first case, 
 
 Each pollutant data set was divided into compliance and exceedance measurements by creating two PDFs – one for concentration readings under the standard (Compliance) and one for readings that exceed the standard (Exceedances) as shown in Fig \ref{fig3:distributions}.  PDFs of the measured data were selected based the Akaike Information Criteria (AIK), Bayesian Information Criteria (BIC), and Anderson-Darling (A-D) statistics generated during the fitting \citep{Palisades2016}.  The PDF having the best agreement among each the two statistics was chosen to represent the component data.  
 %  
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk3.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/risk3.png} 
 \caption{Break down of 8 hr O$_{3}$ concentrations into compliance and exceedance distributions.}
 \label{fig3:distributions}
 \end{figure}
 %
 The individual PDFs were then used in a Monte Carlo Analysis based on the individual hours of each method over three years of monitoring data (26,280 hours total).  The individual hours for each method in the single station run are shown in Table \ref{tb3:exphrs}. 
 %
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption{Single station run exposure hours for compliance and exceedance concentrations}
 \label{tb3:exphrs}
@@ -171,7 +171,7 @@ where 	$CDF$ = the total concentration exposure over 3 years for a particular cl
 
 Other assumptions were made for the remaining variables of eq 1. The body weight variable (BW) is normally evaluated at 70 kg for adults (USEPA, 2005b), however, the average body mass for Kuwait has increased over the years and is on par with the United States and other western nations. Using 2014 census data from the Kuwait Central Statistics Bureau and assuming non-Kuwaiti residents from different national groups have the same average weights described by other researchers \citep{Walpole2012}, Kuwait has a composite average body of mass 66.4 kg as shown in Table \ref{tb:4compositewght}. Age and gender is not considered.
 %
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption{Composite Weight of Adults in Kuwait}
 \label{tb:4compositewght}
@@ -231,8 +231,8 @@ Given $\mu_{1}$ and $\mu_{2}$ are the arithmetic means of the Compliance and Exc
 
 A Monte Carlo Analysis was run for 10,000 iterations for the composite CDI values based on Normal distribution-based Compliance and Exceedance PDFs.  Fig \ref{fig4:composite} shows the CDI distributions of 8 hr O$_{3}$ for both the 3-Strike and 99\% Method models. 
 %  
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk4.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/risk4.png} 
 \caption[Composite model distributions of 8 hr O$_{3}$ CDIs]{Composite model distributions of 8 hr O$_{3}$ CDIs for the (a) 3-Strike Method and (b) 99\% Rule Method.}
 \label{fig4:composite}
 \end{figure}
@@ -286,8 +286,8 @@ df_{S} = \frac{(n-1)\left ((\sigma_{3-Strike})^{2}+(\sigma_{99\%})^{2}\right )^{
 %
 If the means test fails, then the Null hypothesis is rejected.  A summary of the hypothesis testing procedure is show in Fig \ref{eq5:cdfmu}.
 %  
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/risk5.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/risk5.png} 
 \caption{Flow chart of hypothesis testing procedures for single station case.}
 \label{fig5:flowchart}
 \end{figure}
@@ -510,8 +510,8 @@ provided a total average annual consumption mean of 571,071 kg and a standard de
 This study did not include $nargyla$ usage at home nor did it include charcoal consumption used by restaurants strictly for grilling foods.  Additional emissions are generated during grilling due to the combustion of animal fats \citep{McDonald2003}.  Grilling emissions should be incorporated in an emissions inventory but were not considered suitable for this study.
 
 %
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/ng2.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/ng2.png} 
 \caption{Location clusters of cafes with $nargyla$.}
 \label{figng2:cafes}
 \end{figure}
@@ -563,8 +563,8 @@ where $SC$ is the space cushion in seconds and $s$ in m/s (1 kph = 0.28 m/s). Fo
 
 For an SUV with a length, $L$, of 5 meters traveling at 5 kph (1.4 m/s), the most likely road space,$RS$, required to operate the vehicle is $L + IVG_{(s=5)}$ = 7.8 meters, as shown in Fig \ref{fig1:roadspace}. 
 
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense1.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense1.png} 
 \caption{Required Road Space for a Vehicle.}
 \label{fig1:roadspace}
 \end{figure}
@@ -572,8 +572,8 @@ For an SUV with a length, $L$, of 5 meters traveling at 5 kph (1.4 m/s), the mos
 Fig \ref{fig2:2secroadspace} shows the spacing between vehicles at different speeds assuming a 2 second cushion, at 5 kph and 40 kph.
 %
 %
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense2.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense2.png} 
 \caption{Two second road spacing at 5 and 40 kph.}
 \label{fig2:2secroadspace}
 \end{figure}
@@ -589,8 +589,8 @@ n =  \left ( \sum_{i}\left ({L_{i} + IVG(s)_{i}} \right )\leq 1,000m   \right )
 Both $IVG(s)$ and $L$ are independent variables subject to a wide range of values.  A vehicle’s length may average from 1.8 meters for a sedan, and up to 9.7 meters for a large bus.  $IVG$s can be assumed to be independent of the vehicle due to driver behavior and changes in speed due to the vehicle in front of the driver.  At 5 kph, $IVG$s may range from 0.5 to 4 meters.  The range of possible road space used by a 5 meter long SUV, may vary as shown in Fig \ref{fig3:SUVspace}.  This is especially apparent at lower speeds ($<$ 20 kph) due to stop-and-go driving patterns.  
 
 %
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense3.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense3.png} 
 \caption{Possible SUV road spacing at 5 kph.}
 \label{fig3:SUVspace}
 \end{figure}
@@ -598,7 +598,7 @@ Both $IVG(s)$ and $L$ are independent variables subject to a wide range of value
 \subsubsection{Estimating fleet composition.}
 Specific road use is important when estimating the types of vehicles in a sample population of vehicles.  The distribution of vehicle types in a residential areas is assumed to be different than in an industrial area or highway. More lorries and heavy goods vehicles (HGVs) would be expected to be seen during early morning hours as compared to SUVs and sedans during rush hours. Vehicle classes were selected to represent existing traffic based on observations in Kuwait, as shown in Table \ref{tb1:vehicletypes}. The frequency shown is from total registered vehicles in Kuwait in 2014 provided by the Ministry of Interior. Pick-ups, minivans, and vans were grouped with SUVs. HGVs were grouped with large buses. The number and type of vehicles can be expanded to provide better classification, such as make, model, engine size, weight, fuel types, and age.
 
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption{Vehicle classes.}
 \label{tb1:vehicletypes}
@@ -617,7 +617,7 @@ Specific road use is important when estimating the types of vehicles in a sample
 
 To collect actual fleet composition data, actual vehicle counts at intersections will be made using imagery captured during UAS flights at operational altitude at or near 40m above ground level (AGL). To test the statistical significance of different fleet compositions and IVGs against different locations and times, the following null and alternative hypothesizes, $H_{o}$ and $H_{a}$ respectively, were defined in Table \ref{tab:vehhyp}. 
 %
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption{Hypothesis definitions for fleet composition and IVG testing.}
 \label{tab:vehhyp}
@@ -652,8 +652,8 @@ At the 95\% confidence level, the critical Z score for a two-tail test is 1.96. 
 Once the frequency of vehicles types within the local fleet is estimated, a Monte Carlo Analysis (MCA) can be used to estimate the most likely range of vehicle types and numbers on a road segment. Vehicle spaces in the road segment were assigned based on a maximum number of 401 vehicles possible on a 1 km road moving at 5 kph (or less).  This maximum value assumes that only sedans are on the road driving at a reasonable IVG safe distance of 2s.  During modeling however, the most vehicles in the same stretch of road never exceeded 170.  Reasonable $IVG$ timing values were initially assumed to range from 0.5s to 4s. Treiber et al (2000) used a value of 1.6s for their analysis \citep{Treiber2000}. An initial distribution of IVGs was assumed to be a continuous triangle distribution as shown in Fig \ref{fig5:IVGobs}.
  
 %
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/vdense5.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense5.png} 
 \caption{Initial probability distribution assumption of IVG timing.}
 \label{fig5:IVGobs}
 \end{figure}
@@ -689,8 +689,8 @@ The UAS was flown at 40 m AGL in order to avoid obstacles such as streetlights a
 
 The Pix4D software generated the 3D DEM using SfM photogrammetry. Each point used multiple images as shown in Figure \ref{fig:pix4Drays}. In this case, 12 images contribute to the generation of the individual point. The blue spheres at the top of the figure represent the initial camera position and the green sphere represents the optimized position after accounting for GPS location error and camera lens aberration. The camera used in the Phantom 3 Professional has relatively low distortion, therefore requiring minimal orthorectification.
 %
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/pix4Drays.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/pix4Drays.png} 
 \caption{Generation of point cloud in DEM using oblique imagery.}
 \label{fig:pix4Drays}
 \end{figure}
@@ -698,8 +698,8 @@ The Pix4D software generated the 3D DEM using SfM photogrammetry. Each point use
 
 Distances between vehicle were extracted by measuring polylines between vehicles as shown in Figure \ref{fig:pix4Dgaps}.
 %
-\begin{figure}[!htb]
-\includegraphics[width=\linewidth,height=22.1cm,keepaspectratio]{images/pix4dgaps.png} 
+\begin{figure}[H]
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/pix4dgaps.png} 
 \caption{Measuring IVGs using polylines in a DEM.}
 \label{fig:pix4Dgaps}
 \end{figure}
@@ -721,7 +721,7 @@ d = 2Rsin^{-1}\left (\sqrt{ sin^{2}\left ( \frac{Lat_{a}-Lat_{b}}{2} \right ) + 
 
 To determine if the software was accurately capturing the distances, a test pattern was prepared using different shaped items that could be measured safely on the ground as shown in Figure \ref{fig:uascalibration}. Imagery was captured at different altitudes (30m, 40m and 50m) to represent operational altitudes that would be flown during actual data collection missions.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 \includegraphics[width=\linewidth,keepaspectratio]{images/uascalibrate.png} 
 \caption{Calibration items for photogrammetry modeling verification.}
 \label{fig:uascalibration}
@@ -730,7 +730,7 @@ To determine if the software was accurately capturing the distances, a test patt
 The results of the distance measurements from models generated at different altitudes is shown in Table \ref{tab:uascalibrate}. The results show that even at a high altitude of operation, the MAE was only 4.1 cm, or for the smallest measurement (Item 5), a possible error of 8.5\%. This was considered to be a worst case error. As a result of this test, no correction to the distance measured using the Pix4D software was applied.
 
 %
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption[Comparison of distance measurement at different altitudes]{Comparison of distance measurement at different altitudes (all units in cm)}
 \label{tab:uascalibrate}
@@ -757,7 +757,7 @@ MAE &  & 2.9 & 3.3 & 4.1 \\ \bottomrule
 
 Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near a local college as shown in Fig \ref{fig:Kuwait}. 
 %
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 %\includegraphics[width=.75\textwidth]{images/kuwait.png}  %assumes jpg extension
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/kuwait.png}
@@ -810,7 +810,7 @@ C(ppb) = \frac{C(\mu g/m^{3})(R) (T)}{(P) (MW)}
 \noindent
 where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in the windrose in Fig \ref{fig:windrose} generated using WRPLT from Lakes Environmental (\url{https://weblakes.com/products/wrplot/index.html}).
 %
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 %\includegraphics[width=.75\textwidth]{images/paaet-windrose.png}  %assumes jpg
  extension
@@ -821,7 +821,7 @@ where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concen
 %
 Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}. High O$_{3}$ concentrations occur in the summer months from June to August, but come from the northeast, indicating the transport of pollutants from the coast. Not surprisingly, most of the compliance exceedances take place during this period.
 %
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 %\includegraphics[width=.75\textwidth]{images/paaet-o3seasons.png}  %assumes jpg
 %\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/paaet-o3seasons.png} 
@@ -832,7 +832,7 @@ Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}
 %
 Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($R^{2}$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($R^{2}$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maximum, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
 %
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 %\includegraphics[width=.75\textwidth]{images/dailyAveO3.png}  %assumes jpg extension
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/dailyAveO3.png}
@@ -842,7 +842,7 @@ Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAv
 %
 
 \subsection{Building the RNN}
-The RNN used in this study was prepared using the Keras machine learning application programming interface (ver 2.0.9) \citep{keras2015} with Theano back-end. Theano is a C\+\+ library that allows mathematical expressions to be calculated symbolically and evaluated using datasets in matrices and arrays \citep{Theano2016}. The architecture used a single RNN layer with LSTM and a single output feed forward node. The output activation functions for both layers was the $sigmoid$ function while the activation function for the recurrent nodes was the $tanh$ function. 
+The RNN used in this study was prepared using the Keras machine learning application programming interface (ver 2.0.9) \citep{keras2015} with Theano back-end. Theano is a C\+\+ library that allows mathematical expressions to be calculated symbolically and evaluated using datasets in matrices and arrays \citep{Theano2016}. The architecture used a single RNN layer with LSTM and a single output feed forward node. The output activation function for both layers was the $sigmoid$ function while the activation function for the recurrent nodes was the $tanh$ function. 
 
 The learning rate, $\alpha$, was left at the default value of 0.002 \citep{keras2015}. Other Keras defaults included weight initialization (using a uniform distribution randomizer). Regulation was not used, although a dropout layer was included between the LSTM and the output layer. 
 
@@ -873,7 +873,7 @@ X(t) = \frac{X_{t+24} - X_{t-24}}{2}
 %
 The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with data generated from the different statistical (imputed data) methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Fig \ref{fig:impute-rmse} along with the intersection of the 2nd method.
 %
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 %\includegraphics[width=.75\textwidth]{images/impute-rmse.png}  %assumes jpg extension
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/impute-rmse.png}
@@ -903,12 +903,12 @@ x_{scaled} = \frac{x_{i} - x_{min}}{x_{max} - x_{min}}
 \noindent
 where $x_{max}$ and $x_{min}$ are the maximum and minimum values in the data set respectively. It can be argued that this method also suffers from legacy biasing like PCA in that the system retains $x_{max}$ and $x_{min}$ in order to restore transformed data to original scale, similar to a key for encryption decoding. If new data is included that exceeds the $x_{max}$ / $x_{min}$ values, the data needs to be reprocessed using the new points. Since we are already working with an historical data set and not using real time data, there is no need to incorporate this issue. However, even if we were using real time data, we could safely assume that any value measured that exceeded $x_{max}$ in our historical set was also an extreme point and could be accounted for in the model as a value $>1$. 
 
-Eighty percent (80\%) of the scaled data was divided into a training set with 20\% reserved for testing.  In larger data sets, a percentage of the total data is often reserved to allow parameter optimization prior to training in order to reduce time and system resources. Additionally, for FFNNs, training often take hundreds or thousands of epochs, where an epoch is a complete training cycle that uses all training sets. With our relatively small data set and fast training using the LSTM, reviewing system performance using the full training set did not take much time and therefore did not requiring reserving a subset.
+Eighty percent (80\%) of the scaled data was divided into a training set with 20\% reserved for testing.  In larger data sets, a percentage of the total data is often reserved to allow parameter optimization prior to training in order to reduce time and system resources. Additionally, for FFNNs, training often takes hundreds or thousands of epochs, where an epoch is a complete training cycle that uses all training sets. With our relatively small data set and fast training using the LSTM, reviewing system performance using the full training set did not take much time and therefore did not require reserving a subset.
 
-Output exceedances were classified by the decision tree as either 0 (less than the exceedance standard of 75 $ppb$) or 1 (exceeds the standard). Overall accuracy of each horizon was measured using the \textbf{accuracy\_ score} function in Sci-kit which calculated the standard error of exact matches of the observed output with the predicted \citep{Raschka2016}.  Other classifiers were evaluated as well, including the Support Vector Machine (SVM) and Random Forest classifiers. The decision tree in classification mode using ``gini" criteria to measure the data split at each decision node proved to be the most accurate. The importance of each feature was computed using the Sci-kit \textbf{feature\_ importances\_ function} that normalizes the total reduction of the criterion brought by individual features. Results of individual feature importance from classifying O$_{3}$ exceedances at different horizons is shown in Figure \ref{fig:importance}. The computed values are unitless and displayed in relative importance to each other.
+Output exceedances were classified by the decision tree as either 0 (less than the exceedance standard of 75 $ppb$) or 1 (exceeds the standard). Overall accuracy of each horizon was measured using the \textbf{accuracy\_ score} function in Sci-kit which calculated the standard error of exact matches of the observed output with the predicted \citep{Raschka2016}.  Other classifiers were evaluated as well, including the Support Vector Machine (SVM) and Random Forest classifiers. The decision tree in classification mode using ``gini" criteria to measure the data split at each decision node proved to be the most accurate. The importance of each feature was computed using the Sci-kit \textbf{feature\_ importances\_ function} that normalizes the total reduction of the criterion brought by individual features. Results of individual feature importance from classifying O$_{3}$ exceedances at different horizons are shown in Figure \ref{fig:importance}. The computed values are unitless and displayed in relative importance to each other.
 
 %
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 %\includegraphics[width=.75\textwidth]{images/sumfactors.png}  %assumes jpg extension
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/sumfactors.png}
@@ -922,7 +922,7 @@ The RNN output was trained to predict the 8 hr moving average of measured 1 hr O
 \subsection{Tensor Preparation for RNN input data}
 Data sets provided to the RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Fig \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n$ and $p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Fig \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
 %
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 %\includegraphics[width=.75\textwidth]{images/tensor-tables.png}  %assumes jpg extension
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/tensor-tables.png}
