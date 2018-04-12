@@ -30,6 +30,9 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \usepackage{commath}
 \usepackage{graphics} %used to resize tables to fit column
 \usepackage{url}
+\usepackage{float} %% for table placements
+%\usepackage[nottoc,notlof,notlot]{tocbibind} 
+\renewcommand\bibname{References}
 
 %\usepackage{natbib}% I added this\
 %\usepackage{biblatex-chicago}
@@ -46,7 +49,7 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
 \usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
 \usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-\usepackage{lineno}  %add line numbers for editting - turn off for final
+%\usepackage{lineno}  %add line numbers for editting - turn off for final
 \usepackage{tabularx}
 \usepackage{enumitem}
 % These packages are all incorporated in the memoir class to one degree or another...
@@ -79,22 +82,23 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \end{frontmatter}
 
 %*******************  Body  *******************
-\begin{linenumbers} %turn off for final edits
+%\begin{linenumbers} %turn off for final edits
 	\include{Chapter1_Intro}
 	\include{Chapter2_ProblemDescription}
 	\include{Chapter3_Methodology}
 	\include{Chapter4_Results}
 	\include{Chapter5_Conclusions}
-\end{linenumbers} %turn off for final edit
+%\end{linenumbers} %turn off for final edit
 \clearpage
 
 %*******************  Bibliography  *******************
-\printbibliography[heading=bibintoc]
+%\printbibliography[heading=bibintoc]
+\printbibliography[heading=bibintoc,title={References}]
 \clearpage
 
 %*******************  Appendices  *******************
 \begin{appendices}	
-	%\include{App_Published}
+	\include{App_Published}
 	%\include{App_RNN_Python_code}
 \end{appendices}
 \clearpage
