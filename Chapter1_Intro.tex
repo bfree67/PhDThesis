@@ -400,7 +400,7 @@ The benefits of using ANNs include not requiring \textit{a priori} assumptions o
 
 Most of the studies that use feed forward  neural network (FFNN) architecture apply a single hidden-layer feed forward neural network architecture trained with meteorological and concentration data and generally have limited success for forecasting air quality. The canonical feed forward ANN model (FFNN) consists of an input layer, a hidden layer and an output layer. Each layer is constructed from interlinked nodes that generates a value (usually between -1 and 1 or 0 and 1). The individual node model is shown in Figure \ref{fig:SingleANN}. \\
 %
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{images/single-ann.png} 
 \caption{Individual node model.}
@@ -417,7 +417,7 @@ y= \sigma(wx+b)
 \noindent
 where $w$ is an array of weights for the connections between the previous layer and the current layer, $x$ is a vector of input values from the previous layer, and $b$ is a bias value. Common activation functions include the sigmoid, tanh, and relu functions. A general property for activation functions is that they normalize the output and have a continuous first order derivative that can be used during the back propagation training process \citep{Goodfellow2016}. The common activation functions mentioned earlier are shown in Table \ref{tb:activations} along with their first order derivative and output range.
 
-\begin{table}
+\begin{table}[H]
 \centering
 \caption{Common activation functions}
 \label{tb:activations}
@@ -442,7 +442,7 @@ Studies in atmospheric sciences and O$_{3}$ concentration predictions using Deep
 
 Partially recurrent network models such as the Elman Network (EN) were used  with air station inputs to predict ground level concentrations of O$_{3}$ \citep{Biancofiore2015} and PM$_{2.5}$ \citep{Biancofiore2017}. The feedback provides memory to the system when a single input set is fed into the system. Different ANN architectures are shown in Figure \ref{fig:ANNmodels}. The simple node in Figure \ref{fig:SingleANN} is redrawn as a circle for comparison.  The arrows between layers represent synaptic weights that interconnect each node. Figure \ref{fig:ANNmodels} shows that each layer can have different numbers of nodes, however, the number of nodes in deep neural networks (DNNs) hidden layers are usually kept the same for each layer.
 %
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{images/ann-models.png} 
 \caption[Different ANN model architectures.]{Different ANN model architectures. (a) simple feed forward neural network, (b) a recurrent (Elman) neural network, and (c) a deep feed forward neural network with multiple hidden layers.}
@@ -467,7 +467,7 @@ Y(\tau)= corr(X(t),X(t - \tau))
 \noindent
 where X is the input vector of a time step and $\tau$ is the lag (in hours). The correlogram was plotted based on lags up to 72 hours, as shown in Figure \ref{fig:serialcorr}.
 %
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{images/time-o3.png}  %assumes jpg extension
 \caption{Correlogram of O$_{3}$ and NOx for 72 hours.}
@@ -482,7 +482,7 @@ Non-stationarity, collinearity, correlations, and other linear dependencies with
 As previously mentioned, RNNs are well suited for multivariate time series data, with the ability to capture temporal dependencies over variable periods \citep{Che2016}. RNNs have been used in many time series applications including speech recognition \citep{Graves2013}, electricity load forecasting \citep{Walid2017} and air pollution \citep{Gomez2003, Fan2017}. RNNs use the same basic building blocks as FFNNs with the addition of the output fed back into the input. This time delay feedback provides a memory feature when sequential data is fed to the RNN. The RNN share the layer's weights as the input cycles through. In Fig \ref{fig:rnn}, $X$ is the input values, $Y$ is the network output, and $H$ is the hidden layers. An FFNN is provided to compare the data flow over time. By maintaining sequential integrity, the RNN can identify long-term dependencies associated with the data, even if removed by several time steps. An RNN with one time step, or delay, is called an Elman Network (EN) and has been used successfully to predict air quality in previous studies \citep{Biancofiore2015, Biancofiore2017}. The structure of the EN is shown in Fig \ref{fig:ANNmodels}b.
 
 %
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{images/rnn.png}  %assumes jpg extension
 \caption{Architecture of an RNN showing layers unfolding in time n times.}
@@ -528,8 +528,7 @@ g_{t+1} = \mu g_{t} - \alpha \nabla f (\theta_{t} + \mu g_{t})
 %
 Other algorithms include the adaptive subgradient descent (AdaGrad) optimzer \citep{Duchi2011}, the root mean square propagation (RMSProp) optimizer \citep{Tieleman2012}, the adaptive momentum (Adam) optimizer \citep{Kingma2014}, and the Nesterov adaptive momentum (Nadam) optimizer \citep{Dozat2016}. A summary of how these optimizers differ is shown in Table \ref{tb-optimizers}.
 %
-\end{linenumbers}
-\begin{table}
+\begin{table}[H]
 \centering
 \caption{Enhanced first order optimizers used for DLNs}
 \label{tb-optimizers}
@@ -544,7 +543,7 @@ Adam & Combines CM with RMSProp & Kingma (2014) \\
 Nadam & Combines NAG with RMSProp & Dozat (2016) \\ \bottomrule
 \end{tabular}
 \end{table}	
-\begin{linenumbers}
+
 %
 After experimenting with all four of the optimizers in Table \ref{tb-optimizers} and SGD, the Nadam optimizer proved to work the best with our study as described in the next section.
 
@@ -559,9 +558,9 @@ X_{R}(t) = X(t) + Y_{R}(t-1)
 %
 The processed recurrent input, $X_{R}$ feeds into several gates that allow the data to pass, represented by $\Phi$ in the circles. The weights that pass $X_{R}$ to the gate summations are trained as well.
 %
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,keepaspectratio]{images/lstm.png} 
+\includegraphics[width=.75\textwidth,keepaspectratio]{images/lstm.png} 
 \caption[LSTM architecture]{LSTM architecture showing unit time delays (-1), gates and recurrent activation functions ($\sigma$).}
 \label{fig:lstm}
 \end{figure}
