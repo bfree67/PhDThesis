@@ -159,6 +159,7 @@ Charcoal, once heated and glowing, burns with a surface temperature of approxima
 
 Only gaseous phase pollutants are quantified. Particulate matter is not considered in this study because of the assumption that the particulates stay in the room or are filtered by the ventilation system. In either case, they are assumed to not contribute to the local ambient air quality.
 %
+\begin{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
 \begin{table}[H]
 \centering
 \caption[Emission factors of $nargyla$ related components]{Emission factors of $nargyla$ related components in $g/kg$}
@@ -189,6 +190,7 @@ VOC &  &  &  &  &  &  &  &  &  & 14 & 4.5 &  \\ \bottomrule
 \end{tabular}
 } %end resize
 \end{table}	 
+\end{sidewaystable}
 
 It is interesting to note that the IPCC factors for CO$_{2}$ are physically impossible to achieve as the maximum amount of CO$_{2}$ that could be produced from 1 kg of pure carbon is only 3,667g, but most charcoal only has a maximum total organic carbon content of 70\%, making a realistic limit of 2,567 as shown in the Bhattacharya (2002) column.  This was discovered during the course of this research and acknowledged by the IPCC.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -197,121 +199,41 @@ It is interesting to note that the IPCC factors for CO$_{2}$ are physically impo
 \clearpage
 \subsection{Vehicle density estimation}
 
-Vehicle emissions are a significant contributor to regional air quality but one of the hardest to estimate due to the large number of variables associated with the calculations. While several emission inventory models exist for mobile sources, the input parameters are often very difficult to get. Traffic studies require large groups of observers to count and classify vehicles at different locations and at different times of day or expensive intelligent traffic systems (ITSs) installed to monitor and quantify traffic statistics that can be used in models. Being able to estimate the number and type of vehicles on the road is an essential step to quantifying the overall emissions for a region. Different variables that impact vehicle emissions are shown in Table \ref{tb:vehvariables}.  
+Vehicle emissions are a significant contributor to regional air quality but one of the hardest sources to estimate due to the large number of variables associated with the calculations. While several emission inventory models exist for mobile sources, the input parameters are often  difficult to get and default values are based on inapplicable locations or out of date fleets. Traffic studies require large groups of observers to count and classify vehicles at different locations and at different times of day or expensive intelligent traffic systems (ITSs) installed to monitor and quantify traffic statistics that can be used in models \citep{Suzuki2015}. Being able to estimate the number and type of vehicles on the road is an essential step to quantifying the overall emissions for a region. 
 
-\begin{table}[H]
-\centering
-\caption{Variables impacting vehicle emission rates.}
-\label{tb:vehvariables}
-\begin{tabular}{@{}ccc@{}}
-\toprule
-\textbf{Environment} & \textbf{Driver Behavior} & \textbf{Vehicle Condition} \\ \midrule
-Road surface & Aggressiveness & Age \\
-Weather conditions & Experience & Maintenance \\
-Topography & Familiarity with vehicle & Fuel quality \\
-Elevation &  & Gross weight \\
-Traffic controls &  & Accessories \\ \bottomrule
-\end{tabular}
-\end{table}
+Signalled intersections (SIs) are important elements within road networks that provide traffic control and management. A major drawback of SIs are that they stop the continuous flow of traffic, requiring deceleration, idling and acceleration of vehicles. This cycle of activity creates complex emissions ranging from particulate matter (PM) from brake and tire wear and hydrocarbons (HC) from incomplete combustion. Vehicle emissions generated at SIs include many more variables due to the variety of different vehicle models, their ages, maintenance histories, and how they are operated. A major influence on the amount of  vehicle emissions generated is driver behavior. Aggressive driving habits, not only lead to accidents that intensify congestion, but also uses more fuel for rapid accelerations and braking actions. Individual driver attitudes also contribute to stacking concentrations at SIs based on how comfortable a driver feels in approaching the vehicle in front of them. Studies have shown that stacking distances do not improve traffic flow once the signal changes to green  \citep{Ahmadi2017}. A safe distance is recommended instead, to avoid rear-end collisions.
 
-Vehicle emissions include many more variables than stationary sources due to the wide variety of different on and off road vehicles, their ages, maintenance records, and where they are operated. A major impact on vehicle emissions is driver behavior. Aggressive driving habits, not only lead to accidents that intensify congestion, but also uses more fuel for rapid accelerations and braking actions.
+Like stationary point sources, vehicle emission estimates are based on emission factors developed by researchers to characterize common vehicles under specific operating conditions. Most emissions factors studies used chassis dynamometers to measure direct emissions from engine exhaust but fail to capture non-exhaust emissions such as particulate matter from brake and tire wear, vapor losses from the fuel storage systems, leaks from lubricants and refrigerants, hydrocarbons entrained in dust from road surfaces, and aggressive driving \citep{Kam2012, Franco2013, Freeman2015a}. While estimating emissions for individual vehicles is not practical, aggregated emissions over time can calculated by mobile source emission models and used for regional emissions inventories and transportation planning. For emissions at SIs, vehicle emissions can be estimated based on idling vehicles and acceleration from stationary to posted limits, as shown below
 
-Like stationary sources, vehicle emission estimates are based on emission factors developed by researchers to characterize common vehicles under specific operating conditions. Most emissions factors studies used chassis dynamometers to measure direct emission from engine exhaust but fail to capture non-exhaust emissions such as PM from brake and tire wear, vapor losses from the fuel storage systems, or leaks from lubricants and refrigerants, and hydrocarbons entrained in dust from road surfaces \citep{Kam2012, Franco2013, Freeman2015a}. While estimating emissions for individual vehicles is not practical, aggregated emissions over time can be compiled and used for regional emissions inventories and transportation planning.
+\begin{equation}
+\label{eq:siemissions}
+E_{SI}=\sum_{i=1}^{n}(Q_{0})_{i}t_{0} + (Q_{a})_{i}t_{a}
+\end{equation}
+
+\noindent
+where $n$ is the number of vehicles in the SI queue, $Q_{0}$ is the idling emission rate for each individual vehicle in the queue, $t_{0}$,  $Q_{a}$ is the individual emission rate to accelerate up to the posted limited, and $t_{0}$   and $t_{a}$ are the queuing time and acceleration time respectively.
 
 \subsubsection{Vehicle emission models} \label{sssec:VehEmissionModels}
 
 One of the most widely used model in North America is the MOtor Vehicle Emission Simulator (MOVES) from the USEPA \citep{MOVES2014a}. This model uses vehicle type, road conditions, operating activities, and geography to estimate the amount of pollutants generated in a section of road. MOVES is primarily intended for mobile sources in North America. It is a very complex and data intensive model that is difficult to apply to large, regional models \citep{Zhang2011}.
 
-The International Vehicle Emissions (IVE) model was developed by a consortia funded by the USEPA to provide a model for vehicle emissions outside of North America \citep{IVE2008}. It includes over 700 different types of vehicles including 72 different classes of light duty gasoline vehicles (LGDTs) with 3 different cylinder volume subsectors. Vehicle models are further categorized by technology classes based on vehicle exhaust controls and European standards \citep{Davis2005}. The IVE model allows for customized local traffic conditions, driving patterns, fuel quality, and vehicle types for countries outside North America \citep{Davis2010}. Results from the IVE however vary with underestimation of some emissions by 50\% and over-estimation of others by 350\% \citep{Hui2007}.
+Another common model is the International Vehicle Emissions (IVE) model developed by a consortia funded by the USEPA to provide a model for vehicle emissions outside of North America \citep{IVE2008}. It includes over 700 different types of vehicles, including 72 different classes of light duty gasoline vehicles (LGDTs) with 3 different cylinder volume subsectors. Vehicle models are further categorized by technology classes based on vehicle exhaust controls and European standards \citep{Davis2005}. The IVE model allows for customized local traffic conditions, driving patterns, fuel quality, and vehicle types for countries outside North America \citep{Davis2010}. Results from the IVE however vary with underestimation of some emissions by 50\% and over-estimation of others by 350\% \citep{Hui2007}.
 
 \subsubsection{Classical traffic estimation} \label{sssec:ClassicalTraffic}
 
-Each model uses a combination of composite mobile emissions based on average speed, hot/cold starts, ambient temperature, vehicle type mix and prediction year and modal factors to calculate emissions. A common requirement for each model is an understanding of the number and types of vehicles on the road, the routes and activities such as starts and stop/go cycles, as well as the speed they are traveling at \citep{Franco2013}. While the models assume constant speeds, actual driving conditions are more variable, especially in congested traffic \citep{Freeman2015b}. Vehicle emissions vary with speed with more emissions generated at higher speeds. Congestion and traffic jams, however, are the fastest growing segment of mobile source emissions, with emission rates of pollutants at slow and stop/go speeds similar to emissions at high speeds due to continuous acceleration/deceleration cycles \citep{Barth2009}.
-
-Quantifying vehicle emissions requires, as a minimum, estimations of the number of vehicles on the road networks and the speeds they are traveling at. Macroscopic traffic flow models have been developed and modified to answer these flow and density questions for highway planning and pollution estimation. The most common model is the Lighthill-Whitham-Richards (LWR) using instantaneous traffic density $\rho$ in vehicles/km, and a function of traffic velocity, $v$ to satisfy conservation of traffic \citep{Lighthill1955}. The general equation is given as
-%
-\begin{equation}
-\label{eq:LRW}
-\frac{\partial }{\partial t}\rho \left ( t,x \right )+\frac{\partial }{\partial x}f \left ( t,x \right )=0
-\end{equation}	
-%
-where
-%
-\begin{equation}
-\label{eq:trafficflow}
-f = \rho v
-\end{equation}	
-%
-\noindent
-with units in vehicles/hr. The LRW model uses a fundamental diagram (FD) to express the relationship between $\rho$ and  $f$ with a maximum density, $\rho_{m}$ representing the largest amount of vehicles a road segment can support and $f_{m}$ representing the most amount of vehicles that can enter and exit the road segment. Using a linear relation proposed by Greenshields (1938), the FD looks like Figure \ref{fig:LRW-FD} \citep{Greenshields1935}. In the figure, $\rho_{O}$ is the optimum density and $f_{O}$ is the optimum flow.
-%
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth,keepaspectratio]{images/traffic_curves}  %assumes jpg extension
-\caption[Fundamental diagram with Greenshields's linear relationships and optimum $\rho$ and $f$]{FD with Greenshields's linear relationships and optimum $\rho$ and $f$ (Kachroo, 2014).}
-\label{fig:LRW-FD}
-\end{figure}
-%
-The LWR model assumes homogeneous traffic and very little lane changes \citep{Kachroo2014}. In developing nations, traffic fleets tend to vary dramatically and driver behavior is less disciplined \citep{Mohan2013}. Heterogeneous models such as the Aw-Rascle (AR) model, look at area occupancy for traffic concentration instead of density. The AR model has two components given as 
-
-\begin{equation}
-\label{eq:AR1}
-\rho_{t}+\left (\rho v  \right )_{x}=0
-\end{equation}	
-%
-\noindent
-and 
-%
-\begin{equation}
-\label{eq:AR2}
-\left [ v+p(\rho) \right ]_{t}+v\left [ \left ( v+p(\rho \right ) \right ]_{x}=\frac{V(\rho)-v}{\tau}
-\end{equation}	
-%
-\noindent
-where $V(\rho)$ is an equilibrium speed for all traffic, $\tau$ is a relaxation time, and $p(\rho)$ is a traffic pressure term given as
-%
-\begin{equation}
-\label{eq:AR-pressure}
-p(\rho)=c_{o}^{2}\rho^{\gamma}
-\end{equation}	
-%
-If the constant, $c_{o}$, is held at unity and $\gamma >0$, Eq \ref{eq:AR-pressure-reduced} reduces to 
-%
-\begin{equation}
-\label{eq:AR-pressure-reduced}
-p(\rho)=\rho^{\gamma}
-\end{equation}	
-%
-\noindent
-allowing Eq \ref{eq:AR2} to be re-written as
-%
-\begin{equation}
-\label{eq:AR2-reduced}
-\left [ v+\rho^{\gamma} \right ]_{t}+v\left [v+\rho^{\gamma}\right ]_{x}=\frac{V(\rho)-v}{\tau}
-\end{equation}	
-%
-\subsubsection{Anatomy of traffic jams}
-Traffic congestion occurs when the demand for road space exceeds its capacity due to the closure of a lane or a surge of vehicles at the same time period. The resulting disruption to the equilibrium of free flowing traffic causes a reduction of speed at the front of the jam that ripples and amplifies backwards into oncoming traffic, to become stop-and-go waves of short acceleration and deceleration \citep{Orosz2010}. Modeling this action has been the subject for many researchers using linear models \citep{Lighthill1955,Treiber2000} and non-linear models \citep{Li2005}. The common features of the jam and models are:
-
-\begin{itemize}
-\item{A stimulus in the form of an initial event such as a lane closure, accident, or ''phantom" effect in which a jam begins for no obvious reason \citep{Flynn2008}.}
-\item{Kinematic wave action in the form of acceleration and deceleration cycles \citep{Lighthill1955}.}
-\item{Clearing action as the bottleneck is passed, resulting in a return to free flowing traffic (and usually a rapid acceleration to free-flowing speed).}
-\end{itemize}
-
-The impact of traffic jams have also been documented by many researchers in terms of impacts to health \citep{Zhang2013, Zhang2011, Levy2010} and economics \citep{Cebr2014}.  Identifying the physical locations, durations, and time periods of congestion is critical for calculating emissions, and their overall impacts to human health and society.
+Quantifying vehicle emissions requires, as a minimum, estimations of the number of vehicles on the road networks and the type of vehicle. In addition to these input parameters, each model uses a combination of composite mobile emissions based on average speeds, hot/cold starts, ambient temperature, prediction year and modal factors to calculate emissions\citep{Franco2013}. While the models assume constant speeds, actual driving conditions are more variable, especially in congested traffic \citep{Freeman2015b}. Vehicle emissions vary with speed with more emissions generated at higher speeds. Congestion and traffic jams, however, are the fastest growing segment of mobile source emissions, with emission rates of pollutants at slow and stop/go speeds similar to emissions at high speeds due to continuous acceleration/deceleration cycles \citep{Barth2009}. At SIs, vehicles are assumed to be stationary, although small creeping typically occurs.
 
 \subsubsection{Modern traffic estimation}
 
-In many major urban centers, main roads are monitored by intelligent transportation systems (ITSs) that track average velocity, $v$, traffic flow, $f$,and traffic density, $\rho$ \citep{Wu2007}, \citep{Bartosz2015}.
+In many major urban centers, main roads are monitored by intelligent transportation systems (ITSs) that track average velocity, $v$, traffic flow, $f$, and traffic density, $\rho$ \citep{Wu2007, Abtahi2011, Bartosz2015}.
 
-Without using expensive ITS's, different numerical models have been used to estimate vehicle density including classical statisical models \citep{Schreckenberg1995}, Kalman Filters \citep{Pourmoallem1997, Sun2004} and neural networks \citep{Ghosh-Dastidar2006}.  These models looked at how traffic flowed over time to assess traffic management strategies and required complex computations and historical data to calibrate the necessary equations for a specific stretch of road.  Monte Carlo methods have also been used to validate results of traffic flow models \citep{Mihaylova2004} but not to generate results.  These models look at traffic flow under various conditions and not at the extreme condition of congested traffic. 
+Without using expensive ITS's, different numerical models have been used to estimate vehicle density including classical statistical models \citep{Schreckenberg1995}, Kalman Filters \citep{Pourmoallem1997, Sun2004} and neural networks \citep{Ghosh-Dastidar2006}.  These models looked at how traffic flowed over time to assess traffic management strategies and required complex computations and historical data to calibrate the necessary equations for a specific stretch of road.  Monte Carlo methods have also been used to validate results of traffic flow models \citep{Mihaylova2004} but not to generate results.  These models look at traffic flow under various conditions and not at the extreme condition of congested traffic or SIs. 
 
 \subsubsection{Unmanned Aerial Systems for traffic management} 
-Unmanned aerial systems (UASs) or drones, have become widely used for non-military applications such as cartography \citep{Saadatseresht2015}, agricultural surveillance \citep{Saari2017}, environmental monitoring \citep{Capolupo2015}, utility inspection \citep{Day2017, Gomez2017} and traffic management \citep{Salvo2017, Liu2013}. Many drones are commercially available, but can also be made from individual components and open source software \citep{Sharma2016}.  Effective drone operations have four main components:
+Unmanned aerial systems (UASs) or drones, have become widely used for non-military applications such as cartography \citep{Saadatseresht2015}, agricultural surveillance \citep{Saari2017}, environmental monitoring \citep{Capolupo2015}, utility inspection \citep{Day2017, Gomez2017} and traffic management \citep{Ahmadi2017, 2017, Salvo2017, Liu2013}. Many drones are commercially available, but can also be made from individual components and open source software \citep{Sharma2016a}.  Effective drone operations has four main components:
 
 \begin{enumerate}
-\item Aircraft. The aircraft may be fixed wing capable of straight flight only, or multiple rotors (MRs) that allow the aircraft to hover and rotate in flight. A fixed wing aircraft tends to be larger but have higher endurance than rotary wing aircraft. MR drones such as quadcopters (four rotors) are the most popular form of drones. The aircraft includes flight controls, energy storage (usually a lithium battery), communication link with the ground station, navigational systems (typically a global positioning satellite (GPS) sensor), and a sensor suite. The suite usually consists of a camera and stabilization gimble that allows steady shots while in flight. Other sensors may include infrared sensors, environmental sensors, or multiple cameras. Performance specifications for a DJI Phantom 3 Professional is shown in Table \ref{tb:p3p-specs}. An MR drone in flight is shown in Figure \ref{fig:p3p}.
+\item Aircraft. The aircraft may be fixed wing capable of straight flight only, or multiple rotors (MRs) that allow the aircraft to hover and rotate in flight. A fixed wing aircraft tends to be larger but have higher endurance than rotary wing aircraft. MR drones such as quadcopters (four rotors) are the most popular form of drones. The aircraft includes flight controls, energy storage (usually a lithium battery), communication link with the ground station, navigational systems (typically a global positioning satellite (GPS) sensor), and a sensor suite. The suite usually consists of a camera and stabilization gimbal that allows steady shots while in flight. Other sensors may include infrared sensors, environmental sensors, or multiple cameras. Performance specifications for a DJI Phantom 3 Professional is shown in Table \ref{tb:p3p-specs}. An MR drone in flight is shown in Figure \ref{fig:p3p}.
 
 \item Ground station. The ground station provides commands to the drone. While some software allows mission planning and semi-autonomous operations, the ground station is the link between the pilot and the drone, providing visual, position, flight status and telemetry data needed to maintain control of the aircraft. Links to the aircraft are usually through wifi with internet protocol, limiting the flight range to line of sight (approximately 5 km maximum). For longer ranges, more advanced communication protocols (and transceivers) are needed. These are normally reserved for fixed wing drones.
 
@@ -346,18 +268,18 @@ Max Image Size & 4000x3000 \\ \hline
 %
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth,keepaspectratio]{images/p3p.png}  %assumes jpg extension
+\includegraphics[width=0.5\textwidth,keepaspectratio]{images/p3p.png}  %assumes jpg extension
 \caption{DJI Phantom 3 Professional UAS in flight.}
 \label{fig:p3p}
 \end{figure}
 %
 Drones offer a significant improvement to conventional traffic data collection systems such as ITSs and human traffic counts in that they can be deployed in many areas and capture data from different angles for optimized surveillance. Traffic cameras require secure access and a stable mount, and power access. Human counts need a safe observation location that is usually away from the traffic area or offers limited views. Capturing traffic data with a drone, either for real-time or post-mission analysis, allows flexible access to researchers \citep{Westoby2012}. 
 
-Draw-backs to using drones includes their limited endurance, especially in commercially available drones that use a battery pack and have a typical flight time of 20-25 minutes. This translates to a realistic data collection period of 10-15 minutes, especially if there is a strong wind that the aircraft must overcome in order to return to it's recovery point. Additionally, drones are limited by weather conditions and nearby obstructions. Flying is not recommended during precipitation and low visibility, or when winds are in excess of 22 kph. Drones are also rated for ambient temperatures of 40 degrees Celsius as well \citep{DJI2017}.
+Draw-backs to using drones includes their limited endurance, especially in commercially available drones that use a battery pack and have a typical flight time of 20-25 minutes. This translates to a realistic data collection period of 10-15 minutes, especially if there is a strong wind that the aircraft must overcome in order to return to it's recovery point. Additionally, drones are limited by weather conditions and nearby obstructions. Flying is not recommended during precipitation and low visibility, or when winds are in excess of 22 km/h. Drones are also rated for ambient temperatures of 40 degrees Celsius as well \citep{DJI2017}.
 
-Previous researchers using drones for traffic related subjects focused on aerial surveillance as a way to augment ITS cameras \citep{Liu2013, Barmpounakis2016}. Angel et al. (2002) were some of the first researchers to use a drone to capture traffic densities and turn counts by using recorded video \citep{Angel2002}. More recently, Salvo et al. used drones to measure IVG of vehicles on city streets and roundabouts in Palermo using streaming video and a GPS-equipped probe vehicle that provided a reference speed \citep{Salvo2014, Salvo2017}.
+Previous researchers using drones for traffic related subjects focused on aerial surveillance as a way to augment ITS cameras \citep{Liu2013, Barmpounakis2016}. Angel et al. (2002) were some of the first researchers to use a drone to capture traffic densities and turn counts by using recorded video \citep{Angel2002}. More recently, Salvo et al. used drones to measure the headway of vehicles on city streets and roundabouts in Palermo using streaming video and a GPS-equipped probe vehicle that provided a reference speed \citep{Salvo2014, Salvo2017}. Ahmadhi et al (2017) used a drone to measure traffic flow rates from different platoons stacked in various gap distances. By using a thermodynamic analogy, they showed that gap spacing negatively impacted flow rates once the signal changed \citep{Ahmadi2017}.
 
-A simpler method currently available is to use Structure from Motion (SfM) methods in photogrammetry. SfM uses digital elevation models (DEMs) created from point clouds within the photogrammetric model. DEMs are generated from multiple images of the same area at different angles using multi-view stereo (MVS) algorithms \citep{James2017}. Images taken by the drone have geolocation and time stamps embedded in the jpeg file that are orthorectified based on the camera parameters and stitched together to form an orthomosaic image \citep{Westoby2012}.
+A simple method currently available to evaluate SI stacking is to use Structure from Motion (SfM) methods in photogrammetry. SfM uses digital elevation models (DEMs) created from point clouds within the photogrammetric model. DEMs are generated from multiple images of the same area at different angles using multi-view stereo (MVS) algorithms \citep{James2017}. Images taken by the drone have geolocation and time stamps embedded in the jpeg file that are orthorectified based on the camera parameters and stitched together to form an orthomosaic image \citep{Westoby2012}.
 
 Take-offs and measurements can then be made on the DEM as well as providing a 3D model of the scene. This requires the traffic to be stationary during the image capture phase - making this technique ideal to quantify traffic stopped at an intersection.
 
@@ -532,9 +454,9 @@ Other algorithms include the adaptive subgradient descent (AdaGrad) optimzer \ci
 \centering
 \caption{Enhanced first order optimizers used for DLNs}
 \label{tb-optimizers}
-\scriptsize
-\begin{tabular}{@{}lcc@{}}
-%\begin{tabular}{@{}p{2cm}p{8cm}p{2.5cm}@{}}
+%\scriptsize
+%\begin{tabular}{@{}lcc@{}}
+\begin{tabular}{@{}p{0.2\linewidth}p{0.6\linewidth}p{0.2\linewidth}@{}}
 \toprule
 \textbf{Optimizer} & \textbf{Description Summary} & \textbf{Source} \\ \midrule
 AdaGrad & Divides the learning rate, $\alpha$, by the $L_{2}$ norm & Duchi (2011) \\
@@ -560,7 +482,7 @@ The processed recurrent input, $X_{R}$ feeds into several gates that allow the d
 %
 \begin{figure}[H]
 \centering
-\includegraphics[width=.75\textwidth,keepaspectratio]{images/lstm.png} 
+\includegraphics[width=.5\textwidth,keepaspectratio]{images/lstm.png} 
 \caption[LSTM architecture]{LSTM architecture showing unit time delays (-1), gates and recurrent activation functions ($\sigma$).}
 \label{fig:lstm}
 \end{figure}
