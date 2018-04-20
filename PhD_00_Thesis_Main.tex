@@ -62,14 +62,15 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
-\def\dsp{\def\baselinestretch{2.0}\large\normalsize}
-\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
+%%%%%%%%%% Set line spacing  
+\def\dsp{\def\baselinestretch{1.3}\large\normalsize}  %default is {2.0}
+\def\ssp{\def\baselinestretch{1.3}\large\normalsize}   %default is {1.0}
 \makeatletter\@addtoreset{chapter}{part}\makeatother%
 \ssp %\dsp  % ssp - single space/ dsp - double space
 \setcounter{secnumdepth}{3}
 
-%\include{com}
-
+%***********************************************
+%*************** BEGIN DOCUMENT***************
 \begin{document}
 
 \lstset{language=Python}  %%% set code language
@@ -94,9 +95,9 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 %\end{linenumbers} %turn off for final edit
 \clearpage
 
-%*******************  Bibliography  *******************
+%******************* REFERENCES  *******************
 %\printbibliography[heading=bibintoc]
-\printbibliography[heading=bibintoc,title={References}]
+\printbibliography[heading=bibintoc,title={References}]  % Set name to References here
 \clearpage
 
 %*******************  Appendices  *******************
