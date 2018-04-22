@@ -11,7 +11,6 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 
 \usepackage{latexsym}
 \usepackage{amssymb}
-%\usepackage{cite}
 \usepackage{amsmath}
 \usepackage{alltt}
 \usepackage{amsfonts}
@@ -19,8 +18,6 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \usepackage{theorem}
 \usepackage{graphicx}
 \usepackage{url}
-%\usepackage{pdfsync}
-%\usepackage{pdfpages}
 \usepackage{tabu}
 \usepackage{longtable}
 \usepackage{mathrsfs}
@@ -37,8 +34,6 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 
 \renewcommand\bibname{References}
 
-%\usepackage{natbib}% I added this\
-%\usepackage{biblatex-chicago}
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
 \addbibresource{phdthesis.bib}
 
@@ -63,9 +58,13 @@ index]{guelphthesis} % For 2 sided: use [12pt, twoside]
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
 %%%%%%%%%% Set line spacing  
-\def\dsp{\def\baselinestretch{1.3}\large\normalsize}  %default is {2.0}
+
+%----define spacing variables
+\def\tsp{\def\baselinestretch{1.3}\Large}  %-----used in title format
+\def\dsp{\def\baselinestretch{2.0}\large\normalsize}  %default is {2.0}
 \def\ssp{\def\baselinestretch{1.3}\large\normalsize}   %default is {1.0}
 \makeatletter\@addtoreset{chapter}{part}\makeatother%
+
 \ssp %\dsp  % ssp - single space/ dsp - double space
 \setcounter{secnumdepth}{3}
 

@@ -157,8 +157,9 @@
 % For some environments we switch back to single-spacing, also
 % provides \dsp in case you need double-spacing where single-spacing
 % is otherwise used.
-\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
-\def\dsp{\def\baselinestretch{1.37}\large\normalsize}
+%%\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
+%%\def\dsp{\def\baselinestretch{1.37}\large\normalsize}
+%%\def\tsp{\def\baselinestretch{1.37}\LARGE}
 
 % \smallssp is used to produce tabular environments in the small font.
 % This is required because single-spacing requires a change in font size.
@@ -308,15 +309,16 @@
     \null\vfil
   \begin{center}
   \fmfont
-  {\dsp
-     {\bfseries {\expandafter{\@title}}} \par
+
+  {\tsp
+     {\bfseries {\expandafter{\@title}}}\par   
   }
-\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+\bigskip\bigskip\bigskip\bigskip\bigskip%\bigskip
   {\dsp
     by \par
     {\expandafter{\@author}} \par
   }
-\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip%\bigskip
   {\dsp
     \bfseries{A Thesis \par \vspace{-5mm}
     Presented to \par\vspace{-5mm}

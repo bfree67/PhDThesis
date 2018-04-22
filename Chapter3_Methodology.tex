@@ -63,9 +63,9 @@ MM5 is a limited-area, non-hydrostatic, terrain-following sigma-coordinate model
 \clearpage
 \section{Attainment classification modeling}
 
-As mentioned in Chapter 2, KEPA is responsible for monitoring environmental conditions and enforcing compliance with Kuwait's national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig:Kuwait}.  The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. 
+As mentioned in Chapter 2, KEPA is responsible for monitoring environmental conditions and enforcing compliance with Kuwait's national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Figure \ref{fig:Kuwait}.  The total distribution of stations within air zones is shown in Table \ref{tb:2ams}. 
 
-Air quality zones (AQZs) were designated under the UNDP KIEMS project as shown in Fig \ref{fig2:aqzkuwait} (Freeman et al., 2016).
+Air quality zones (AQZs) were designated under the UNDP KIEMS project as shown in Figure \ref{fig2:aqzkuwait} (Freeman et al., 2016).
 %
 \begin{table}[H]
 \centering
@@ -136,7 +136,7 @@ Two different comparisons cases were are made in this study. In the first case, 
 
 \subsection{Single station case}
 
-Each pollutant data set was divided into compliance and exceedance measurements by creating two PDFs – one for concentration readings under the standard (Compliance) and one for readings that exceed the standard (Exceedances) as shown in Fig \ref{fig3:distributions}.  PDFs of the measured data were selected based the Akaike Information Criteria (AIK), Bayesian Information Criteria (BIC), and Anderson-Darling (A-D) statistics generated during the fitting \citep{Palisades2016}.  The PDF having the best agreement among each the two statistics was chosen to represent the component data.  
+Each pollutant data set was divided into compliance and exceedance measurements by creating two PDFs – one for concentration readings under the standard (Compliance) and one for readings that exceed the standard (Exceedances) as shown in Figure \ref{fig3:distributions}.  PDFs of the measured data were selected based the Akaike Information Criteria (AIK), Bayesian Information Criteria (BIC), and Anderson-Darling (A-D) statistics generated during the fitting \citep{Palisades2016}.  The PDF having the best agreement among each the two statistics was chosen to represent the component data.  
 %  
 \begin{figure}[H]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/risk3.png} 
@@ -229,7 +229,7 @@ Given $\mu_{1}$ and $\mu_{2}$ are the arithmetic means of the Compliance and Exc
 
 \subsubsection{Calculations for the single station case}
 
-A Monte Carlo Analysis was run for 10,000 iterations for the composite CDI values based on Normal distribution-based Compliance and Exceedance PDFs.  Fig \ref{fig4:composite} shows the CDI distributions of 8 hr O$_{3}$ for both the 3-Strike and 99\% Method models. 
+A Monte Carlo Analysis was run for 10,000 iterations for the composite CDI values based on Normal distribution-based Compliance and Exceedance PDFs.  Figure \ref{fig4:composite} shows the CDI distributions of 8 hr O$_{3}$ for both the 3-Strike and 99\% Method models. 
 %  
 \begin{figure}[H]
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/risk4.png} 
@@ -284,7 +284,7 @@ which reduces to
 df_{S} = \frac{(n-1)\left ((\sigma_{3-Strike})^{2}+(\sigma_{99\%})^{2}\right )^{2}}{(\sigma_{3-Strike})^{4}+(\sigma_{99\%})^{4}}
 \end{equation}
 %
-If the means test fails, then the Null hypothesis is rejected.  A summary of the hypothesis testing procedure is show in Fig \ref{eq5:cdfmu}.
+If the means test fails, then the Null hypothesis is rejected.  A summary of the hypothesis testing procedure is show in Figure \ref{eq5:cdfmu}.
 %  
 \begin{figure}[H]
 \centering
@@ -404,7 +404,7 @@ VOC &  &  &  &  &  &  &  &  &  & 14 & 4.5 &  \\ \bottomrule
 \end{table}	 
 \end{sidewaystable}
 
-It is interesting to note that the IPCC factors for CO$_{2}$ are physically impossible to achieve as the maximum amount of CO$_{2}$ that could be produced from 1 kg of pure carbon is only 3,667g, but most charcoal only has a maximum total organic carbon content of 70\%, making a realistic limit of 2,567 as shown in the Bhattacharya (2002) column.  This project discovered this issue, which was acknowledged by the IPCC in communication to the authors. 
+It is interesting to note that the IPCC factors for CO$_{2}$ are physically impossible to achieve as the maximum amount of CO$_{2}$ that could be produced from 1 kg of pure carbon is only 3,667 g, but most charcoal only has a maximum total organic carbon content of 70\%, making a realistic limit of 2,567 as shown in the Bhattacharya (2002) column.  This project discovered this issue, which was acknowledged by the IPCC in communication to the authors. 
 
 Factors from burning mixed biomass, leaves, and weeds from AP-42 were included because they represent analogous processes of burning tobacco.  Their factors for CO and CH$_{4}$ are within reported ranges from other sources.  The AP-42 factor of NH$_{3}$ from cigarettes is several orders of magnitude smaller than the value reported by Akagi (2011). A compilation of factors based on Table \ref{tb1:initialfactors} is shown in Table \ref{tb2:emissionfactors}. The factors are divided into minimum, maximum and expected values that are used to define Triangle distributions. Triangle distributions are recommended forms when the underlying distribution is not known, no or little data is available to calculate parameters, and the Central Limit Theorem cannot by invoked \citep{Firestone1997, Lipton1995, Salling2008}. 
 
@@ -465,7 +465,7 @@ and
 \noindent
 where $N$ is the number of samples (in this case the number of cafes and restaurants), $\mu$ is the sample mean, $\sigma$ is the sample standard deviation, $\mu_{CLT}$ is the CLT mean, and $\sigma_{CLT}$ is the CLT standard deviation \citep{Ott1981}. 
 
-The number of establishments serving $nargyla$ can be assumed to be constant with few new shops opening or old shops closing.  This work sampled cafes and restaurants and included well-known shops to assure a better representation of the total population of $sheesha$ establishments.   Most of the cafes and restaurants that serve $nargyla$ in Kuwait are located in the Salmiya and Hawalli areas, with other concentrations in Jeleeb Al Shuyoukh, Abu Fatira, Fahaheel, and Jahra.  Most hotels also have a caf\'e that serves $nargyla$, as well as food malls such as the Arbilla in Al-Bidda.  Fig \ref{figng2:cafes} shows clusters of cafes in general geographic areas.  For this study, 86 establishments are included that are assumed to use the same average amount on an annual basis.  Table \ref{tb3:feedstock} shows the calculated annual averages and standard deviations of charcoal and $sheesha$ utilization as well as the total consumed amount per Equation \ref{eq2} for an individual establishment.  For modeling purposes, mean annual consumption and standard deviation were calculated by multiplying the weekly averages by 52 weeks and applying the CLT factors from Equations \ref{eq3} and \ref{eq4} as shown in Equations \ref{eq5} and \ref{eq6} respectively.  The values of $N$ in Equations \ref{eq5} and \ref{eq6}4 represent the active establishments used in the study.  In this case, $N$ = 86.
+The number of establishments serving $nargyla$ can be assumed to be constant with few new shops opening or old shops closing.  This work sampled cafes and restaurants and included well-known shops to assure a better representation of the total population of $sheesha$ establishments.   Most of the cafes and restaurants that serve $nargyla$ in Kuwait are located in the Salmiya and Hawalli areas, with other concentrations in Jeleeb Al Shuyoukh, Abu Fatira, Fahaheel, and Jahra.  Most hotels also have a caf\'e that serves $nargyla$, as well as food malls such as the Arbilla in Al-Bidda.  Figure \ref{figng2:cafes} shows clusters of cafes in general geographic areas.  For this study, 86 establishments are included that are assumed to use the same average amount on an annual basis.  Table \ref{tb3:feedstock} shows the calculated annual averages and standard deviations of charcoal and $sheesha$ utilization as well as the total consumed amount per Equation \ref{eq2} for an individual establishment.  For modeling purposes, mean annual consumption and standard deviation were calculated by multiplying the weekly averages by 52 weeks and applying the CLT factors from Equations \ref{eq3} and \ref{eq4} as shown in Equations \ref{eq5} and \ref{eq6} respectively.  The values of $N$ in Equations \ref{eq5} and \ref{eq6}4 represent the active establishments used in the study.  In this case, $N$ = 86.
 %
 \begin{equation}
 \label{eq5}
@@ -485,7 +485,7 @@ and
 %
 \begin{table}[H]
 \centering
-\caption{Feedstock inputs (in kgs) for individual establishments and total annual consumption}
+\caption[Feedstock inputs for individual establishments and total annual consumption]{Feedstock inputs (in kgs) for individual establishments and total annual consumption}
 \label{tb3:feedstock}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{@{}lcccccc@{}}
@@ -525,7 +525,7 @@ This study did not include $nargyla$ usage at home nor did it include charcoal c
 \clearpage
 \section{Estimating vehicle density using unmanned aerial systems}
 
-Using Ahmadi's notations \citep{Ahmadi2017}, the amount of vehicles on a unit road length depends on the length of the vehicle, $l$ in meters and thestacking gap a driver keeps from the car in front, $\delta_{s}$.  The recommended moving $\delta_{s}$ gap is based on a spacing, $\Delta_{t}$, of 2 seconds behind the lead vehicle, relative to the vehicle's speed, $s$ \citep{NYDMV2015, ukdot2017}.  For vehicles stacking at an SI and $s=0$ , the spacing is based on the driver's behavior with only informal guidance available such as leaving space for a pedestrian or able to see the tires of the front car. Results from studies show that closing the stacking gap, $\delta_{0}$ , makes no difference in regards to improving vehicle flow rate, but does increase risks for rear end collisions, thereby blocking the lane and indirectly reducing overall flow \citep{Ahmadhi2017}. The total road space for a vehicle stacking at an intersection, $x_{s}$, is given as
+Using Ahmadi's notations \citep{Ahmadi2017}, the amount of vehicles on a unit road length depends on the length of the vehicle, $l$ in meters and the stacking gap a driver keeps from the car in front, $\delta_{s}$.  The recommended moving $\delta_{s}$ gap is based on a spacing, $\Delta_{t}$, of 2 s behind the lead vehicle, relative to the vehicle's speed, $s$ \citep{NYDMV2015, ukdot2017}.  For vehicles stacking at an SI and $s=0$ , the spacing is based on the driver's behavior with only informal guidance available such as leaving space for a pedestrian or able to see the tires of the front car. Results from studies show that closing the stacking gap, $\delta_{0}$ , makes no difference in regards to improving vehicle flow rate, but does increase risks for rear end collisions, thereby blocking the lane and indirectly reducing overall flow \citep{Ahmadhi2017}. The total road space for a vehicle stacking at an intersection, $x_{s}$, is given as
 
 \begin{equation}
 \label{eq:roadspace}
@@ -533,7 +533,7 @@ x_{s}= l_{s} +\delta_{s}
 \end{equation}
 
 \noindent
-with $\delta_{s}$ is the stationary stacking  headway at stops and intersection for an individual vehicle and $l_{s}$ is the vehicle length as shown in Fig \ref{fig1:roadspace}.
+with $\delta_{s}$ is the stationary stacking  headway at stops and intersection for an individual vehicle and $l_{s}$ is the vehicle length as shown in Figure \ref{fig1:roadspace}.
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth,keepaspectratio]{images/vdense1.png} 
@@ -541,7 +541,7 @@ with $\delta_{s}$ is the stationary stacking  headway at stops and intersection 
 \label{fig1:roadspace}
 \end{figure}
 %
- The effective vehicle space, $x_{s}$, used by a 5 m long SUV will vary as shown in Fig \ref{fig3:SUVspace} if $\delta_{s}$ is assumed to be a Triangle distribution ranging from 0.5m to 4m.  If $\delta_{s} = 2.2m$ , the most likely effective vehicle space, $x_{s}$,  is  7.2m.
+ The effective vehicle space, $x_{s}$, used by a 5 m long SUV will vary as shown in Figure \ref{fig3:SUVspace} if $\delta_{s}$ is assumed to be a Triangle distribution ranging from 0.5 m to 4 m.  If $\delta_{s} = 2.2 m$ , the most likely effective vehicle space, $x_{s}$,  is  7.2 m.
 %
 \begin{figure}[H]
 \includegraphics[width=\linewidth,keepaspectratio]{images/vdense3.png} 
@@ -554,7 +554,7 @@ The total number of vehicles, $n$, on stacked at a 1 km of road segment can be e
 % 
 \begin{equation}
 \label{eq1:roadspace}
-n = \sum_{i}\left ({(l_{s})_{i} +(\delta_{s})_{i}} \right )\leq 1,000m 
+n = \sum_{i}\left ({(l_{s})_{i} +(\delta_{s})_{i}} \right )\leq 1,000 m 
 \end{equation}
 %
 
@@ -646,7 +646,7 @@ Vehicle 8 & 1 & Sedan & 4.9 & 1 & 0 & 0 & 0 \\ \bottomrule
 
 In order to measure actual $\delta_{s}$ at intersections and quantify fleet compositions operating at specific locations and times, imagery acquired by a UAS was converted into a DEM and 3D model. A commercial, multi-rotor UAS (DJI Phantom 3 Professional) was used to acquire the imagery, which was processed using Pix4Dmapper Pro ver 4.0.25 (\url{https://pix4d.com}).
 
-The UAS was flown at 40m above ground level (AGL) in order to avoid obstacles such as streetlights and trees. Intersections were chosen that represented high traffic densities and long signal cycles in order to capture the scene from multiple angles. No direct overflight of vehicles took place due to safety concerns and a representative from the Kuwait Ministry of Interior was present during all missions. As a result, only oblique imagery was collected. 
+The UAS was flown at 40 m above ground level (AGL) in order to avoid obstacles such as streetlights and trees. Intersections were chosen that represented high traffic densities and long signal cycles in order to capture the scene from multiple angles. No direct overflight of vehicles took place due to safety concerns and a representative from the Kuwait Ministry of Interior was present during all missions. As a result, only oblique imagery was collected. 
 
 The Pix4D software generated the 3D DEM using SfM photogrammetry. Each point used multiple images as shown in Figure \ref{fig:pix4Drays}. In this case, 12 images contribute to the generation of the individual point. The blue spheres at the top of the figure represent the initial camera position and the green sphere represents the optimized position after accounting for GPS location error and camera lens aberration. The camera used in the Phantom 3 Professional has relatively low distortion, therefore requiring minimal orthorectification.
 %
@@ -673,14 +673,14 @@ dist = R * cos^{-1}(sin(Lat_{a})sin(Lat_{b}) + cos(Lat_{a})cos(Lat_{b})cos(\lamb
 \end{equation}
 
 \noindent
-where $R$ is the WGS 84 radius of the Earth at the equator given as 637,8137m, $Lat_{a}$ and $Lat_{b}$ are the latitudes of points a and b, respectively, in radians, and $\lambda$ is the difference of longitudes for points a and b, in radians.  Both Pix4D and ESRI's ArcGIS use this formula to compute 2D distances between coordinates. This is an unreliable method as the inverse cosine produces rounding errors, especially for coordinate differences less than 1 minute of arc (0.01667 degrees - or about 31m) \citep{Sinnott1984}. A more precise formula uses the Haversine method given as 
+where $R$ is the WGS 84 radius of the Earth at the equator given as 637,8137 m, $Lat_{a}$ and $Lat_{b}$ are the latitudes of points a and b, respectively, in radians, and $\lambda$ is the difference of longitudes for points a and b, in radians.  Both Pix4D and ESRI's ArcGIS use this formula to compute 2D distances between coordinates. This is an unreliable method as the inverse cosine produces rounding errors, especially for coordinate differences less than 1 minute of arc (0.01667 degrees - or about 31 m) \citep{Sinnott1984}. A more precise formula uses the Haversine method given as 
 
 \begin{equation}
 \label{eq:distHaversine}
 d = 2Rsin^{-1}\left (\sqrt{ sin^{2}\left ( \frac{Lat_{a}-Lat_{b}}{2} \right ) + cos(Long_{a})cos(Long_{b})sin^{2} \left ( \frac{Long_{a}-Long_{b}}{2} \right ) } \right )
 \end{equation}
 
-To determine if the software was accurately capturing the distances, a test pattern was prepared using different shaped items that could be measured safely on the ground as shown in Figure \ref{fig:uascalibration}. Imagery was captured at different altitudes (30m, 40m and 50m) to represent operational altitudes that would be flown during actual data collection missions.
+To determine if the software was accurately capturing the distances, a test pattern was prepared using different shaped items that could be measured safely on the ground as shown in Figure \ref{fig:uascalibration}. Imagery was captured at different altitudes (30 m, 40 m and 50 m) to represent operational altitudes that would be flown during actual data collection missions.
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,keepaspectratio]{images/uascalibrate.png} 
@@ -697,7 +697,7 @@ The results of the distance measurements from models generated at different alti
 \label{tab:uascalibrate}
 \begin{tabular}{@{}ccccc@{}}
 \toprule
-\textbf{Item} & \textbf{Actual} & \textbf{30m} & \textbf{40m} & \textbf{50m} \\ \midrule
+\textbf{Item} & \textbf{Actual} & \textbf{30 m} & \textbf{40 m} & \textbf{50 m} \\ \midrule
 1 & 100 & 100 & 102 & 100 \\
 2 & 140 & 137 & 142 & 137 \\
 3 & 120 & 118 & 128 & 130 \\
@@ -716,7 +716,7 @@ MAE &  & 2.9 & 3.3 & 4.1 \\ \bottomrule
 
 \section{Time series forecasting}
 
-Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near a local college as shown in Fig \ref{fig:Kuwait}. 
+Fixed air monitoring stations are operated throughout Kuwait near residential and industrial areas, but predominantly in the coastal zone areas \citep{Freeman2017a}. For this study, a station using OPSIS differential optical absorption spectroscopy (DOAS) analyzers (www.opsis.se) located near a local college as shown in Figure \ref{fig:Kuwait}. 
 %
 \begin{figure}[H]
 \centering
@@ -769,7 +769,7 @@ C(ppb) = \frac{C(\mu g/m^{3})(R) (T)}{(P) (MW)}
 %
 
 \noindent
-where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in the windrose in Fig \ref{fig:windrose} generated using WRPLT from Lakes Environmental (\url{https://weblakes.com/products/wrplot/index.html}).
+where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concentration in $\mu g/m^{3}$, $R$ is the ideal gas constant given as 8.3144 $m^{3}kPa K^{-1}mol^{-1}$, MW is the molecular weight of the gas in $g/mole$ (48.01 $g/mole$ for O$_{3}$), $T$ is the ambient temperature in degrees Kelvin, and $P$ is the atmospheric pressure at ground level in $kPa$. The station receives a prevailing wind from the northwest throughout the year as shown in the windrose in Figure \ref{fig:windrose} generated using WRPLT from Lakes Environmental (\url{https://weblakes.com/products/wrplot/index.html}).
 %
 \begin{figure}[H]
 \centering
@@ -780,7 +780,7 @@ where $C(ppb)$ is the gas concentration in $ppb$, $C(\mu g/m^{3})$ is the concen
 \label{fig:windrose}
 \end{figure}
 %
-Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}. High O$_{3}$ concentrations occur in the summer months from June to August, but come from the northeast, indicating the transport of pollutants from the coast. Not surprisingly, most of the compliance exceedances take place during this period.
+Seasonal effects are shown in bivariate polar plot in Figure \ref{fig:bipolarplots}. High O$_{3}$ concentrations occur in the summer months from June to August, but come from the northeast, indicating the transport of pollutants from the coast. Not surprisingly, most of the compliance exceedances take place during this period.
 %
 \begin{figure}[H]
 \centering
@@ -791,7 +791,7 @@ Seasonal effects are shown in bivariate polar plot in Fig \ref{fig:bipolarplots}
 \label{fig:bipolarplots}
 \end{figure}
 %
-Average hourly O$_{3}$ and NOx concentrations are shown in Fig \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($R^{2}$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($R^{2}$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maximum, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
+Average hourly O$_{3}$ and NOx concentrations are shown in Figure \ref{fig:hourlyAveO3}. The two variables are highly inverse correlated ($R^{2}$ = -0.963) with common maxima/minima at 0300, 0600, 1400, and 2200 hrs. The raw hourly data is less correlated ($R^{2}$ = -.576), but still higher than other variables. The NOx peaks correspond to rush hour traffic periods with winds blowing from the 6th and 7th Ring highways in the southwest. O$_{3}$ levels peak in the afternoon, corresponding with solar radiation levels, but there is also a local maximum, or ``morning bump" due to photolyzed chlorine ions reacting with N$_{2}$O$_{5}$ to form NO$_{3}$ as part of the O$_{3}$ formation cycle in Eq \ref{eq:nitrateformation} \citep{Calvert2015}. The formation of NO$_{3}$ radicals was observed to be inversely related to O$_{3}$ concentrations \citep{Song2011}.
 %
 \begin{figure}[H]
 \centering
@@ -832,7 +832,7 @@ For consecutive gaps $>$ 8, the corresponding hourly measurement from the previo
 X(t) = \frac{X_{t+24} - X_{t-24}}{2}
 \end{equation}
 %
-The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with data generated from the different statistical (imputed data) methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Fig \ref{fig:impute-rmse} along with the intersection of the 2nd method.
+The value of 8 consecutive gaps was determined by comparing the root mean square error (RMSE) of the original data with data generated from the different statistical (imputed data) methods on artificially generated gaps \citep{Junninen2004}. The first method's error varied with gap size, while the second method had a higher, static error. The RMSE for O$_{3}$ and NOx using the first method is shown in Figure \ref{fig:impute-rmse} along with the intersection of the 2nd method.
 %
 \begin{figure}[H]
 \centering
@@ -881,7 +881,7 @@ Output exceedances were classified by the decision tree as either 0 (less than t
 The RNN output was trained to predict the 8 hr moving average of measured 1 hr O$_{3}$. To predict future values, the calculated values were shifted in time based on the desired horizon so that input observations $X(t=0)$ was trained on $Y(t=12)$ if the prediction horizon was 12 hours. Output data was generated from 8 hr moving averaged O$_{3}$ calculated from measured 1 hr O$_{3}$ concentrations at each station. The first seven hours of both the input and output training data set was then discarded. 
 
 \subsection{Tensor Preparation for RNN input data}
-Data sets provided to the RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Fig \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n$ and $p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Fig \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
+Data sets provided to the RNN were converted into 3 dimensional tensors based on the sample size of data. The sample size was based on the number of look-back elements within the RNN, as compared to an observation which represented one row of the original data set, $X$.  The transformation of the original 2 dimensional data set $X$ is illustrated in Figure \ref{fig:tensor-tables} using Python notations. Assuming $X$ is a data set of input data (for training or testing the RNN) with $n$ observations and $p$ variables, the total number of elements is the product of $n$ and $p$, or 20 elements for the 5 x 4 data set in the figure. A tensor ($T$) is created with dimension ($s, l, p$) where s = \# of samples given as $n - l$. The total number of elements within $T$ is $s*l*p$. In the example of Figure \ref{fig:tensor-tables}, the dimensions of $T$ are $s = 5 - 2 = 3$, $l = 2$, and $p = 4$.    
 %
 \begin{figure}[H]
 \centering
@@ -890,6 +890,11 @@ Data sets provided to the RNN were converted into 3 dimensional tensors based on
 \caption{Process of converting data input columns into a Tensor for training the RNN.}
 \label{fig:tensor-tables}
 \end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bigskip
+%---------------------------------------------------------------
+%------------------------End of Chapter----------------------
+
+\begin{center}
+END OF CHAPTER
+\end{center}

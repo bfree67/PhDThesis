@@ -1,7 +1,7 @@
 \chapter{Problem Description}
 The purpose of this research is to advance the state of understanding for key areas in air management programs. Gaps and incomplete knowledge areas identified in the previous chapter show that specific areas should be explored. In addition to identifying knowledge gaps within literature and open access sources, practical understanding of real world needs were identified during the development of an air management program for Kuwait under the UNDP Kuwait Integrated Environmental Management Systems (KIEMS) project \citep{UNDP2012}.  While the motivation to develop these tools were to assist regulatory agencies in developing countries, the procedures developed as a result of this research can be used to augment and reinforce mature air management programs as well.  
 
-The main challenges identified during the KIEMS project can be decomposed into five main tasks that are tangentially related and build off each other. The first task, identification of air quality zone through discrimination of coastal and inland wind patterns led to assignment of zones to improve local management of generators. The second task of establishing classification criteria for the zones allows for long term management of the zones. The third task supports the completion of an emissions inventory by estimating traffic densities as inputs to vehicle emission models. The fourth task provides a method to estimate small common emission sources distributed throughout an area that may be overlooked during emission inventories. The last task, predicting air quality exceedances, allows for short term forecasts of air quality conditions within the zones. 
+The main challenges identified during the KIEMS project and the literature review can be decomposed into five main tasks that are tangentially related and build off each other. The first task, identification of air quality zone through discrimination of coastal and inland wind patterns led to assignment of zones to improve local management of generators. The second task of establishing classification criteria for the zones allows for long term management of the zones.  The third task provides a method to estimate small common emission sources distributed throughout an area that may be overlooked during emission inventories. The fourth task supports the completion of an emissions inventory by estimating traffic densities as inputs to vehicle emission models. The last task, predicting air quality exceedances, allows for short term forecasts of air quality conditions within the zones. 
 
 The relationship of each task to the overall framework of air quality management is shown in Figure \ref{fig:tasks}.
 %
@@ -18,7 +18,27 @@ In the rest of this chapter, research problem statements are defined for each ta
 
 \section{Research Needs}
 
-Air quality management for an area begins with one point. That point is usually a sampling tube mounted at around 10m above the ground and (hopefully) far from busy roads, exhaust vents, and smokestacks. The sample of the ambient air is therefore assumed to be well mixed and represent the prevailing blend of different upwind emissions generators, and not weighted by a nearby source. The sample is split and drawn into sensors that measure the concentration of a specific parameter (or family of parameters) over a measurement averaging period (usually every five minutes). The measurement period is aggregated into larger time weighted averages, such as 1 hr, 3 hrs, 8 hrs, or 24 hrs, for each parameter, depending on local air quality standards. 
+Unlike other media,  air pollution is not easily quantified and changes rapidly based on weather conditions. Water quality and soil conditions can be evaluated visually through discoloration, damaged flora and dead fauna. Soil contamination is often local with limited dispersion and migration. Air pollutants on the other hand may be released thousands of miles away and mix with locally produced emissions, or be transformed into secondary products that bare little resemblance to their initial state. Many of the US EPA defined HAPs are gaseous with no color or smell at harmful levels as shown in Table \ref{tb:odor} \citep{Murnane2013}. In order to determine concentration levels, air quality must be sampled and measured with complex instruments over time.
+
+\begin{table}[H]
+\centering
+\caption[Visual and odor qualities of common air pollutants]{Visual and odor qualities of common air pollutants (Murnane, 2013)}
+\label{tb:odor}
+\begin{tabular}{@{}ccccc@{}}
+\toprule
+\textbf{HAP} & \textbf{CAS} & \textbf{Color} & \textbf{Odor} & \textbf{Odor Threshold (ppm)} \\ \midrule
+SO$_{2}$ & 7446-09-5 & No & Yes & 0.33 - 8 \\
+NO$_{2}$ & 10102-44-0 & Yes & No & N/A \\
+NO & 10102-43-9 & No & No & N/A \\
+CO & 630-08-0 & No & No & N/A \\
+O$_{3}$ & 10028-15-6 & Yes & Yes & 3.1E-4 - 0.25 \\
+H$_{2}$S & 7783-06-4 & No & Yes & 4E-5 - 1.4 \\
+Benzene & 71-43-2 & No & Yes & 0.47 - 313 \\
+NH$_{3}$ & 7664-41-7 & No & Yes & 0.043 - 60.3 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Air quality management for an area begins with one point of measurement. That point is usually a sampling tube mounted at around 10m above the ground and (hopefully) far from busy roads, exhaust vents, and smokestacks. The sample of the ambient air is therefore assumed to be well mixed and represent the prevailing blend of different upwind emissions generators, and not weighted by a nearby source. The sample is split and drawn into sensors that measure the concentration of a specific parameter (or family of parameters) over a measurement averaging period (usually every five minutes). The measurement period is aggregated into larger time weighted averages, such as 1 hr, 3 hrs, 8 hrs, or 24 hrs, for each parameter, depending on local air quality standards. 
 
 If the average measured concentration is below the standard, the air quality is acceptable. If it is above the standard, it is an exceedance. If we accept the reasonable assumption that air quality standards are based on solid toxicological studies and represent an acceptable balance between allowable pollution releases and human health, ambient air quality concentrations become the measure of performance for air quality.
 
@@ -37,33 +57,43 @@ The Kuwait Environment Public Authority (KEPA) is responsible for monitoring env
 \label{fig1:amskuwait}
 \end{figure}
 
-\section{Establishing an air management program}
+\section{Specific tasks required within air management}
+As noted above, air management requires many individual processes that are linked together. This thesis investigates methods to address five specific processes within the overall framework of air management using advanced stochastic modeling and machine learning techniques.
+
 \subsection{Air zone mapping}
 
-In this research, we develop a novel procedure to identify common dispersion areas using the assumption that land-sea breezes (LSBs) provide different circulatory wind patterns than inland wind. As part of the methodology, we only consider dispersion patterns at ground level, and not at different altitudes.
+In this task, we develop a novel procedure to identify common dispersion areas with a designated region or country using the assumption that land-sea breezes (LSBs) provide different circulatory wind patterns than inland wind. As part of the methodology, we only consider dispersion patterns at ground level, and not at different altitudes. By identifying common mixing zones within a larger air shed, regulatory policies can be tailored to address zone-based problems that might not be applicable or required to other zones. This allows resources to be prioritized and reduce unnecessary economic impacts to sources outside of zones that are in non-attainment of air quality standards.
 
 \subsection{Attainment classification}
-Once zones are established, there needs to be a method in place to convert the measured concentration data into management action. Any monitoring station will register high readings that exceed the established standard for the parameter. Assuming the sensor is calibrated and operating properly, the question becomes how many exceedances are allowable before direct action is taken to reduce generator emissions - thereby impacting economic production by cutting operations, expending capital to improve processes, or changing transportation habits by limiting private vehicle operation. These exceedances may be only 3 exceedances per year, as is the case for O$_{3}$ in the USA, or 2.5 million premature deaths, as is the case in India \citep{Landrigan2017}.
 
-In this research, we developed a novel method to evaluate different ways to determine if a zone met its air quality expectations, or presented a health risk based on high exposure. Methods were developed to evaluate an area with only one monitoring station and areas with multiple stations. Only two classifications were evaluated, although any classification approach can use it. The USEPA's Human Health Risk Assessment (HHRA) approach was used, along with assumptions on body weight, inhalation rates, and exposure duration. 
+Once zones are established, methods are required to convert the measured concentration data from air monitoring stations into management action. A single monitoring station might register high readings that exceed the established standard for the parameter. Assuming the sensor is calibrated and operating properly, the question becomes how many exceedances are allowable before direct action is taken to reduce generator emissions - thereby impacting economic production by cutting operations, expending capital to improve processes, or changing transportation habits by limiting private vehicle operation. These exceedances may be only 3 exceedances per year, as is the case for O$_{3}$ in the USA, or 2.5 million premature deaths, as is the case in India \citep{Landrigan2017}.
 
-\subsection{Emission inventories}
-Once management zones are identified and a method of evaluating the overall condition of the zone is established, the next step to managing air quality is to understand where the pollutants come from in order to impact the processes that generate them. This requires an emissions inventory of sources that includes rates of emission for individual analytes, physical parameters of the release point such as height, release temperature, release velocity, and area of release, as well as the geospatial location of the emission source. It also helps to include an industrial code of the source in order to evaluate processes within a sector, and an emission source code to group common emission processes \citep{The2008}.
+In this task, we developed a novel method to evaluate the effectiveness of exceedance determination methods, especially if there are multiple air monitoring stations within the zone. Methods were developed to evaluate an area with only one monitoring station and areas with multiple stations. Only two classifications methodologies were evaluated, although it is general enough to evaluate any classification approach. The USEPA's Human Health Risk Assessment (HHRA) approach was used to develop the procedure, along with assumptions on body weight, inhalation rates, and exposure duration. 
+
+\subsection{Dispersed area sources}
+
+A key requirement in air management is to understand where the pollutants come from in order to impact the processes that generate them. This requires an emissions inventory of sources that includes rates of emission for individual analytes, physical parameters of the release point such as height, release temperature, release velocity, and area of release, as well as the geospatial location of the emission source. It also helps to include an industrial code of the source in order to evaluate processes within a sector, and an emission source code to group common emission processes \citep{The2008}.
 
 Collection of emission rate data is often challenging as the rates are time dependent based seasonal, diurnal, weekly and production schedules. Emissions are also impacted by the quality of feedstock (\% of sulfur or ash in the material). Accurate collection of real-time emissions using continuous emission monitoring systems (CEMS) are limited only to the analytes being measured and to large sources that can afford to install and operate these systems. Other techniques use some form of parametric emission factor equation - whether local factors that include operational data from a process historian capturing fuel rates, operating temperatures, and combustion efficiencies, or published emission factors such as USEPA's AP-42 that use an input feedstock \citep{USEPA1995}. While some of the AP-42 factors are rated as high quality (B or better), they are nonetheless outdated (published in 1995) and incomplete (despite over 12,000 published factors).
 
-\subsection{Distributed area sources}
 While most EFs were developed to characterize stationary sources, many EFs also provide values for area sources. The area sources are assumed to be local and associated with a specific organization. In many non-industrial or commercial scenarios, small sources exist that aggregate to a significant annual amount when taken together.  These sources may be spread throughout the country (or zones), such as smoking or grilling.
 
-In this research, we look at the impact of emission contributions by $nargyla$ water pipes in restaurants and caf\'es. We assume that there are a set number of establishments and only consider non-personal uses.  Monte Carlo Analysis is used to represent ranges of uncertainty and variations within data sets. Emission factors were selected from published literature.
+In this research, we look at small sources by evaluating the impact of emission contributions from $nargyla$ water pipes in restaurants and caf\'es. We assume that there are a set number of establishments and only consider non-personal uses.  Monte Carlo Analysis is used to represent ranges of uncertainty and variations within data sets. Emission factors were selected from published literature.
 
 \subsection{Vehicle density estimation in congested environments}
 
-A key element of estimating total mobile source emission contributions to the emissions inventory is identifying the types and numbers of vehicles using road segments at particular times of the day in order to prepare a reasonable model of activity that can then be used to calculate emissions. Evaluating traffic at an intersection allows for discrete analysis of vehicles in terms of fleet composition, as well as providing another input to mobile emissions in regards to emissions generated during idling and accelerating from rest.
+Mobile sources contribute a significant amount of emissions in most countries but are difficult to quantify due to the large number of variable and parameters required for calculation. Essential parameter for estimating total mobile source emission contributions to the emissions inventory is identifying the types and numbers of vehicles using road segments at particular times of the day in order to prepare a reasonable model of activity that can then be used to calculate emissions. Evaluating traffic at an intersection allows for discrete analysis of vehicles in terms of fleet composition, as well as providing emissions generated during idling and accelerating from rest.
 
-Using a commercial drone and DEM generating software, 3D models will be generated of traffic at signalled intersections. The IVG and vehicle type will be extracted from the model in order to build a stochastic model for fleet composition and vehicle density. 
+Using a commercial drone and DEM generating software, 3D models were generated of traffic at signalled intersections. The vehicle type was identified to build a fleet composition model and inter-vehicle stacking gaps were measured to create a model that could estimate the number and types of vehicles on a discrete road segment. These values can be used as inputs to more complex mobile emission models.
 
-\section{Forecasting air quality conditions}
+\subsection{Forecasting air quality conditions}
 
-Predicting air pollution concentrations is important to reduce exposure from at risk populations and also to prevent over exceedances by limiting emission generating activities. In this research machine learning techniques were used to prepare raw air monitoring data by replacing missing and outlier data points and identifying features for training. A deep learning model was used for time series prediction at one monitoring station for 8 hour averaged O$_{3}$ only.  Data from 3 years was used with 70\% reserved for training, 15\% used for validating parameters within the deep learning model, and the remainder used to test the trained model.
+Predicting air pollution concentrations is important to reduce exposure by at risk populations and prevent over exceedances by limiting emission generating activities. In this research machine learning techniques were used to prepare raw air monitoring data by replacing missing and outlier data points and identifying features for training. A deep learning model was used to predict concentrations out to 72 hours at one monitoring station for 8 hour averaged O$_{3}$ using only the data collected at the site.  
 
+\bigskip
+%---------------------------------------------------------------
+%------------------------End of Chapter----------------------
+
+\begin{center}
+END OF CHAPTER
+\end{center}

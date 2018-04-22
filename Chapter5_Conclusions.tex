@@ -1,16 +1,17 @@
 \chapter{Conclusions and Recommendations}
+This chapter provides a summary of the research findings, limitations  and recommendations for future work.
 
 \section{Summary}
 
-This research is one of the first studies that ...The major novel academic contributions of this thesis are as follows:
+The research presented in the previous chapters addressed several key areas required to effectively develop and maintain a comprehensive air management program. The major novel academic contributions of this thesis are as follows:
 
 \begin{itemize}
-\item 
-\item 
+\item {Using synthetic sources and CALPUFF air disperion modelling to determine common air mixing in order to identify manageable air quality zones.}
+\item {Development of a stochastic model to compare exceedance criteria for zones with multiple air monitoring stations using a risk-based approach}
+\item{Development of a stochastic model to quantify small and dispersed area sources for inclusion into national emissions inventories.}
+\item{Use of a UAS to capture traffic imagery at signalled intersections and convert into 3D models to evaluate stacking patterns and fleet composition as inputs into mobile emission models}.
+\item{Use of deep learning to predict near-term time series air pollution concentrations using only locally collected historical data to train and test a recurrent neural network with long short term memory.}
 \end{itemize}
-
-This thesis tackled these contributions throughout its different sections. This chapter provides a summary of the research findings and recommendations for future work.
-
 
 \subsection{Identifying air quality zones in coastal areas}
 
@@ -24,7 +25,7 @@ The selection of individual zones was finally validated by comparing satellite d
 
 \subsection{Exposure Risk from Zone Classification}
 
-This study presents a new approach for evaluating air quality zone classification methods by breaking the distribution of historical pollution concentration into compliance and exceedance concentration PDFs. This approach allows the distribution of historical data from an air monitoring station to create ambient air quality profiles to test different compliance scenarios. Two different cases were used to test the methods – a single station case where the data of only one station was used, and a multiple station case where two or more stations’ data are used. In the multiple station case example, three stations were used. Statistical methods were defined to determine normality of the distributions used for the CDI, and whether the different methods had statistically similar variances and means.
+This study presented a new approach for evaluating air quality zone classification methods by breaking the distribution of historical pollution concentration into compliance and exceedance concentration PDFs. This approach allows the distribution of historical data from an air monitoring station to create ambient air quality profiles to test different compliance scenarios. Two different cases were used to test the methods – a single station case where the data of only one station was used, and a multiple station case where two or more stations’ data are used. In the multiple station case example, three stations were used. Statistical methods were defined to determine normality of the distributions used for the CDI, and whether the different methods had statistically similar variances and means.
 
 A Null hypothesis was proposed that stated the variance and means of both methods were not significantly different and could therefore be used based on non-statistically based preferences. Rejecting the Null showed that the methods did indeed have enough statistically significant differences that to choose one method over another would result in higher local exposure over the duration period. 
 
@@ -33,7 +34,7 @@ Using a Monte Carlos Analysis, it was shown that the two methods do indeed have 
 Choosing to use one classification method over the other may involve other non-health related factors besides comparing CDI of chemicals. Other factors may include availability of air monitoring data, economic impacts of declaring a zone non-compliant and the ability of the local air management authority to enforce an improvement program. Other reasons may be that the zone is sparsely populated such as a hydrocarbon production field or an inland desert that may not need the same level of exposure protection. Also areas experiencing rapid growth would constantly be in non-compliance under a strict 3-strike method based classification whereas a 99\% Rule method would average some of the emission increases over time and look at the overall trend. Recommendations for using both methods are shown in Table \ref{tb18:recommmends}.
 
 % 
-\begin{table}[!htb]
+\begin{table}[H]
 \centering
 \caption{Recommended uses for classification methods.}
 \label{tb18:recommmends}
@@ -62,11 +63,10 @@ A more realistic assumption is that the 1996 baseline did not capture all the em
 While the main purpose of this study was to show how limited data can still be used to generate macro-scale results for purposed of national inventories, the study was nonetheless limited to the accuracies of the emission factors employed.  The published values may not have been accurate representations of the materials used, either over estimating or underestimating the emission rates. Our final figures, therefore, can only represent a range of possible solutions, rather than a definitive answer.  What the results of the study provide is an order of magnitude to compare other results and a basis to prepare more accurate studies.
 
 \subsection{Estimating traffic density}
-Traffic density characterization is a fundamental input to mobile source emission inventory estimation. Establishing fleet composition is usually completed by traffic counts and can be done relatively easily using stationary cameras or human observers. Capturing vehicle spacing is more complex when using a stationary camera without surface references. Our method, using a UAS and photogammetry software to create a 3D model of a signaled interchange, allowed easy fleet composition evaluation as well as measuring IVG. By evaluating different intersections during different high volume traffic periods, we were able to establish that both fleet composition and IVG distributions did not vary significantly and could be pooled to form a larger sample set. The IVG datasets required logarithmic transformation to achieve normality and meet statistical testing requirements (p$<$.05).
 
-These initial results show that traffic density at intersections, and by assumption, congested traffic moving at 5 kph or less. Using the spacing model developed for congested traffic, spacing was linearly increased for different speeds in order to create spacing distributions for an MCA model. The model randomly determined individual vehicles based on the fleet composition and spacing based on the design speed and spacing model. The model then aggregated the filled individual vehicle slots for a 1 km road segment. 
+Traffic density characterization is a fundamental input to mobile source emission inventory estimation and traffic planning. Establishing fleet composition is usually completed by traffic counts and can be done relatively easily using stationary cameras or human observers. Capturing vehicle spacing is more complex when using a stationary camera without surface references. Our method, using a UAS and photogammetry software to create a 3D model of a signaled interchange, allowed easy fleet composition evaluation as well as measuring $\delta_{s}$. By evaluating different intersections during different high volume traffic periods, we were able to establish that both fleet composition and $\delta_{s}$ distributions did not vary significantly and could be pooled to form a larger sample set. The $\delta_{s}$ datasets required logarithmic transformation to achieve normality and meet statistical testing requirements (p$<$0.05). This research is one of the first papers that addresses the expected stacking gaps between vehicle at SIs.
 
-While creating a 3D model of stopped vehicles is easy to do with a UAS, making a 3D model of vehicles travelling in excess of 5 kph requires static ground references. For stationary traffic, the UAS can fly multiple paths in order to capture pictures of the same scene from different angles required to create the point cloud. With moving traffic, the UAS becomes a static camera for instantaneous shots from the same angle that can be compared, similar to traditional traffic cameras, but with more flexibility with regards to location and altitude.
+Our initial results show that traffic density at intersections, and by assumption, congested traffic moving at 5 km/h or less, stacks using a log-normal distribution with a mean of 2.2 m and a variance of 1 m. The $\delta_{s}$ did not depend on vehicle type, although significant differences were notice for cars in the first lane and SUVs in the third lane. Large buses and HGVs had the shortest $\delta_{s}$, possibly due to driver positions near the vehicle's front bumper. 
 
 \subsection{Forecasting environmental time series using deep learning}
 This is one of the first research that employs advanced Deep Learning techniques in the prediction of air quality time series events. This new methodology produced very good results using our validation data set. A recurrent neural network with LSTM was trained on time series air pollutant and weather data from an air monitoring station in Kuwait to predict 8 hour average O$_{3}$ over different prediction horizons. Missing data and censored data were replaced using a first-order imputation technique that accounted for sequential influence of previous readings for small gaps ($<$ 8) and seasonal effects for larger gaps. 
@@ -81,49 +81,63 @@ Reducing features and optimizing parameters assisted with lowering error of both
 
 The underlying errors within the model implementation may not be resolved or even quantified. However, they are still useful tools for rapid prototyping and architecture validation. Using the data sets of the sources listed in Table \ref{tb:compare} with our RNN would be a more direct way to prove which method works better.
 
-\section{Recommendations}
+\section{Limitations and Recommendations}
 
-Any research will produce a list of recommended actions of what else could be done given unlimited time and resources. In this research, each task provided it's own set of possible directions.
+The following observations are presented within each task that identify key limitations within the presented research and recommendations for follow-on studies.
+
+\noindent
+\subsection*{Identifying air zones}
+
+\noindent
+\textbf{Observation:}\\
+The two areas investigated, Kuwait and Qatar, share common topography, land use features and climate. Other coastal communities with more diverse topography and climates may have different dispersion profiles and be subject to different LSB effects. The methodology  presented in this task should be applied to other coastal areas at different latitudes and topography.\\
+\noindent\\
+\textbf{Observation:}\\
+Only SO$_{2}$ was used as a dispersant gas in the virtual sources. Other pollutant such as CO and NO$_{2}$ were not evaluated. Different emission gases should be used in modelling and compared to the dispersion of SO$_{2}$. Substituting different pollutants may be more appropriate for an area that has different source types.\\
+\noindent\\
+\textbf{Observation:}\\
+Modelling outputs from WRF and MM5 prognostic meteorological data were compared, but the prognostic results were never compared to actual observations. Calibration of them models may be necessary to bring the results in line with surface observations available from local weather stations. No study was available that compares prognostic weather data to actuals. This study would be applicable to researchers and consultants using dispersion models in Kuwait.
+
+\subsection*{Exposure risk from zone classification}
+\noindent
+\textbf{Observation:}\\
+A composite subpopulation group was used to evaluate adult body weights instead of assessing individual group separately. These groups can be further broken down into gender, age and work type. Some jobs require more time outside or long commutes from the place of residence to the place of work. Specific subgroups should be evaluated to determine their susceptibility to exposure risk.\\
+
+\subsection*{Estimating annual emissions from distributed area sources}
+\noindent
+\textbf{Observation:}\\
+A limited number of facilities were considered for evaluation. An exhaustive audit was not conducted, nor were personal sources considered. A more thorough audit of facilities should be conducted as well as surveys of managers to get individual consumption rates of charcoal and tobacco. \\
+\noindent\\
+\textbf{Observation:}\\
+Emission factors from literature were used to estimate emissions. The accuracy of these factors is always questionable and errors can be assumed. Actual measurements of emissions from different charcoal and $sheesha$ tobacco should be conducted to better characterize the factors used.\\
+
+\subsection*{Estimating traffic density}
+\noindent
+\textbf{Observation:}\\
+Flights and data collection were taken only at two different locations at two different times. More data should be collected from different locations, different times of day,  different days of the week, and different weeks of the year in order to account for possible seasonal effects. \\
+\noindent\\
+\textbf{Observation:}\\
+Measurements were only taken at 3 lane signalled intersections. Other traffic control features were not measured, such as 1 and 2 lane signalled intersections, traffic circles, merge lanes, entrance and exit ramps, and 4-way intersections.  Stacking distances and fleet compositions should be evaluated at these features, especially it some features are common, such as 1 lane signalled intersections.
 \\
 
+\subsection*{Forecasting environmental time series using deep learning}
 \noindent
-\textbf{Identifying air zones}
-\begin{enumerate}
+\textbf{Observation:}\\
+A deep learning system was trained on the data from one AMS only. Most stations are part of a network that can provide additional predictive support due to weather patterns and nearest neighbour influence. Evaluation of results using features from different AMS's should be compared to the results of a single AMS.\\
+\noindent\\
+\textbf{Observation:}\\
+Only 8 hr ave O$_{3}$ was used for training and evaluation. Other measured pollutants were not evaluated. Primary pollutants such as CO or SO$_{2}$  may different patterns as they are not as influenced by photochemical activity as O$_{3}$ is.\\
+\noindent\\
+\textbf{Observation:}\\
+The deep learning network was trained on 1 hr intervals. Some pollutants such as PM$_{10}$ and PM$_{2.5}$ are measured on 24 hr scales. Different input intervals should be trained and tested.
 
-\item Additional research is recommended to confirm the application of the air zone mapping method to other areas.  Kuwait has relatively homogeneous topography, a very hot climate and is located by a shallow body of water.  This method may directly lend itself to other countries in the Gulf region, as shown with sites in Qatar, but should be studied further to evaluate its ability to predict coastal effect mixing for regions with more rugged terrain and more temperate weather.
+\bigskip
+%---------------------------------------------------------------
+%------------------------End of Chapter----------------------
 
-\item Compare existing weather data to prognostic data results in order to calibrate the CALMET model.
+\begin{center}
+END OF CHAPTER
+\end{center}
 
-\item Use AERMOD or another dispersion model, instead of CALPUFF, to evaluate the synthetic sources used generate the S-K curves for inland/coastal zone determination.
-\end{enumerate}
-
-\noindent
-\textbf{Exposure risk from zone classification}
-\begin{enumerate}
-\item Consider risks using different time periods.
-\end{enumerate}
-
-\noindent
-\textbf{Estimating annual emissions from distributed area sources}
-\begin{enumerate}
-\item Contribution to total emissions from distributed sources, such as $nargyla$ should be evaluated using a more comprehensive survey of facilities and evaluation of the mass consumption factor, lambda, under different conditions. 
-\end{enumerate}
-
-\noindent
-\textbf{Estimating traffic density}
-\begin{enumerate}
-\item Traffic density measurements should be taken in different cities to compare fleet composition and IVG models. 
-
-\item Traffic density measurements for moving traffic should be prepared and evaluated against different scaling techniques from stationary/congested traffic speeds.
-\end{enumerate}
-
-\noindent
-\textbf{Forecasting environmental time series using deep learning}
-\begin{enumerate}
-\item Further investigations should target multiple station influences on local concentration prediction.
-
-\item Evaluate RNNs to identify and impute missing, censored and outlying data. 
-
-\end{enumerate}
 
 

@@ -125,8 +125,6 @@ To confirm the procedure, random points were modeled in the nearby State of Qata
 
 The methodology properly classified each location as inland and coastal.  The $S-K$ points are shown in Figure \ref{fig:SKplotQatar} along with a trend line using the parameters from Figure \ref{fig:SKplotKuwait}.
 
- 
-Fig 9. $S-K$ plot of virtual sources in Qatar.
 %
 \begin{figure}[H]
 \includegraphics[width=\linewidth,keepaspectratio]{images/aqz9.png} 
@@ -137,7 +135,6 @@ Fig 9. $S-K$ plot of virtual sources in Qatar.
 
 Figure \ref{fig:flowchart} shows a flowchart which summarizes the process to develop this coastal/inland determination.  The process requires at least 3 trial years to allow a majority winner-take-all classification if one year returns a misclassification.
 
-Fig 10. Coastal/Inland Determination Process Flow Chart.
 %
 \begin{figure}[H]
 \includegraphics[width=\linewidth,keepaspectratio]{images/aqz10.png} 
@@ -316,10 +313,10 @@ Risk scores are shown in Table \ref{tb:expriskscores} and Figure 17.  High and m
 \begin{tabular}{@{}cc@{}}
 \toprule
 \textbf{Score} & \textbf{Risk} \\ \midrule
-1.5            & High          \\
-1              & Medium - High \\
-0.5            & Medium        \\
-0              & Low           \\ \bottomrule
+1.5 & High          \\
+1   & Medium - High \\
+0.5  & Medium        \\
+0  & Low           \\ \bottomrule
 \end{tabular}
 \end{table}
 
@@ -799,7 +796,7 @@ Data was collected at the west-bound intersection on the 7th Ring and 40 Highway
 \label{fig:flights}
 \end{figure}
 
-Data collection began after traffic had stacked, usually 20-30 seconds into the red light period, and lasted for about 45 seconds. The UAS flew on the inside shoulder to prevent direct overflight of vehicles. Data collection consisted of two passes - the first pass collected images perpendicular to traffic, and the 2nd collected images at a 45 degree offset to the traffic to provide necessary angles for late processing as shown in Fig \ref{fig:mission}.
+Data collection began after traffic had stacked, usually 20-30 seconds into the red light period, and lasted for about 45 seconds. The UAS flew on the inside shoulder to prevent direct overflight of vehicles. Data collection consisted of two passes - the first pass collected images perpendicular to traffic, and the 2nd collected images at a 45 degree offset to the traffic to provide necessary angles for late processing as shown in Figure \ref{fig:mission}.
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,keepaspectratio]{images/mission.png} 
@@ -807,7 +804,7 @@ Data collection began after traffic had stacked, usually 20-30 seconds into the 
 \label{fig:mission}
 \end{figure}
 
-The flights were processed using the Pix4Dmapper Pro software with a summary of  each mission shown in Table \ref{tb:flightdata}. A total of two flights were processed on 20 Dec mission and three flights on the 4 Jan mission. All flights were flown at 40m AGL.
+The flights were processed using the Pix4Dmapper Pro software with a summary of  each mission shown in Table \ref{tb:flightdata}. A total of two flights were processed on 20 Dec mission and three flights on the 4 Jan mission. All flights were flown at 40 m AGL.
 
 \begin{table}[H]
 \centering
@@ -1001,7 +998,7 @@ along with an MCA using 5,000 iterations. The resulting fitted distribution is l
 \label{fig:ivgloggroup}
 \end{figure}
 
-The fitted lognormal distribution provides a good fit as shown in the Q-Q plot in Figure \ref{fig:qlognormal}, especially with  $\delta_{s}$ values less than 5m (representing approximately 97.5\% of the possible results). Additionally, the MAE between the MCA generated data and calculated  results is 0.0126m, compared to the 0.041m MAE measurement error. The composite error is $\pm 0.054$m.
+The fitted lognormal distribution provides a good fit as shown in the Q-Q plot in Figure \ref{fig:qlognormal}, especially with  $\delta_{s}$ values less than 5 m (representing approximately 97.5\% of the possible results). Additionally, the MAE between the MCA generated data and calculated  results is 0.0126 m, compared to the 0.041 m MAE measurement error. The composite error is $\pm 0.054$m.
 
 \begin{figure}[H]
 %\includegraphics[width=\linewidth,keepaspectratio]{images/qlognormal.png} 
@@ -1070,22 +1067,22 @@ Figure \ref{fig6:estimatedobs} shows the results of all vehicles traveling at an
 \end{figure}
 %
 
-Graphing the statistical mean for the total number of vehicles over different average speed yields a linear form as shown in Fig \ref{fig9:estimateavemix}.  Fitting the curve with a trend line provides very high correlation ($R^{2} = .995$) that can approximate the expected value at each speed.  Similar curves (mean of each speed) for each vehicle class were prepared and summarized in Table \ref{tb4:expectedvehicles}.  A curve for medium buses was not included because the expected value at each speed is 1 per km.
+Graphing the statistical mean for the total number of vehicles over different average speed yields a linear form as shown in Figure \ref{fig9:estimateavemix}.  Fitting the curve with a trend line provides very high correlation ($R^{2} = .995$) that can approximate the expected value at each speed.  Similar curves (mean of each speed) for each vehicle class were prepared and summarized in Table \ref{tb4:expectedvehicles}.  A curve for medium buses was not included because the expected value at each speed is 1 per km.
 
 %
 \begin{figure}[H]
 %\includegraphics[width=\textwidth,keepaspectratio]{images/vdense9.png} 
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense6.png}
-\caption{Total estimated vehicles on 1,000 m segment at average speed (km/h).}
+\caption[Total estimated vehicles on 1,000 m segment at average speed]{Total estimated vehicles on 1,000 m segment at average speed (km/h).}
 \label{fig9:estimateavemix}
 \end{figure}
 % 
 
-Table \ref{tb4:expectedvehicles} summarizes the expected number for vehicles by class in a 1,000m segment based on speed, $s$, in km/h.
+Table \ref{tb4:expectedvehicles} summarizes the expected number for vehicles by class in a 1,000 m segment based on speed, $s$, in km/h.
 %
 \begin{table}[H]
 \centering
-\caption{ Expected numbers of vehicles in 1,000m based on average speed (km/h).}
+\caption[Expected numbers of vehicles in 1,000 m based on average speed]{Expected numbers of vehicles in 1,000 m based on average speed (km/h).}
 \label{tb4:expectedvehicles}
 \begin{tabular}{@{}cc@{}}
 \toprule
@@ -1109,7 +1106,7 @@ The results in Table \ref{tb4:expectedvehicles} are representative only of that 
 \subsection{Final parameter selection}
 The model was trained on 80\% of the processed data and tested against 20\% of the total available data. Because of the Tensor formation for input, the actual number of samples provided for training and testing was based on the look ahead horizon and number of recurrent (look-back) units of the individual run. The farther out the prediction, the fewer samples were available because of the time shifting required. The total amount of samples available for training and testing could be calculated as total samples = $(16,035 - h)$ where $h$ is the prediction horizon (as an integer value $>$ 1). 
 
-The number of training epochs was limited after reviewing training error values up to 20 epochs for look-ahead horizons of 24 hrs, 36 hrs, and 48 hrs as seen in Fig \ref{fig:horizon-loss}. An optimum number of 10 epochs was used for later model runs as it minimizes the training error without overfitting which begins to take place after 12 epochs, especially in Fig \ref{fig:horizon-loss}a. 
+The number of training epochs was limited after reviewing training error values up to 20 epochs for look-ahead horizons of 24 hrs, 36 hrs, and 48 hrs as seen in Figure \ref{fig:horizon-loss}. An optimum number of 10 epochs was used for later model runs as it minimizes the training error without overfitting which begins to take place after 12 epochs, especially in Figure \ref{fig:horizon-loss}a. 
 %
 \begin{figure}[H]
 \centering
@@ -1160,7 +1157,7 @@ The MAE for this scenario is 0.41 ppb during training and 0.37 ppb during testin
 \end{figure}
 %
 
-The results of the decision tree analysis in Fig \ref{fig:importance} showed that many features could be removed without impacting network performance. Features were removed based on the order of least importance in groups of 5 until the most prominent feature remained. The results in Fig \ref{fig:features} show that overall training error improves with fewer inputs. By removing input features, the system complexity is also reduced, allowing the network to train easier. While providing better training results, reducing feature inputs also makes it easier to overfit on the training data.
+The results of the decision tree analysis in Figure \ref{fig:importance} showed that many features could be removed without impacting network performance. Features were removed based on the order of least importance in groups of 5 until the most prominent feature remained. The results in Figure \ref{fig:features} show that overall training error improves with fewer inputs. By removing input features, the system complexity is also reduced, allowing the network to train easier. While providing better training results, reducing feature inputs also makes it easier to overfit on the training data.
 %
 \begin{figure}[H]
 \centering
@@ -1170,7 +1167,7 @@ The results of the decision tree analysis in Fig \ref{fig:importance} showed tha
 \label{fig:features}
 \end{figure}
 %
-Based on the training error curves in Fig \ref{fig:features}, the 5 feature data set was used for evaluation because it provided stable errors over the prediction horizons of interest. The features used were (in order of importance) 8 hr ave O$_{3}$ in $ppb$, 1 hr O$_{3}$ in $ppb$, SR, the cosine of WD, and $CH_{4}$.
+Based on the training error curves in Figure \ref{fig:features}, the 5 feature data set was used for evaluation because it provided stable errors over the prediction horizons of interest. The features used were (in order of importance) 8 hr ave O$_{3}$ in $ppb$, 1 hr O$_{3}$ in $ppb$, SR, the cosine of WD, and $CH_{4}$.
 
 Parameter sensitivity analysis was performed on a model with default values shown in Table \ref{tb:default-parameter}.
 %
@@ -1190,7 +1187,7 @@ Dropout factor & 0.2 \\ \bottomrule
 \end{tabular}
 \end{table}
 %
-All other parameters were held constant as an individual parameter was varied. The prediction horizon value of 24 hrs was held constant throughout all runs shown in  Fig \ref{fig:parameters}. In all cases, the error measurements, MAE and RMSE showed similar forms, despite the RMSE having a consistently higher value, as expected. The prediction horizon of the model using the 5 feature data set is shown in Figure \ref{fig:predictionhrs}.
+All other parameters were held constant as an individual parameter was varied. The prediction horizon value of 24 hrs was held constant throughout all runs shown in  Figure \ref{fig:parameters}. In all cases, the error measurements, MAE and RMSE showed similar forms, despite the RMSE having a consistently higher value, as expected. The prediction horizon of the model using the 5 feature data set is shown in Figure \ref{fig:predictionhrs}.
 
 %
 \begin{figure}[H]
@@ -1203,13 +1200,13 @@ All other parameters were held constant as an individual parameter was varied. T
 %
 As the prediction extends further into the future ($>$ 80 hrs), the training error climbs rapidly, while the test error appears to level off. The model began to overfit by this point and predictions past that range were considered to be unreliable.
 
-The results in  Fig \ref{fig:parameters}a show training error for different prediction horizons over several parameters. The parameter that influences the model performance the most is the number of look-back nodes in relation to the prediction horizon. A horizon value of + 2 provides the lowest errors, while adding additional nodes increases the model complexity and makes training more challenging. 
+The results in  Figure \ref{fig:parameters}a show training error for different prediction horizons over several parameters. The parameter that influences the model performance the most is the number of look-back nodes in relation to the prediction horizon. A horizon value of + 2 provides the lowest errors, while adding additional nodes increases the model complexity and makes training more challenging. 
 
-Samples/batches in Fig \ref{fig:parameters}b show relatively little error variance until many samples are included ($>$75 samples/batch). While more samples per batch are preferred to reduce training time, too many create bias in the loss function as the overall average of each sample reduces chances for updates.
+Samples/batches in Figure \ref{fig:parameters}b show relatively little error variance until many samples are included ($>$75 samples/batch). While more samples per batch are preferred to reduce training time, too many create bias in the loss function as the overall average of each sample reduces chances for updates.
 
-The number of recurrent, or look back nodes, in relation to the prediction horizon was considered in  Fig \ref{fig:parameters}b. Both training and test results are minimized at 26, the horizon value + 2. This was consistent with other horizon prediction values such as 36 and 48. As more look back nodes are added, the error increases.
+The number of recurrent, or look back nodes, in relation to the prediction horizon was considered in  Figure \ref{fig:parameters}b. Both training and test results are minimized at 26, the horizon value + 2. This was consistent with other horizon prediction values such as 36 and 48. As more look back nodes are added, the error increases.
 
-Finally, the use of dropout is recommended to improve generalization of the model and reduce overfitting \citep{Gal2016}. For this model, dropout was applied only between the output of the LSTM layer and the FF output layer. The error shows reasonably good optimization at around 0.2. The errors level out at higher rates at around 0.35. The default values were the optimum parameters based on the results shown in Fig \ref{fig:parameters}.
+Finally, the use of dropout is recommended to improve generalization of the model and reduce overfitting \citep{Gal2016}. For this model, dropout was applied only between the output of the LSTM layer and the FF output layer. The error shows reasonably good optimization at around 0.2. The errors level out at higher rates at around 0.35. The default values were the optimum parameters based on the results shown in Figure \ref{fig:parameters}.
 %
 \begin{figure}[H]
 \centering
@@ -1259,6 +1256,9 @@ In order to evaluate how the RNN model compared to other forecasting models usin
 
 The continuous nature of the RNN and ARIMA predicted curves are in contrast to the FFNN predicted results due to the lack of memory inherent within the FFNN algorithm. While not able to predict as the time series as well as the RNN, the ARIMA model allows the previous result to influence the next time step. The FFNN model requires all necessary information to be provided within the input sample and network weights, allowing for better prediction results than the ARIMA, but a non-continuous form. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%% END OF SECTION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---------------------------------------------------------------
+%------------------------End of Chapter----------------------
+\bigskip
+\begin{center}
+END OF CHAPTER
+\end{center}
