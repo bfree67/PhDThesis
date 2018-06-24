@@ -788,9 +788,11 @@ N$_{2}$O & 0.09 & 0.44 & 20.2\% \\ \bottomrule
 \clearpage
 \section{Traffic density estimations}
 
-Data was collected at the westbound intersection on the 7th Ring and 40 Highway known for heavy congestion during the periods of 0700 and 0800 on Wednesday, 20 December 2017 and the south-bound intersection of the 55 Airport Road and 4th Ring on Thursday, 4 January 2018 between 1300 and 1400 hrs as shown in \ref{fig:flights}. 
+Data was collected at the westbound intersection on the 7th Ring and 40 Highway near Fintas, Kuwait known for heavy congestion during the periods of 07:00 and 08:00 on Wednesday, 20 December 2017 and the south-bound intersection of the 55 Airport Road and 4th Ring in Khaitan, Kuwait on Thursday, 4 January 2018 between 13:00 and 14:00 hrs as shown in \ref{fig:flights}. 
+
 
 \begin{figure}[H]
+\centering
 \includegraphics[width=\linewidth,keepaspectratio]{images/flights.png} 
 \caption[Flight locations]{Flight locations in north and south Kuwait.}
 \label{fig:flights}
@@ -799,73 +801,92 @@ Data was collected at the westbound intersection on the 7th Ring and 40 Highway 
 Data collection began after traffic had stacked, usually 20-30 seconds into the red light period, and lasted for about 45 seconds. The UAS flew on the inside shoulder to prevent direct overflight of vehicles. Data collection consisted of two passes - the first pass collected images perpendicular to traffic, and the 2nd collected images at a 45 degree offset to the traffic to provide necessary angles for late processing as shown in Figure \ref{fig:mission}.
 
 \begin{figure}[H]
+\centering
 \includegraphics[width=\linewidth,keepaspectratio]{images/mission.png} 
 \caption{Mission profile for data collection.}
 \label{fig:mission}
 \end{figure}
 
-The flights were processed using the Pix4Dmapper Pro software with a summary of each mission shown in Table \ref{tb:flightdata}. A total of two flights were processed on 20 Dec mission and three flights on the 4 Jan mission. All flights were flown at 40 m AGL.
+The flights were processed using the Pix4Dmapper Pro software with a summary of each mission shown in Table \ref{tb:flightdata}. A total of two flights were processed on 20 Dec mission and three flights on the 4 Jan mission. All missions flew at 40 m AGL.
 
 \begin{table}[H]
 \centering
 \caption{Summary of data collection flights and processed imagery}
 \label{tb:flightdata}
-\begin{tabular}{@{}cccc@{}}
+\begin{tabular}{@{}ccccc@{}}
 \toprule
-\textbf{Flight} & \textbf{Flight start} & \textbf{\# of pictures} & \textbf{\# of cloud points} \\ \midrule
-20Dec17-1 & 0704 & 39 & 3,819,568 \\
-20Dec17-2 & 0725 & 68 & 6,610,918 \\
-4Jan18-1 & 1317 & 40 & 3,037,660 \\
-4Jan18-2 & 1329 & 38 & 3,313,626 \\
-4Jan18-3 & 1345 & 50 & 3,840,476 \\ \bottomrule
+\textbf{ID} & \textbf{Flight Num} &\textbf{Flight start time} & \textbf{\# of pictures} & \textbf{\# of cloud points} \\ \midrule
+Flight 1 & 20Dec17-1 & 07:04 & 39 & 3,819,568 \\
+Flight 2 &20Dec17-2 & 07:25 & 68 & 6,610,918 \\
+Flight 3 &4Jan18-1 & 13:17 & 40 & 3,037,660 \\
+Flight 4 &4Jan18-2 & 13:29 & 38 & 3,313,626 \\
+Flight 5 &4Jan18-3 & 13:45 & 50 & 3,840,476 \\ \bottomrule
 \end{tabular}
 \end{table}
 
 
 \subsection{Classifying vehicles types from UAS data}
-Vehicles such as pick-ups, mini-vans, and vans were classified as SUVs while diesel fueled lorries and HGVs were classified as large buses and gasoline lorries as medium buses. HGVs included all vehicles with a tractor cab and attached trailer. The different vehicles observed on each flight is shown in Table \ref{tab:fleetcount}.
+Vehicles were classified into 1 of 4 categories. Sedans and passenger cars were classified as Cars (Group 1). SUVs,  pick-ups, mini-vans, and vans were classified as SUVs (Group 2). Gasoline fueled lorries and buses were classified as medium buses (Group 3). Diesel fueled lorries and HGVs were classified as large buses (Group 4). HGVs included all vehicles with a tractor cab and attached trailer. The different vehicles observed on each flight is shown in Table \ref{tab:fleetcount}.
 
-\begin{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
 \begin{table}[H]
 \centering
 \caption{Fleet composition from each flight.}
 \label{tab:fleetcount}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}cccccccccc@{}}
+\begin{tabular}{@{}rccccccc@{}}
 \toprule
-\multicolumn{4}{c}{\textbf{20 Dec 2017 counts}} & \textbf{} & \multicolumn{5}{c}{\textbf{4 Jan 2018 counts}} \\ 
-Flight & 20Dec17-1 & 20Dec17-2 & Total &  & Flight & 4Jan18-1 & 4Jan18-2 & 4Jan18-3 & Total \\ \midrule
-Car & 45 & 75 & 120 &  & Car & 60 & 56 & 49 & 165 \\
-SUV & 55 & 93 & 148 &  & SUV & 40 & 61 & 59 & 160 \\
-Bus, Med & 2 & 1 & 3 &  & Bus, med & 0 & 0 & 2 & 2 \\
-Bus, Large & 9 & 5 & 14 &  & Bus, Large & 5 & 5 & 6 & 16 \\
- & 111 & 174 & 285 &  & Subtotal & 105 & 122 & 116 & 343 \\ \midrule
-\multicolumn{4}{c}{\textbf{20 Dec 2017 percentages}} & \textbf{} & \multicolumn{5}{c}{\textbf{4 Jan 2018 percentages}} \\
-Flight & 20Dec17-1 & 20Dec17-2 & Total &  & Flight & 4Jan18-1 & 4Jan18-2 & 4Jan18-3 & Total \\ \midrule
-Car & 40.5\% & 43.1\% & 42.1\% &  & Car & 57.1\% & 45.9\% & 42.2\% & 48.1\% \\
-SUV & 49.5\% & 53.4\% & 51.9\% &  & SUV & 38.1\% & 50.0\% & 50.9\% & 46.6\% \\
-Bus, Med & 1.8\% & 0.6\% & 1.1\% &  & Bus, med & 0.0\% & 0.0\% & 1.7\% & 0.6\% \\
-Bus, Large & 8.1\% & 2.9\% & 4.9\% &  & Bus, Large & 4.8\% & 4.1\% & 5.2\% & 4.7\% \\ \bottomrule
+ & \multicolumn{3}{c}{\textbf{20 Dec 2017 flights}} & \multicolumn{4}{c}{\textbf{4 Jan 2017 flights}} \\ 
+\textbf{Vehicle Class} & \textbf{Flight 1} & \textbf{Flight 2} & \textbf{SubTotal} & \textbf{Flight 3} & \textbf{Flight 4} & \textbf{Flight 5} & \textbf{SubTotal} \\ \midrule
+Car (1) & 44 & 77 & 121 & 57 & 54 & 49 & 160 \\
+SUV (2) & 53 & 89 & 142 & 40 & 60 & 56 & 156 \\
+Bus, Med (3) & 9 & 2 & 11 & 4 & 4 & 5 & 13 \\
+Bus, Large (4) & 2 & 3 & 5 & 1 & 1 & 3 & 5 \\
+Subtotal & 108 & 171 & 279 & 102 & 119 & 113 & 334 \\ \midrule
+Car (1) & 40.7\% & 45.0\% & 43.4\% & 55.9\% & 45.4\% & 43.4\% & 47.9\% \\
+SUV (2) & 49.1\% & 52.0\% & 50.9\% & 39.2\% & 50.4\% & 49.6\% & 46.7\% \\
+Bus, Med (3) & 8.3\% & 1.2\% & 3.9\% & 3.9\% & 3.4\% & 4.4\% & 3.9\% \\
+Bus, Large (4) & 1.9\% & 1.8\% & 1.8\% & 1.0\% & 0.8\% & 2.7\% & 1.5\% \\ \bottomrule
 \end{tabular}
-} %end resize
+}
 \end{table}
-\end{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
 
-To test the null hypothesis, $H_{o}$ established in Table \ref{tab:vehhyp} for fleet compositions whereby the composite probabilities of each vehicle class from each flight group was $p_{1} - p_{2} = 0$, the Z statistic was calculated according to Equation \ref{eq:2zteststat} and compared to the two-tailed critical value for 95\% confidence of 1.96. If the Z statistic was less than the critical value, the null hypothesis could not be rejected and the probabilities of each vehicle class could be considered equivalent for those flight groups. Table \ref{tab:fleettest} showed that all classes failed to reject the null hypothesis, strengthening the assumption that fleet composition is similar at most intersections and at all times of congestion.
+To test whether the percentages of each class in Table \ref{tab:fleetcount} were not statistically different between flights for each vehicle class, two-proportion z-tests were performed on each vehicle class and flight combination against a level of significance of $p < 0.05$ where z is given as
+
+\begin{equation}
+z = \frac{p_{1}-p_{2}}{\sqrt{p(1-p)\left ( \frac{1}{n_{1}}+\frac{1}{n_{2}} \right )}}
+\end{equation}
+
+\noindent
+where $p_{1}$ and $p_{1}$ are the proportions being compared, $n_{1}$ and $n_{2}$ are the total observations for each proportion, and $p$ is the weighted pooled proportion given as
+
+\begin{equation}
+p = \frac{p_{1}+p_{2}}{n_{1}+n_{2}}
+\end{equation}
+
+The $p$-values of the tests are shown in Table \ref{tab:ztestprop}. The majority of the pairs have $p$ values that suggest that the null hypothesis (H$_{o}$: $p_{1} = p_{1}$) should not be rejected. Only 3 of the 20 pairs failed (H$_{o}$ should be rejected).
+
 
 \begin{table}[H]
 \centering
-\caption{Statistical significance test results for fleet composition between sites.}
-\label{tab:fleettest}
-\begin{tabular}{@{}ccccc@{}}
+\caption{Results of z-test for proportions showing p-values for flight pairs for vehicle classes. Failed tests are shown in bold.}
+\label{tab:ztestprop}
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-\textbf{} & \textbf{Car} & \textbf{SUV} & \textbf{Bus, Med} & \textbf{Bus, Large} \\ \midrule
-Z-statistic & 1.004 & 0.927 & 0.058 & 0.032 \\
-Z-statistic \textless 1.96? & TRUE & TRUE & TRUE & TRUE \\ \bottomrule
+\textbf{Flights} & \textbf{Car} & \textbf{SUV} & \textbf{Bus, Med} & \textbf{Bus, Large} \\ \midrule
+Flights 1-2 & 0.481 & 0.629 & \textbf{0.003} & 0.952 \\
+Flights 1-3 & \textbf{0.028} & 0.151 & 0.185 & 0.595 \\
+Flights 1-4 & 0.481 & 0.839 & 0.107 & 0.505 \\
+Flights 1-5 & 0.693 & 0.943 & 0.233 & 0.688 \\
+Flights 2-3 & 0.083 & \textbf{0.040} & 0.134 & 0.607 \\
+Flights 2-4 & 0.953 & 0.785 & 0.197 & 0.512 \\
+Flights 2-5 & 0.782 & 0.681 & 0.083 & 0.606 \\
+Flights 3-4 & 0.067 & 0.128 & 0.854 & 0.364 \\
+Flights 3-5 & 0.067 & 0.128 & 0.854 & 0.364 \\
+Flights 4-5 & 0.757 & 0.895 & 0.675 & 0.289 \\ \bottomrule
 \end{tabular}
 \end{table}
 
-The results of the pooled data for each vehicle type in the fleet composition is shown in Table \ref{tab:pooledfleet}.
+When the two different flight days (20 Dec 2017 and 4 Jan 2017) are pooled, the z-tests fail to reject the null for all vehicle classes.  The individual flights are therefore allowed to be pooled despite the 3 failed tests of between individual flights in Table \ref{tab:ztestprop}. The results of the pooled vehicle types in the fleet composition are shown in Table \ref{tab:pooledfleet}.
 
 \begin{table}[H]
 \centering
@@ -880,165 +901,159 @@ The results of the pooled data for each vehicle type in the fleet composition is
 
 \subsection{Evaluating traffic density from UAS data}
 
-Measurements of $\delta_{0}$ were taken from models processed using Pix4D DesktopPro software with imagery collected from the flights in Table \ref{tb:flightdata}.  Results from each lane were assumed to be part of the same population and pooled as one data set. The first test of similarity to confirm the null hypothesis established in Table \ref{tab:vehhyp} for $\delta_{0}$'s of equal means and variances between samples, required flights from the same day show equal means and variances. Accepting this null hypothesis also implied that the underlying distribution of the data was Normal.  Descriptive statistics from each flight were calculated and shown in Table \ref{tab:normaltest} along with results from one-way ANOVA tests for each flight groups (20Dec2017 and 4Jan2018). Skewness values for normally distributed data are close to zero, while kurtosis values should be 3 \citep{NIST2013}. The one-way ANOVA results for the 20Dec2017 flights shows a p-value greater than the significance level of p=0.05, allowing the Null hypothesis to not be rejected and assuming the means of both flights are not statistically different. However, the p-Value for the 4Jan2018 flights is less than the significance level, requiring the Null to be rejected and assuming that the means for each flight vary significantly.
+Measurements of $\delta_{s}$ were measured from models processed with imagery collected from the flights in Table \ref{tb:flightdata}.  Results from each lane were assumed to be part of the same population and pooled as one data set for each individual flight. The distributions of  $\delta_{s}$ lengths for each flight are shown in Figure \ref{fig:hist}.
 
-\begin{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/hist.png} 
+\caption{Distributions of $\delta_{s}$ for each lane during each flight.}
+\label{fig:hist}
+\end{figure}
+
+The distributions show Normal tendencies, although some of the distributions have heavily skewed tails. Two-sample t-tests with unequal variances (Welch's t-test) were performed to determine whether there were significant differences between the means of the stacking gap, $\delta_{s}$, in each lane with respect to data collection flights. The tests assumed unequal variances based on visual inspection of the distributions in Figure \ref{fig:hist} and unequal sample sizes \citep{Rasch2011, Derrick2016}. The test statistic is calculated 
+
+\begin{equation}
+t = \frac{\bar{x_{1}}+\bar{x_{2}}}{\sqrt{\frac{sd^{2}_{1}}{n_{1}} + \frac{sd^{2}_{2}}{n_{2}} }}
+\end{equation}
+
+\noindent
+where $\bar{x_{1}}$ and $\bar{x_{2}}$ are the sample means and  $sd^{2}_{1}$ and $sd^{2}_{2}$ are the sample variances. Table \ref{tab:ttest-lanes} shows p-values and degrees of freedom (df) of the tests.
+
 \begin{table}[H]
 \centering
-\caption{Statistic and One-way ANOVA tests for flights.}
-\label{tab:normaltest}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}cccccc@{}}
+\caption{Results from two-sample t-test with unequal variances between $\delta_{s}$ in lanes with respect to individual flights.}
+\label{tab:ttest-lanes}
+\begin{tabular}{@{}ccc|cc|cc@{}}
 \toprule
-\textbf{Statistic} & \textbf{20Dec17-1} & \textbf{20Dec17-2} & \textbf{4Jan18-1} & \textbf{4Jan18-2} & \multicolumn{1}{l}{\textbf{4Jan18-3}} \\ \midrule
-Mean & 2.227 & 2.0546 & 2.0230 & 2.393 & 2.2201 \\
-Std. Dev. & 1.132 & 0.9297 & 0.8507 & 1.272 & 0.9348 \\
-Skewness & 1.9369 & 1.6885 & 1.3285 & 2.0740 & 1.1618 \\
-Kurtosis & 9.8617 & 6.8944 & 5.0260 & 9.7338 & 4.5501 \\
-Count & 108 & 171 & 102 & 119 & 113 \\
- &  &  &  &  & \multicolumn{1}{l}{} \\ \midrule
-\textbf{20Dec17 Flights} & \textbf{Sum of squares} & \textbf{Deg of freedom} & \textbf{Mean squares} & \textbf{F-ratio} & \multicolumn{1}{l}{\textbf{p-value}} \\ \midrule
-Between Variation & 1.969 & 1 & 1.969 & 1.920 & 0.167 \\
-Within Variation & 284.125 & 277 & 1.026 &  &  \\
-Total Variation & 286.095 & 278 &  &  &  \\
-\multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \midrule
-\multicolumn{1}{l}{\textbf{4Jan18 Flights}} & \multicolumn{1}{l}{\textbf{Sum of squares}} & \multicolumn{1}{l}{\textbf{Deg of freedom}} & \multicolumn{1}{l}{\textbf{Mean squares}} & \multicolumn{1}{l}{\textbf{F-ratio}} & \multicolumn{1}{l}{\textbf{p-value}} \\ \midrule
-Between Variation & 7.513 & 1 & 7.513 & 6.231 & 0.013 \\
-Within Variation & 264.073 & 219 & 1.206 &  &  \\
-Total Variation & 271.586 & 220 &  &  &  \\ \bottomrule
+ & \multicolumn{2}{c}{\textbf{Lanes 1-2}} & \multicolumn{2}{c}{\textbf{Lanes 1-3}} & \multicolumn{2}{c}{\textbf{Lanes 2-3}} \\ \midrule
+ & \textbf{p-value} & \textbf{df} & \textbf{p-value} & \textbf{df} & \textbf{p-value} & \textbf{df} \\
+Flight 1 & 0.277 & 68 & 0.710 & 69 & 0.386 & 73 \\
+Flight 2 & 0.934 & 113 & 0.350 & 110 & 0.272 & 113 \\
+Flight 3 & 0.502 & 67 & 0.334 & 65 & 0.750 & 66 \\
+Flight 4 & 0.314 & 78 & 0.272 & 75 & 0.050 & 79 \\
+Flight 5 & 0.283 & 72 & 0.626 & 73 & 0.509 & 75 \\ \bottomrule
 \end{tabular}
-} %end resize
 \end{table}
-\end{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
 
-By transforming the $\delta_{s}$ data using the common logarithmic function (base 10), the data shows more Normal features as well as allowing the Null hypothesis to stand for both groups as shown in the skewness and kurtosis statistics and one-way ANOVA results in Table \ref{tab:logtest}. Flight 20Dec17-1 has a high kurtosis value, despite the transformation.
+The results of Table \ref{tab:ttest-lanes} show that the p-values of the means between lanes for each flight are greater than or equal the level of significance. This suggests that the the null hypothesis (H$_{o}$: $\bar{x_{1}}$ = $\bar{x_{2}}$) cannot be rejected and that the $\delta_{s}$ lengths for individual lanes can be pooled for each flight.
 
-\begin{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
+Two-sample t-tests with unequal variances were also performed to determine whether there were significant differences between the means of the stacking gap, $\delta_{s}$, in relation to the type of vehicle with respect to each flight. Table \ref{tab:t-vehicles} shows p-values in the upper triangles and degrees of freedom (df) in the lower triangles of the individual flight results. Tests that failed to meet the level of significance (p$<$0.05) are highlighted in bold while tests that had insufficient samples to test are labelled as NaN (not a number).
+
 \begin{table}[H]
 \centering
-\caption{Statistic and one-way ANOVA tests for transformed flights.}
-\label{tab:logtest}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}cccccc@{}}
+\caption{Results from two-sample t-test with unequal variances between $\delta_{s}$ of vehicle classes with respect to flights.}
+\label{tab:t-vehicles}
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-\textbf{Statistic} & \textbf{20Dec17-1} & \textbf{20Dec17-2} & \textbf{4Jan18-1} & \textbf{4Jan18-2} & \textbf{4Jan18-3} \\ \midrule
-Mean & 0.297 & 0.275 & 0.272 & 0.331 & 0.311 \\
-Variance & 0.048 & 0.032 & 0.028 & 0.040 & 0.031 \\
-Std. Dev. & 0.220 & 0.178 & 0.168 & 0.200 & 0.177 \\
-Skewness & -0.737 & 0.229 & 0.323 & 0.415 & -0.003 \\
-Kurtosis & 6.044 & 3.364 & 2.796 & 3.157 & 2.983 \\
-Count & 108 & 171 & 102 & 119 & 113 \\
- &  &  &  &  &  \\ \midrule
-\textbf{20Dec17 Flights} & \textbf{Sum of squares} & \textbf{Deg of freedom} & \textbf{Mean squares} & \textbf{F-ratio} & \textbf{p-value} \\ \midrule
-Between Variation & 0.031 & 1 & 0.031 & 0.800 & 0.372 \\
-Within Variation & 10.563 & 277 & 0.038 &  &  \\
-Total Variation & 10.594 & 278 &  &  &  \\
- &  &  &  &  &  \\ \midrule
-\textbf{4Jan18 Flights} & \textbf{Sum of squares} & \textbf{Deg of freedom} & \textbf{Mean squares} & \textbf{F-ratio} & \textbf{p-value} \\ \midrule
-Between Variation & 0.189 & 2 & 0.095 & 2.830 & 0.060 \\
-Within Variation & 11.057 & 331 & 0.033 &  &  \\
-Total Variation & 11.246 & 333 &  &  &  \\ \bottomrule
+\textit{\textbf{Flight 1}} & \textbf{Car} & \textbf{SUV} & \textbf{Med, Bus} & \textbf{Large, Bus} \\ \midrule
+\textbf{Car} & x & \textbf{0.010} & 0.130 & 0.507 \\
+\textbf{SUV} & 95 & x & 0.620 & 0.302 \\
+\textbf{Med} & 51 & 60 & x & 0.196 \\
+\textbf{Large} & 44 & 53 & 9 & x \\ \midrule
+\textit{\textbf{Flight 2}} & \textbf{Car} & \textbf{SUV} & \textbf{Med, Bus} & \textbf{Large, Bus} \\
+\textbf{Car} & x & \textbf{0.009} & 0.540 & 0.068 \\
+\textbf{SUV} & 164 & x & 0.975 & \textbf{0.002} \\
+\textbf{Med} & 77 & 89 & x & 0.355 \\
+\textbf{Large} & 78 & 90 & 3 & x \\ \midrule
+\textit{\textbf{Flight 3}} & \textbf{Car} & \textbf{SUV} & \textbf{Med, Bus} & \textbf{Large, Bus} \\
+\textbf{Car} & x & 0.270 & 0.538 & NaN \\
+\textbf{SUV} & 95 & x & 0.135 & NaN \\
+\textbf{Med} & 59 & 42 & x & NaN \\
+\textbf{Large} & 56 & 39 & 3 & x \\  \midrule
+\textit{\textbf{Flight 4}} & \textbf{Car} & \textbf{SUV} & \textbf{Med, Bus} & \textbf{Large, Bus} \\
+\textbf{Car} & x & 0.062 & 0.103 & NaN \\
+\textbf{SUV} & 112 & x & 0.293 & NaN \\
+\textbf{Med} & 56 & 62 & x & NaN \\
+\textbf{Large} & 53 & 59 & 3 & x \\  \midrule
+\textit{\textbf{Flight 5}} & \textbf{Car} & \textbf{SUV} & \textbf{Med, Bus} & \textbf{Large, Bus} \\
+\textbf{Car} & x & 0.128 & 0.628 & 0.258 \\
+\textbf{SUV} & 103 & x & 0.378 & 0.453 \\
+\textbf{Med} & 52 & 59 & x & 0.225 \\
+\textbf{Large} & 50 & 57 & 6 & x \\ \bottomrule
 \end{tabular}
-} % end resize
 \end{table}
-\end{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
 
-In both groups, the p-values are greater than the significance value of p = 0.05 and thus the means within each group can be assumed to be not significantly different. The individual flights within each group can be pooled if transformed in order to compare group means. The results of a one-way ANOVA test between combined flight groups in Table \ref{tab:grouptest} shows that the p-value is greater than the significance value, allowing the Null to stand and providing stronger evidence that the means for different $\delta_{0}$ locations and time are equal if transformed.
-%
-\begin{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
+While three of the tests failed the significance test (H$_{o}$ should be rejected due to unequal means) and several of the tests involving the Large, Bus class did not have enough samples to test, the overall results suggest that the means of $\delta_{s}$ are equal (fail to reject the null) and that the datasets from each flight can be pooled.
+
+Table \ref{tab:lanepooled} shows the results of two-sample t-tests with unequal variances using pooled data with respect to each flight. The p-values are in the upper triangle while the df's are in the lower triangle. Tests that fail are highlighted in bold. Two tests have p-values less than the level of significance, suggesting that the null hypothesis should be rejected for these cases. Even with these two cases, the results from the different flights suggest that location and time of day were not significant factors.
+
 \begin{table}[H]
 \centering
-\caption{Statistics and one-way ANOVA test for transformed groups.}
-\label{tab:grouptest}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}cccccc@{}}
+\caption{Results from two-sample t-tests with unequal variances between $\delta_{s}$ from pooled lanes for each flights.}
+\label{tab:lanepooled}
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-\textbf{Statistic} & \textbf{20-Dec-17} & \textbf{4-Jan-18} &  &  &  \\ \midrule
-Mean & 0.284 & 0.306 &  &  &  \\
-Variance & 0.038 & 0.034 &  &  &  \\
-Std. Dev. & 0.195 & 0.184 &  &  &  \\
-Skewness & -0.261 & 0.309 &  &  &  \\
-Kurtosis & 4.957 & 3.100 &  &  &  \\
-Count & 279 & 334 &  &  &  \\
- &  &  &  &  &  \\ \midrule
-\textbf{one-way ANOVA table} & \textbf{Sum of squares} & \textbf{Deg of freedom} & \textbf{Mean squares} & \textbf{F-ratio} & \textbf{p-value} \\ \midrule
-Between Variation & 0.078 & 1 & 0.078 & 2.180 & 0.140 \\
-Within Variation & 21.840 & 611 & 0.036 &  &  \\
-Total Variation & 21.917 & 612 &  &  &  \\ \bottomrule
+ & \textbf{Flight 1} & \textbf{Flight 2} & \textbf{Flight 3} & \textbf{Flight 4} & \textbf{Flight 5} \\ \midrule
+\textbf{Flight 1} & - & 0.184 & 0.138 & 0.303 & 0.958 \\
+\textbf{Flight 2} & 277 & - & 0.775 & \textbf{0.014} & 0.143 \\
+\textbf{Flight 3} & 208 & 271 & - & \textbf{0.011} & 0.106 \\
+\textbf{Flight 4} & 225 & 288 & 219 & - & 0.240 \\
+\textbf{Flight 5} & 219 & 282 & 213 & 230 & - \\ \bottomrule
 \end{tabular}
-} %end resize
 \end{table}
-\end{sidewaystable}  %%%%%%%%%% table rotated 90 degrees
 
-The $\delta_{0}$ variable in an MCA model can be represented by taking the exponent of a Normal distribution with the parameters of the mean, $\mu$, and standard deviation, $\sigma$, given in Table \ref{tab:gapnormal}.
+The pooled data are shown as boxplots in Figure \ref{fig:box-flights} for individual flights.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/box-flights.png} 
+\caption{Boxplots of pooled $\delta_{s}$ for individual flights.}
+\label{fig:box-flights}
+\end{figure}
+
+The plots show similar means with many extreme points on each flight. A one-way ANOVA was applied to test the means of the five flight $\delta_{s}$'s. The null hypothesis (H$_{o}$: $\bar{x}_{Flight 1} = \bar{x}_{Flight 2}= \bar{x}_{Flight 3}= \bar{x}_{Flight 4}= \bar{x}_{Flight 5}$) was tested against a significance level of p = 0.05. With 5 different hypotheses being tested simultaneously, a Bonferroni correction was applied to the significance level, revising it to  p = 0.05/5 = 0.01 \citep{Rasch2011}.  The resulting F statistic and p-value of the ANOVA test were 2.59 and 0.036 respectively. As the test p-value is greater than the corrected significance level, the null hypothesis is not rejected, allowing the $\delta_{s}$ from all flights to be pooled.  The distribution of pooled  $\delta_{s}$ for all flights are shown in Figure \ref{fig:pooledflt}. The resulting distribution is heavily skewed and can be fitted with a LogLogistic curve. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/pooledflt.png} 
+\caption{Distribution of pooled $\delta_{s}$ with fitted LogLogistic curve overlay.}
+\label{fig:pooledflt}
+\end{figure}
+
+Transforming the data by taking the logarithm of each data normalizes the dataset normalizes the distribution as shown in Figure \ref{fig:logpooledflt}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{images/logpooledflt.png} 
+\caption{Distribution of pooled $\delta_{s}$ transformed with Normal curve overlay.}
+\label{fig:logpooledflt}
+\end{figure}
+
+
+The mean, $\mu$, and standard deviation, $\sigma$, of  the Normal curve in Figure  \ref{fig:logpooledflt} that define are given in Table \ref{tab:gapnormal}.
 
 \begin{table}[H]
 \centering
-\caption{Parameters for $\delta_{0}$ transformed distribution}
+\caption{Parameters for $\delta_{s}$ transformed distribution in log(m)}
 \label{tab:gapnormal}
 \begin{tabular}{@{}ccc@{}}
 \toprule
  \textbf{$\mu$} & \textbf{$\sigma$} \\ \midrule
- 0.2958 & 0.1892 \\ \bottomrule
+ 0.2959 & 0.1893 \\ \bottomrule
 \end{tabular}
 \end{table}
 
-A distribution of the transformed pooled groups is shown in Figure \ref{fig:ivgloggroup}a along with a Normal distribution, $N(\mu,\sigma)$, fitted from the transformed data. In Figure \ref{fig:ivgloggroup}b, the distribution from Figure \ref{fig:ivgloggroup}a is inverted back to real space using the equation
+The logarithmic data is transformed back to real space using the equation
 
 \begin{equation}
 \label{inverse-10}
 X = 10^{N(\mu,\sigma)}
 \end{equation}
 
-\noindent
-along with an MCA using 5,000 iterations. The resulting fitted distribution is lognormal with a mean of 2.2 m and variance of 1.0 m. 
+The equation was sampled with an MCA using 5,000 iterations resulting in a fitted distribution that is lognormal with a mean of 2.17 m and standard deviation of 1.0 m as shown in Figure \ref{fig:lognormal}.  The figure also overlays the LogLogistic curve fitted to the measured data in Figure \ref{fig:pooledflt} as a comparison.
  
 \begin{figure}[H]
-\includegraphics[width=\linewidth,keepaspectratio]{images/ivg-group-log.png} 
-\caption[Distributions of combined groups of $\delta_{s}$ data.]{Distributions of combined groups of $\delta_{s}$ data showing a. transformed data with fitted Normal distribution and b. MCA re-transformed data using the parameters from Table \ref{tab:gapnormal}.}
-\label{fig:ivgloggroup}
-\end{figure}
-
-The fitted lognormal distribution provides a good fit as shown in the Q-Q plot in Figure \ref{fig:qlognormal}, especially with  $\delta_{s}$ values less than 5 m (representing approximately 97.5\% of the possible results). Additionally, the MAE between the MCA generated data and calculated results are 0.0126 m, compared to the 0.041 m MAE measurement error. The composite error is $\pm 0.054$m.
-
-\begin{figure}[H]
-%\includegraphics[width=\linewidth,keepaspectratio]{images/qlognormal.png} 
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/qlognormal.png} 
-\caption{Q-Q plot of Figure \ref{fig:ivgloggroup}b.}
-\label{fig:qlognormal}
-\end{figure}
-
-\subsection{Evaluating vehicle spacing by type}
-Applying Bartlett's test to the different groups to evaluate homogeneity of variances produced $p = 0.343$ ($p_{critical} = 0.05$). This  suggests that the groups have similar variances and thus may come from a common population despite having differing means \citep{NIST2013}.
-
-To test the assumption that $\delta_{s}$ did not vary with vehicle types, results from vehicle types were compared to the pooled dataset using a two-tailed t-test with unequal variance. Table \ref{tab:vehtest} shows the breakdown of different types as well as frequency of observations on each lane, mean of  $\delta_{s}$ for each lane, transformed (log) mean of  $\delta_{s}$ for each lane, and the resulting t-test result p-value and test result for all observations in the vehicle type class in each lane. Larger vehicles, represented by medium and large buses did not have enough frequency in some lanes and were therefore excluded from the test. 
-
-\begin{table}[H]
 \centering
-\caption{Results of significance testing of individual vehicle types and pooled data.}
-\label{tab:vehtest}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{@{}ccccccc@{}}
-\toprule
-\textbf{Type} & \textbf{Lane} & \textbf{Count} & \textbf{Mean} & \textbf{LogMean} & \textbf{p-value} & \textbf{Result} \\ \midrule
-Car & 1 & 87 & 1.87 & 0.53 & 0.01 & FALSE \\
- & 2 & 102 & 2.10 & 0.65 & 0.53 & TRUE \\
- & 3 & 92 & 2.08 & 0.63 & 0.31 & TRUE \\ \midrule
-SUV & 1 & 85 & 2.39 & 0.77 & 0.06 & TRUE \\
- & 2 & 102 & 2.09 & 0.67 & 0.84 & TRUE \\
- & 3 & 111 & 2.44 & 0.79 & 0.02 & FALSE \\ \midrule
-Bus, Med & 1 & 17 & 2.50 & 0.86 & 0.05 & TRUE \\
- & 2 & 6 & 2.37 & 0.78 & 0.60 & TRUE \\ \midrule
-Bus, Large & 1 & 8 & 1.58 & 0.39 & 0.08 & TRUE \\ \bottomrule
-\end{tabular}
-}% end resize
-\end{table}
+\includegraphics[width=\linewidth,keepaspectratio]{images/lognormal.png} 
+\caption{Distribution of .}
+\label{fig:lognormal}
+\end{figure}
 
-The largest two classes, cars and SUVs, showed no statistically significant variation to the pooled data at the 95\% level ($p>0.05$), except for the 1st lane for cars and the 3rd lane for SUVs. Cars in the first lane stacked closer than average, while SUVs in the 3rd lane stacked farther. Large buses had the shortest average $\delta_{s}$, possibly due to the driver position located closer to the bumper and higher vantage point. Future research should consider driver position as a factor for $\delta_{s}$ distances.
+The Mean Absolute Error (MAE) between the MCA generated data (LogNormal curve) and calculated results (LogLogistics curve) is 0.0126 m, compared to the 0.041 m MAE measurement error in Table \ref{tab:uascalibrate}. The composite error is $\pm 0.054$m.
 
 
 \subsection{Monte Carlo Analysis using field data}
-Using the fleet composition and $\delta_{s}$ model parameters developed from the pooled data collected from the UAS flights, a vehicle density model was prepared for MCA. Palisade Software’s @RISK Version 7.5 Industrial Edition (www.palisade.com) was used to provide the Monte Carlo analysis (MCA) using a Latin Hypercube sample generator.  A total of 5,000 iterations were run at 5, 10, 15, and 20 km/h. It was assumed that fleet composition at different speeds will not vary within an observed road segment. The $\delta_{0}$ calculated based on the parameters of Table \ref{tab:gapnormal} can be assumed for speeds $\leq$ 5 km/h. For speeds $>$ 5 km/h, the lognormal distribution is kept and parameters linearly extrapolated by multiplying the mean by a factor of the speed relative to 5 km/h.  
+A vehicle density model was prepared for MCA using the fleet composition and $\delta_{s}$ model parameters developed from the pooled data collected from the UAS flights. Palisade Software’s @RISK Version 7.5 Industrial Edition (\url{www.palisade.com}) was used to provide the MCA using a Latin Hypercube sample generator.  A total of 5,000 iterations were run at 5, 10, 15, and 20 km/h. It was assumed that fleet composition at different speeds did not vary within the observed road segment. The $\delta_{s}$ calculated based on the parameters of Table \ref{tab:gapnormal} were assumed for speeds $\leq$ 5 km/h. For speeds $>$ 5 km/h, the lognormal distribution was kept, and parameters were linearly extrapolated by multiplying the mean by a factor of the speed relative to 5 km/h.  
 
 The model captures the total number and class of vehicles in one kilometer of road.  Lane changing was not considered. The average (mean) of the total vehicles in one road lane over a 1 km segment at different speeds are summarized in Table \ref{tab:meanvehdensity}.
 
@@ -1057,7 +1072,7 @@ Total & 167 & 137 & 114 & 88 & 40 \\ \bottomrule
 \end{tabular}
 \end{table}
 
-Figure \ref{fig6:estimatedobs} shows the results of all vehicles traveling at an average of 5 km/h.
+Figure \ref{fig6:estimatedobs} shows the results of all vehicles travelling at an average of 5 km/h.
  
 %
 \begin{figure}[H]
@@ -1074,7 +1089,7 @@ Graphing the statistical mean for the total number of vehicles over different av
 \begin{figure}[H]
 %\includegraphics[width=\textwidth,keepaspectratio]{images/vdense9.png} 
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{images/vdense6.png}
-\caption[Total estimated vehicles on 1,000 m segment at average speed]{Total estimated vehicles on 1,000 m segment at average speed (km/h).}
+\caption{Total estimated vehicles on 1,000 m segment at average speed (km/h).}
 \label{fig9:estimateavemix}
 \end{figure}
 % 
@@ -1083,7 +1098,7 @@ Table \ref{tb4:expectedvehicles} summarizes the expected number for vehicles by 
 %
 \begin{table}[H]
 \centering
-\caption[Expected numbers of vehicles in 1,000 m based on average speed]{Expected numbers of vehicles in 1,000 m based on average speed (km/h).}
+\caption{ Expected numbers of vehicles in 1,000 m based on average speed (km/h).}
 \label{tb4:expectedvehicles}
 \begin{tabular}{@{}cc@{}}
 \toprule
