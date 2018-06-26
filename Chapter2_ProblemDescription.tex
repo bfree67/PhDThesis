@@ -1,20 +1,19 @@
 \chapter{Problem Description}
 The purpose of this research is to advance the state of understanding for key areas in air management programs. Gaps and incomplete knowledge areas identified in the previous chapter show that specific areas should be explored. In addition to identifying knowledge gaps within literature and open access sources, practical understanding of real-world needs was identified during the development of an air management program for Kuwait under the UNDP Kuwait Integrated Environmental Management Systems (KIEMS) project \citep{UNDP2012}.  While the motivation to develop these tools were to assist regulatory agencies in developing countries, the procedures developed as a result of this research can be used to augment and reinforce mature air management programs as well.  
 
-The main challenges identified during the KIEMS project and the literature review can be decomposed into five main tasks that are tangentially related and build off each other. The first task, identification of air quality zone through discrimination of coastal and inland wind patterns led to the assignment of zones to improve local management of generators. The second task of establishing classification criteria for the zones allows for long-term management of the zones.  The third task provides a method to estimate small common emission sources distributed throughout an area that may be overlooked during emission inventories. The fourth task supports the completion of an emissions inventory by estimating traffic densities as inputs to vehicle emission models. The last task, predicting air quality exceedances, allows for short-term forecasts of air quality conditions within the zones. 
+The main challenges identified during the KIEMS project and the literature review can be decomposed into five main research topics that are tangentially related and build off each other. The first topic, identification of air quality zone through discrimination of coastal and inland wind patterns led to the assignment of zones to improve local management of generators. The second topic of establishing classification criteria for the zones allows for long-term management of the zones.  The third topic provides a method to estimate small common emission sources distributed throughout an area that may be overlooked during emission inventories. The fourth topic supports the completion of an emissions inventory by estimating traffic densities as inputs to vehicle emission models. The last topic, predicting air quality exceedances, allows for short-term forecasts of air quality conditions within the zones. 
 
-The relationship of each task to the overall framework of air quality management is shown in Figure \ref{fig:tasks}.
+The relationship of each research topic to the overall framework of air quality management is shown in Figure \ref{fig:tasks}. 
 %
 \begin{figure}[H]
 \centering
 \includegraphics[width=.75\textwidth]{images/tasks}  %assumes jpg extension
-\caption{Relationship of tasks in the air quality management framework.}
+\caption{Relationship of topics in the air quality management framework.}
 \label{fig:tasks}
 \end{figure}
 %
-The individual tasks are shown within the heavy borders.
 
-In the rest of this chapter, research problem statements are defined for each task based on their impact to the overall research and need within the research community. Each section includes scoping of the problem and major assumptions.
+In the rest of this chapter, research problem statements are defined for each topic based on their impact to the overall research and need within the research community. Each section includes scoping of the problem and major assumptions.
 
 \section{Research Needs}
 
@@ -57,18 +56,18 @@ The Kuwait Environment Public Authority (KEPA) is responsible for monitoring env
 \label{fig1:amskuwait}
 \end{figure}
 
-\section{Specific tasks required within air management}
+\section{Specific topics required within air management}
 As noted above, air management requires many individual processes that are linked together. This thesis investigates methods to address five specific processes within the overall framework of air management using advanced stochastic modeling and machine learning techniques.
 
 \subsection{Air zone mapping}
 
-In this task, we develop a novel procedure to identify common dispersion areas with a designated region or country using the assumption that land-sea breezes (LSBs) provide different circulatory wind patterns than inland wind. As part of the methodology, we only consider dispersion patterns at ground level, and not at different altitudes. By identifying common mixing zones within a larger airshed, regulatory policies can be tailored to address zone-based problems that might not be applicable or required to other zones. Targeted processes allow resources to be prioritized and reduce economic impacts to sources outside of zones that are in non-attainment of air quality standards.
+In this topic, we develop a novel procedure to identify common dispersion areas with a designated region or country using the assumption that land-sea breezes (LSBs) provide different circulatory wind patterns than inland wind. As part of the methodology, we only consider dispersion patterns at ground level, and not at different altitudes. By identifying common mixing zones within a larger airshed, regulatory policies can be tailored to address zone-based problems that might not be applicable or required to other zones. Targeted processes allow resources to be prioritized and reduce economic impacts to sources outside of zones that are in non-attainment of air quality standards.
 
 \subsection{Attainment classification}
 
 Once zones are established, methods are required to convert the measured concentration data from air monitoring stations into management action. A single monitoring station might register high readings that exceed the established standard for the parameter. Assuming the sensor is calibrated and operating properly, the question becomes how many exceedances are allowable before direct action is taken to reduce generator emissions - thereby impacting economic production by cutting operations, expending capital to improve processes, or changing transportation habits by limiting private vehicle operation. These exceedances may be only three exceedances per year, as is the case for O$_{3}$ in the USA, or 2.5 million premature deaths, as is the case in India \citep{Landrigan2017}.
 
-In this task, we developed a novel method to evaluate the effectiveness of exceedance determination methods, especially if there are multiple air monitoring stations within the zone. Methods were developed to evaluate an area with only one monitoring station and areas with multiple stations. Only two classifications methodologies were evaluated, although it is general enough to assess any classification approach. The USEPA's Human Health Risk Assessment (HHRA) approach was used to develop the procedure, along with assumptions on body weight, inhalation rates, and exposure duration. 
+In this topic, we developed a novel method to evaluate the effectiveness of exceedance determination methods, especially if there are multiple air monitoring stations within the zone. Methods were developed to evaluate an area with only one monitoring station and areas with multiple stations. Only two classifications methodologies were evaluated, although it is general enough to assess any classification approach. The USEPA's Human Health Risk Assessment (HHRA) approach was used to develop the procedure, along with assumptions on body weight, inhalation rates, and exposure duration. 
 
 \subsection{Dispersed area sources}
 
