@@ -19,7 +19,7 @@ Over 1.4 billion people live in coastal communities where complex land-sea breez
  
 This methodology supported the identification of three distinct air quality zones in Kuwait.  These AQZs are tools to classify areas in order to meet local air management strategy.  Inland zones were classified to represent  desert area with little to no residential populations.  Hydrocarbon production zones were included to account for petroleum industry operations taking place in large sections of the study area and managed directly by national oil company assets but supervised by the local regulatory authority.  Coastal zones were established that included the majority of residential and industrial areas (roughly 3.4 million people).  Once the extent of coastal effect mixing was estimated using the $S-K$ method, geophysical boundaries were approximated to facilitate air quality management. 
 
-The model was validated by comparing the concentration and wind data generated using prognostic data with a send weather set. The MM5 and WRF models provided comparable results, especially given the computational differences. Selecting MM5 for the meteorological input to the air dispersion model was validated. The graphical classification approach was tested against a machine learning model. While the SVM provided similar and even better results when additional input features were included, the graphical method is a less complicated procedure.
+The model was validated by comparing the concentration and wind data generated using prognostic data from two different weather models - MM5 and WRF. The MM5 and WRF models provided comparable results, especially given the computational differences. The MM5 model was used for meteorological input to the air dispersion model for the full method in order to utilize existing data sets and . The graphical classification approach was tested against a machine learning model using an SVM. While the SVM provided similar and even better results when additional input features were included, the graphical method is a less complicated procedure.
 
 The selection of individual zones was finally validated by comparing satellite data to exposure risk areas.  The $S-K$ zone classification method and satellite-based risk evaluation method can be employed by other developing nations with limited air monitoring resources and budgets to identify and establish air quality zones of similar air mixing characteristics.
 
@@ -103,33 +103,60 @@ Modeling outputs from WRF and MM5 prognostic meteorological data were compared, 
 \textbf{Observation:}\\
 A composite subpopulation group was used to evaluate adult body weights instead of assessing individual group separately. These groups can be further broken down by gender, age, and work type. Some jobs require more time outside or long commutes from the place of residence to the place of work. Specific subgroups should be evaluated to determine their susceptibility to exposure risk.\\
 
+\noindent
+\textbf{Observation:}\\
+Only O$_{3}$ and NO$_{2}$ were considered in the research without consideration of their fate or possible transformations. Additionally, other pollutants were not considered that have different time weighting standards. 
+
+\noindent
+\textbf{Observation:}\\
+The pdfs assigned to the Attainment and Exceedance distributions were based on ranking curve-fitting statistics. These statistics are themselves summaries of the distributions and may not reflect the underlying distribution of the sample population.
+
+\noindent
+\textbf{Observation:}\\
+The selection of Attainment and Exceedance samples assumed independence for each sample, however in reality, the preceding measurements influence the current and future measurement in continuous time series systems. This property is exploited in the research to forecast concentrations.
+
 \subsection*{Estimating annual emissions from distributed area sources}
 \noindent
 \textbf{Observation:}\\
 A limited number of facilities were considered for evaluation. An exhaustive audit was not conducted, nor were personal sources considered. A more thorough audit of facilities should be conducted as well as surveys of managers to get individual consumption rates of charcoal and tobacco. \\
+
 \noindent\\
 \textbf{Observation:}\\
 Emission factors from literature were used to estimate emissions. The accuracy of these factors is always questionable and errors can be assumed. Actual measurements of emissions from different charcoal and $sheesha$ tobacco should be conducted to better characterize the factors used.\\
+
+\noindent\\
+\textbf{Observation:}\\
+Usage was only calculated for public establishments and did not account for private and residential use. This could be a significant amount in regards to under-reporting emissions.\\
 
 \subsection*{Estimating traffic density}
 \noindent
 \textbf{Observation:}\\
 Flights and data collection were taken only at two different locations at two different times. More data should be collected from different locations, different times of day,  different days of the week, and different weeks of the year to account for possible seasonal effects. \\
+
 \noindent\\
 \textbf{Observation:}\\
-Measurements were only taken at 3 lane signalized intersections. Other traffic control features were not measured, such as 1 and 2 lane signalized intersections, traffic circles, merge lanes, entrance and exit ramps, and 4-way intersections.  Stacking distances and fleet compositions should be evaluated at these features, especially it some features are common, such as 1 lane signalized intersections.
-\\
+Measurements were only taken at 3 lane signalized intersections. Other traffic control features were not measured, such as 1 and 2 lane signalized intersections, traffic circles, merge lanes, entrance and exit ramps, and 4-way intersections.  Stacking distances and fleet compositions should be evaluated at these features, especially it some features are common, such as 1 lane signalized intersections.\\
+
+\noindent\\
+\textbf{Observation:}\\
+The results are only applicable to the local area where the data was collected unless other datasets show similar features. Driver profiles such as age, background, and experience may impact stacking distances, while different fleet compositions will impact overall vehicle types.
 
 \subsection*{Forecasting environmental time series using deep learning}
 \noindent
 \textbf{Observation:}\\
 A deep learning system was trained on the data from one AMS only. Most stations are part of a network that can provide additional predictive support due to weather patterns and nearest neighbor influence. Evaluation of results using features from different AMS's should be compared to the results of a single AMS.\\
+
 \noindent\\
 \textbf{Observation:}\\
-Only 8 hr ave O$_{3}$ was used for training and evaluation. Other measured pollutants were not evaluated. Primary pollutants such as CO or SO$_{2}$  may different patterns as they are not as influenced by photochemical activity as O$_{3}$ is.\\
+Only 8 hr ave O$_{3}$ was used for training and evaluation. Other measured pollutants were not evaluated. Primary pollutants such as CO or SO$_{2}$  may have different feature influences and require different features for accurate predictions.\\
+
 \noindent\\
 \textbf{Observation:}\\
 The deep learning network was trained on 1 hr intervals. Some pollutants such as PM$_{10}$ and PM$_{2.5}$ are measured on 24 hr scales. Different input intervals should be trained and tested.
+
+\noindent\\
+\textbf{Observation:}\\
+Deep learning techniques are black boxes that do not allow fundamental understanding of the processes used to generate the output. They are powerful methods when the ends justify the means, but may not be useful for all applications.
 
 \bigskip
 %---------------------------------------------------------------
