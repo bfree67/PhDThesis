@@ -1,16 +1,39 @@
 \chapter{Problem Description}
-The purpose of this research is to advance the state of understanding for key areas in air management programs. Gaps and incomplete knowledge areas identified in the previous chapter show that specific areas should be explored. In addition to identifying knowledge gaps within literature and open access sources, practical understanding of real-world needs was identified during the development of an air management program for Kuwait under the UNDP Kuwait Integrated Environmental Management Systems (KIEMS) project \citep{UNDP2012}.  While the motivation to develop these tools were to assist regulatory agencies in developing countries, the procedures developed as a result of this research can be used to augment and reinforce mature air management programs as well.  
+Developing nations face many challenges when establishing a comprehensive air management program. In the rush to appease citizen concerns and political pressures, air managers take short cuts to achieve results. Air monitoring stations are installed without consideration of hotspot analyses. Standards are adopted that don't consider enforcement procedures. Emission inventories overlook key sectors due to difficulties in quantifying. This lack of key procedures usually result in the ambiguous regulations, confused stakeholders, inconsistent enforcement, and ineffective programs.
 
-The main challenges identified during the KIEMS project and the literature review can be decomposed into five main research topics that are tangentially related and build off each other. The first topic, identification of air quality zone through discrimination of coastal and inland wind patterns led to the assignment of zones to improve local management of generators. The second topic of establishing classification criteria for the zones allows for long-term management of the zones.  The third topic provides a method to estimate small common emission sources distributed throughout an area that may be overlooked during emission inventories. The fourth topic supports the completion of an emissions inventory by estimating traffic densities as inputs to vehicle emission models. The last topic, predicting air quality exceedances, allows for short-term forecasts of air quality conditions within the zones. 
+The purpose of this research is to advance the state of understanding for key areas in air management programs. Gaps and incomplete knowledge areas identified in the previous chapter show that specific topics should be explored. In addition to identifying knowledge gaps within literature and open access sources, practical understanding of real-world needs was identified during the development of an air management program for Kuwait under the UNDP Kuwait Integrated Environmental Management Systems (KIEMS) project \citep{UNDP2012}.  While the motivation to develop these tools were to assist regulatory agencies in developing countries, the procedures developed as a result of this research can be used to augment and reinforce mature air management programs as well.  
 
-The relationship of each research topic to the overall framework of air quality management is shown in Figure \ref{fig:tasks}. 
+The main challenges identified during the KIEMS project and the literature review can be decomposed into five main research topics that are tangentially related and build off each other. The main questions that this thesis asks are:
+
+\begin{itemize}
+\item{How can different airsheds and zones be differentiated within an area?}
+\item{How can air quality standards be applied to air quality zones if there are multiple monitoring stations and criteria?}
+\item{How can small dispersed area sources be included into emission inventories?}
+\item{How can parameters for mobile source models be collected?}
+\item{How can air pollutant concentrations be predicted based on historical and prevailing ambient conditions?}
+\end{itemize}
+
+
+The first topic, identification of air quality zone led to a novel way to discriminate between coastal and inland wind patterns. Differentiating wind patterns is important to delineating zone with common features in order to improve local management of air pollution generators.  If one zone constantly have ambient air quality problems, that zone should have a higher priority for resources than other zones that have less generators or better air quality.
+
+Once air zones are identified, it is important to determine if the zone meets air quality standards. This can be a difficult question if there are more than one air monitoring stations in the zone. Does the air department take the readings from the first station that measurements that exceed the standard or should they be aggregated? The second topic of thsi research presents a method that incorporates multiple station readings to determine attainment status of an air zone.  
+
+Emission inventories are important registers that record individual sources of pollution and emissions. A detailed Tier III emissions inventory can identify specific processes and associated pollutants that allow air managers to accurately target sources. The same sources identified for HAPs are usually the same sources emitting GHGs - allowing a synergy of inventory to take place in order to avoid duplication of work. Some sources are more difficult to quantify than others due to large numbers, such as mobile sources, or their distributed nature, such as area sources. The third task presents a novel approach to quantifying small, dispersed sources using MCA and the Central Limit Theorem. These small sources are often overlooked in emission inventories, but can contribute significantly when aggregated.
+
+Mobile source emissions play another major component in emission inventories, but are usually incorporated through a complex model. Mobile source models require input parameters that should reflect local conditions. The fourth topic provides a novel way of estimating key inputs such as vehicle densities on roads and fleet compositions using a commercial drone.
+
+The last topic, predicting air quality exceedances, allows for short-term forecasts of air quality conditions within the zones using data collected from air monitoring stations. A novel method using deep learning and historical data is presented, as well as methods to reduce inputs and pre-process training data. 
+
+The relationship of each task to each other within the overall framework of air quality management is shown in Figure \ref{fig:tasks}.
 %
 \begin{figure}[H]
 \centering
 \includegraphics[width=.75\textwidth]{images/tasks}  %assumes jpg extension
-\caption{Relationship of topics in the air quality management framework.}
+\caption{Relationship of research tasks.}
 \label{fig:tasks}
 \end{figure}
+
+The tasks are shown as black-bordered ovals while local data inputs are shown as green-bordered rectangles.
 %
 
 In the rest of this chapter, research problem statements are defined for each topic based on their impact to the overall research and need within the research community. Each section includes scoping of the problem and major assumptions.
@@ -46,7 +69,7 @@ Just as one sample cannot adequately represent a complex population in statistic
 \subsection{Area of Study}
 Most of the data used in this research were collected in the State of Kuwait from 2012 to 2017. Kuwait is a small country of 17,818 km$^{2}$ located on the northwest corner of the Persian Gulf, between longitudes 46.56$^{o}$ – 48.37$^{o}$ East and latitudes 28.51$^{o}$ - 30.16$^{o}$ North with over 499 km of coastline \citep{CIA2015}. It is bordered by Iraq to the north and Saudi Arabia to the south and west. The country is classified as a desert zone with the highest altitude reaching only 300 meters above sea level.   In 2011, approximately 3.1 million people lived in Kuwait \citep{CSB2017} with over 64\% of its annual Gross Domestic Product (GDP) coming from the production of hydrocarbons \citep{KAMCO2013}.  Other industries in Kuwait include power generation and water desalination using heavy oil and natural gas at five sites, steel making using electrical induction furnaces, and food preparation.  The country has over 7,400 km of paved roads and over 1.8 million cars in service \citep{CSB2014}.  Over 98\% of the population lives within 10 km of the coast and are subject to coastal effect winds, caused by the diurnal differential heating/cooling of the sea and land \citep{Crosman2010, Cuxart2014}.  The land-sea breezes (LSB) shift direction and speed over the course of the day, re-circulating pollution back and forth from land sources.
 
-The Kuwait Environment Public Authority (KEPA) is responsible for monitoring environmental conditions and enforcing compliance with the national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Fig \ref{fig1:amskuwait}.  The KEPA stations measure and report 1 hour averaged air pollutants and meteorological conditions. The bulk of the AMSs are located within two air quality zones (Central and Southern Coast) which correspond to areas of high population and industrial centers. Access to monitoring data from additional stations operated by the Kuwait Oil Company (KOC) provides an air monitoring density of approximately one monitoring station per 163,150 people. This density is similar to Vancouver, Canada which has approximately 1 per 160,000 people, as compared to around 1 per 440,000 people in the South Coast of California \citep{Marshall2008}.
+The Kuwait Environment Public Authority (KEPA) is responsible for monitoring environmental conditions and enforcing compliance with the national environmental law. It operates 15 each fixed site AMS’s located along the coast as shown in Figure \ref{fig1:amskuwait}.  The KEPA stations measure and report 1 hour averaged air pollutants and meteorological conditions. The bulk of the AMSs are located within two air quality zones (Central and Southern Coast) which correspond to areas of high population and industrial centers. Access to monitoring data from additional stations operated by the Kuwait Oil Company (KOC) provides an air monitoring density of approximately one monitoring station per 163,150 people. This density is similar to Vancouver, Canada which has approximately 1 per 160,000 people, as compared to around 1 per 440,000 people in the South Coast of California \citep{Marshall2008}.
 
 %  
 \begin{figure}[H]
